@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+        crossorigin="anonymous"></script>
+    <title>SAAA Paperwork Generator</title>
+    <img src="https://i.imgur.com/3i8Bk3M.png" alt="SAAA logo" />
+
+    <style>
+        /* Set background color for the body */
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            /* Full viewport height */
+            position: relative;
+            /* Set relative positioning to the body */
+        }
+
+
+        /* Position the image in the top right corner */
+        img {
+            position: absolute;
+            /* Absolute positioning */
+            top: 10px;
+            /* Space from the top */
+            left: 10px;
+            /* Space from the right */
+            width: 150px;
+            /* Image width */
+            height: auto;
+            /* Maintain aspect ratio */
+            z-index: 1000;
+        }
+    </style>
+</head>
+</head>
+
+<body>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Nunito', sans-serif;
+        }
+
+        .center-top {
+            text-align: center;
+            /* Center text horizontally */
+            margin: 0;
+            /* Remove default margins */
+            padding-top: 10px;
+            /* Optional: Add some spacing from the top */
+        }
+    </style>
+    <div class="center-top">
+        <h1>SAAA Paperwork Generator</h1>
+    </div>
+
+
+  <!-- Navigation Buttons -->
+<div class="container mt-3 d-flex justify-content-center" id="navigationBar">
+    <button class="btn btn-success me-2" onclick="showSection('worklog', this)">Work Log</button>
+    <button class="btn btn-secondary me-2" onclick="showSection('atcshift', this)">ATC Shift Log</button>
+</div>
+
+<!-- New Buttons Below -->
+
+
+    </div>
+<script>
+    $(document).ready(function () {
+        // Hide all sections initially
+        $('.container').hide();
+
+        // Show only the Duty Report section by default
+        $('#atcshift').show();
+
+        // Highlight the Duty Report button as active
+        $('#navigationBar .btn').removeClass('btn-success').addClass('btn-secondary');
+        $('#navigationBar button[data-section="dutyReportSection"]').removeClass('btn-secondary').addClass('btn-success');
+    });
+
+    function showSection(sectionId, button) {
+        // Hide all sections
+        $('.container').hide();
+
+        // Show the selected section
+        $('#' + sectionId).show();
+
+        // Reset all buttons inside #navigationBar to btn-secondary
+        $('#navigationBar .btn').removeClass('btn-success').addClass('btn-secondary');
+
+        // Highlight the clicked button with btn-success
+        $(button).removeClass('btn-secondary').addClass('btn-success');
+    }
+</script>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Background Color Example</title>
+        <style>
+            body {
+                background-color: #00008b;
+                /* Dark green */
+                color: white;
+                /* White text */
+            }
+        </style>
+    </head>
+
+
+    <div id="atcshift" class="container mt-3 myHideableSection">
+        <div class="card" style="background-color: #00008b; color: white;"> <!-- Set background color to #2c6a37 -->
+            <div class="card-body">
+<!-- Expense Form Fields -->
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Name:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtatcname" class="form-control" style="width: 600px" />
+    </div>
+</div>
+
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Date:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtatcdate" class="form-control" style="width: 600px" />
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Tower:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtatctower" class="form-control" style="width: 600px" />
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Start:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtatcstart" class="form-control" style="width: 600px" />
+    </div>
+</div>
+
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">End:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtatcend" class="form-control" style="width: 600px" />
+    </div>
+</div>
+
+
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">ATC:</div>
+    <div class="col-md-10">
+        <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 4px; padding: 5px; background-color: #f9f9f9;">
+            <input type="text" id="time" placeholder="Time" style="border: none; outline: none; flex: 1; padding: 5px;" />
+            <span style="margin: 0 10px; color: #555; font-weight: bold;">|</span>
+            <input type="text" id="atctext" placeholder="ATC" style="border: none; outline: none; flex: 1; padding: 5px;" />
+            <span style="margin: 0 10px; color: #555; font-weight: bold;">|</span>
+            <input type="text" id="atcpilot" placeholder="Pilot (If unknown place N/A)" style="border: none; outline: none; flex: 1; padding: 5px;" />
+        </div>
+    </div>
+</div>
+
+<div class="row mb-2">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+        <button id="addButton" class="btn btn-primary">Add</button>
+        <button id="removeButton" class="btn btn-danger">Remove Last</button>
+    </div>
+</div>
+<ul id="itemList" style="margin-top: 20px; padding-left: 0; list-style: none;"></ul>
+
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Incidents:</div>
+    <div class="col-md-10">
+        <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 4px; padding: 5px; background-color: #f9f9f9;">
+            <input type="text" id="Inccallsign" placeholder="Callsign" style="border: none; outline: none; flex: 1; padding: 5px;" />
+            <span style="margin: 0 10px; color: #555; font-weight: bold;">|</span>
+            <input type="text" id="atcinc" placeholder="Incident" style="border: none; outline: none; flex: 1; padding: 5px;" />
+            <span style="margin: 0 10px; color: #555; font-weight: bold;">|</span>
+            <input type="text" id="atcIncpilot" placeholder="Pilot (If unknown place N/A)" style="border: none; outline: none; flex: 1; padding: 5px;" />
+        </div>
+    </div>
+</div>
+
+<div class="row mb-2">
+    <div class="col-md-2"></div>
+    <div class="col-md-10">
+        <button id="IncAdd" class="btn btn-primary">Add</button>
+        <button id="IncRemove" class="btn btn-danger">Remove Last</button>
+    </div>
+</div>
+<ul id="IncList" style="margin-top: 20px; padding-left: 0; list-style: none;"></ul>
+
+ <div class="row mb-2">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10">
+                        <button type="button" id="btnCopy" onClick="createExpenseReport();" class="btn btn-success">
+                            Submit and copy to clipboard
+                        </button>
+                        <p id="copyExpenseReportSuccess"></p>
+                        <textarea id="displayExpenseReportBB" class="form-control" style="width: 600px"
+                            rows="10">BBCode will appear here</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+// Function to generate the expense report with the added items
+function createExpenseReport() {
+    const atcname = $('#txtatcname').val();
+    const atcdate = $('#txtatcdate').val();
+    const atctower = $('#txtatctower').val();
+    const atcstart = $('#txtatcstart').val();
+    const atcend = $('#txtatcend').val();
+
+
+    // Create the itemListString by looping through the items in the list
+    let itemListString = '';
+    const itemList = document.getElementById("itemList");
+    const listItems = itemList.getElementsByTagName("li");
+    
+    // Loop through all list items and build the itemListString
+    for (let i = 0; i < listItems.length; i++) {
+        itemListString += listItems[i].textContent + '\n'; // Adding a new line after each item
+    }
+    let IncListString = '';
+    const IncList = document.getElementById("IncList");
+    const listInc = IncList.getElementsByTagName("li");
+    
+    // Loop through all list items and build the IncListString
+    for (let i = 0; i < listInc.length; i++) {
+        IncListString += listInc[i].textContent + '\n'; // Adding a new line after each item
+    }
+    // Create the BBCode template
+    const expenseTemplate = `[img]https://i.imgur.com/6jYBFmU.png[/img]
+[divbox=#091f62][b][color=white]SHIFT INFORMATION[/color][/b][/divbox]
+[divbox=white]
+[list=none]
+[b]Operator Name(s):[/b] ${atcname}
+
+[b]Date:[/b] ${atcdate}
+
+[b]Tower:[/b] ${atctower}
+
+[b]Shift Start Time:[/b] ${atcstart} [ooc]UTC[/ooc]
+
+[b]Shift End Time:[/b] ${atcend} [ooc]UTC[/ooc]
+[/list]
+[/divbox]
+
+[divbox=#091f62][b][color=white]SHIFT NOTES[/color][/b][/divbox]
+[divbox=white]
+[list=none]
+[hr][/hr]
+[spoiler=ATC]
+| Time | ATC | Pilot |
+|:----------|:------------:|------------:|
+${itemListString}
+[/spoiler]
+
+[hr][/hr]
+[spoiler=Incidents]
+| Callsign | Incident | Pilot |
+|:----------|:------------:|------------:|
+${IncListString}
+[/spoiler]
+
+[/list]
+[hr][/hr]
+[center][b]Signature:[/b] 
+
+[i]${atcname}[/i][/center]
+[hr][/hr]
+[center][i][color=#FF0000][size=85]By submitting this form, I certify under penalty of law the above information is correct and accurate to the best of my knowledge.[/size][/color][/i][/center]
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+    // Display the BBCode and copy it to clipboard
+    document.getElementById("displayExpenseReportBB").value = expenseTemplate.trim();
+    document.querySelector("#displayExpenseReportBB").select();
+    document.execCommand('copy');
+
+    // Show success message
+    $('#copyExpenseReportSuccess').text('Copied to clipboard!');
+}
+
+</script>
+
+
+
+
+    <div id="worklog" class="container mt-3 myHideableSection">
+        <div class="card" style="background-color: #00008b; color: white;"> <!-- Set background color to #2c6a37 -->
+            <div class="card-body">
+<!-- Expense Form Fields -->
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Date:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtworkdate" class="form-control" style="width: 600px" />
+    </div>
+</div>
+
+
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Work Completed:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtWork" class="form-control" style="width: 600px" />
+        <div class="mt-2">
+            <button id="btnAdd" class="btn btn-primary">Add</button>
+            <button id="btnRemove" class="btn btn-danger">Remove</button>
+        </div>
+        <ul id="peopleList" class="mt-2"></ul>
+    </div>
+</div>
+
+
+
+ <div class="row mb-2">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10">
+                        <button type="button" id="btnCopy" onClick="createWorkReport();" class="btn btn-success">
+                            Submit and copy to clipboard
+                        </button>
+                        <p id="copyWorkReportSuccess"></p>
+                        <textarea id="displayWorkReportBB" class="form-control" style="width: 600px"
+                            rows="10">BBCode will appear here</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+// Function to generate the expense report with the added items
+function createWorkReport() {
+    const workdate = $('#txtworkdate').val();
+
+
+    // Create the itemListString by looping through the items in the list
+        // ✅ Get officers from the dynamic list
+        let officersList = document.querySelectorAll("#peopleList li");
+        let officersInvolved = "";
+        officersList.forEach((officer) => {
+            officersInvolved += `[*] ${officer.textContent}\n`;
+        });
+
+
+    // Create the BBCode template
+    const WorkTemplate = `[img]https://i.imgur.com/5FS2lIb.png[/img]
+[divbox=#091f62][b][color=white]ENTRY INFORMATION[/color][/b][/divbox]
+[divbox=white]
+[b]DATE OF WORK:[/b] ${workdate}
+
+[b]WORK LOGGED:[/b]
+[list]
+${officersInvolved}
+[/list]
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+    // Display the BBCode and copy it to clipboard
+    document.getElementById("displayWorkReportBB").value = WorkTemplate.trim();
+    document.querySelector("#displayWorkReportBB").select();
+    document.execCommand('copy');
+
+    // Show success message
+    $('#copyWorkReportSuccess').text('Copied to clipboard!');
+}
+
+</script>
+
+
+
+
+<script>
+    document.getElementById("btnAdd").addEventListener("click", function () {
+        let inputField = document.getElementById("txtWork");
+        let inputValue = inputField.value.trim();
+        if (inputValue !== "") {
+            let listItem = document.createElement("li");
+            listItem.textContent = inputValue;
+            document.getElementById("peopleList").appendChild(listItem);
+            inputField.value = ""; // Clear input field
+        }
+    });
+
+    document.getElementById("btnRemove").addEventListener("click", function () {
+        let list = document.getElementById("peopleList");
+        if (list.lastChild) {
+            list.removeChild(list.lastChild);
+        }
+    });
+</script>
+
+
+
+
+
+
+<script>
+    // Add an event listener for the Add button
+    document.getElementById("IncAdd").addEventListener("click", function () {
+        const callsign = document.getElementById("Inccallsign");
+        const incident = document.getElementById("atcinc");
+        const pilot = document.getElementById("atcIncpilot");
+        const IncList = document.getElementById("IncList");
+
+        // Get the values from the inputs
+        const Callsign = callsign.value.trim();
+        const Incident = incident.value.trim();
+        const Pilot = pilot.value.trim();
+
+        // Check if both fields are filled
+        if (Callsign && Incident && Pilot) {
+            // Create a new list item
+            const listInc1 = document.createElement("lii");
+            listInc1.textContent = `| ${Callsign} | ${Incident} | ${Pilot} |`;
+            listInc1.style.padding = "5px 0";
+            listInc1.style.borderBottom = "1px solid #ddd";
+
+            // Add the new list item to the list
+            IncList.appendChild(listInc1);
+
+            // Clear the input fields
+            callsign.value = "";
+            incident.value = "";
+            pilot.value = "";
+
+            // Focus back on the first input
+            callsign.focus();
+        } else {
+            alert("Please fill in both fields before adding.");
+        }
+    });
+
+    // Add an event listener for the Remove Last button
+    document.getElementById("IncRemove").addEventListener("click", function () {
+        const IncList = document.getElementById("IncList");
+
+        // Remove the last item in the list if it exists
+        if (IncList.lastChild) {
+            IncList.removeChild(IncList.lastChild);
+        } else {
+            alert("No items to remove.");
+        }
+    });
+</script>
+
+
+
+
+
+<script>
+function showSection(sectionId) {
+  // Hide all sections with the class 'myHideableSection'
+    const sections = document.querySelectorAll('.myHideableSection');
+    sections.forEach(section => {
+        section.style.display = 'none';
+    });
+
+    // Show the selected section
+    document.getElementById(sectionId).style.display = 'block';
+}
+</script>
+
+<script>
+    // Add an event listener for the Add button
+    document.getElementById("addButton").addEventListener("click", function () {
+        const CallInput = document.getElementById("time");
+        const ATCInput = document.getElementById("atctext");
+        const PilotInput = document.getElementById("atcpilot");
+        const itemList = document.getElementById("itemList");
+
+        // Get the values from the inputs
+        const time = CallInput.value.trim();
+        const atc = ATCInput.value.trim();
+        const pilot = PilotInput.value.trim();
+
+        // Check if both fields are filled
+        if (time && atc && pilot) {
+            // Create a new list item
+            const listItem = document.createElement("li");
+            listItem.textContent = `| ${time} | ${atc} | ${pilot} |`;
+            listItem.style.padding = "5px 0";
+            listItem.style.borderBottom = "1px solid #ddd";
+
+            // Add the new list item to the list
+            itemList.appendChild(listItem);
+
+            // Clear the input fields
+            CallInput.value = "";
+            ATCInput.value = "";
+            PilotInput.value = "";
+
+            // Focus back on the first input
+            CallInput.focus();
+        } else {
+            alert("Please fill in both fields before adding.");
+        }
+    });
+
+    // Add an event listener for the Remove Last button
+    document.getElementById("removeButton").addEventListener("click", function () {
+        const itemList = document.getElementById("itemList");
+
+        // Remove the last item in the list if it exists
+        if (itemList.lastChild) {
+            itemList.removeChild(itemList.lastChild);
+        } else {
+            alert("No items to remove.");
+        }
+    });
+</script>
