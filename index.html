@@ -70,6 +70,34 @@
     <button class="btn btn-success me-2" onclick="showSection('worklog', this)">Work Log</button>
     <button class="btn btn-secondary me-2" onclick="showSection('atcshift', this)">ATC Shift Log</button>
 </div>
+<div class="center-top">
+        <h3>Flight Documents</h3>
+ </div>
+<div class="container mt-3 d-flex justify-content-center" id="additionalNavigationBar">
+    <button class="btn btn-secondary me-2" onclick="showSection('pilotc', this)">Profile Certificate</button>
+    <button class="btn btn-secondary me-2" onclick="showSection('pilotp', this)">Profile Pilot</button>
+</div>
+<div class="center-top">
+        <h3>Fixed Wing</h3>
+ </div>
+<div class="container mt-3 d-flex justify-content-center" id="additionalNavigationBar">
+    <button class="btn btn-secondary me-2" onclick="showSection('fixed1', this)">FTS 1</button>
+    <button class="btn btn-secondary me-2" onclick="showSection('fixed2', this)">FTS 2</button>
+    <button class="btn btn-secondary me-2" onclick="showSection('fixed3', this)">FTS 3</button>
+    <button class="btn btn-secondary me-2" onclick="showSection('fixed4', this)">FTS 4</button>
+    <button class="btn btn-secondary me-2" onclick="showSection('ultra', this)">Ultralight</button>
+    <button class="btn btn-secondary me-2" onclick="showSection('amph', this)">Amphibous</button>
+</div>
+<div class="center-top">
+        <h3>Rotary Wing</h3>
+ </div>
+<div class="container mt-3 d-flex justify-content-center" id="additionalNavigationBar">
+    <button class="btn btn-secondary me-2" onclick="showSection('rotary1', this)">FTS 1</button>
+    <button class="btn btn-secondary me-2" onclick="showSection('rotary2', this)">FTS 2</button>
+    <button class="btn btn-secondary me-2" onclick="showSection('rotary3', this)">FTS 3</button>
+    <button class="btn btn-secondary me-2" onclick="showSection('rotary4', this)">FTS 4</button>
+    <button class="btn btn-secondary me-2" onclick="showSection('rotamph', this)">Amphibous</button>
+</div>
 
 <!-- New Buttons Below -->
 
@@ -301,6 +329,394 @@ ${IncListString}
 
 
 
+    <div id="rotary1" class="container mt-3 myHideableSection">
+        <div class="card" style="background-color: #00008b; color: white;"> <!-- Set background color to #2c6a37 -->
+            <div class="card-body">
+<!-- Expense Form Fields -->
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Date:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtrot1date" class="form-control" style="width: 600px" />
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Start Time:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtrot1start" class="form-control" style="width: 600px" />
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">End Time:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtrot1end" class="form-control" style="width: 600px" />
+    </div>
+</div>
+<div class="center-top">
+        <h3>Aviation Guidelines</h3>
+ </div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Altitude:</div>
+    <div class="col-md-10">
+  <select name="Alt" id="ALT">
+    <option value="">No</option>
+    <option value="X">Yes</option>
+  </select>
+    </div>
+</div>
+
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Communication:</div>
+    <div class="col-md-10">
+  <select name="Com" id="COM">
+    <option value="">No</option>
+    <option value="X">Yes</option>
+  </select>
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Map & Restrictions:</div>
+    <div class="col-md-10">
+  <select name="Map" id="MAP">
+    <option value="">No</option>
+    <option value="X">Yes</option>
+  </select>
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Hazard Zones:</div>
+    <div class="col-md-10">
+  <select name="Haz" id="HAZ">
+    <option value="">No</option>
+    <option value="X">Yes</option>
+  </select>
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Landing Locations:</div>
+    <div class="col-md-10">
+  <select name="Land" id="LAND">
+    <option value="">No</option>
+    <option value="X">Yes</option>
+  </select>
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Emergancy Landings:</div>
+    <div class="col-md-10">
+  <select name="Emer" id="EMER">
+    <option value="">No</option>
+    <option value="X">Yes</option>
+  </select>
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Pre Flight Inspection:</div>
+    <div class="col-md-10">
+  <select name="Pre" id="PRE">
+    <option value="">No</option>
+    <option value="X">Yes</option>
+  </select>
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Weather:</div>
+    <div class="col-md-10">
+  <select name="Wea" id="WEA">
+    <option value="">No</option>
+    <option value="X">Yes</option>
+  </select>
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Flight Logs:</div>
+    <div class="col-md-10">
+  <select name="Fli" id="FLI">
+    <option value="">No</option>
+    <option value="X">Yes</option>
+  </select>
+    </div>
+</div>
+<div class="center-top">
+        <h3>External Anatomy</h3>
+ </div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Main Rotor:</div>
+    <div class="col-md-10">
+  <select name="Main" id="MAIN">
+    <option value="">No</option>
+    <option value="X">Yes</option>
+  </select>
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Tail Rotor:</div>
+    <div class="col-md-10">
+  <select name="Tail" id="TAIL">
+    <option value="">No</option>
+    <option value="X">Yes</option>
+  </select>
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Engine:</div>
+    <div class="col-md-10">
+  <select name="Eng" id="ENG">
+    <option value="">No</option>
+    <option value="X">Yes</option>
+  </select>
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Landing Gear:</div>
+    <div class="col-md-10">
+  <select name="Land" id="LAND">
+    <option value="">No</option>
+    <option value="X">Yes</option>
+  </select>
+    </div>
+</div>
+<div class="center-top">
+        <h3>Internal Anatomy</h3>
+ </div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Cyclic:</div>
+    <div class="col-md-10">
+  <select name="Cyc" id="CYC">
+    <option value="">No</option>
+    <option value="X">Yes</option>
+  </select>
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Collective:</div>
+    <div class="col-md-10">
+  <select name="Coll" id="COLL">
+    <option value="">No</option>
+    <option value="X">Yes</option>
+  </select>
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Throttle:</div>
+    <div class="col-md-10">
+  <select name="Thr" id="THR">
+    <option value="">No</option>
+    <option value="X">Yes</option>
+  </select>
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Pedals:</div>
+    <div class="col-md-10">
+  <select name="Ped" id="PED">
+    <option value="">No</option>
+    <option value="X">Yes</option>
+  </select>
+    </div>
+</div>
+<div class="center-top">
+        <h3>Flight Instrument Panel</h3>
+ </div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Airspeed Indicator:</div>
+    <div class="col-md-10">
+  <select name="Asi" id="ASI">
+    <option value="">No</option>
+    <option value="X">Yes</option>
+  </select>
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Altimeter:</div>
+    <div class="col-md-10">
+  <select name="Ati" id="ATI">
+    <option value="">No</option>
+    <option value="X">Yes</option>
+  </select>
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Artificial Horizon:</div>
+    <div class="col-md-10">
+  <select name="Ah" id="AH">
+    <option value="">No</option>
+    <option value="X">Yes</option>
+  </select>
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Heading Indicator:</div>
+    <div class="col-md-10">
+  <select name="hi" id="HI">
+    <option value="">No</option>
+    <option value="X">Yes</option>
+  </select>
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">VSI:</div>
+    <div class="col-md-10">
+  <select name="vsi" id="VSI">
+    <option value="">No</option>
+    <option value="X">Yes</option>
+  </select>
+    </div>
+</div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Fuel Gauge:</div>
+    <div class="col-md-10">
+  <select name="fuel" id="FUEL">
+    <option value="">No</option>
+    <option value="X">Yes</option>
+  </select>
+    </div>
+</div>
+<div class="center-top">
+        <h3>Session Notes</h3>
+ </div>
+   <div class="row mb-2">
+   <div class="col-md-10">
+       <textarea id="txtnotes" class="form-control" style="width: 600px" rows="5"></textarea>
+       </div>
+     </div>
+
+<div class="center-top">
+        <h3>Session Grading</h3>
+ </div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">General Behaviour & Attention:</div>
+    <div class="col-md-10">
+  <select name="Gen" id="GEN">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+    </div>
+</div>
+     <div class="row mb-2">
+      <div class="col-md-10">
+       <textarea id="txtGen" class="form-control" style="width: 600px" rows="5"></textarea>
+     </div>
+                </div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Understand Each Components:</div>
+    <div class="col-md-10">
+  <select name="Und" id="UND">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+    </div>
+</div>
+   <div class="row mb-2">
+   <div class="col-md-10">
+       <textarea id="txtUnd" class="form-control" style="width: 600px" rows="5"></textarea>
+       </div>
+     </div>
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Answers to Questions:</div>
+    <div class="col-md-10">
+  <select name="Ans" id="ANS">
+    <option value="1">1</option>
+    <option value="2">2</option>
+    <option value="3">3</option>
+    <option value="4">4</option>
+    <option value="5">5</option>
+  </select>
+    </div>
+</div>
+     <div class="row mb-2">
+      <div class="col-md-10">
+       <textarea id="txtAns" class="form-control" style="width: 600px" rows="5"></textarea>
+     </div>
+ <div class="row mb-2">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10">
+                        <button type="button" id="btnCopy" onClick="createRotReport();" class="btn btn-success">
+                            Submit and copy to clipboard
+                        </button>
+                        <p id="copyRotReportSuccess"></p>
+                        <textarea id="displayRotReportBB" class="form-control" style="width: 600px"
+                            rows="10">BBCode will appear here</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+// Function to generate the expense report with the added items
+function createRotReport() {
+    const date = $('#txtrot1date').val();
+    const start = $('#txtrot1start').val();
+    const end = $('#txtrot1end').val();    
+    const Alt = $('#ALT').val();   
+    const Com = $('#COM').val();
+    const Map = $('#MAP').val();
+    const Haz = $('#HAZ').val();
+    const Land = $('#LAND').val();
+    const Emer = $('#EMER').val();
+    const PreF = $('#PRE').val();
+    const Weath = $('#WEA').val();
+    const FLI = $('#FLI').val();
+    const MRot = $('#MAIN').val();
+    const TRot = $('#TAIL').val();
+    const Eng = $('#ENG').val();
+    const Land = $('#LAND').val();
+    const Cyc = $('#CYC').val();
+    const Coll = $('#COLL').val();
+    const thr = $('#THR').val();
+    const pedal = $('#PED').val();
+    const asi = $('#ASI').val();
+    const ati = $('#ATI').val();
+    const ah = $('#AH').val();
+    const hi = $('#HI').val();
+    const vsi = $('#VSI').val();
+    const fuel = $('#FUEL').val();
+    const snote = $('#txtnotes').val();
+    const gen = $('#GEN').val();
+    const tgen = $('#txtGen').val();
+    const und = $('#UND').val();
+    const tund = $('#txtUnd').val();
+    const ans = $('#ANS').val();
+    const tans = $('#txtAns').val();
+
+
+    // Create the itemListString by looping through the items in the list
+    let itemListString = '';
+    const itemList = document.getElementById("itemList");
+    const listItems = itemList.getElementsByTagName("li");
+    
+    // Loop through all list items and build the itemListString
+    for (let i = 0; i < listItems.length; i++) {
+        itemListString += listItems[i].textContent + '\n'; // Adding a new line after each item
+    }
+    let IncListString = '';
+    const IncList = document.getElementById("IncList");
+    const listInc = IncList.getElementsByTagName("li");
+    
+    // Loop through all list items and build the IncListString
+    for (let i = 0; i < listInc.length; i++) {
+        IncListString += listInc[i].textContent + '\n'; // Adding a new line after each item
+    }
+    // Create the BBCode template
+    const RotTemplate = `${test}`;
+
+    // Display the BBCode and copy it to clipboard
+    document.getElementById("displayRotReportBB").value = RotTemplate.trim();
+    document.querySelector("#displayRotReportBB").select();
+    document.execCommand('copy');
+
+    // Show success message
+    $('#copyRotReportSuccess').text('Copied to clipboard!');
+}
+
+</script>
+
 
     <div id="worklog" class="container mt-3 myHideableSection">
         <div class="card" style="background-color: #00008b; color: white;"> <!-- Set background color to #2c6a37 -->
@@ -381,6 +797,378 @@ ${officersInvolved}
 }
 
 </script>
+
+
+
+    <div id="pilotc" class="container mt-3 myHideableSection">
+        <div class="card" style="background-color: #00008b; color: white;"> <!-- Set background color to #2c6a37 -->
+            <div class="card-body">
+<!-- Expense Form Fields -->
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Pilot Name:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtcertname" class="form-control" style="width: 600px" />
+    </div>
+</div>
+
+
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Aircraft Type:</div>
+    <div class="col-md-10">
+        <button type="button" id="btnOutcomeSuccess" class="btn btn-success"
+            onclick="setIncidentOutcome('Rotary Wing')">Rotary Wing</button>
+        <button type="button" id="btnOutcomeSuccess" class="btn btn-success"
+            onclick="setIncidentOutcome('Fixed Wing')">Fixed Wing</button>
+        <p id="selectedOutcome" style="margin-top: 10px; font-weight: bold;">No outcome selected</p>
+        <input type="hidden" id="Aircraft1" value="No outcome selected" />
+    </div>
+</div>
+
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">date:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtcertdate" class="form-control" style="width: 600px" />
+    </div>
+</div>
+
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Your Name:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtcertiname" class="form-control" style="width: 600px" />
+    </div>
+</div>
+
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Your Rank:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtcertirank" class="form-control" style="width: 600px" />
+    </div>
+</div>
+
+
+ <div class="row mb-2">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10">
+                        <button type="button" id="btnCopy" onClick="createCertReport();" class="btn btn-success">
+                            Submit and copy to clipboard
+                        </button>
+                        <p id="copyCertReportSuccess"></p>
+                        <textarea id="displayCertReportBB" class="form-control" style="width: 600px"
+                            rows="10">BBCode will appear here</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+   function setIncidentOutcome(outcome) {
+        document.getElementById("selectedOutcome").innerText = outcome;
+        document.getElementById("Aircraft1").value = outcome; // Store outcome for submission
+    }
+// Function to generate the expense report with the added items
+function createCertReport() {
+    const Pilot = $('#txtcertname').val();
+    const Date = $('#txtcertdate').val();
+    const Issuer = $('#txtcertiname').val();
+    const Rank = $('#txtcertirank').val();
+
+        const incidentOutcome = document.getElementById("Aircraft1").value || "No outcome selected";
+        const outcomeBB = incidentOutcome === "Rotary Wing"
+            ? "Rotary Wing"
+            : "Fixed Wing";
+
+
+
+    // Create the BBCode template
+    const CertTemplate = `[img]https://i.imgur.com/ZFpeXl3.png[/img][divbox=white]
+[img]https://i.imgur.com/3i8Bk3M.png[/img][aligntable=right,350,0,0,0,0,#FFFFFF][right][font=Arial][b]
+[size=140]San Andreas Aviation Administration[/size][/b][/font]
+[font=Times New Roman][size=150]Private Pilots License Certification[/size][/font][/right][/aligntable]
+[hr]
+[center][size=130][font=Windows Fonts][i]This is to certify that[/i][/font][/size]
+[font=Monotype Corsiva][size=200]${Pilot}[/size][/font]
+[font=Windows Fonts][i]Has met all the requirements of the San Andreas Aviation Administration regulations and, as appropriate, aeronautical knowledge, flight proficiency, experience, and flight training, and has been examined by a competent authority and has been found to be properly qualified to exercise the privileges of:[/i]
+[size=125][b]San Andreas Private Pilot[/b][/size]
+[size=115]${outcomeBB} Aircraft[/size]
+${Date}[/font][/center]
+[hr][/hr]
+[font=Windows Fonts][i]Certificate issued and approved by[/i][/font]
+[size=175][font=mistral]${Issuer}[/font][/size]
+[color=#091f62][size=100][b]${Rank} | San Andreas Aviation Administration[/b][/size][/color]
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+    // Display the BBCode and copy it to clipboard
+    document.getElementById("displayCertReportBB").value = CertTemplate.trim();
+    document.querySelector("#displayCertReportBB").select();
+    document.execCommand('copy');
+
+    // Show success message
+    $('#copyCertReportSuccess').text('Copied to clipboard!');
+}
+
+</script>
+
+
+    <div id="pilotp" class="container mt-3 myHideableSection">
+        <div class="card" style="background-color: #00008b; color: white;"> <!-- Set background color to #2c6a37 -->
+            <div class="card-body">
+<!-- Expense Form Fields -->
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Pilot Name:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtprofname" class="form-control" style="width: 600px" />
+    </div>
+</div>
+
+                <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Pilot Certification: ([highlight=yellow] [/highlight] )</div>
+                    <div class="col-md-10">
+                        <textarea id="txtpilotc" class="form-control" style="width: 600px" rows="5">[ ]Private Pilot - Fixed Wing | Rotary Wing
+[ ]Instructor - Fixed Wing | Rotary Wing
+[ ]Commercial Pilot - Fixed Wing | Rotary Wing</textarea></div>
+                </div>
+
+ <div class="row mb-2">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10">
+                        <button type="button" id="btnCopy" onClick="createProfReport();" class="btn btn-success">
+                            Submit and copy to clipboard
+                        </button>
+                        <p id="copyProfReportSuccess"></p>
+                        <textarea id="displayProfReportBB" class="form-control" style="width: 600px"
+                            rows="10">BBCode will appear here</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+
+// Function to generate the expense report with the added items
+function createProfReport() {
+    const Pilot = $('#txtprofname').val();
+    const Details = $('#txtpilotc').val();
+
+
+    // Create the BBCode template
+    const ProfTemplate = `[img]https://i.imgur.com/nr0JzmM.png[/img]
+
+[divbox=white]
+[list=none]
+
+[b]Pilot:[/b] ${Pilot}
+
+[b]License Standing:[/b] [highlight=yellow]GOOD[/highlight] / [s]SUSPENDED[/s] / [s]REVOKED[/s]
+
+[b]Current Certifications:[/b]
+${Details}
+
+[center][b]FLIGHT LOGS TO BE ATTACHED BY PILOT[/b]
+[i](REPLY WITH THE GIVEN FORMAT)[/i]
+
+[i][color=#BF0000][b]***NOTICE - Flight Logs must be filled within 24 hours of every flight under penalty of Law***[/b][/color][/i][/center]
+
+[spoiler=Live View]
+[img]https://i.imgur.com/nr0JzmM.png[/img]
+[divbox=#091f62][b][color=white]1. FLIGHT INFORMATION[/color][/b][/divbox]
+[divbox=white]
+[list=none]
+[b]Date:[/b] XX/MON/20XX
+
+[b]Aircraft Tail Number or Callsign:[/b] answer here
+
+[b]Passenger List:[/b] answer here
+
+[b]Departure Time:[/b] 00:00 [ooc] UTC [/ooc]
+
+[b]Departure Location:[/b] answer here
+
+[b]Intermittent Locations:[/b] answer here
+
+[b]Arrival Location:[/b] answer here
+
+[b]Cruise Altitude:[/b] X Feet
+
+[b]Total Flight Time:[/b] X Minutes
+
+[b]Emergency Reported:[/b] Yes/No
+
+[hr][/hr]
+
+[center][color=#BF0000][size=85][b]ONLY FILL THIS SECTION IF AN EMERGENCY OCCURRED[/b][/size][/color][/center]
+
+[b]Type Of Emergency (e.g. Engine Failure, Fuel Leak):[/b] N/A
+
+[b]Estimated Location Of Emergency Occurrence:[/b] N/A
+
+[b]Short Explanation:[/b] N/A
+
+[b]Attach Incident Report:[/b] [url=]**ATTACHMENT**[/url]
+[/list]
+[hr][/hr]
+[center][b]Signature:[/b]
+[i]Insert Here[/i]
+[hr][/hr]
+[i][color=#FF0000][size=85]By submitting this form, I certify under penalty of law that the above information is correct and accurate to the best of my knowledge.[/size][/color][/i][/center]
+[/spoiler]
+
+[code]
+[img]https://i.imgur.com/nr0JzmM.png[/img]
+[divbox=#091f62][b][color=white]1. FLIGHT INFORMATION[/color][/b][/divbox]
+[divbox=white]
+[list=none]
+[b]Date:[/b] XX/MON/20XX
+
+[b]Aircraft Tail Number or Callsign:[/b] answer here
+
+[b]Passenger List:[/b] answer here
+
+[b]Departure Time:[/b] 00:00 [ooc] UTC [/ooc]
+
+[b]Departure Location:[/b] answer here
+
+[b]Intermittent Locations:[/b] answer here
+
+[b]Arrival Location:[/b] answer here
+
+[b]Cruise Altitude:[/b] X Feet
+
+[b]Total Flight Time:[/b] X Minutes
+
+[b]Emergency Reported:[/b] Yes/No
+
+[hr][/hr]
+
+[center][color=#BF0000][size=85][b]ONLY FILL THIS SECTION IF AN EMERGENCY OCCURRED[/b][/size][/color][/center]
+
+[b]Type Of Emergency (e.g. Engine Failure, Fuel Leak):[/b] N/A
+
+[b]Estimated Location Of Emergency Occurrence:[/b] N/A
+
+[b]Short Explanation:[/b] N/A
+
+[b]Attach Incident Report:[/b] [url=]**ATTACHMENT**[/url]
+[/list]
+[hr][/hr]
+[center][b]Signature:[/b]
+[i]Insert Here[/i]
+[hr][/hr]
+[i][color=#FF0000][size=85]By submitting this form, I certify under penalty of law that the above information is correct and accurate to the best of my knowledge.[/size][/color][/i][/center]
+[/code]
+[/divbox]
+
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+    // Display the BBCode and copy it to clipboard
+    document.getElementById("displayProfReportBB").value = ProfTemplate.trim();
+    document.querySelector("#displayProfReportBB").select();
+    document.execCommand('copy');
+
+    // Show success message
+    $('#copyProfReportSuccess').text('Copied to clipboard!');
+}
+
+</script>
+
+
+    <div id="atcground" class="container mt-3 myHideableSection">
+        <div class="card" style="background-color: #00008b; color: white;"> <!-- Set background color to #2c6a37 -->
+            <div class="card-body">
+<!-- Expense Form Fields -->
+<div class="row mb-2">
+    <div class="col-md-2" style="font-weight: bold; text-align: right;">Pilot Name:</div>
+    <div class="col-md-10">
+        <input type="text" id="txtprofname" class="form-control" style="width: 600px" />
+    </div>
+</div>
+
+                <div class="row mb-2">
+                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Pilot Certification: ([highlight=yellow] [/highlight] )</div>
+                    <div class="col-md-10">
+                        <textarea id="txtpilotc" class="form-control" style="width: 600px" rows="5">[ ]Private Pilot - Fixed Wing | Rotary Wing
+[ ]Instructor - Fixed Wing | Rotary Wing
+[ ]Commercial Pilot - Fixed Wing | Rotary Wing</textarea></div>
+                </div>
+
+ <div class="row mb-2">
+                    <div class="col-md-2"></div>
+                    <div class="col-md-10">
+                        <button type="button" id="btnCopy" onClick="createProfReport();" class="btn btn-success">
+                            Submit and copy to clipboard
+                        </button>
+                        <p id="copyProfReportSuccess"></p>
+                        <textarea id="displayProfReportBB" class="form-control" style="width: 600px"
+                            rows="10">BBCode will appear here</textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<script>
+
+// Function to generate the expense report with the added items
+function createProfReport() {
+    const Pilot = $('#txtprofname').val();
+    const Details = $('#txtpilotc').val();
+
+        let operatorList = document.querySelectorAll("#peopleList li");
+        let OperatorInvolved = "";
+        operatorList.forEach((officer) => {
+            officersInvolved += `[*] ${operator.textContent}\n`;
+        });
+
+    // Create the BBCode template
+    const ProfTemplate = `[img]https://i.imgur.com/8855a1x.png[/img]
+[divbox=#091f62][b][color=white]Operator[/color][/b][/divbox]
+[divbox=white]
+[b]Operator(s):[/b] 
+[size=85]If more operators on duty, state their names.[/size]
+[/divbox]
+[divbox=#091f62][b][color=white]Shift Details[/color][/b][/divbox]
+[divbox=white]
+[b]Shift Log:[/b] [url=SHIFTLOGLINK][color=#0080FF]ATC Shift Log #XXXX[/color][/url]
+
+[b]Time of Grounding:[/b] XX:XX [ooc]UTC[/ooc]
+[/divbox]
+[divbox=#091f62][b][color=white]Aircraft[/color][/b][/divbox]
+[divbox=white]
+[b]Tail Number(s):[/b]
+[list]
+[*] XXXXX
+[*] XXXXX
+[*] XXXXX
+[/list]
+
+[b]Pilot(s):[/b]
+[list]
+[*] Fname Lname
+[*] Fname Lname
+[*] Fname Lname
+[/list]
+[/divbox]
+[divbox=#091f62][b][color=white]Reason[/color][/b][/divbox]
+[divbox=white]
+[center]
+[i]Details Here[/i]
+[/center]
+[/divbox]
+[img]https://i.imgur.com/C35Op4J.png[/img]`;
+
+    // Display the BBCode and copy it to clipboard
+    document.getElementById("displayProfReportBB").value = ProfTemplate.trim();
+    document.querySelector("#displayProfReportBB").select();
+    document.execCommand('copy');
+
+    // Show success message
+    $('#copyProfReportSuccess').text('Copied to clipboard!');
+}
+
+</script>
+
 
 
 
