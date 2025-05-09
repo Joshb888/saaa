@@ -68,30 +68,29 @@
 <!-- Include Bootstrap 5 CSS and JS -->
 
 <div class="container mt-3" style="max-width: 900px;">
-  <h3 class="text-center mb-4">Training Division</h3>
-
   <div class="accordion" id="tocAccordion">
     <!-- SAAA -->
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingDatabase">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDatabase" aria-expanded="false" aria-controls="collapseDatabase">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDatabase" aria-expanded="true" aria-controls="collapseDatabase">
           Database
         </button>
       </h2>
-      <div id="collapseDatabase" class="accordion-collapse collapse" aria-labelledby="headingDatabase" data-bs-parent="#tocAccordion">
+      <div id="collapseDatabase" class="accordion-collapse collapse show" aria-labelledby="headingTraining" data-bs-parent="#tocAccordion">
         <div class="accordion-body d-flex flex-wrap gap-2">
           <button class="btn btn-secondary" onclick="showSection('workLogGen', this)">Work Log</button>
         </div>
       </div>
     </div>
+
     <!-- Air Traffic Control -->
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingATC">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseATC" aria-expanded="true" aria-controls="collapseATC">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseATC" aria-expanded="false" aria-controls="collapseATC">
           Air Traffic Control
         </button>
       </h2>
-      <div id="collapseATC" class="accordion-collapse collapse show" aria-labelledby="headingTraining" data-bs-parent="#tocAccordion">
+      <div id="collapseATC" class="accordion-collapse collapse" aria-labelledby="headingATC" data-bs-parent="#tocAccordion">
         <div class="accordion-body d-flex flex-wrap gap-2">
           <button class="btn btn-secondary" onclick="showSection('atcshift', this)">ATC Shift Log</button>
           <button class="btn btn-secondary" onclick="showSection('notamGen', this)">NOTAM Log</button>
@@ -99,8 +98,6 @@
           <button class="btn btn-secondary" onclick="showSection('incidentReport', this)">Civilian Report</button>
           <button class="btn btn-secondary" onclick="showSection('atcIncidentReport', this)">Emergancy Aircraft Report</button>
           <button class="btn btn-secondary" onclick="showSection('flightInfoGen', this)">Flight Log</button>
-          <button class="btn btn-secondary" onclick="showSection('pilotCertGen', this)">Pilot Profile</button>
-          <button class="btn btn-secondary" onclick="showSection('pilotSuspensionGen', this)">Suspension</button>
         </div>
       </div>
     </div>
@@ -114,13 +111,16 @@
       </h2>
       <div id="collapseFieldTraining" class="accordion-collapse collapse" aria-labelledby="headingFieldTraining" data-bs-parent="#tocAccordion">
         <div class="accordion-body d-flex flex-wrap gap-2">
-          <button class="btn btn-secondary" onclick="showSection('aviationSessionGen', this)">Rotary FTS 1</button>
-          <button class="btn btn-secondary" onclick="showSection('heliSessionGen', this)">Rotary FTS 2</button>
-          <button class="btn btn-secondary" onclick="showSection('guidedFlightGen', this)">Rotary FTS 3</button>
-          <button class="btn btn-secondary" onclick="showSection('finalFlightGen', this)">Rotary FTS 4</button>
+          <button class="btn btn-secondary" onclick="showSection('aviationSessionGen', this)">[ROTARY] FTS 1</button>
+          <button class="btn btn-secondary" onclick="showSection('heliSessionGen', this)">[ROTARY] FTS 2</button>
+          <button class="btn btn-secondary" onclick="showSection('guidedFlightGen', this)">[ROTARY] FTS 3</button>
+          <button class="btn btn-secondary" onclick="showSection('finalFlightGen', this)">[ROTARY] FTS 4</button>
           <button class="btn btn-secondary" onclick="showSection('medExamGen', this)">Medical Pass</button>
+        </div>
+       <div class="accordion-body d-flex flex-wrap gap-2">
+          <button class="btn btn-secondary" onclick="showSection('studentProfileGen', this)">Student Profile</button>
+          <button class="btn btn-secondary" onclick="showSection('pilotCertGen', this)">Pilot Profile</button>
           <button class="btn btn-secondary" onclick="showSection('pilotCertGen2', this)">Pilot Certificate</button>
-
         </div>
       </div> 
     </div>
@@ -134,7 +134,7 @@
       </h2>
       <div id="collapseK9" class="accordion-collapse collapse" aria-labelledby="headingK9" data-bs-parent="#tocAccordion">
         <div class="accordion-body d-flex flex-wrap gap-2">
-          <button class="btn btn-secondary" onclick="showSection('K9', this)">LEO Infraction (INPROGRESS)</button>
+          <button class="btn btn-secondary" onclick="showSection('K9', this)">LEO Infraction</button>
         </div>
       </div>
     </div>
@@ -1712,6 +1712,138 @@ ${certs}
 </script>
 
 
+<div id="studentProfileGen" class="container mt-3 myHideableSection" style="max-width: 700px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>Student Flight School Profile Generator</h4>
+    </div>
+    <div class="card-body">
+      <form id="studentProfileForm" autocomplete="off" novalidate>
+        <!-- Student Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="studentName" class="col-sm-4 col-form-label fw-bold text-end">Student Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="studentName" class="form-control" required />
+          </div>
+        </div>
+        <!-- Contact Number -->
+        <div class="mb-3 row align-items-center">
+          <label for="contactNumber" class="col-sm-4 col-form-label fw-bold text-end">Contact Number:</label>
+          <div class="col-sm-8">
+            <input type="text" id="contactNumber" class="form-control" placeholder="###-####" required />
+          </div>
+        </div>
+        <!-- Enroll Date -->
+        <div class="mb-3 row align-items-center">
+          <label for="enrollDate" class="col-sm-4 col-form-label fw-bold text-end">Enroll Date:</label>
+          <div class="col-sm-8">
+            <input type="date" id="enrollDate" class="form-control" required />
+          </div>
+        </div>
+        <!-- Student Notes -->
+        <div class="mb-3 row align-items-center">
+          <label for="studentNotes" class="col-sm-4 col-form-label fw-bold text-end">Student Notes:</label>
+          <div class="col-sm-8">
+            <textarea id="studentNotes" class="form-control" rows="4" placeholder="If there is anything that needs to be noted throughout this student's flight school progress, it can be documented here." required></textarea>
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="studentProfileCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="studentProfileBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="studentProfileBBOutput" class="form-control" rows="22" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+function formatDateDDMMMYYYY(dateStr) {
+  if (!dateStr) return '';
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const [year, month, day] = dateStr.split('-');
+  return `${day}/${months[parseInt(month, 10) - 1]}/${year}`;
+}
+
+// Set today's date as default
+document.addEventListener('DOMContentLoaded', function() {
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, '0');
+  const dd = String(today.getDate()).padStart(2, '0');
+  document.getElementById('enrollDate').value = `${yyyy}-${mm}-${dd}`;
+});
+
+document.getElementById('studentProfileForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successMsg = document.getElementById('studentProfileCopySuccess');
+  successMsg.textContent = '';
+
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+
+  const studentName = document.getElementById('studentName').value.trim();
+  const contactNumber = document.getElementById('contactNumber').value.trim();
+  const enrollDateRaw = document.getElementById('enrollDate').value;
+  const enrollDate = formatDateDDMMMYYYY(enrollDateRaw);
+  const studentNotes = document.getElementById('studentNotes').value.trim();
+
+  const bbcode = `[img]https://i.imgur.com/ShJXx5r.png[/img]
+ 
+[divbox=#091f62][b][color=white]STUDENT INFORMATION[/color][/b][/divbox]
+ 
+[divbox=white]
+[b]Student Name:[/b] ${studentName}
+[b]Contact Number:[/b] ${contactNumber}
+[b]Enroll Date:[/b] ${enrollDate}
+[/divbox]
+ 
+[divbox=#091f62][b][color=white]STUDENT NOTES[/color][/b][/divbox]
+[divbox=white]
+[u]If there is anything that needs to be noted throughout this student's flight school progress, it can be documented here.[/u]
+[hr][/hr]
+[i]${studentNotes}[/i]
+ 
+ 
+ 
+[/divbox]
+ 
+[divbox=#091f62][b][color=white]FLIGHT SCHOOL SESSIONS[/color][/b][/divbox]
+ 
+[divbox=white]
+Session reports for each FTS (Flight Training Session) are to be completed and attached to the student profile after each session, these can be found in the [url=https://gov.eclipse-rp.net/viewtopic.php?p=530383]Flight Instructor Handbook[/url].
+ 
+[b]FTS-1[/b] - Classroom-based theory session.
+[b]FTS-2[/b] - Short theoretical session followed by an introduction to practical flight.
+[b]FTS-3[/b] - Short theoretical session followed by a practical flying session.
+[b]FTS-4[/b] - Practical Examination & Written Examination.
+[b]FPS[/b] - Flight Practice Session.
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+  const outputArea = document.getElementById('studentProfileBBOutput');
+  outputArea.value = bbcode.trim();
+  outputArea.focus();
+  outputArea.select();
+
+  try {
+    navigator.clipboard.writeText(bbcode).then(() => {
+      successMsg.textContent = 'Copied to clipboard!';
+    }, () => {
+      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+    });
+  } catch {
+    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+  }
+});
+</script>
 
 
 
@@ -2723,7 +2855,7 @@ ${groundLanding}
 <div id="finalFlightGen" class="container mt-3 myHideableSection" style="max-width: 950px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
     <div class="card-header text-center">
-      <h4>Final Flight Session Generator</h4>
+      <h4>[ROTARY] Flight Training Session 4</h4>
     </div>
     <div class="card-body">
       <form id="finalFlightForm" autocomplete="off" novalidate>
