@@ -65,220 +65,325 @@
     </div>
 
 
-  <!-- Navigation Buttons -->
-<div class="container mt-3 d-flex justify-content-center" id="navigationBar">
-    <button class="btn btn-success me-2" onclick="showSection('worklog', this)">Work Log</button>
-    <button class="btn btn-secondary me-2" onclick="showSection('atcshift', this)">ATC Shift Log</button>
-</div>
-<div class="center-top">
-        <h3>Flight Documents</h3>
- </div>
-<div class="container mt-3 d-flex justify-content-center" id="additionalNavigationBar">
-    <button class="btn btn-secondary me-2" onclick="showSection('pilotc', this)">Profile Certificate</button>
-    <button class="btn btn-secondary me-2" onclick="showSection('pilotp', this)">Profile Pilot</button>
-</div>
-<div class="center-top">
-        <h3>Fixed Wing</h3>
- </div>
-<div class="container mt-3 d-flex justify-content-center" id="additionalNavigationBar">
-    <button class="btn btn-secondary me-2" onclick="showSection('fixed1', this)">FTS 1</button>
-    <button class="btn btn-secondary me-2" onclick="showSection('fixed2', this)">FTS 2</button>
-    <button class="btn btn-secondary me-2" onclick="showSection('fixed3', this)">FTS 3</button>
-    <button class="btn btn-secondary me-2" onclick="showSection('fixed4', this)">FTS 4</button>
-    <button class="btn btn-secondary me-2" onclick="showSection('ultra', this)">Ultralight</button>
-    <button class="btn btn-secondary me-2" onclick="showSection('amph', this)">Amphibous</button>
-</div>
-<div class="center-top">
-        <h3>Rotary Wing</h3>
- </div>
-<div class="container mt-3 d-flex justify-content-center" id="additionalNavigationBar">
-    <button class="btn btn-secondary me-2" onclick="showSection('rotary1', this)">FTS 1</button>
-    <button class="btn btn-secondary me-2" onclick="showSection('rotary2', this)">FTS 2</button>
-    <button class="btn btn-secondary me-2" onclick="showSection('rotary3', this)">FTS 3</button>
-    <button class="btn btn-secondary me-2" onclick="showSection('rotary4', this)">FTS 4</button>
-    <button class="btn btn-secondary me-2" onclick="showSection('rotamph', this)">Amphibous</button>
-</div>
+<!-- Include Bootstrap 5 CSS and JS -->
 
-<!-- New Buttons Below -->
+<div class="container mt-3" style="max-width: 900px;">
+  <h3 class="text-center mb-4">Training Division</h3>
 
-
+  <div class="accordion" id="tocAccordion">
+    <!-- SAAA -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingDatabase">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDatabase" aria-expanded="false" aria-controls="collapseDatabase">
+          Database
+        </button>
+      </h2>
+      <div id="collapseDatabase" class="accordion-collapse collapse" aria-labelledby="headingDatabase" data-bs-parent="#tocAccordion">
+        <div class="accordion-body d-flex flex-wrap gap-2">
+          <button class="btn btn-secondary" onclick="showSection('workLogGen', this)">Work Log</button>
+        </div>
+      </div>
     </div>
+    <!-- Air Traffic Control -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingATC">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseATC" aria-expanded="true" aria-controls="collapseATC">
+          Air Traffic Control
+        </button>
+      </h2>
+      <div id="collapseATC" class="accordion-collapse collapse show" aria-labelledby="headingTraining" data-bs-parent="#tocAccordion">
+        <div class="accordion-body d-flex flex-wrap gap-2">
+          <button class="btn btn-secondary" onclick="showSection('atcshift', this)">ATC Shift Log</button>
+          <button class="btn btn-secondary" onclick="showSection('notamGen', this)">NOTAM Log</button>
+          <button class="btn btn-secondary" onclick="showSection('groundingNotice', this)">Grounding Log</button>
+          <button class="btn btn-secondary" onclick="showSection('incidentReport', this)">Civilian Report</button>
+          <button class="btn btn-secondary" onclick="showSection('atcIncidentReport', this)">Emergancy Aircraft Report</button>
+          <button class="btn btn-secondary" onclick="showSection('flightInfoGen', this)">Flight Log</button>
+          <button class="btn btn-secondary" onclick="showSection('pilotCertGen', this)">Pilot Profile</button>
+          <button class="btn btn-secondary" onclick="showSection('pilotSuspensionGen', this)">Suspension</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Office Of Flight Training -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingFieldTraining">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFieldTraining" aria-expanded="false" aria-controls="collapseFieldTraining">
+          Office Of Flight Training
+        </button>
+      </h2>
+      <div id="collapseFieldTraining" class="accordion-collapse collapse" aria-labelledby="headingFieldTraining" data-bs-parent="#tocAccordion">
+        <div class="accordion-body d-flex flex-wrap gap-2">
+          <button class="btn btn-secondary" onclick="showSection('aviationSessionGen', this)">Rotary FTS 1</button>
+          <button class="btn btn-secondary" onclick="showSection('heliSessionGen', this)">Rotary FTS 2</button>
+          <button class="btn btn-secondary" onclick="showSection('guidedFlightGen', this)">Rotary FTS 3</button>
+          <button class="btn btn-secondary" onclick="showSection('finalFlightGen', this)">Rotary FTS 4</button>
+          <button class="btn btn-secondary" onclick="showSection('medExamGen', this)">Medical Pass</button>
+          <button class="btn btn-secondary" onclick="showSection('pilotCertGen2', this)">Pilot Certificate</button>
+
+        </div>
+      </div> 
+    </div>
+
+    <!-- AVAP -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingK9">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseK9" aria-expanded="false" aria-controls="collapseK9">
+          Aircraft Investigation & Accident Prevention (AVAP)
+        </button>
+      </h2>
+      <div id="collapseK9" class="accordion-collapse collapse" aria-labelledby="headingK9" data-bs-parent="#tocAccordion">
+        <div class="accordion-body d-flex flex-wrap gap-2">
+          <button class="btn btn-secondary" onclick="showSection('K9', this)">LEO Infraction</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Internal Flight Certifications (IFC) -->
+    <div class="accordion-item">
+      <h2 class="accordion-header" id="headingMajorCrimes">
+        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMajorCrimes" aria-expanded="false" aria-controls="collapseMajorCrimes">
+          Internal Flight Certifications (IFC)
+        </button>
+      </h2>
+      <div id="collapseMajorCrimes" class="accordion-collapse collapse" aria-labelledby="headingMajorCrimes" data-bs-parent="#tocAccordion">
+        <div class="accordion-body d-flex flex-wrap gap-2">
+          <button class="btn btn-secondary" onclick="showSection('DOSSIER', this)">Add Dossier</button>
+          <button class="btn btn-secondary" onclick="showSection('MUGSHOT', this)">Add Mugshot</button>
+          <button class="btn btn-secondary" onclick="showSection('VEHICLE', this)">Add Vehicle</button>
+          <button class="btn btn-secondary" onclick="showSection('AFFIL', this)">Add Affiliate</button>
+          <button class="btn btn-secondary" onclick="showSection('CHARGE', this)">Add Charge</button>
+          <button class="btn btn-secondary" onclick="showSection('LOG', this)">Dossier Log</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <script>
-    $(document).ready(function () {
-        // Hide all sections initially
-        $('.container').hide();
+  // Example showSection function - replace with your actual implementation
+  function showSection(sectionId, button) {
+    // Remove 'btn-success' from all buttons and add 'btn-secondary'
+    document.querySelectorAll('#tocAccordion button.btn-success').forEach(btn => {
+      btn.classList.remove('btn-success');
+      btn.classList.add('btn-secondary');
+    });
+    // Set clicked button to 'btn-success'
+    button.classList.remove('btn-secondary');
+    button.classList.add('btn-success');
 
-        // Show only the Duty Report section by default
-        $('#atcshift').show();
-
-        // Highlight the Duty Report button as active
-        $('#navigationBar .btn').removeClass('btn-success').addClass('btn-secondary');
-        $('#navigationBar button[data-section="dutyReportSection"]').removeClass('btn-secondary').addClass('btn-success');
+    // Hide all sections with class 'myHideableSection'
+    document.querySelectorAll('.myHideableSection').forEach(section => {
+      section.style.display = 'none';
     });
 
-    function showSection(sectionId, button) {
-        // Hide all sections
-        $('.container').hide();
-
-        // Show the selected section
-        $('#' + sectionId).show();
-
-        // Reset all buttons inside #navigationBar to btn-secondary
-        $('#navigationBar .btn').removeClass('btn-success').addClass('btn-secondary');
-
-        // Highlight the clicked button with btn-success
-        $(button).removeClass('btn-secondary').addClass('btn-success');
+    // Show the selected section by id
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.style.display = 'block';
+      // Scroll to top of section smoothly
+      section.scrollIntoView({ behavior: 'smooth' });
     }
+  }
 </script>
-    <!DOCTYPE html>
-    <html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Background Color Example</title>
-        <style>
-            body {
-                background-color: #00008b;
-                /* Dark green */
-                color: white;
-                /* White text */
-            }
-        </style>
-    </head>
 
 
-    <div id="atcshift" class="container mt-3 myHideableSection">
-        <div class="card" style="background-color: #00008b; color: white;"> <!-- Set background color to #2c6a37 -->
-            <div class="card-body">
-<!-- Expense Form Fields -->
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Name:</div>
-    <div class="col-md-10">
-        <input type="text" id="txtatcname" class="form-control" style="width: 600px" />
+
+
+<div id="atcshift" class="container mt-3 myHideableSection" style="max-width: 700px;">
+        <div class="card shadow" style="background: linear-gradient(135deg, #001f4d, #003399); color: #fff;">
+    <div class="card-header border-0 text-center">
+      <h3 class="mb-0">ATC Shift Log</h3>
     </div>
-</div>
-
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Date:</div>
-    <div class="col-md-10">
-        <input type="text" id="txtatcdate" class="form-control" style="width: 600px" />
-    </div>
-</div>
-
-    <div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Altitude:</div>
-    <div class="col-md-10">
-  <select name="Tower" id="txtatctower">
-    <option value="Fort Zancudo">Fort Zancudo</option>
-    <option value="Los Santos International Airport">LSIA</option>
-    <option value="Sandy">Sandy Airfield</option>
-  </select>
-    </div>
-</div>
-                
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Start:</div>
-    <div class="col-md-10">
-        <input type="text" id="txtatcstart" class="form-control" style="width: 600px" />
-    </div>
-</div>
-
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">End:</div>
-    <div class="col-md-10">
-        <input type="text" id="txtatcend" class="form-control" style="width: 600px" />
-    </div>
-</div>
-
-
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">ATC:</div>
-    <div class="col-md-10">
-        <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 4px; padding: 5px; background-color: #f9f9f9;">
-            <input type="text" id="time" placeholder="Time" style="border: none; outline: none; flex: 1; padding: 5px;" />
-            <span style="margin: 0 10px; color: #555; font-weight: bold;">|</span>
-            <input type="text" id="atctext" placeholder="ATC" style="border: none; outline: none; flex: 1; padding: 5px;" />
-            <span style="margin: 0 10px; color: #555; font-weight: bold;">|</span>
-            <input type="text" id="atcpilot" placeholder="Pilot (If unknown place N/A)" style="border: none; outline: none; flex: 1; padding: 5px;" />
+    <div class="card-body">
+      <!-- Name -->
+      <div class="row mb-2 align-items-center">
+        <label for="txtatcname" class="col-md-2 col-form-label fw-bold text-end">Name:</label>
+        <div class="col-md-10">
+          <input type="text" id="txtatcname" class="form-control" />
         </div>
-    </div>
-</div>
+      </div>
 
-<div class="row mb-2">
-    <div class="col-md-2"></div>
-    <div class="col-md-10">
-        <button id="addButton" class="btn btn-primary">Add</button>
-        <button id="removeButton" class="btn btn-danger">Remove Last</button>
-    </div>
-</div>
-<ul id="itemList" style="margin-top: 20px; padding-left: 0; list-style: none;"></ul>
-
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Incidents:</div>
-    <div class="col-md-10">
-        <div style="display: flex; align-items: center; border: 1px solid #ccc; border-radius: 4px; padding: 5px; background-color: #f9f9f9;">
-            <input type="text" id="Inccallsign" placeholder="Callsign" style="border: none; outline: none; flex: 1; padding: 5px;" />
-            <span style="margin: 0 10px; color: #555; font-weight: bold;">|</span>
-            <input type="text" id="atcinc" placeholder="Incident" style="border: none; outline: none; flex: 1; padding: 5px;" />
-            <span style="margin: 0 10px; color: #555; font-weight: bold;">|</span>
-            <input type="text" id="atcIncpilot" placeholder="Pilot (If unknown place N/A)" style="border: none; outline: none; flex: 1; padding: 5px;" />
+      <!-- Date -->
+      <div class="row mb-2 align-items-center">
+        <label for="txtatcdate" class="col-md-2 col-form-label fw-bold text-end">Date:</label>
+        <div class="col-md-10">
+          <input type="date" id="txtatcdate" class="form-control" />
         </div>
-    </div>
-</div>
+      </div>
 
-<div class="row mb-2">
-    <div class="col-md-2"></div>
-    <div class="col-md-10">
-        <button id="IncAdd" class="btn btn-primary">Add</button>
-        <button id="IncRemove" class="btn btn-danger">Remove Last</button>
-    </div>
-</div>
-<ul id="IncList" style="margin-top: 20px; padding-left: 0; list-style: none;"></ul>
-
- <div class="row mb-2">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-10">
-                        <button type="button" id="btnCopy" onClick="createExpenseReport();" class="btn btn-success">
-                            Submit and copy to clipboard
-                        </button>
-                        <p id="copyExpenseReportSuccess"></p>
-                        <textarea id="displayExpenseReportBB" class="form-control" style="width: 600px"
-                            rows="10">BBCode will appear here</textarea>
-                    </div>
-                </div>
-            </div>
+      <!-- Altitude / Tower -->
+      <div class="row mb-2 align-items-center">
+        <label for="txtatctower" class="col-md-2 col-form-label fw-bold text-end">Altitude:</label>
+        <div class="col-md-10">
+          <select id="txtatctower" class="form-select">
+            <option value="Fort Zancudo">Fort Zancudo</option>
+            <option value="Los Santos International Airport">LSIA</option>
+            <option value="Sandy">Sandy Airfield</option>
+          </select>
         </div>
+      </div>
+
+      <!-- Start -->
+      <div class="row mb-2 align-items-center">
+        <label for="txtatcstart" class="col-md-2 col-form-label fw-bold text-end">Start:</label>
+        <div class="col-md-10">
+          <input type="text" id="txtatcstart" class="form-control" />
+        </div>
+      </div>
+
+      <!-- End -->
+      <div class="row mb-2 align-items-center">
+        <label for="txtatcend" class="col-md-2 col-form-label fw-bold text-end">End:</label>
+        <div class="col-md-10">
+          <input type="text" id="txtatcend" class="form-control" />
+        </div>
+      </div>
+
+      <!-- ATC Inputs -->
+      <div class="row mb-2 align-items-center">
+        <label class="col-md-2 col-form-label fw-bold text-end">ATC:</label>
+        <div class="col-md-10 d-flex gap-2" style="background-color:#f9f9f9; border:1px solid #ccc; border-radius:4px; padding:5px;">
+          <input type="text" id="text" placeholder="Time" class="form-control" />
+          <input type="text" id="atctext" placeholder="ATC" class="form-control" />
+          <input type="text" id="atcpilot" placeholder="Pilot (If unknown place N/A)" class="form-control" />
+        </div>
+      </div>
+
+      <!-- Add/Remove ATC -->
+      <div class="row mb-3">
+        <div class="offset-md-2 col-md-10 d-flex gap-2">
+          <button type="button" id="addButton" class="btn btn-primary">Add</button>
+          <button type="button" id="removeButton" class="btn btn-danger">Remove Last</button>
+        </div>
+      </div>
+
+      <!-- ATC List -->
+      <ul id="itemList" class="list-group mb-4" style="max-height: 150px; overflow-y: auto;"></ul>
+
+      <!-- Incidents Inputs -->
+      <div class="row mb-2 align-items-center">
+        <label class="col-md-2 col-form-label fw-bold text-end">Incidents:</label>
+        <div class="col-md-10 d-flex gap-2" style="background-color:#f9f9f9; border:1px solid #ccc; border-radius:4px; padding:5px;">
+          <input type="text" id="Inccallsign" placeholder="Callsign" class="form-control" />
+          <input type="text" id="atcinc" placeholder="Incident" class="form-control" />
+          <input type="text" id="atcIncpilot" placeholder="Pilot (If unknown place N/A)" class="form-control" />
+        </div>
+      </div>
+
+      <!-- Add/Remove Incidents -->
+      <div class="row mb-3">
+        <div class="offset-md-2 col-md-10 d-flex gap-2">
+          <button type="button" id="IncAdd" class="btn btn-primary">Add</button>
+          <button type="button" id="IncRemove" class="btn btn-danger">Remove Last</button>
+        </div>
+      </div>
+
+      <!-- Incidents List -->
+      <ul id="IncList" class="list-group mb-4" style="max-height: 150px; overflow-y: auto;"></ul>
+
+      <!-- Submit -->
+      <div class="row">
+        <div class="offset-md-2 col-md-10">
+          <button type="button" id="btnCopy3" class="btn btn-success">Submit and copy to clipboard</button>
+          <p id="copyExpenseReportSuccess" class="text-success fw-semibold mt-2"></p>
+          <textarea id="displayExpenseReportBB" class="form-control" rows="10" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </div>
     </div>
+  </div>
+</div>
 
 <script>
-// Function to generate the expense report with the added items
-function createExpenseReport() {
-    const atcname = $('#txtatcname').val();
-    const atcdate = $('#txtatcdate').val();
-    const atctower = $('#txtatctower').val();
-    const atcstart = $('#txtatcstart').val();
-    const atcend = $('#txtatcend').val();
+  // Add ATC entry
+  document.getElementById('addButton').addEventListener('click', () => {
+    const time = document.getElementById('time').value.trim();
+    const atc = document.getElementById('atctext').value.trim();
+    const pilot = document.getElementById('atcpilot').value.trim();
 
 
-    // Create the itemListString by looping through the items in the list
+    const li = document.createElement('li');
+    li.className = 'list-group-item bg-light text-dark';
+    li.textContent = `${time} | ${atc} | ${pilot}`;
+    document.getElementById('itemList').appendChild(li);
+
+    // Clear inputs
+    document.getElementById('time').value = '';
+    document.getElementById('atctext').value = '';
+    document.getElementById('atcpilot').value = '';
+  });
+
+  // Remove last ATC entry
+  document.getElementById('removeButton').addEventListener('click', () => {
+    const list = document.getElementById('itemList');
+    if (list.lastChild) list.removeChild(list.lastChild);
+  });
+
+  // Add Incident entry
+  document.getElementById('IncAdd').addEventListener('click', () => {
+    const callsign = document.getElementById('Inccallsign').value.trim();
+    const incident = document.getElementById('atcinc').value.trim();
+    const pilot = document.getElementById('atcIncpilot').value.trim();
+
+    if (!callsign && !incident && !pilot) {
+      alert('Please enter at least one Incident field.');
+      return;
+    }
+
+    const li = document.createElement('li');
+    li.className = 'list-group-item bg-light text-dark';
+    li.textContent = `${callsign} | ${incident} | ${pilot}`;
+    document.getElementById('IncList').appendChild(li);
+
+    // Clear inputs
+    document.getElementById('Inccallsign').value = '';
+    document.getElementById('atcinc').value = '';
+    document.getElementById('atcIncpilot').value = '';
+  });
+
+  // Remove last Incident entry
+  document.getElementById('IncRemove').addEventListener('click', () => {
+    const list = document.getElementById('IncList');
+    if (list.lastChild) list.removeChild(list.lastChild);
+  });
+
+function formatDateDDMMMYYYY(dateStr) {
+  if (!dateStr) return '';
+  const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+  const [year, month, day] = dateStr.split('-');
+  return `${day}/${months[parseInt(month, 10) - 1]}/${year}`;
+}
+
+  // Submit and copy BBCode
+  document.getElementById('btnCopy3').addEventListener('click', () => {
+  const atcname = document.getElementById('txtatcname').value.trim();
+  const rawDate = document.getElementById('txtatcdate').value.trim();
+  const atcdate = formatDateDDMMMYYYY(rawDate);
+  const atctower = document.getElementById('txtatctower').value;
+  const atcstart = document.getElementById('txtatcstart').value.trim();
+  const atcend = document.getElementById('txtatcend').value.trim();
+
+  if (!atcname || !rawDate || !atctower || !atcstart || !atcend) {
+    alert('Please fill in all required fields.');
+    return;
+  }
+
+
+    // Collect ATC entries
+    const itemList = document.getElementById('itemList');
     let itemListString = '';
-    const itemList = document.getElementById("itemList");
-    const listItems = itemList.getElementsByTagName("li");
-    
-    // Loop through all list items and build the itemListString
-    for (let i = 0; i < listItems.length; i++) {
-        itemListString += listItems[i].textContent + '\n'; // Adding a new line after each item
-    }
+    itemList.querySelectorAll('li').forEach(li => {
+      itemListString += li.textContent + '\n';
+    });
+
+    // Collect Incident entries
+    const IncList = document.getElementById('IncList');
     let IncListString = '';
-    const IncList = document.getElementById("IncList");
-    const listInc = IncList.getElementsByTagName("li");
-    
-    // Loop through all list items and build the IncListString
-    for (let i = 0; i < listInc.length; i++) {
-        IncListString += listInc[i].textContent + '\n'; // Adding a new line after each item
-    }
-    // Create the BBCode template
+    IncList.querySelectorAll('li').forEach(li => {
+      IncListString += li.textContent + '\n';
+    });
+
     const expenseTemplate = `[img]https://i.imgur.com/6jYBFmU.png[/img]
 [divbox=#091f62][b][color=white]SHIFT INFORMATION[/color][/b][/divbox]
 [divbox=white]
@@ -322,663 +427,1187 @@ ${IncListString}
 [/divbox]
 [img]https://i.imgur.com/ZFpeXl3.png[/img]`;
 
-    // Display the BBCode and copy it to clipboard
-    document.getElementById("displayExpenseReportBB").value = expenseTemplate.trim();
-    document.querySelector("#displayExpenseReportBB").select();
-    document.execCommand('copy');
+    const outputArea = document.getElementById('displayExpenseReportBB');
+    outputArea.value = expenseTemplate.trim();
+    outputArea.focus();
+    outputArea.select();
 
-    // Show success message
-    $('#copyExpenseReportSuccess').text('Copied to clipboard!');
-}
-
+    try {
+      navigator.clipboard.writeText(expenseTemplate).then(() => {
+        document.getElementById('copyExpenseReportSuccess').textContent = 'Copied to clipboard!';
+      }, () => {
+        document.getElementById('copyExpenseReportSuccess').textContent = 'Failed to copy automatically. Please copy manually.';
+      });
+    } catch {
+      document.getElementById('copyExpenseReportSuccess').textContent = 'Clipboard API not supported. Please copy manually.';
+    }
+  });
 </script>
 
-
-
-    <div id="rotary1" class="container mt-3 myHideableSection">
-        <div class="card" style="background-color: #00008b; color: white;"> <!-- Set background color to #2c6a37 -->
-            <div class="card-body">
-<!-- Expense Form Fields -->
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Date:</div>
-    <div class="col-md-10">
-        <input type="text" id="txtrot1date" class="form-control" style="width: 600px" />
+<div id="notamGen" class="container mt-3 myHideableSection" style="max-width: 700px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #001f4d, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>NOTAM Generator</h4>
     </div>
-</div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Start Time:</div>
-    <div class="col-md-10">
-        <input type="text" id="txtrot1start" class="form-control" style="width: 600px" />
-    </div>
-</div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">End Time:</div>
-    <div class="col-md-10">
-        <input type="text" id="txtrot1end" class="form-control" style="width: 600px" />
-    </div>
-</div>
-<div class="center-top">
-        <h3>Aviation Guidelines</h3>
- </div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Altitude:</div>
-    <div class="col-md-10">
-  <select name="Alt" id="ALT">
-    <option value="">No</option>
-    <option value="X">Yes</option>
-  </select>
-    </div>
-</div>
-
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Communication:</div>
-    <div class="col-md-10">
-  <select name="Com" id="COM">
-    <option value="">No</option>
-    <option value="X">Yes</option>
-  </select>
-    </div>
-</div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Map & Restrictions:</div>
-    <div class="col-md-10">
-  <select name="Map" id="MAP">
-    <option value="">No</option>
-    <option value="X">Yes</option>
-  </select>
-    </div>
-</div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Hazard Zones:</div>
-    <div class="col-md-10">
-  <select name="Haz" id="HAZ">
-    <option value="">No</option>
-    <option value="X">Yes</option>
-  </select>
-    </div>
-</div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Landing Locations:</div>
-    <div class="col-md-10">
-  <select name="Land" id="LAND">
-    <option value="">No</option>
-    <option value="X">Yes</option>
-  </select>
-    </div>
-</div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Emergancy Landings:</div>
-    <div class="col-md-10">
-  <select name="Emer" id="EMER">
-    <option value="">No</option>
-    <option value="X">Yes</option>
-  </select>
-    </div>
-</div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Pre Flight Inspection:</div>
-    <div class="col-md-10">
-  <select name="Pre" id="PRE">
-    <option value="">No</option>
-    <option value="X">Yes</option>
-  </select>
-    </div>
-</div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Weather:</div>
-    <div class="col-md-10">
-  <select name="Wea" id="WEA">
-    <option value="">No</option>
-    <option value="X">Yes</option>
-  </select>
-    </div>
-</div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Flight Logs:</div>
-    <div class="col-md-10">
-  <select name="Fli" id="FLI">
-    <option value="">No</option>
-    <option value="X">Yes</option>
-  </select>
-    </div>
-</div>
-<div class="center-top">
-        <h3>External Anatomy</h3>
- </div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Main Rotor:</div>
-    <div class="col-md-10">
-  <select name="Main" id="MAIN">
-    <option value="">No</option>
-    <option value="X">Yes</option>
-  </select>
-    </div>
-</div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Tail Rotor:</div>
-    <div class="col-md-10">
-  <select name="Tail" id="TAIL">
-    <option value="">No</option>
-    <option value="X">Yes</option>
-  </select>
-    </div>
-</div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Engine:</div>
-    <div class="col-md-10">
-  <select name="Eng" id="ENG">
-    <option value="">No</option>
-    <option value="X">Yes</option>
-  </select>
-    </div>
-</div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Landing Gear:</div>
-    <div class="col-md-10">
-  <select name="Land" id="LAND">
-    <option value="">No</option>
-    <option value="X">Yes</option>
-  </select>
-    </div>
-</div>
-<div class="center-top">
-        <h3>Internal Anatomy</h3>
- </div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Cyclic:</div>
-    <div class="col-md-10">
-  <select name="Cyc" id="CYC">
-    <option value="">No</option>
-    <option value="X">Yes</option>
-  </select>
-    </div>
-</div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Collective:</div>
-    <div class="col-md-10">
-  <select name="Coll" id="COLL">
-    <option value="">No</option>
-    <option value="X">Yes</option>
-  </select>
-    </div>
-</div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Throttle:</div>
-    <div class="col-md-10">
-  <select name="Thr" id="THR">
-    <option value="">No</option>
-    <option value="X">Yes</option>
-  </select>
-    </div>
-</div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Pedals:</div>
-    <div class="col-md-10">
-  <select name="Ped" id="PED">
-    <option value="">No</option>
-    <option value="X">Yes</option>
-  </select>
-    </div>
-</div>
-<div class="center-top">
-        <h3>Flight Instrument Panel</h3>
- </div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Airspeed Indicator:</div>
-    <div class="col-md-10">
-  <select name="Asi" id="ASI">
-    <option value="">No</option>
-    <option value="X">Yes</option>
-  </select>
-    </div>
-</div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Altimeter:</div>
-    <div class="col-md-10">
-  <select name="Ati" id="ATI">
-    <option value="">No</option>
-    <option value="X">Yes</option>
-  </select>
-    </div>
-</div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Artificial Horizon:</div>
-    <div class="col-md-10">
-  <select name="Ah" id="AH">
-    <option value="">No</option>
-    <option value="X">Yes</option>
-  </select>
-    </div>
-</div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Heading Indicator:</div>
-    <div class="col-md-10">
-  <select name="hi" id="HI">
-    <option value="">No</option>
-    <option value="X">Yes</option>
-  </select>
-    </div>
-</div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">VSI:</div>
-    <div class="col-md-10">
-  <select name="vsi" id="VSI">
-    <option value="">No</option>
-    <option value="X">Yes</option>
-  </select>
-    </div>
-</div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Fuel Gauge:</div>
-    <div class="col-md-10">
-  <select name="fuel" id="FUEL">
-    <option value="">No</option>
-    <option value="X">Yes</option>
-  </select>
-    </div>
-</div>
-<div class="center-top">
-        <h3>Session Notes</h3>
- </div>
-   <div class="row mb-2">
-   <div class="col-md-10">
-       <textarea id="txtnotes" class="form-control" style="width: 600px" rows="5"></textarea>
-       </div>
-     </div>
-
-<div class="center-top">
-        <h3>Session Grading</h3>
- </div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">General Behaviour & Attention:</div>
-    <div class="col-md-10">
-  <select name="Gen" id="GEN">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
-    </div>
-</div>
-     <div class="row mb-2">
-      <div class="col-md-10">
-       <textarea id="txtGen" class="form-control" style="width: 600px" rows="5"></textarea>
-     </div>
-                </div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Understand Each Components:</div>
-    <div class="col-md-10">
-  <select name="Und" id="UND">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
-    </div>
-</div>
-   <div class="row mb-2">
-   <div class="col-md-10">
-       <textarea id="txtUnd" class="form-control" style="width: 600px" rows="5"></textarea>
-       </div>
-     </div>
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Answers to Questions:</div>
-    <div class="col-md-10">
-  <select name="Ans" id="ANS">
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-  </select>
-    </div>
-</div>
-     <div class="row mb-2">
-      <div class="col-md-10">
-       <textarea id="txtAns" class="form-control" style="width: 600px" rows="5"></textarea>
-     </div>
- <div class="row mb-2">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-10">
-                        <button type="button" id="btnCopy" onClick="createRotReport();" class="btn btn-success">
-                            Submit and copy to clipboard
-                        </button>
-                        <p id="copyRotReportSuccess"></p>
-                        <textarea id="displayRotReportBB" class="form-control" style="width: 600px"
-                            rows="10">BBCode will appear here</textarea>
-                    </div>
-                </div>
-            </div>
+    <div class="card-body">
+      <form id="notamForm" autocomplete="off" novalidate>
+        <!-- Official Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="notamOfficial" class="col-sm-3 col-form-label fw-bold text-end">Official:</label>
+          <div class="col-sm-9">
+            <input type="text" id="notamOfficial" class="form-control" placeholder="Official Name" required />
+          </div>
         </div>
+        <!-- Rank -->
+        <div class="mb-3 row align-items-center">
+          <label for="notamRank" class="col-sm-3 col-form-label fw-bold text-end">Rank:</label>
+          <div class="col-sm-9">
+            <input type="text" id="notamRank" class="form-control" placeholder="Rank" required />
+          </div>
+        </div>
+        <!-- Date Posted -->
+        <div class="mb-3 row align-items-center">
+          <label for="notamDate" class="col-sm-3 col-form-label fw-bold text-end">Date Posted:</label>
+          <div class="col-sm-9">
+            <input type="date" id="notamDate" class="form-control" required />
+          </div>
+        </div>
+        <!-- Time Posted -->
+        <div class="mb-3 row align-items-center">
+          <label for="notamTime" class="col-sm-3 col-form-label fw-bold text-end">Time Posted (UTC):</label>
+          <div class="col-sm-9">
+            <input type="text" id="notamTime" class="form-control" required />
+          </div>
+        </div>
+        <!-- NOTAM Length -->
+        <div class="mb-3 row align-items-center">
+          <label for="notamLength" class="col-sm-3 col-form-label fw-bold text-end">NOTAM Length:</label>
+          <div class="col-sm-9">
+            <input type="text" id="notamLength" class="form-control" placeholder="e.g. 2 hours, 1 day" required />
+          </div>
+        </div>
+        <!-- Expire -->
+        <div class="mb-3 row align-items-center">
+          <label for="notamExpire" class="col-sm-3 col-form-label fw-bold text-end">Expire:</label>
+          <div class="col-sm-9">
+            <input type="text" id="notamExpire" class="form-control" placeholder="e.g. 09/May/2025 20:00 UTC" required />
+          </div>
+        </div>
+        <!-- NOTAM Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="notamName" class="col-sm-3 col-form-label fw-bold text-end">NOTAM Name:</label>
+          <div class="col-sm-9">
+            <input type="text" id="notamName" class="form-control" placeholder="NOTAM Name/Title" required />
+          </div>
+        </div>
+        <!-- NOTAM Message -->
+        <div class="mb-4 row align-items-center">
+          <label for="notamMessage" class="col-sm-3 col-form-label fw-bold text-end">Message:</label>
+          <div class="col-sm-9">
+            <textarea id="notamMessage" class="form-control" rows="5" placeholder="NOTAM message details..." required></textarea>
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="notamCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="notamBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="notamBBOutput" class="form-control" rows="16" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
     </div>
+  </div>
+</div>
 
 <script>
-// Function to generate the expense report with the added items
-function createRotReport() {
-    const date = $('#txtrot1date').val();
-    const start = $('#txtrot1start').val();
-    const end = $('#txtrot1end').val();    
-    const Alt = $('#ALT').val();   
-    const Com = $('#COM').val();
-    const Map = $('#MAP').val();
-    const Haz = $('#HAZ').val();
-    const Land = $('#LAND').val();
-    const Emer = $('#EMER').val();
-    const PreF = $('#PRE').val();
-    const Weath = $('#WEA').val();
-    const FLI = $('#FLI').val();
-    const MRot = $('#MAIN').val();
-    const TRot = $('#TAIL').val();
-    const Eng = $('#ENG').val();
-    const Land = $('#LAND').val();
-    const Cyc = $('#CYC').val();
-    const Coll = $('#COLL').val();
-    const thr = $('#THR').val();
-    const pedal = $('#PED').val();
-    const asi = $('#ASI').val();
-    const ati = $('#ATI').val();
-    const ah = $('#AH').val();
-    const hi = $('#HI').val();
-    const vsi = $('#VSI').val();
-    const fuel = $('#FUEL').val();
-    const snote = $('#txtnotes').val();
-    const gen = $('#GEN').val();
-    const tgen = $('#txtGen').val();
-    const und = $('#UND').val();
-    const tund = $('#txtUnd').val();
-    const ans = $('#ANS').val();
-    const tans = $('#txtAns').val();
-
-
-    // Create the itemListString by looping through the items in the list
-    let itemListString = '';
-    const itemList = document.getElementById("itemList");
-    const listItems = itemList.getElementsByTagName("li");
-    
-    // Loop through all list items and build the itemListString
-    for (let i = 0; i < listItems.length; i++) {
-        itemListString += listItems[i].textContent + '\n'; // Adding a new line after each item
-    }
-    let IncListString = '';
-    const IncList = document.getElementById("IncList");
-    const listInc = IncList.getElementsByTagName("li");
-    
-    // Loop through all list items and build the IncListString
-    for (let i = 0; i < listInc.length; i++) {
-        IncListString += listInc[i].textContent + '\n'; // Adding a new line after each item
-    }
-    // Create the BBCode template
-    const RotTemplate = `${test}`;
-
-    // Display the BBCode and copy it to clipboard
-    document.getElementById("displayRotReportBB").value = RotTemplate.trim();
-    document.querySelector("#displayRotReportBB").select();
-    document.execCommand('copy');
-
-    // Show success message
-    $('#copyRotReportSuccess').text('Copied to clipboard!');
+function formatDateDDMMMYYYY(dateStr) {
+  if (!dateStr) return '';
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const [year, month, day] = dateStr.split('-');
+  return `${day}/${months[parseInt(month, 10) - 1]}/${year}`;
 }
 
-</script>
+document.getElementById('notamForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successMsg = document.getElementById('notamCopySuccess');
+  successMsg.textContent = '';
 
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
 
-    <div id="worklog" class="container mt-3 myHideableSection">
-        <div class="card" style="background-color: #00008b; color: white;"> <!-- Set background color to #2c6a37 -->
-            <div class="card-body">
-<!-- Expense Form Fields -->
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Date:</div>
-    <div class="col-md-10">
-        <input type="text" id="txtworkdate" class="form-control" style="width: 600px" />
-    </div>
-</div>
+  const official = document.getElementById('notamOfficial').value.trim();
+  const rank = document.getElementById('notamRank').value.trim();
+  const dateRaw = document.getElementById('notamDate').value;
+  const date = formatDateDDMMMYYYY(dateRaw);
+  const time = document.getElementById('notamTime').value.trim();
+  const notamLength = document.getElementById('notamLength').value.trim();
+  const notamExpire = document.getElementById('notamExpire').value.trim();
+  const notamName = document.getElementById('notamName').value.trim();
+  const notamMessage = document.getElementById('notamMessage').value.trim();
 
-
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Work Completed:</div>
-    <div class="col-md-10">
-        <input type="text" id="txtWork" class="form-control" style="width: 600px" />
-        <div class="mt-2">
-            <button id="btnAdd" class="btn btn-primary">Add</button>
-            <button id="btnRemove" class="btn btn-danger">Remove</button>
-        </div>
-        <ul id="peopleList" class="mt-2"></ul>
-    </div>
-</div>
-
-
-
- <div class="row mb-2">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-10">
-                        <button type="button" id="btnCopy" onClick="createWorkReport();" class="btn btn-success">
-                            Submit and copy to clipboard
-                        </button>
-                        <p id="copyWorkReportSuccess"></p>
-                        <textarea id="displayWorkReportBB" class="form-control" style="width: 600px"
-                            rows="10">BBCode will appear here</textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-<script>
-// Function to generate the expense report with the added items
-function createWorkReport() {
-    const workdate = $('#txtworkdate').val();
-
-
-    // Create the itemListString by looping through the items in the list
-        // ✅ Get officers from the dynamic list
-        let officersList = document.querySelectorAll("#peopleList li");
-        let officersInvolved = "";
-        officersList.forEach((officer) => {
-            officersInvolved += `[*] ${officer.textContent}\n`;
-        });
-
-
-    // Create the BBCode template
-    const WorkTemplate = `[img]https://i.imgur.com/5FS2lIb.png[/img]
-[divbox=#091f62][b][color=white]ENTRY INFORMATION[/color][/b][/divbox]
+  const bbcode = `[img]https://i.imgur.com/IfwfYnz.png[/img]
+[divbox=#091f62][b][color=white][center]Official[/center][/color][/b][/divbox]
 [divbox=white]
-[b]DATE OF WORK:[/b] ${workdate}
+[b]Official:[/b] ${official}
 
-[b]WORK LOGGED:[/b]
-[list]
-${officersInvolved}
-[/list]
+[b]Rank:[/b] ${rank}
 [/divbox]
-[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+[divbox=#091f62][b][color=white][center]Time Details[/center][/color][/b][/divbox]
+[divbox=white]
+[b]Date Posted:[/b] ${date}
+[b]Time Posted:[/b] ${time}
 
-    // Display the BBCode and copy it to clipboard
-    document.getElementById("displayWorkReportBB").value = WorkTemplate.trim();
-    document.querySelector("#displayWorkReportBB").select();
-    document.execCommand('copy');
+[b]Notam Length:[/b] ${notamLength}
+[b]Expire:[/b] ${notamExpire}
+[/divbox]
+[divbox=#091f62][b][color=white][center]NOTAM Details[/center][/color][/b][/divbox]
+[divbox=white]
+[b]Name:[/b] ${notamName}
 
-    // Show success message
-    $('#copyWorkReportSuccess').text('Copied to clipboard!');
-}
+[b]Message:[/b]
+${notamMessage}
+[/divbox]
+[img]https://i.imgur.com/lfoY7mK.png[/img]`;
 
+  const outputArea = document.getElementById('notamBBOutput');
+  outputArea.value = bbcode.trim();
+  outputArea.focus();
+  outputArea.select();
+
+  try {
+    navigator.clipboard.writeText(bbcode).then(() => {
+      successMsg.textContent = 'Copied to clipboard!';
+    }, () => {
+      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+    });
+  } catch {
+    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+  }
+});
 </script>
 
-
-
-    <div id="pilotc" class="container mt-3 myHideableSection">
-        <div class="card" style="background-color: #00008b; color: white;"> <!-- Set background color to #2c6a37 -->
-            <div class="card-body">
-<!-- Expense Form Fields -->
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Pilot Name:</div>
-    <div class="col-md-10">
-        <input type="text" id="txtcertname" class="form-control" style="width: 600px" />
+<div id="groundingNotice" class="container mt-3 myHideableSection" style="max-width: 700px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #001f4d, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>Aviation Grounding Notice Generator</h4>
     </div>
-</div>
-
+    <div class="card-body">
+      <form id="groundingForm" autocomplete="off" novalidate>
+        <!-- Official(s) -->
+        <div class="mb-3 row align-items-center">
+          <label for="groundOfficial" class="col-sm-3 col-form-label fw-bold text-end">Official(s):</label>
+          <div class="col-sm-9">
+            <input type="text" id="groundOfficial" class="form-control" placeholder="Official(s)" required />
+          </div>
+        </div>
 
 <div class="row mb-2">
     <div class="col-md-2" style="font-weight: bold; text-align: right;">Aircraft Type:</div>
     <div class="col-md-10">
         <button type="button" id="btnOutcomeSuccess" class="btn btn-success"
-            onclick="setIncidentOutcome('Rotary Wing')">Rotary Wing</button>
+            onclick="setIncidentOutcome('[color=#0040FF]Aircraft Investigation & Accident Prevention (AVAP)[/color]')">Aircraft Investigation & Accident Prevention</button>
         <button type="button" id="btnOutcomeSuccess" class="btn btn-success"
-            onclick="setIncidentOutcome('Fixed Wing')">Fixed Wing</button>
+            onclick="setIncidentOutcome('[color=#0040BF]ATC Command[/color]')">Air Traffic Control</button>
         <p id="selectedOutcome" style="margin-top: 10px; font-weight: bold;">No outcome selected</p>
         <input type="hidden" id="Aircraft1" value="No outcome selected" />
     </div>
 </div>
 
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">date:</div>
-    <div class="col-md-10">
-        <input type="text" id="txtcertdate" class="form-control" style="width: 600px" />
-    </div>
-</div>
-
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Your Name:</div>
-    <div class="col-md-10">
-        <input type="text" id="txtcertiname" class="form-control" style="width: 600px" />
-    </div>
-</div>
-
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Your Rank:</div>
-    <div class="col-md-10">
-        <input type="text" id="txtcertirank" class="form-control" style="width: 600px" />
-    </div>
-</div>
-
-
- <div class="row mb-2">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-10">
-                        <button type="button" id="btnCopy" onClick="createCertReport();" class="btn btn-success">
-                            Submit and copy to clipboard
-                        </button>
-                        <p id="copyCertReportSuccess"></p>
-                        <textarea id="displayCertReportBB" class="form-control" style="width: 600px"
-                            rows="10">BBCode will appear here</textarea>
-                    </div>
-                </div>
-            </div>
+        <!-- Date of Issuance -->
+        <div class="mb-3 row align-items-center">
+          <label for="groundDate" class="col-sm-3 col-form-label fw-bold text-end">Date of Issuance:</label>
+          <div class="col-sm-9">
+            <input type="date" id="groundDate" class="form-control" required />
+          </div>
         </div>
+        <!-- Expire Date -->
+        <div class="mb-3 row align-items-center">
+          <label for="groundExpire" class="col-sm-3 col-form-label fw-bold text-end">Expire Date:</label>
+          <div class="col-sm-9">
+            <input type="date" id="groundExpire" class="form-control" required />
+          </div>
+        </div>
+        <!-- Pilot Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="pilotName" class="col-sm-3 col-form-label fw-bold text-end">Pilot Name:</label>
+          <div class="col-sm-9">
+            <input type="text" id="pilotName" class="form-control" placeholder="Pilot Name" required />
+          </div>
+        </div>
+        <!-- Registered Aircraft(s) -->
+        <fieldset class="mb-4">
+          <legend class="fw-bold">Registered Aircraft(s)</legend>
+          <div class="input-group mb-2">
+            <input type="text" id="aircraftInput" class="form-control" placeholder="Model - Tail Number" />
+            <button type="button" id="addAircraftBtn" class="btn btn-primary">Add Aircraft</button>
+          </div>
+          <ul id="aircraftList" class="list-group list-group-flush" style="max-height: 120px; overflow-y: auto;"></ul>
+          <button type="button" id="removeAircraftBtn" class="btn btn-danger mt-2">Remove Last Aircraft</button>
+        </fieldset>
+        <!-- Proof of Contact -->
+        <div class="mb-3 row align-items-center">
+          <label for="proofEmail" class="col-sm-3 col-form-label fw-bold text-end">Proof of Contact (Email):</label>
+          <div class="col-sm-9">
+            <textarea id="proofEmail" class="form-control" rows="3" placeholder="Paste email or contact proof here..." required></textarea>
+          </div>
+        </div>
+        <!-- Reason -->
+        <div class="mb-4 row align-items-center">
+          <label for="groundReason" class="col-sm-3 col-form-label fw-bold text-end">Reason:</label>
+          <div class="col-sm-9">
+            <textarea id="groundReason" class="form-control" rows="4" placeholder="Details here..." required></textarea>
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="groundCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="groundBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="groundBBOutput" class="form-control" rows="18" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
     </div>
+  </div>
+</div>
 
 <script>
-   function setIncidentOutcome(outcome) {
-        document.getElementById("selectedOutcome").innerText = outcome;
-        document.getElementById("Aircraft1").value = outcome; // Store outcome for submission
-    }
-// Function to generate the expense report with the added items
-function createCertReport() {
-    const Pilot = $('#txtcertname').val();
-    const Date = $('#txtcertdate').val();
-    const Issuer = $('#txtcertiname').val();
-    const Rank = $('#txtcertirank').val();
-
-        const incidentOutcome = document.getElementById("Aircraft1").value || "No outcome selected";
-        const outcomeBB = incidentOutcome === "Rotary Wing"
-            ? "Rotary Wing"
-            : "Fixed Wing";
-
-
-
-    // Create the BBCode template
-    const CertTemplate = `[img]https://i.imgur.com/ZFpeXl3.png[/img][divbox=white]
-[img]https://i.imgur.com/3i8Bk3M.png[/img][aligntable=right,350,0,0,0,0,#FFFFFF][right][font=Arial][b]
-[size=140]San Andreas Aviation Administration[/size][/b][/font]
-[font=Times New Roman][size=150]Private Pilots License Certification[/size][/font][/right][/aligntable]
-[hr]
-[center][size=130][font=Windows Fonts][i]This is to certify that[/i][/font][/size]
-[font=Monotype Corsiva][size=200]${Pilot}[/size][/font]
-[font=Windows Fonts][i]Has met all the requirements of the San Andreas Aviation Administration regulations and, as appropriate, aeronautical knowledge, flight proficiency, experience, and flight training, and has been examined by a competent authority and has been found to be properly qualified to exercise the privileges of:[/i]
-[size=125][b]San Andreas Private Pilot[/b][/size]
-[size=115]${outcomeBB} Aircraft[/size]
-${Date}[/font][/center]
-[hr][/hr]
-[font=Windows Fonts][i]Certificate issued and approved by[/i][/font]
-[size=175][font=mistral]${Issuer}[/font][/size]
-[color=#091f62][size=100][b]${Rank} | San Andreas Aviation Administration[/b][/size][/color]
-[/divbox]
-[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
-
-    // Display the BBCode and copy it to clipboard
-    document.getElementById("displayCertReportBB").value = CertTemplate.trim();
-    document.querySelector("#displayCertReportBB").select();
-    document.execCommand('copy');
-
-    // Show success message
-    $('#copyCertReportSuccess').text('Copied to clipboard!');
+// Format date as DD/MMM/YYYY
+function formatDateDDMMMYYYY(dateStr) {
+  if (!dateStr) return '';
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const [year, month, day] = dateStr.split('-');
+  return `${day}/${months[parseInt(month, 10) - 1]}/${year}`;
 }
 
+(() => {
+  // Aircraft dynamic list
+  const addAircraftBtn = document.getElementById('addAircraftBtn');
+  const removeAircraftBtn = document.getElementById('removeAircraftBtn');
+  const aircraftInput = document.getElementById('aircraftInput');
+  const aircraftList = document.getElementById('aircraftList');
+
+  addAircraftBtn.addEventListener('click', () => {
+    const val = aircraftInput.value.trim();
+    if (!val) {
+      alert('Please enter Model - Tail Number.');
+      return;
+    }
+    const li = document.createElement('li');
+    li.className = 'list-group-item bg-light text-dark';
+    li.textContent = val;
+    aircraftList.appendChild(li);
+    aircraftInput.value = '';
+    aircraftInput.focus();
+  });
+
+  removeAircraftBtn.addEventListener('click', () => {
+    if (aircraftList.lastChild) aircraftList.removeChild(aircraftList.lastChild);
+  });
+
+  // Form submit
+  document.getElementById('groundingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const successMsg = document.getElementById('groundCopySuccess');
+    successMsg.textContent = '';
+
+    if (!this.checkValidity()) {
+      this.reportValidity();
+      return;
+    }
+
+    const official = document.getElementById('groundOfficial').value.trim();
+    const dateRaw = document.getElementById('groundDate').value;
+    const date = formatDateDDMMMYYYY(dateRaw);
+    const expireRaw = document.getElementById('groundExpire').value;
+    const expire = formatDateDDMMMYYYY(expireRaw);
+    const pilot = document.getElementById('pilotName').value.trim();
+    const proof = document.getElementById('proofEmail').value.trim();
+    const reason = document.getElementById('groundReason').value.trim();
+
+        const incidentOutcome = document.getElementById("Aircraft1").value || "No outcome selected";
+        const outcomeBB = incidentOutcome === "[color=#0040FF]Aircraft Investigation & Accident Prevention (AVAP)[/color]"
+            ? "[color=#0040FF]Aircraft Investigation & Accident Prevention (AVAP)[/color]"
+            : "[color=#0040BF]ATC Command[/color]";
+
+
+    let aircrafts = '';
+    aircraftList.querySelectorAll('li').forEach(li => {
+      aircrafts += `[*] ${li.textContent}\n`;
+    });
+
+    if (!aircrafts) {
+      alert('Please add at least one registered aircraft.');
+      return;
+    }
+
+    const bbcode = `[img]https://i.imgur.com/8855a1x.png[/img]
+[divbox=#091f62][b][color=white]Operator[/color][/b][/divbox]
+[divbox=white]
+[b]Official(s):[/b] ${official}
+
+[b]Department:[/b] ${incidentOutcome}
+[/divbox]
+[divbox=#091f62][b][color=white]Grounding Details[/color][/b][/divbox]
+[divbox=white]
+[b]Date of Issuance:[/b] ${date}
+
+[b]Expire Date:[/b] ${expire}
+[/divbox]
+[divbox=#091f62][b][color=white]Pilot[/color][/b][/divbox]
+[divbox=white]
+[b]Pilot Name:[/b] ${pilot}
+
+[b]Registered Aircraft(s):[/b]
+[list]
+${aircrafts}[/list]
+
+[b]Proof of Contact[/b]
+[spoiler=Email]
+${proof}
+[/spoiler]
+[/divbox]
+[divbox=#091f62][b][color=white]Reason[/color][/b][/divbox]
+[divbox=white]
+[center]
+[i]${reason}[/i]
+[/center]
+[/divbox]
+[img]https://i.imgur.com/C35Op4J.png[/img]`;
+
+    const outputArea = document.getElementById('groundBBOutput');
+    outputArea.value = bbcode.trim();
+    outputArea.focus();
+    outputArea.select();
+
+    try {
+      navigator.clipboard.writeText(bbcode).then(() => {
+        successMsg.textContent = 'Copied to clipboard!';
+      }, () => {
+        successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+      });
+    } catch {
+      successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+    }
+  });
+})();
 </script>
 
-
-    <div id="pilotp" class="container mt-3 myHideableSection">
-        <div class="card" style="background-color: #00008b; color: white;"> <!-- Set background color to #2c6a37 -->
-            <div class="card-body">
-<!-- Expense Form Fields -->
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Pilot Name:</div>
-    <div class="col-md-10">
-        <input type="text" id="txtprofname" class="form-control" style="width: 600px" />
+<div id="incidentReport" class="container mt-3 myHideableSection" style="max-width: 800px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #001f4d, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>Operator/Aircraft Incident Report Generator</h4>
     </div>
+    <div class="card-body">
+      <form id="incidentForm" autocomplete="off" novalidate>
+        <!-- Operator(s) -->
+        <div class="mb-3 row align-items-center">
+          <label for="operatorNames" class="col-sm-3 col-form-label fw-bold text-end">Operator(s):</label>
+          <div class="col-sm-9">
+            <input type="text" id="operatorNames3" class="form-control" placeholder="Operator(s) on duty" required />
+            <small class="form-text text-light">If more than one operator is on duty, state their names.</small>
+          </div>
+        </div>
+        <!-- Grounded -->
+        <div class="mb-3 row align-items-center">
+          <label class="col-sm-3 col-form-label fw-bold text-end">Grounded:</label>
+          <div class="col-sm-9 d-flex gap-3">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="groundedStatus" id="groundedYes" value="YES" required>
+              <label class="form-check-label" for="groundedYes" style="color:#FF0000;font-weight:bold;">YES</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="groundedStatus" id="groundedNo" value="NO" required>
+              <label class="form-check-label" for="groundedNo" style="color:#00FF00;font-weight:bold;">NO</label>
+            </div>
+          </div>
+        </div>
+        <!-- Shift Log Link -->
+        <div class="mb-3 row align-items-center">
+          <label for="shiftLogLink3" class="col-sm-3 col-form-label fw-bold text-end">Shift Log Link:</label>
+          <div class="col-sm-9">
+            <input type="url" id="shiftLogLink3" class="form-control" placeholder="https://example.com/shiftlog" required />
+            <input type="text" id="shiftLogNum3" class="form-control mt-2" placeholder="ATC Shift Log #XXXX" required />
+          </div>
+        </div>
+        <!-- Time of Incident -->
+        <div class="mb-3 row align-items-center">
+          <label for="incidentTime3" class="col-sm-3 col-form-label fw-bold text-end">Time of Incident (UTC):</label>
+          <div class="col-sm-9">
+            <input type="text" id="incidentTime3" class="form-control" required />
+          </div>
+        </div>
+        <!-- Tail Numbers -->
+        <fieldset class="mb-4">
+          <legend class="fw-bold">Tail Number(s)</legend>
+          <div class="input-group mb-2">
+            <input type="text" id="tailInput" class="form-control" placeholder="Tail Number" />
+            <button type="button" id="addTailBtn" class="btn btn-primary">Add Tail Number</button>
+          </div>
+          <ul id="tailList" class="list-group list-group-flush" style="max-height: 100px; overflow-y: auto;"></ul>
+          <button type="button" id="removeTailBtn" class="btn btn-danger mt-2">Remove Last Tail</button>
+        </fieldset>
+        <!-- Pilots -->
+        <fieldset class="mb-4">
+          <legend class="fw-bold">Pilot(s)</legend>
+          <div class="input-group mb-2">
+            <input type="text" id="pilotInput" class="form-control" placeholder="Fname Lname" />
+            <button type="button" id="addPilotBtn" class="btn btn-primary">Add Pilot</button>
+          </div>
+          <ul id="pilotList" class="list-group list-group-flush" style="max-height: 100px; overflow-y: auto;"></ul>
+          <button type="button" id="removePilotBtn" class="btn btn-danger mt-2">Remove Last Pilot</button>
+        </fieldset>
+        <!-- Reason -->
+        <div class="mb-3 row align-items-center">
+          <label for="reasonDetails3" class="col-sm-3 col-form-label fw-bold text-end">Reason Details:</label>
+          <div class="col-sm-9">
+            <textarea id="reasonDetails3" class="form-control" rows="3" placeholder="Details here..." required></textarea>
+          </div>
+        </div>
+        <!-- Evidence -->
+        <div class="mb-3 row align-items-center">
+          <label for="evidenceDetails3" class="col-sm-3 col-form-label fw-bold text-end">Evidence/Bodycam:</label>
+          <div class="col-sm-9">
+            <textarea id="evidenceDetails3" class="form-control" rows="3" placeholder="Evidence/Bodycam details..." required></textarea>
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="bodycamProof3" class="col-sm-3 col-form-label fw-bold text-end">Proof of Bodycam RP:</label>
+          <div class="col-sm-9">
+            <textarea id="bodycamProof3" class="form-control" rows="2" placeholder="Paste bodycam RP proof here..."></textarea>
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="incident3CopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="incident3BBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="incident3BBOutput" class="form-control" rows="28" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 
-                <div class="row mb-2">
-                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Pilot Certification: ([highlight=yellow] [/highlight] )</div>
-                    <div class="col-md-10">
-                        <textarea id="txtpilotc" class="form-control" style="width: 600px" rows="5">[ ]Private Pilot - Fixed Wing | Rotary Wing
-[ ]Instructor - Fixed Wing | Rotary Wing
-[ ]Commercial Pilot - Fixed Wing | Rotary Wing</textarea></div>
-                </div>
+<script>
+(() => {
+  // Tail Numbers
+  const addTailBtn = document.getElementById('addTailBtn');
+  const removeTailBtn = document.getElementById('removeTailBtn');
+  const tailInput = document.getElementById('tailInput');
+  const tailList = document.getElementById('tailList');
+  addTailBtn.addEventListener('click', () => {
+    const val = tailInput.value.trim();
+    if (!val) { alert('Please enter a tail number.'); return; }
+    const li = document.createElement('li');
+    li.className = 'list-group-item bg-light text-dark';
+    li.textContent = val;
+    tailList.appendChild(li);
+    tailInput.value = '';
+    tailInput.focus();
+  });
+  removeTailBtn.addEventListener('click', () => {
+    if (tailList.lastChild) tailList.removeChild(tailList.lastChild);
+  });
 
- <div class="row mb-2">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-10">
-                        <button type="button" id="btnCopy" onClick="createProfReport();" class="btn btn-success">
-                            Submit and copy to clipboard
-                        </button>
-                        <p id="copyProfReportSuccess"></p>
-                        <textarea id="displayProfReportBB" class="form-control" style="width: 600px"
-                            rows="10">BBCode will appear here</textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
+  // Pilots
+  const addPilotBtn = document.getElementById('addPilotBtn');
+  const removePilotBtn = document.getElementById('removePilotBtn');
+  const pilotInput = document.getElementById('pilotInput');
+  const pilotList = document.getElementById('pilotList');
+  addPilotBtn.addEventListener('click', () => {
+    const val = pilotInput.value.trim();
+    if (!val) { alert('Please enter a pilot name.'); return; }
+    const li = document.createElement('li');
+    li.className = 'list-group-item bg-light text-dark';
+    li.textContent = val;
+    pilotList.appendChild(li);
+    pilotInput.value = '';
+    pilotInput.focus();
+  });
+  removePilotBtn.addEventListener('click', () => {
+    if (pilotList.lastChild) pilotList.removeChild(pilotList.lastChild);
+  });
+
+  // Form Submission
+  document.getElementById('incidentForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const successMsg = document.getElementById('incident3CopySuccess');
+    successMsg.textContent = '';
+
+    if (!this.checkValidity()) {
+      this.reportValidity();
+      return;
+    }
+
+    const operator = document.getElementById('operatorNames3').value.trim();
+    const grounded = document.querySelector('input[name="groundedStatus"]:checked').value;
+    const shiftLogLink = document.getElementById('shiftLogLink3').value.trim();
+    const shiftLogNum = document.getElementById('shiftLogNum3').value.trim();
+    const incidentTime = document.getElementById('incidentTime3').value.trim();
+
+    // Tail numbers and pilots
+    let tails = '', pilots = '';
+    tailList.querySelectorAll('li').forEach(li => { tails += `[*] ${li.textContent}\n`; });
+    pilotList.querySelectorAll('li').forEach(li => { pilots += `[*] ${li.textContent}\n`; });
+
+
+    const reasonDetails = document.getElementById('reasonDetails3').value.trim();
+    const evidenceDetails = document.getElementById('evidenceDetails3').value.trim();
+    const bodycamProof = document.getElementById('bodycamProof3').value.trim();
+
+    // BBCode output: Grounded line always closes color tags and highlights the selected status
+    const groundedBB = grounded === "YES"
+      ? "[color=#FF0000]YES[/color]/[color=#00FF00]NO[/color]"
+      : "[color=#FF0000]YES[/color]/[color=#00FF00]NO[/color]";
+
+    const bbcode3 = `[img]https://i.imgur.com/qpP3jP9.png[/img]
+[divbox=#091f62][b][color=white]Operator[/color][/b][/divbox]
+[divbox=white]
+[b]Operator(s):[/b] ${operator}
+[size=85]If more than one operator is on duty, state their names.[/size]
+
+[b]Grounded:[/b] ${grounded === "YES" ? "[color=#FF0000]YES[/color]" : "[color=#00FF00]NO[/color]"}
+
+[b]AVAP ping:[/b] [mention][@SAGOV] San Andreas Aviation Administration - Investigator[/mention]
+[/divbox]
+[divbox=#091f62][b][color=white]Shift Details[/color][/b][/divbox]
+[divbox=white]
+[b]Shift Log:[/b] [url=${shiftLogLink}][color=#0080FF]${shiftLogNum}[/color][/url]
+
+[b]Time of Incident:[/b] ${incidentTime} [ooc]UTC[/ooc]
+[/divbox]
+[divbox=#091f62][b][color=white]Aircraft[/color][/b][/divbox]
+[divbox=white]
+[b]Tail Number(s):[/b]
+[list]
+${tails}[/list]
+
+[b]Pilot(s):[/b]
+[list]
+${pilots}[/list]
+[/divbox]
+[divbox=#091f62][b][color=white]Reason[/color][/b][/divbox]
+[divbox=white]
+[center][b][u]REASON[/u][/b][/center]
+[divbox=white]
+[center]
+${reasonDetails}
+[/center]
+[/divbox]
+[center][b][u]EVIDENCE[/u][/b][/center]
+[divbox=white]
+[center]
+${evidenceDetails}
+[spoiler=((Proof of Bodycam RP))]
+${bodycamProof}
+[/spoiler]
+[/center]
+[/divbox]
+[/divbox]
+[img]https://i.imgur.com/C35Op4J.png[/img]`;
+
+    const outputArea = document.getElementById('incident3BBOutput');
+    outputArea.value = bbcode3.trim();
+    outputArea.focus();
+    outputArea.select();
+
+    try {
+      navigator.clipboard.writeText(bbcode3).then(() => {
+        successMsg.textContent = 'Copied to clipboard!';
+      }, () => {
+        successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+      });
+    } catch {
+      successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+    }
+  });
+})();
+</script>
+
+<div id="atcIncidentReport" class="container mt-3 myHideableSection" style="max-width: 800px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #001f4d, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>ATC Incident Report Generator</h4>
     </div>
+    <div class="card-body">
+      <form id="atcIncidentForm" autocomplete="off" novalidate>
+        <!-- Operator(s) -->
+        <div class="mb-3 row align-items-center">
+          <label for="operatorNames" class="col-sm-3 col-form-label fw-bold text-end">Operator(s):</label>
+          <div class="col-sm-9">
+            <input type="text" id="operatorNames2" class="form-control" placeholder="Operator(s) on duty" required />
+            <small class="form-text text-light">If more operators on duty, state their names.</small>
+          </div>
+        </div>
+        <!-- Shift Log Link -->
+        <div class="mb-3 row align-items-center">
+          <label for="shiftLogLink" class="col-sm-3 col-form-label fw-bold text-end">Shift Log Link:</label>
+          <div class="col-sm-9">
+            <input type="url" id="shiftLogLink2" class="form-control" placeholder="https://example.com/shiftlog" required />
+            <input type="text" id="shiftLogNum2" class="form-control mt-2" placeholder="ATC Shift Log #XXXX" required />
+          </div>
+        </div>
+        <!-- Time of Incident -->
+        <div class="mb-3 row align-items-center">
+          <label for="incidentTime2" class="col-sm-3 col-form-label fw-bold text-end">Time of Incident (UTC):</label>
+          <div class="col-sm-9">
+            <input type="text" id="incidentTime2" class="form-control" required />
+          </div>
+        </div>
+        <!-- Aircraft Details -->
+        <div class="mb-3 row align-items-center">
+          <label for="callsign2" class="col-sm-3 col-form-label fw-bold text-end">Callsign:</label>
+          <div class="col-sm-9">
+            <input type="text" id="callsign2" class="form-control" placeholder="Aircraft Callsign" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="pilotName2" class="col-sm-3 col-form-label fw-bold text-end">Pilot:</label>
+          <div class="col-sm-9">
+            <input type="text" id="pilotName2" class="form-control" placeholder="Pilot Name" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="priority" class="col-sm-3 col-form-label fw-bold text-end">Priority:</label>
+          <div class="col-sm-9">
+            <input type="text" id="priority2" class="form-control" placeholder="Priority" required />
+          </div>
+        </div>
+        <!-- Reason -->
+        <div class="mb-3 row align-items-center">
+          <label for="reasonDetails2" class="col-sm-3 col-form-label fw-bold text-end">Reason Details:</label>
+          <div class="col-sm-9">
+            <textarea id="reasonDetails2" class="form-control" rows="3" placeholder="Details here..." required></textarea>
+          </div>
+        </div>
+        <!-- Evidence -->
+        <div class="mb-3 row align-items-center">
+          <label for="evidenceDetails2" class="col-sm-3 col-form-label fw-bold text-end">Evidence/Bodycam:</label>
+          <div class="col-sm-9">
+            <textarea id="evidenceDetails2" class="form-control" rows="3" placeholder="Evidence/Bodycam details..." required></textarea>
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="bodycamProof2" class="col-sm-3 col-form-label fw-bold text-end">Proof of Bodycam RP:</label>
+          <div class="col-sm-9">
+            <textarea id="bodycamProof2" class="form-control" rows="2" placeholder="Paste bodycam RP proof here..."></textarea>
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="incident2CopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="incident2BBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="incident2BBOutput" class="form-control" rows="28" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 <script>
+(() => {
+  document.getElementById('atcIncidentForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const successMsg = document.getElementById('incident2CopySuccess');
+    successMsg.textContent = '';
 
-// Function to generate the expense report with the added items
-function createProfReport() {
-    const Pilot = $('#txtprofname').val();
-    const Details = $('#txtpilotc').val();
+    if (!this.checkValidity()) {
+      this.reportValidity();
+      return;
+    }
+
+    const operator = document.getElementById('operatorNames').value.trim();
+    const shiftLogLink = document.getElementById('shiftLogLink2').value.trim();
+    const shiftLogNum = document.getElementById('shiftLogNum2').value.trim();
+    const incidentTime = document.getElementById('incidentTime2').value.trim();
+    const callsign = document.getElementById('callsign2').value.trim();
+    const pilotName = document.getElementById('pilotName2').value.trim();
+    const priority = document.getElementById('priority2').value.trim();
+    const reasonDetails = document.getElementById('reasonDetails2').value.trim();
+    const evidenceDetails = document.getElementById('evidenceDetails2').value.trim();
+    const bodycamProof = document.getElementById('bodycamProof2').value.trim();
+
+    const bbcode2 = `[img]https://i.imgur.com/b3SHXlO.png[/img]
+[divbox=#091f62][b][color=white]Operator[/color][/b][/divbox]
+[divbox=white]
+[b]Operator(s):[/b] ${operator}
+[size=85]If more operators on duty, state their names.[/size]
+
+[b]AVAP Mention:[/b] [mention][@SAGOV] San Andreas Aviation Administration - Investigator[/mention]
+[/divbox]
+[divbox=#091f62][b][color=white]Shift Details[/color][/b][/divbox]
+[divbox=white]
+[b]Shift Log:[/b] [url=${shiftLogLink}][color=#0080FF]${shiftLogNum}[/color][/url]
+
+[b]Time of Incident:[/b] ${incidentTime} [ooc]UTC[/ooc]
+[/divbox]
+[divbox=#091f62][b][color=white]Aircraft[/color][/b][/divbox]
+[divbox=white]
+[b]Callsign:[/b] ${callsign}
+
+[b]Pilot:[/b] ${pilotName}
+
+[b]Priority:[/b] ${priority}
+[/divbox]
+[divbox=#091f62][b][color=white]Reason[/color][/b][/divbox]
+[divbox=white]
+[center][b][u]REASON[/u][/b][/center]
+[divbox=white]
+[center]
+${reasonDetails}
+[/center]
+[/divbox]
+[center][b][u]EVIDENCE[/u][/b][/center]
+[divbox=white]
+[center]
+${evidenceDetails}
+[spoiler=((Proof of Bodycam RP))]
+${bodycamProof}
+[/spoiler]
+[/center]
+[/divbox]
+[/divbox]
+[img]https://i.imgur.com/C35Op4J.png[/img]`;
+
+    const outputArea = document.getElementById('incident2BBOutput');
+    outputArea.value = bbcode2.trim();
+    outputArea.focus();
+    outputArea.select();
+
+    try {
+      navigator.clipboard.writeText(bbcode2).then(() => {
+        successMsg.textContent = 'Copied to clipboard!';
+      }, () => {
+        successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+      });
+    } catch {
+      successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+    }
+  });
+})();
+</script>
+
+<div id="flightInfoGen" class="container mt-3 myHideableSection" style="max-width: 700px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>Flight Information Report Generator</h4>
+    </div>
+    <div class="card-body">
+      <form id="flightInfoForm" autocomplete="off" novalidate>
+        <!-- Date -->
+        <div class="mb-3 row align-items-center">
+          <label for="flightDate" class="col-sm-4 col-form-label fw-bold text-end">Date:</label>
+          <div class="col-sm-8">
+            <input type="date" id="flightDate" class="form-control" required />
+          </div>
+        </div>
+        <!-- Aircraft Tail Number or Callsign -->
+        <div class="mb-3 row align-items-center">
+          <label for="tailNumber" class="col-sm-4 col-form-label fw-bold text-end">Aircraft Tail Number or Callsign:</label>
+          <div class="col-sm-8">
+            <input type="text" id="tailNumber" class="form-control" required />
+          </div>
+        </div>
+        <!-- Passenger List -->
+        <div class="mb-3 row align-items-center">
+          <label for="passengerList" class="col-sm-4 col-form-label fw-bold text-end">Passenger List:</label>
+          <div class="col-sm-8">
+            <input type="text" id="passengerList" class="form-control" required />
+          </div>
+        </div>
+        <!-- Departure Time -->
+        <div class="mb-3 row align-items-center">
+          <label for="departureTime" class="col-sm-4 col-form-label fw-bold text-end">Departure Time (UTC):</label>
+          <div class="col-sm-8">
+            <input type="text" id="departureTime" class="form-control" required />
+          </div>
+        </div>
+        <!-- Departure Location -->
+        <div class="mb-3 row align-items-center">
+          <label for="departureLocation" class="col-sm-4 col-form-label fw-bold text-end">Departure Location:</label>
+          <div class="col-sm-8">
+            <input type="text" id="departureLocation" class="form-control" required />
+          </div>
+        </div>
+        <!-- Intermittent Locations -->
+        <div class="mb-3 row align-items-center">
+          <label for="intermittentLocations" class="col-sm-4 col-form-label fw-bold text-end">Intermittent Locations:</label>
+          <div class="col-sm-8">
+            <input type="text" id="intermittentLocations" class="form-control" required />
+          </div>
+        </div>
+        <!-- Arrival Location -->
+        <div class="mb-3 row align-items-center">
+          <label for="arrivalLocation" class="col-sm-4 col-form-label fw-bold text-end">Arrival Location:</label>
+          <div class="col-sm-8">
+            <input type="text" id="arrivalLocation" class="form-control" required />
+          </div>
+        </div>
+        <!-- Cruise Altitude -->
+        <div class="mb-3 row align-items-center">
+          <label for="cruiseAltitude" class="col-sm-4 col-form-label fw-bold text-end">Cruise Altitude (Feet):</label>
+          <div class="col-sm-8">
+            <input type="text" id="cruiseAltitude" class="form-control" required />
+          </div>
+        </div>
+        <!-- Total Flight Time -->
+        <div class="mb-3 row align-items-center">
+          <label for="flightTime" class="col-sm-4 col-form-label fw-bold text-end">Total Flight Time:</label>
+          <div class="col-sm-8">
+            <input type="text" id="flightTime" class="form-control" placeholder="e.g. 90 Minutes or 1.5 Hours" required />
+          </div>
+        </div>
+        <!-- Emergency Reported -->
+        <div class="mb-3 row align-items-center">
+          <label class="col-sm-4 col-form-label fw-bold text-end">Emergency Reported:</label>
+          <div class="col-sm-8 d-flex gap-3">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="emergency" id="emergencyYes" value="Yes" required>
+              <label class="form-check-label" for="emergencyYes">Yes</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="emergency" id="emergencyNo" value="No" required>
+              <label class="form-check-label" for="emergencyNo">No</label>
+            </div>
+          </div>
+        </div>
+        <!-- Emergency Section -->
+        <div id="emergencySection" style="display:none;">
+          <div class="mb-3 row align-items-center">
+            <label for="emergencyType" class="col-sm-4 col-form-label fw-bold text-end">Type Of Emergency:</label>
+            <div class="col-sm-8">
+              <input type="text" id="emergencyType" class="form-control" placeholder="e.g. Engine Failure, Fuel Leak" />
+            </div>
+          </div>
+          <div class="mb-3 row align-items-center">
+            <label for="emergencyLocation" class="col-sm-4 col-form-label fw-bold text-end">Estimate Location Of Emergency Occurrence:</label>
+            <div class="col-sm-8">
+              <input type="text" id="emergencyLocation" class="form-control" />
+            </div>
+          </div>
+          <div class="mb-3 row align-items-center">
+            <label for="emergencyExplanation" class="col-sm-4 col-form-label fw-bold text-end">Short Explanation:</label>
+            <div class="col-sm-8">
+              <textarea id="emergencyExplanation" class="form-control" rows="2"></textarea>
+            </div>
+          </div>
+          <div class="mb-3 row align-items-center">
+            <label for="incidentAttachment" class="col-sm-4 col-form-label fw-bold text-end">Attach Incident Report (URL):</label>
+            <div class="col-sm-8">
+              <input type="text" id="incidentAttachment" class="form-control" placeholder="https://..." />
+            </div>
+          </div>
+        </div>
+        <!-- Signature -->
+        <div class="mb-3 row align-items-center">
+          <label for="signatureName" class="col-sm-4 col-form-label fw-bold text-end">Signature Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="signatureName" class="form-control" required />
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="flightCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="flightBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="flightBBOutput" class="form-control" rows="22" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+function formatDateDDMMMYYYY(dateStr) {
+  if (!dateStr) return '';
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const [year, month, day] = dateStr.split('-');
+  return `${day}/${months[parseInt(month, 10) - 1]}/${year}`;
+}
+
+// Show/hide emergency section
+document.querySelectorAll('input[name="emergency"]').forEach(radio => {
+  radio.addEventListener('change', function() {
+    document.getElementById('emergencySection').style.display =
+      this.value === 'Yes' ? 'block' : 'none';
+  });
+});
+
+document.getElementById('flightInfoForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successMsg = document.getElementById('flightCopySuccess');
+  successMsg.textContent = '';
+
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+
+  const dateRaw = document.getElementById('flightDate').value;
+  const date = formatDateDDMMMYYYY(dateRaw);
+  const tailNumber = document.getElementById('tailNumber').value.trim();
+  const passengerList = document.getElementById('passengerList').value.trim();
+  const departureTime = document.getElementById('departureTime').value.trim();
+  const departureLocation = document.getElementById('departureLocation').value.trim();
+  const intermittentLocations = document.getElementById('intermittentLocations').value.trim();
+  const arrivalLocation = document.getElementById('arrivalLocation').value.trim();
+  const cruiseAltitude = document.getElementById('cruiseAltitude').value.trim();
+  const flightTime = document.getElementById('flightTime').value.trim();
+  const emergency = document.querySelector('input[name="emergency"]:checked').value;
+  const signatureName = document.getElementById('signatureName').value.trim();
+
+  // Emergency fields
+  let emergencySection = '';
+  if (emergency === 'Yes') {
+    const emergencyType = document.getElementById('emergencyType').value.trim();
+    const emergencyLocation = document.getElementById('emergencyLocation').value.trim();
+    const emergencyExplanation = document.getElementById('emergencyExplanation').value.trim();
+    const incidentAttachment = document.getElementById('incidentAttachment').value.trim();
+    emergencySection = `
+[center][color=#BF0000][size=85][b]ONLY FILL THIS SECTION IF AN EMERGENCY HAPPENED[/b][/size][/color][/center]
+
+[b]Type Of Emergency (e.g Engine Failure, Fuel Leak):[/b] ${emergencyType}
+
+[b]Estimate Location Of Emergency Occurrence:[/b] ${emergencyLocation}
+
+[b]Short Explanation:[/b] ${emergencyExplanation}
+
+[b]Attach Incident Report:[/b] [url=${incidentAttachment}]**ATTACHMENT**[/url]`;
+  } else {
+    emergencySection = `
+[center][color=#BF0000][size=85][b]ONLY FILL THIS SECTION IF AN EMERGENCY HAPPENED[/b][/size][/color][/center]
+
+[b]Type Of Emergency (e.g Engine Failure, Fuel Leak):[/b]
+
+[b]Estimate Location Of Emergency Occurrence:[/b]
+
+[b]Short Explanation:[/b]
+
+[b]Attach Incident Report:[/b] [url=]**ATTACHMENT**[/url]`;
+  }
+
+  const bbcode = `[img]https://i.imgur.com/IXMSWjH.png[/img]
+[divbox=#091f62][b][color=white]1. FLIGHT INFORMATION[/color][/b][/divbox]
+[divbox=white]
+[list=none]
+[b]Date:[/b] ${date}
+
+[b]Aircraft Tail Number or Callsign:[/b] ${tailNumber}
+
+[b]Passenger List:[/b] ${passengerList}
+
+[b]Departure Time:[/b] ${departureTime} [ooc] UTC [/ooc]
+
+[b]Departure Location:[/b] ${departureLocation}
+
+[b]Intermittent Locations:[/b] ${intermittentLocations}
+
+[b]Arrival Location:[/b] ${arrivalLocation}
+
+[b]Cruise Altitude:[/b] ${cruiseAltitude} Feet
+
+[b]Total Flight Time:[/b] ${flightTime}
+
+[b]Emergency Reported:[/b] ${emergency}
+[hr][/hr]
+${emergencySection}
+[hr][/hr]
+[center][b]Signature:[/b]
+[i] ${signatureName} [/i]
+[hr][/hr]
+[i][color=#FF0000][size=85]By submitting this form, I certify under penalty of law the above information is correct and accurate to the best of my knowledge.[/size][/color][/i][/center]`;
+
+  const outputArea = document.getElementById('flightBBOutput');
+  outputArea.value = bbcode.trim();
+  outputArea.focus();
+  outputArea.select();
+
+  try {
+    navigator.clipboard.writeText(bbcode).then(() => {
+      successMsg.textContent = 'Copied to clipboard!';
+    }, () => {
+      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+    });
+  } catch {
+    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+  }
+});
+</script>
+
+<div id="pilotCertGen" class="container mt-3 myHideableSection" style="max-width: 700px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>Pilot Certification Log Generator</h4>
+    </div>
+    <div class="card-body">
+      <form id="pilotCertForm" autocomplete="off" novalidate>
+        <!-- Pilot Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="pilotName" class="col-sm-4 col-form-label fw-bold text-end">Pilot Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="pilotName" class="form-control" required />
+          </div>
+        </div>
+        <!-- License Standing -->
+        <div class="mb-3 row align-items-center">
+          <label class="col-sm-4 col-form-label fw-bold text-end">License Standing:</label>
+          <div class="col-sm-8 d-flex gap-3">
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="licenseStanding" id="standingGood" value="GOOD" required>
+              <label class="form-check-label" for="standingGood">GOOD</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="licenseStanding" id="standingSuspended" value="SUSPENDED" required>
+              <label class="form-check-label" for="standingSuspended">SUSPENDED</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="licenseStanding" id="standingRevoked" value="REVOKED" required>
+              <label class="form-check-label" for="standingRevoked">REVOKED</label>
+            </div>
+          </div>
+        </div>
+        <!-- Certifications -->
+        <fieldset class="mb-4">
+          <legend class="fw-bold">Current Certifications</legend>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" id="certPrivate" checked>
+            <label class="form-check-label" for="certPrivate">
+              Private Pilot -
+            </label>
+            <span class="ms-2">
+              <input type="radio" id="privateFixed" name="privateType" value="Fixed Wing" checked>
+              <label for="privateFixed" class="me-2">Fixed Wing</label>
+              <input type="radio" id="privateRotary" name="privateType" value="Rotary Wing">
+              <label for="privateRotary">Rotary Wing</label>
+            </span>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" id="certInstructor">
+            <label class="form-check-label" for="certInstructor">
+              Instructor -
+            </label>
+            <span class="ms-2">
+              <input type="checkbox" id="instructorFixed" name="instructorType" value="Fixed Wing">
+              <label for="instructorFixed" class="me-2">Fixed Wing</label>
+              <input type="checkbox" id="instructorRotary" name="instructorType" value="Rotary Wing">
+              <label for="instructorRotary">Rotary Wing</label>
+            </span>
+          </div>
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="checkbox" id="certCommercial">
+            <label class="form-check-label" for="certCommercial">
+              Commercial Pilot -
+            </label>
+            <span class="ms-2">
+              <input type="checkbox" id="commercialFixed" name="commercialType" value="Fixed Wing">
+              <label for="commercialFixed" class="me-2">Fixed Wing</label>
+              <input type="checkbox" id="commercialRotary" name="commercialType" value="Rotary Wing">
+              <label for="commercialRotary">Rotary Wing</label>
+            </span>
+          </div>
+        </fieldset>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="pilotCertCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="pilotCertBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="pilotCertBBOutput" class="form-control" rows="18" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById('pilotCertForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successMsg = document.getElementById('pilotCertCopySuccess');
+  successMsg.textContent = '';
+
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+
+  const pilotName = document.getElementById('pilotName').value.trim();
+  const standing = document.querySelector('input[name="licenseStanding"]:checked').value;
+
+  // License standing BBCode
+  let standingBB = '';
+  if (standing === "GOOD") {
+    standingBB = '[highlight=yellow]GOOD[/highlight] / [s]SUSPENDED[/s] / [s]REVOKED[/s]';
+  } else if (standing === "SUSPENDED") {
+    standingBB = '[s]GOOD[/s] / [highlight=yellow]SUSPENDED[/highlight] / [s]REVOKED[/s]';
+  } else {
+    standingBB = '[s]GOOD[/s] / [s]SUSPENDED[/s] / [highlight=yellow]REVOKED[/highlight]';
+  }
+
+  // Certifications BBCode
+  let certs = '';
+  // Private Pilot
+  if (document.getElementById('certPrivate').checked) {
+    const privateType = document.querySelector('input[name="privateType"]:checked').value;
+    certs += `[cbc] Private Pilot - ${privateType === "Fixed Wing" ? '[highlight=yellow]Fixed Wing[/highlight] | Rotary Wing' : '[s]Fixed Wing[/s] | [highlight=yellow]Rotary Wing[/highlight]'}\n`;
+  }
+  // Instructor
+  if (document.getElementById('certInstructor').checked) {
+    let types = [];
+    if (document.getElementById('instructorFixed').checked) types.push('[highlight=yellow]Fixed Wing[/highlight]');
+    else types.push('Fixed Wing');
+    if (document.getElementById('instructorRotary').checked) types.push('[highlight=yellow]Rotary Wing[/highlight]');
+    else types.push('Rotary Wing');
+    certs += `[cbc] Instructor - ${types.join(' | ')}\n`;
+  }
+  // Commercial
+  if (document.getElementById('certCommercial').checked) {
+    let types = [];
+    if (document.getElementById('commercialFixed').checked) types.push('[highlight=yellow]Fixed Wing[/highlight]');
+    else types.push('Fixed Wing');
+    if (document.getElementById('commercialRotary').checked) types.push('[highlight=yellow]Rotary Wing[/highlight]');
+    else types.push('Rotary Wing');
+    certs += `[cbc] Commercial Pilot - ${types.join(' | ')}\n`;
+  }
 
 
-    // Create the BBCode template
-    const ProfTemplate = `[img]https://i.imgur.com/nr0JzmM.png[/img]
+  const bbcode = `[img]https://i.imgur.com/oJGj1KQ.png[/img]
 
 [divbox=white]
 [list=none]
 
-[b]Pilot:[/b] ${Pilot}
+[b]Pilot:[/b] ${pilotName}
 
-[b]License Standing:[/b] [highlight=yellow]GOOD[/highlight] / [s]SUSPENDED[/s] / [s]REVOKED[/s]
+[b]License Standing:[/b] ${standingBB}
 
 [b]Current Certifications:[/b]
-${Details}
-
+${certs}
 [center][b]FLIGHT LOGS TO BE ATTACHED BY PILOT[/b]
 [i](REPLY WITH THE GIVEN FORMAT)[/i]
 
 [i][color=#BF0000][b]***NOTICE - Flight Logs must be filled within 24 hours of every flight under penalty of Law***[/b][/color][/i][/center]
 
 [spoiler=Live View]
-[img]https://i.imgur.com/nr0JzmM.png[/img]
+[img]https://i.imgur.com/oJGj1KQ.png[/img]
 [divbox=#091f62][b][color=white]1. FLIGHT INFORMATION[/color][/b][/divbox]
 [divbox=white]
 [list=none]
@@ -1022,7 +1651,7 @@ ${Details}
 [/spoiler]
 
 [code]
-[img]https://i.imgur.com/nr0JzmM.png[/img]
+[img]https://i.imgur.com/LR67YEG.png[/img]
 [divbox=#091f62][b][color=white]1. FLIGHT INFORMATION[/color][/b][/divbox]
 [divbox=white]
 [list=none]
@@ -1064,194 +1693,1709 @@ ${Details}
 [hr][/hr]
 [i][color=#FF0000][size=85]By submitting this form, I certify under penalty of law that the above information is correct and accurate to the best of my knowledge.[/size][/color][/i][/center]
 [/code]
+
+[/list]
 [/divbox]
 
 [img]https://i.imgur.com/ZFpeXl3.png[/img]`;
 
-    // Display the BBCode and copy it to clipboard
-    document.getElementById("displayProfReportBB").value = ProfTemplate.trim();
-    document.querySelector("#displayProfReportBB").select();
-    document.execCommand('copy');
+  const outputArea = document.getElementById('pilotCertBBOutput');
+  outputArea.value = bbcode.trim();
+  outputArea.focus();
+  outputArea.select();
 
-    // Show success message
-    $('#copyProfReportSuccess').text('Copied to clipboard!');
-}
-
+  try {
+    navigator.clipboard.writeText(bbcode).then(() => {
+      successMsg.textContent = 'Copied to clipboard!';
+    }, () => {
+      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+    });
+  } catch {
+    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+  }
+});
 </script>
 
 
-    <div id="atcground" class="container mt-3 myHideableSection">
-        <div class="card" style="background-color: #00008b; color: white;"> <!-- Set background color to #2c6a37 -->
-            <div class="card-body">
-<!-- Expense Form Fields -->
-<div class="row mb-2">
-    <div class="col-md-2" style="font-weight: bold; text-align: right;">Pilot Name:</div>
-    <div class="col-md-10">
-        <input type="text" id="txtprofname" class="form-control" style="width: 600px" />
+
+
+
+
+
+
+
+
+
+
+<!-- Bootstrap 5 CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+<div id="aviationSessionGen" class="container mt-3 myHideableSection" style="max-width: 900px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>[ROTARY] Flight Training Session 1</h4>
     </div>
+    <div class="card-body">
+      <form id="aviationSessionForm" autocomplete="off" novalidate>
+        <!-- Date & Session Hours -->
+        <div class="mb-3 row align-items-center">
+          <label for="sessionDate" class="col-sm-3 col-form-label fw-bold text-end">Date:</label>
+          <div class="col-sm-3">
+            <input type="date" id="sessionDate" class="form-control" required />
+          </div>
+          <label for="sessionStart" class="col-sm-3 col-form-label fw-bold text-end">Session Start (UTC):</label>
+          <div class="col-sm-3">
+            <input type="text" id="sessionStart" class="form-control" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="sessionEnd" class="col-sm-3 col-form-label fw-bold text-end">Session End (UTC):</label>
+          <div class="col-sm-3">
+            <input type="text" id="sessionEnd" class="form-control" required />
+          </div>
+        </div>
+
+        <!-- Aviation Guidelines -->
+        <div class="mb-3">
+          <div class="fw-bold mb-2">Aviation Guidelines</div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="altitude" /> <label class="form-check-label" for="altitude">Explained ALTITUDE</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="communication" /> <label class="form-check-label" for="communication">Explained COMMUNICATION</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="map" /> <label class="form-check-label" for="map">Explained MAP AND RESTRICTIONS</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="hazard" /> <label class="form-check-label" for="hazard">Explained HAZARDOUS AREAS</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="landingLoc" /> <label class="form-check-label" for="landingLoc">Explained LANDING LOCATIONS</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="emergencyLand" /> <label class="form-check-label" for="emergencyLand">Explained EMERGENCY LANDINGS</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="preflight" /> <label class="form-check-label" for="preflight">Explained PRE-FLIGHT INSPECTION</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="flightLogs" /> <label class="form-check-label" for="flightLogs">Explained FLIGHT LOGS AND REPORTS</label></div>
+        </div>
+
+        <!-- External Anatomy -->
+        <div class="mb-3">
+          <div class="fw-bold mb-2">External Anatomy</div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="mainRotor" /> <label class="form-check-label" for="mainRotor">Shown the location of the MAIN ROTOR and explained its use</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="tailRotor" /> <label class="form-check-label" for="tailRotor">Shown the location of the TAIL ROTOR and explained its use</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="engine" /> <label class="form-check-label" for="engine">Shown the location of the ENGINE and explained its use</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="landingGear" /> <label class="form-check-label" for="landingGear">Shown the location of the LANDING GEAR and explained its use</label></div>
+        </div>
+
+        <!-- Internal Anatomy -->
+        <div class="mb-3">
+          <div class="fw-bold mb-2">Internal Anatomy</div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="cyclic" /> <label class="form-check-label" for="cyclic">Explained the use of the CYCLIC</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="collective" /> <label class="form-check-label" for="collective">Explained the use of the COLLECTIVE</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="throttle" /> <label class="form-check-label" for="throttle">Explained the use of the THROTTLE</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="pedals" /> <label class="form-check-label" for="pedals">Explained the use of the PEDALS</label></div>
+        </div>
+
+        <!-- Flight Instrument Panel -->
+        <div class="mb-3">
+          <div class="fw-bold mb-2">Flight Instrument Panel</div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="airspeed" /> <label class="form-check-label" for="airspeed">Shown and explained what the AIRSPEED INDICATOR shows/does</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="altimeter" /> <label class="form-check-label" for="altimeter">Shown and explained what the ALTIMETER shows/does</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="horizon" /> <label class="form-check-label" for="horizon">Shown and explained what the ARTIFICIAL HORIZON shows/does</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="heading" /> <label class="form-check-label" for="heading">Shown and explained what the HEADING INDICATOR shows/does</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="verticalSpeed" /> <label class="form-check-label" for="verticalSpeed">Shown and explained what the VERTICAL SPEED INDICATOR shows/does</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="fuelGauge" /> <label class="form-check-label" for="fuelGauge">Shown and explained what the FUEL GAUGE shows/does</label></div>
+        </div>
+
+        <!-- Session Notes -->
+        <div class="mb-3">
+          <label for="sessionNotes" class="form-label fw-bold">Session Notes:</label>
+          <textarea id="sessionNotes" class="form-control" rows="3" required></textarea>
+        </div>
+
+        <!-- Overall Grade -->
+        <div class="mb-3">
+          <div class="fw-bold mb-2">Overall Grade</div>
+          <div class="mb-2">
+            <label class="fw-bold">General behaviour and attention span:</label>
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallBehavior">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+            <input type="text" class="form-control form-control-sm mt-1" id="overallBehaviorDetail" placeholder="Provide details here..." />
+          </div>
+          <div class="mb-2">
+            <label class="fw-bold">Ability to understand each component of an aircraft:</label>
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallComponents">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+            <input type="text" class="form-control form-control-sm mt-1" id="overallComponentsDetail" placeholder="Provide details here..." />
+          </div>
+          <div class="mb-2">
+            <label class="fw-bold">Answers to any of your questions:</label>
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallAnswers">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+            <input type="text" class="form-control form-control-sm mt-1" id="overallAnswersDetail" placeholder="Provide details here..." />
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="aviationSessionCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="aviationSessionBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="aviationSessionBBOutput" class="form-control" rows="30" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>
 
-                <div class="row mb-2">
-                    <div class="col-md-2" style="font-weight: bold; text-align: right;">Pilot Certification: ([highlight=yellow] [/highlight] )</div>
-                    <div class="col-md-10">
-                        <textarea id="txtpilotc" class="form-control" style="width: 600px" rows="5">[ ]Private Pilot - Fixed Wing | Rotary Wing
-[ ]Instructor - Fixed Wing | Rotary Wing
-[ ]Commercial Pilot - Fixed Wing | Rotary Wing</textarea></div>
-                </div>
-
- <div class="row mb-2">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-10">
-                        <button type="button" id="btnCopy" onClick="createProfReport();" class="btn btn-success">
-                            Submit and copy to clipboard
-                        </button>
-                        <p id="copyProfReportSuccess"></p>
-                        <textarea id="displayProfReportBB" class="form-control" style="width: 600px"
-                            rows="10">BBCode will appear here</textarea>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
 <script>
-
-// Function to generate the expense report with the added items
-function createProfReport() {
-    const Pilot = $('#txtprofname').val();
-    const Details = $('#txtpilotc').val();
-
-        let operatorList = document.querySelectorAll("#peopleList li");
-        let OperatorInvolved = "";
-        operatorList.forEach((officer) => {
-            officersInvolved += `[*] ${operator.textContent}\n`;
-        });
-
-    // Create the BBCode template
-    const ProfTemplate = `[img]https://i.imgur.com/8855a1x.png[/img]
-[divbox=#091f62][b][color=white]Operator[/color][/b][/divbox]
-[divbox=white]
-[b]Operator(s):[/b] 
-[size=85]If more operators on duty, state their names.[/size]
-[/divbox]
-[divbox=#091f62][b][color=white]Shift Details[/color][/b][/divbox]
-[divbox=white]
-[b]Shift Log:[/b] [url=SHIFTLOGLINK][color=#0080FF]ATC Shift Log #XXXX[/color][/url]
-
-[b]Time of Grounding:[/b] XX:XX [ooc]UTC[/ooc]
-[/divbox]
-[divbox=#091f62][b][color=white]Aircraft[/color][/b][/divbox]
-[divbox=white]
-[b]Tail Number(s):[/b]
-[list]
-[*] XXXXX
-[*] XXXXX
-[*] XXXXX
-[/list]
-
-[b]Pilot(s):[/b]
-[list]
-[*] Fname Lname
-[*] Fname Lname
-[*] Fname Lname
-[/list]
-[/divbox]
-[divbox=#091f62][b][color=white]Reason[/color][/b][/divbox]
-[divbox=white]
-[center]
-[i]Details Here[/i]
-[/center]
-[/divbox]
-[img]https://i.imgur.com/C35Op4J.png[/img]`;
-
-    // Display the BBCode and copy it to clipboard
-    document.getElementById("displayProfReportBB").value = ProfTemplate.trim();
-    document.querySelector("#displayProfReportBB").select();
-    document.execCommand('copy');
-
-    // Show success message
-    $('#copyProfReportSuccess').text('Copied to clipboard!');
+function formatDateDDMMMYYYY(dateStr) {
+  if (!dateStr) return '';
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const [year, month, day] = dateStr.split('-');
+  return `${day}/${months[parseInt(month, 10) - 1]}/${year}`;
 }
 
+document.getElementById('aviationSessionForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successMsg = document.getElementById('aviationSessionCopySuccess');
+  successMsg.textContent = '';
+
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+
+  const date = formatDateDDMMMYYYY(document.getElementById('sessionDate').value);
+  const start = document.getElementById('sessionStart').value;
+  const end = document.getElementById('sessionEnd').value;
+
+  // Helper for checkboxes
+  function cb(id) { return document.getElementById(id).checked ? '[x]' : '[ ]'; }
+
+  // Aviation Guidelines
+  const avGuidelines = [
+    `${cb('altitude')} Explained ALTITUDE`,
+    `${cb('communication')} Explained COMMUNICATION`,
+    `${cb('map')} Explained MAP AND RESTRICTIONS`,
+    `${cb('hazard')} Explained HAZARDOUS AREAS`,
+    `${cb('landingLoc')} Explained LANDING LOCATIONS`,
+    `${cb('emergencyLand')} Explained EMERGENCY LANDINGS`,
+    `${cb('preflight')} Explained PRE-FLIGHT INSPECTION`,
+    `${cb('flightLogs')} Explained FLIGHT LOGS AND REPORTS`
+  ].map(line => `[list]${line}[/list]`).join('\n');
+
+  // External Anatomy
+  const extAnatomy = [
+    `${cb('mainRotor')} Shown the location of the MAIN ROTOR and explained its use`,
+    `${cb('tailRotor')} Shown the location of the TAIL ROTOR and explained its use`,
+    `${cb('engine')} Shown the location of the ENGINE and explained its use`,
+    `${cb('landingGear')} Shown the location of the LANDING GEAR and explained its use`
+  ].map(line => `[list]${line}[/list]`).join('\n');
+
+  // Internal Anatomy
+  const intAnatomy = [
+    `${cb('cyclic')} Explained the use of the CYCLIC`,
+    `${cb('collective')} Explained the use of the COLLECTIVE`,
+    `${cb('throttle')} Explained the use of the THROTTLE`,
+    `${cb('pedals')} Explained the use of the PEDALS`
+  ].map(line => `[list]${line}[/list]`).join('\n');
+
+  // Flight Instrument Panel
+  const instrPanel = [
+    `${cb('airspeed')} Shown and explained what the AIRSPEED INDICATOR shows/does`,
+    `${cb('altimeter')} Shown and explained what the ALTIMETER shows/does`,
+    `${cb('horizon')} Shown and explained what the ARTIFICIAL HORIZON shows/does`,
+    `${cb('heading')} Shown and explained what the HEADING INDICATOR shows/does`,
+    `${cb('verticalSpeed')} Shown and explained what the VERTICAL SPEED INDICATOR shows/does`,
+    `${cb('fuelGauge')} Shown and explained what the FUEL GAUGE shows/does`
+  ].map(line => `[list]${line}[/list]`).join('\n');
+
+  // Session Notes
+  const sessionNotes = document.getElementById('sessionNotes').value;
+
+  // Overall Grade
+  const overallBehavior = document.getElementById('overallBehavior').value;
+  const overallBehaviorDetail = document.getElementById('overallBehaviorDetail').value;
+  const overallComponents = document.getElementById('overallComponents').value;
+  const overallComponentsDetail = document.getElementById('overallComponentsDetail').value;
+  const overallAnswers = document.getElementById('overallAnswers').value;
+  const overallAnswersDetail = document.getElementById('overallAnswersDetail').value;
+
+  const bbcode = `[img]https://i.imgur.com/uVXbAWs.png[/img]
+
+[divbox=white]
+Date: ${date}
+Session Hours ((Please use UTC: https://time.is/UTC )): ${start} > ${end}
+[/divbox]
+
+[divbox=#091f62][b][color=white]SESSION DETAILS[/color][/b][/divbox]
+[divbox=white]
+Go through the checklist below, and mark each section with a [ x ] once completed. (YOU MUST GO THROUGH ALL OF THEM)
+[/divbox]
+
+[divbox=#091f62][b][color=white]Aviation Guidelines[/color][/b][/divbox]
+[divbox=white]
+${avGuidelines}
+[/divbox]
+
+[divbox=#091f62][b][color=white]External Anatomy[/color][/b][/divbox]
+[divbox=white]
+${extAnatomy}
+[/divbox]
+
+[divbox=#091f62][b][color=white]Internal Anatomy[/color][/b][/divbox]
+[divbox=white]
+${intAnatomy}
+[/divbox]
+
+[divbox=#091f62][b][color=white]Flight Instrument Panel[/color][/b][/divbox]
+[divbox=white]
+${instrPanel}
+[/divbox]
+
+[divbox=#091f62][b][color=white]Session Notes[/color][/b][/divbox]
+[divbox=white]
+[i]${sessionNotes}[/i]
+[/divbox]
+
+[divbox=#091f62][b][color=white]Grade System[/color][/b][/divbox]
+[divbox=white]
+[size=125]■[/size] - [dropshadow=black][color=#FF0000]Below satisfactory performance.[/color][/dropshadow]
+[size=125]■■[/size] - [dropshadow=black][color=#FF8000]Needs some minor improvements.[/color][/dropshadow]
+[size=125]■■■[/size] - [dropshadow=black][color=#00FF00]Satisfactory. [/color][/dropshadow]
+[size=125]■■■■[/size] - [dropshadow=black][color=#00BF80]Outstanding, no room for improvements.[/color][/dropshadow]
+[size=125]■■■■■[/size] - [dropshadow=black][color=#008040]Extraordinary[/color][/dropshadow]
+
+[list]
+[*] The student's general behaviour and attention span: [ ${overallBehavior} ]
+[list]
+[*] ${overallBehaviorDetail}
+[/list]
+[*] The student's ability to understand each component of an aircraft : [ ${overallComponents} ]
+[list]
+[*] ${overallComponentsDetail}
+[/list]
+[*] The student's answers to any of your questions [ ${overallAnswers} ]
+[list]
+[*] ${overallAnswersDetail}
+[/list]
+[/divbox]
+`;
+
+  const outputArea = document.getElementById('aviationSessionBBOutput');
+  outputArea.value = bbcode.trim();
+  outputArea.focus();
+  outputArea.select();
+
+  try {
+    navigator.clipboard.writeText(bbcode).then(() => {
+      successMsg.textContent = 'Copied to clipboard!';
+    }, () => {
+      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+    });
+  } catch {
+    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+  }
+});
 </script>
 
 
 
+<div id="heliSessionGen" class="container mt-3 myHideableSection" style="max-width: 900px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>[ROTARY] Flight Training Session 2</h4>
+    </div>
+    <div class="card-body">
+      <form id="heliSessionForm" autocomplete="off" novalidate>
+        <!-- Date & Session Hours -->
+        <div class="mb-3 row align-items-center">
+          <label for="sessionDate" class="col-sm-3 col-form-label fw-bold text-end">Date:</label>
+          <div class="col-sm-3">
+            <input type="date" id="sessionDate" class="form-control" required />
+          </div>
+          <label for="sessionStart" class="col-sm-3 col-form-label fw-bold text-end">Session Start (UTC):</label>
+          <div class="col-sm-3">
+            <input type="text" id="sessionStart" class="form-control" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="sessionEnd" class="col-sm-3 col-form-label fw-bold text-end">Session End (UTC):</label>
+          <div class="col-sm-3">
+            <input type="text" id="sessionEnd" class="form-control" required />
+          </div>
+        </div>
 
+        <!-- Session Details -->
+        <div class="mb-3">
+          <div class="fw-bold mb-2">Theory Session Checklist</div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="cyclic" />
+            <label class="form-check-label" for="cyclic">The Instructor verifies student knowledge of the Cyclic, Collective, and Anti-Torque Pedals:</label>
+            <select class="form-select form-select-sm ms-2" id="gradeCyclic">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="gauges" />
+            <label class="form-check-label" for="gauges">The instructor verifies student knowledge of the primary gauges within the instrument panel.</label>
+          </div>
+          <div class="form-check mt-2">
+            <input type="checkbox" class="form-check-input" id="mockTaxi" />
+            <label class="form-check-label" for="mockTaxi">The instructor asks the student to make a mock ATC call for taxiing to a refuel station at LSIA:</label>
+            <select class="form-select form-select-sm ms-2" id="gradeMockTaxi">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+          </div>
+          <div class="mb-2 ms-4">
+            <small>Example: OFT-1RS to Tower, show me taxiing to LSIA fueling station.</small><br>
+            <input type="text" class="form-control form-control-sm mt-1" id="studentTaxiExample" placeholder="Student's Example" />
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="mockSandy" />
+            <label class="form-check-label" for="mockSandy">The instructor asks the student to make a mock ATC call for heading to Sandy Airfield from LSIA Helipad 1:</label>
+            <select class="form-select form-select-sm ms-2" id="gradeMockSandy">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+          </div>
+          <div class="mb-2 ms-4">
+            <small>Example: OFT-1RS to Tower, show me ascending to 1,500 feet above LSIA Helipad 1, heading Northbound to Sandy Airfield.</small><br>
+            <input type="text" class="form-control form-control-sm mt-1" id="studentSandyExample" placeholder="Student's Example" />
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="oocControls" />
+            <label class="form-check-label" for="oocControls">[ooc]The instructor goes over the student's OOC flight controls with them.[/ooc]</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="preflightCheck" />
+            <label class="form-check-label" for="preflightCheck">The instructor shows the student an example of a pre-flight check.</label>
+          </div>
+        </div>
+
+        <!-- Instructor's Flight -->
+        <div class="mb-3">
+          <div class="fw-bold mb-2">Instructor's Flight</div>
+          <div class="mb-2"><i>The instructor is to pilot the Aircraft. Bring the Aircraft to LSIA Helipad 1. The flight is to start and stop at LSIA Helipad 1.</i></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="instHover" /> <label class="form-check-label" for="instHover">Showed how to perform a hover above LSIA Helipad 1.</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="instShort" /> <label class="form-check-label" for="instShort">Showed how to perform short hops with the Frogger between the LSIA Helipads.</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="instHigh" /> <label class="form-check-label" for="instHigh">Showed how to perform high hops with the Frogger between the LSIA Helipads.</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="instLong" /> <label class="form-check-label" for="instLong">Showed how to fly to LSIA Runway 30R and perform a long hop to LSIA Runway 30L.</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="instL" /> <label class="form-check-label" for="instL">Showed how to perform directional flight along the LSIA Runways in the shape of an L from start to finish.</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="instFinalHover" /> <label class="form-check-label" for="instFinalHover">Showed how to hover the Frogger above LSIA Helipad 1.</label></div>
+        </div>
+
+        <!-- Student's Flight -->
+        <div class="mb-3">
+          <div class="fw-bold mb-2">Student's Flight</div>
+          <div class="mb-2"><i>The instructor is to hand over controls of the Frogger to the Student and allow them to practice after being shown what to do.</i></div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="studHover" />
+            <label class="form-check-label" for="studHover">The student was able to perform a steady hover with the Frogger for a minute without error.</label>
+            <select class="form-select form-select-sm ms-2" id="gradeStudHover">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="studShort" />
+            <label class="form-check-label" for="studShort">The student performed short hops with the Frogger between LSIA Helipad 1, 2, and 3.</label>
+            <select class="form-select form-select-sm ms-2" id="gradeStudShort">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="studHigh" />
+            <label class="form-check-label" for="studHigh">The student performed high hops with the Frogger between LSIA Helipad 1 and 3.</label>
+            <select class="form-select form-select-sm ms-2" id="gradeStudHigh">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="studLong" />
+            <label class="form-check-label" for="studLong">The student flew to LSIA Runway 30R and was able to perform a long hop to LSIA Runway 30L.</label>
+            <select class="form-select form-select-sm ms-2" id="gradeStudLong">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="studL" />
+            <label class="form-check-label" for="studL">The student was able to perform directional flight along the LSIA Runways in the shape of an L from start to finish.</label>
+            <select class="form-select form-select-sm ms-2" id="gradeStudL">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Session Notes -->
+        <div class="mb-3">
+          <label for="sessionNotes" class="form-label fw-bold">Session Notes:</label>
+          <textarea id="sessionNotes" class="form-control" rows="3" required></textarea>
+        </div>
+
+        <!-- Overall Grade -->
+        <div class="mb-3">
+          <div class="fw-bold mb-2">Overall Grade</div>
+          <div class="mb-2">
+            <label class="fw-bold">General behavior and attention span:</label>
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallBehavior">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+            <input type="text" class="form-control form-control-sm mt-1" id="overallBehaviorDetail" placeholder="Provide details here..." />
+          </div>
+          <div class="mb-2">
+            <label class="fw-bold">Ability to perform a take-off:</label>
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallTakeoff">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+            <input type="text" class="form-control form-control-sm mt-1" id="overallTakeoffDetail" placeholder="Provide details here..." />
+          </div>
+          <div class="mb-2">
+            <label class="fw-bold">Ability to perform directional flight:</label>
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallDirectional">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+            <input type="text" class="form-control form-control-sm mt-1" id="overallDirectionalDetail" placeholder="Provide details here..." />
+          </div>
+          <div class="mb-2">
+            <label class="fw-bold">Ability to conduct an approach and landing:</label>
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallLanding">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+            <input type="text" class="form-control form-control-sm mt-1" id="overallLandingDetail" placeholder="Provide details here..." />
+          </div>
+          <div class="mb-2">
+            <label class="fw-bold">Proceed to next session?</label>
+            <input type="text" class="form-control form-control-sm mt-1" id="overallNextDetail" placeholder="Provide details here..." />
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="heliSessionCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="heliSessionBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="heliSessionBBOutput" class="form-control" rows="30" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 <script>
-    document.getElementById("btnAdd").addEventListener("click", function () {
-        let inputField = document.getElementById("txtWork");
-        let inputValue = inputField.value.trim();
-        if (inputValue !== "") {
-            let listItem = document.createElement("li");
-            listItem.textContent = inputValue;
-            document.getElementById("peopleList").appendChild(listItem);
-            inputField.value = ""; // Clear input field
-        }
-    });
+function formatDateDDMMMYYYY(dateStr) {
+  if (!dateStr) return '';
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const [year, month, day] = dateStr.split('-');
+  return `${day}/${months[parseInt(month, 10) - 1]}/${year}`;
+}
 
-    document.getElementById("btnRemove").addEventListener("click", function () {
-        let list = document.getElementById("peopleList");
-        if (list.lastChild) {
-            list.removeChild(list.lastChild);
-        }
+document.getElementById('heliSessionForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successMsg = document.getElementById('heliSessionCopySuccess');
+  successMsg.textContent = '';
+
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+
+  const date = formatDateDDMMMYYYY(document.getElementById('sessionDate').value);
+  const start = document.getElementById('sessionStart').value;
+  const end = document.getElementById('sessionEnd').value;
+
+  // Theory Session
+  const cyclic = document.getElementById('cyclic').checked ? '[x]' : '[ ]';
+  const gradeCyclic = document.getElementById('gradeCyclic').value;
+  const gauges = document.getElementById('gauges').checked ? '[x]' : '[ ]';
+  const mockTaxi = document.getElementById('mockTaxi').checked ? '[x]' : '[ ]';
+  const gradeMockTaxi = document.getElementById('gradeMockTaxi').value;
+  const studentTaxiExample = document.getElementById('studentTaxiExample').value;
+  const mockSandy = document.getElementById('mockSandy').checked ? '[x]' : '[ ]';
+  const gradeMockSandy = document.getElementById('gradeMockSandy').value;
+  const studentSandyExample = document.getElementById('studentSandyExample').value;
+  const oocControls = document.getElementById('oocControls').checked ? '[x]' : '[ ]';
+  const preflightCheck = document.getElementById('preflightCheck').checked ? '[x]' : '[ ]';
+
+  // Instructor's Flight
+  const instHover = document.getElementById('instHover').checked ? '[x]' : '[ ]';
+  const instShort = document.getElementById('instShort').checked ? '[x]' : '[ ]';
+  const instHigh = document.getElementById('instHigh').checked ? '[x]' : '[ ]';
+  const instLong = document.getElementById('instLong').checked ? '[x]' : '[ ]';
+  const instL = document.getElementById('instL').checked ? '[x]' : '[ ]';
+  const instFinalHover = document.getElementById('instFinalHover').checked ? '[x]' : '[ ]';
+
+  // Student's Flight
+  const studHover = document.getElementById('studHover').checked ? '[x]' : '[ ]';
+  const gradeStudHover = document.getElementById('gradeStudHover').value;
+  const studShort = document.getElementById('studShort').checked ? '[x]' : '[ ]';
+  const gradeStudShort = document.getElementById('gradeStudShort').value;
+  const studHigh = document.getElementById('studHigh').checked ? '[x]' : '[ ]';
+  const gradeStudHigh = document.getElementById('gradeStudHigh').value;
+  const studLong = document.getElementById('studLong').checked ? '[x]' : '[ ]';
+  const gradeStudLong = document.getElementById('gradeStudLong').value;
+  const studL = document.getElementById('studL').checked ? '[x]' : '[ ]';
+  const gradeStudL = document.getElementById('gradeStudL').value;
+
+  // Session Notes
+  const sessionNotes = document.getElementById('sessionNotes').value;
+
+  // Overall Grade
+  const overallBehavior = document.getElementById('overallBehavior').value;
+  const overallBehaviorDetail = document.getElementById('overallBehaviorDetail').value;
+  const overallTakeoff = document.getElementById('overallTakeoff').value;
+  const overallTakeoffDetail = document.getElementById('overallTakeoffDetail').value;
+  const overallDirectional = document.getElementById('overallDirectional').value;
+  const overallDirectionalDetail = document.getElementById('overallDirectionalDetail').value;
+  const overallLanding = document.getElementById('overallLanding').value;
+  const overallLandingDetail = document.getElementById('overallLandingDetail').value;
+  const overallNextDetail = document.getElementById('overallNextDetail').value;
+
+  const bbcode = `[img]https://i.imgur.com/nL6pCmF.png[/img]
+[divbox=white]
+Date: ${date}
+Session Hours ((Please use UTC: https://time.is/UTC )): ${start} > ${end}
+[/divbox]
+
+[divbox=#091f62][b][color=white]SESSION DETAILS[/color][/b][/divbox]
+[divbox=white]
+Go through the checklist below, and mark each section with a [ x ] once completed. (YOU MUST GO THROUGH ALL OF THEM)
+
+[b]Grading System[/b]
+[size=125]■[/size] - [dropshadow=black][color=#FF0000]Below satisfactory performance.[/color][/dropshadow]
+[size=125]■■[/size] - [dropshadow=black][color=#FF8000]Needs some minor improvements.[/color][/dropshadow]
+[size=125]■■■[/size] - [dropshadow=black][color=#00FF00]Satisfactory. [/color][/dropshadow]
+[size=125]■■■■[/size] - [dropshadow=black][color=#00BF80]Outstanding, no room for improvements.[/color][/dropshadow]
+[size=125]■■■■■[/size] - [dropshadow=black][color=#008040]Extraordinary[/color][/dropshadow]
+[/divbox]
+
+[divbox=#091f62][b][color=white]Theory Session[/color][/b][/divbox]
+[divbox=white]
+${cyclic} The Instructor verifies student knowledge of the Cyclic, Collective, and Anti-Torque Pedals: 
+[list=none]GRADE: [ ${gradeCyclic} ][/list]
+${gauges} The instructor verifies student knowledge of the primary gauges within the instrument panel.
+${mockTaxi} The instructor asks the student to make a mock ATC call for taxiing to a refuel station at LSIA: 
+[list=none]GRADE: [ ${gradeMockTaxi} ][/list]
+[list]
+[*] Example: OFT-1RS to Tower, show me taxiing to LSIA fueling station.
+[*] Student's Example: ${studentTaxiExample}
+[/list]
+${mockSandy} The instructor asks the student to make a mock ATC call for heading to Sandy Airfield from LSIA Helipad 1:
+[list=none]GRADE: [ ${gradeMockSandy} ][/list]
+[list]
+[*] Example: OFT-1RS to Tower, show me ascending to 1,500 feet above LSIA Helipad 1, heading Northbound to Sandy Airfield.
+[*] Student's Example: ${studentSandyExample}
+[/list]
+${oocControls} [ooc]The instructor goes over the student's OOC flight controls with them.[/ooc]
+${preflightCheck} The instructor shows the student an example of a pre-flight check.
+[/divbox]
+
+[divbox=#091f62][b][color=white]Instructor's Flight[/color][/b][/divbox]
+[divbox=white]
+[b][u]The instructor is to pilot the Aircraft. Bring the Aircraft to LSIA Helipad 1. The flight is to start and stop at LSIA Helipad 1.[/u][/b]
+
+${instHover} The instructor showed the student how to perform a hover above LSIA Helipad 1.
+${instShort} The instructor showed the student how to perform short hops with the Frogger between the LSIA Helipads.
+${instHigh} The instructor showed the student how to perform high hops with the Frogger between the LSIA Helipads.
+${instLong} The instructor showed the student how to fly to LSIA Runway 30R and showed the student how to perform a long hop to LSIA Runway 30L.
+${instL} The instructor showed the student how to perform directional flight along the LSIA Runways in the shape of an L from start to finish.
+${instFinalHover} The instructor showed the student how to hover the Frogger above LSIA Helipad 1.
+[/divbox]
+
+[divbox=#091f62][b][color=white]Student's Flight[/color][/b][/divbox]
+[divbox=white]
+[b][u]The instructor is to hand over controls of the Frogger to the Student and allow them to practice after being shown what to do.[/u][/b]
+
+${studHover} The student was able to perform a steady hover with the Frogger for a minute without error.
+[list=none]GRADE: [ ${gradeStudHover} ][/list]
+${studShort} The student performed short hops with the Frogger between LSIA Helipad 1, 2, and 3.
+[list=none]GRADE: [ ${gradeStudShort} ][/list]
+${studHigh} The student performed high hops with the Frogger between LSIA Helipad 1 and 3.
+[list=none]GRADE: [ ${gradeStudHigh} ][/list]
+${studLong} The student flew to LSIA Runway 30R and was able to perform a long hop to LSIA Runway 30L.
+[list=none]GRADE: [ ${gradeStudLong} ][/list]
+${studL} The student was able to perform directional flight along the LSIA Runways in the shape of an L from start to finish.
+[list=none]GRADE: [ ${gradeStudL} ][/list]
+[/divbox]
+
+[divbox=#091f62][b][color=white]Session Notes[/color][/b][/divbox]
+[divbox=white]
+[b]Session Notes are important to tell us how a student performed in their flight training session. A lot of the notes will be included in the actual grading below and in other areas, so there's not much that you're required to say here.[/b]
+
+[i]${sessionNotes}[/i]
+
+[color=transparent]SPACER[/color]
+[/divbox]
+
+[divbox=#091f62][b][color=white]Overall Grade[/color][/b][/divbox]
+[divbox=white]
+[list]
+[*] The student's general behavior and attention span: [ ${overallBehavior} ]
+[list]
+[*] ${overallBehaviorDetail}
+[/list]
+[*] The student's ability to perform a take-off: [ ${overallTakeoff} ]
+[list]
+[*] ${overallTakeoffDetail}
+[/list]
+[*] The student's ability to perform directional flight [ ${overallDirectional} ]
+[list]
+[*] ${overallDirectionalDetail}
+[/list]
+[*] The student's ability to conduct an approach and landing [ ${overallLanding} ]
+[list]
+[*] ${overallLandingDetail}
+[/list]
+[*] Do you think the student can proceed to the next session?
+[list]
+[*] ${overallNextDetail}
+[/list]
+[/divbox]
+`;
+
+  const outputArea = document.getElementById('heliSessionBBOutput');
+  outputArea.value = bbcode.trim();
+  outputArea.focus();
+  outputArea.select();
+
+  try {
+    navigator.clipboard.writeText(bbcode).then(() => {
+      successMsg.textContent = 'Copied to clipboard!';
+    }, () => {
+      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
     });
+  } catch {
+    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+  }
+});
 </script>
 
 
+<div id="guidedFlightGen" class="container mt-3 myHideableSection" style="max-width: 950px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>[ROTARY] Flight Training Session 3</h4>
+    </div>
+    <div class="card-body">
+      <form id="guidedFlightForm" autocomplete="off" novalidate>
+        <!-- Date & Session Hours -->
+        <div class="mb-3 row align-items-center">
+          <label for="sessionDate" class="col-sm-3 col-form-label fw-bold text-end">Date:</label>
+          <div class="col-sm-3">
+            <input type="date" id="sessionDate" class="form-control" required />
+          </div>
+          <label for="sessionStart" class="col-sm-3 col-form-label fw-bold text-end">Session Start (UTC):</label>
+          <div class="col-sm-3">
+            <input type="text" id="sessionStart" class="form-control" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="sessionEnd" class="col-sm-3 col-form-label fw-bold text-end">Session End (UTC):</label>
+          <div class="col-sm-3">
+            <input type="text" id="sessionEnd" class="form-control" required />
+          </div>
+        </div>
 
+        <!-- Theory Session -->
+        <div class="mb-3">
+          <div class="fw-bold mb-2">Theory Session</div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="altitudeKnowledge" />
+            <label class="form-check-label" for="altitudeKnowledge">
+              The instructor verifies the student's knowledge of altitude whilst operating an Aircraft.
+            </label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="zoneKnowledge" />
+            <label class="form-check-label" for="zoneKnowledge">
+              The instructor verifies the student's knowledge of No Fly Zones and Caution Zones.
+            </label>
+          </div>
+          <div class="mb-2 ms-4">
+            <small>
+              <b>Caution Zones:</b> permitted to be entered, but extra caution utilizing your instruments and visuals should be taken as they're hot-spots for takeoffs and landings.<br>
+              <b>No Fly Zones:</b> off-limit areas that should not be entered under any circumstances.<br>
+              If No Fly Zones are entered without authorization (e.g. emergency landing), you must submit an incident report.
+            </small>
+          </div>
+        </div>
 
+        <!-- Pre-Flight Check -->
+        <div class="mb-3">
+          <div class="fw-bold mb-2">Pre-Flight Check</div>
+          <div><b>The instructor showed the student how to perform a pre-flight check during FTS-2. Now, it is their turn.</b></div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="preflightCheck" />
+            <label class="form-check-label" for="preflightCheck">
+              The student was able to perform a pre-flight check on the aircraft, both internally and externally.
+            </label>
+            <select class="form-select form-select-sm ms-2" id="gradePreflight">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+          </div>
+          <div class="mb-2 ms-4">
+            <label class="form-label">[ooc]Student's RP Screenshots (IMG URLs, comma-separated):</label>
+            <input type="text" class="form-control form-control-sm" id="studentPreflightImgs" placeholder="https://imgur.com/a.jpg, https://imgur.com/b.jpg" />
+          </div>
+        </div>
 
+        <!-- ATC Communication -->
+        <div class="mb-3">
+          <div class="fw-bold mb-2">ATC Communication</div>
+          <div><b>SAAA Hangar --> LSIA Helipad 1 (taxi) --> Sandy Airfield --> SAAA Paleto Helipad --> Mount Josiah Ground Landing --> LSIA Helipad 1</b></div>
+          <hr>
+          <div>
+            <b>Please write down their exact phrasing of communication with ATC word for word. [ooc]Paste screenshot links of their calls into the IMG tags. There should be a minimum of 9 calls.[/b]
+          </div>
+          <div class="mb-2 ms-4">
+            <label class="form-label">ATC Call Screenshots (IMG URLs, comma-separated):</label>
+            <input type="text" class="form-control form-control-sm" id="atcImgs" placeholder="https://imgur.com/a.jpg, https://imgur.com/b.jpg" />
+          </div>
+        </div>
+
+        <!-- Ground Landing -->
+        <div class="mb-3">
+          <div class="fw-bold mb-2">Ground Landing</div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="groundLanding" />
+            <label class="form-check-label" for="groundLanding">The student conducted a ground landing.</label>
+            <select class="form-select form-select-sm ms-2" id="gradeGroundLanding">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="groundATC" />
+            <label class="form-check-label" for="groundATC">The student correctly communicated with ATC</label>
+            <input type="text" class="form-control form-control-sm mt-1" id="groundATCExample" placeholder="ENTER THEIR GROUND LANDING ATC CALL HERE" />
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="informedProcedures" />
+            <label class="form-check-label" for="informedProcedures">The student was informed about the procedures after conducting an emergency landing.</label>
+          </div>
+          <div class="mb-2 ms-4">
+            <small>
+              Make every effort to get in contact with someone from SAAA. Call 911 and get assistance from local law enforcement.<br>
+              Have a mechanic come for a repair.<br>
+              Create an emergency/incident report.
+            </small>
+          </div>
+        </div>
+
+        <!-- Session Notes -->
+        <div class="mb-3">
+          <label for="sessionNotes" class="form-label fw-bold">Session Notes:</label>
+          <textarea id="sessionNotes" class="form-control" rows="3" required></textarea>
+        </div>
+
+        <!-- Overall Grade -->
+        <div class="mb-3">
+          <div class="fw-bold mb-2">Overall Grade</div>
+          <div class="mb-2">
+            <label class="fw-bold">General behavior and attention span:</label>
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallBehavior">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+            <input type="text" class="form-control form-control-sm mt-1" id="overallBehaviorDetail" placeholder="Provide details here..." />
+          </div>
+          <div class="mb-2">
+            <label class="fw-bold">Ability to perform a take-off:</label>
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallTakeoff">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+            <input type="text" class="form-control form-control-sm mt-1" id="overallTakeoffDetail" placeholder="Provide details here..." />
+          </div>
+          <div class="mb-2">
+            <label class="fw-bold">Ability to perform directional flight:</label>
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallDirectional">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+            <input type="text" class="form-control form-control-sm mt-1" id="overallDirectionalDetail" placeholder="Provide details here..." />
+          </div>
+          <div class="mb-2">
+            <label class="fw-bold">Ability to perform an approach and landing:</label>
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallLanding">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+            <input type="text" class="form-control form-control-sm mt-1" id="overallLandingDetail" placeholder="Provide details here..." />
+          </div>
+          <div class="mb-2">
+            <label class="fw-bold">Ability to communicate with Air Traffic Control:</label>
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallATC">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+            <input type="text" class="form-control form-control-sm mt-1" id="overallATCDetail" placeholder="Provide details here..." />
+          </div>
+          <div class="mb-2">
+            <label class="fw-bold">Proceed to the final examination?</label>
+            <input type="text" class="form-control form-control-sm mt-1" id="overallNextDetail" placeholder="Provide details here..." />
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="guidedFlightCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="guidedFlightBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="guidedFlightBBOutput" class="form-control" rows="34" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 
 <script>
-    // Add an event listener for the Add button
-    document.getElementById("IncAdd").addEventListener("click", function () {
-        const callsign = document.getElementById("Inccallsign");
-        const incident = document.getElementById("atcinc");
-        const pilot = document.getElementById("atcIncpilot");
-        const IncList = document.getElementById("IncList");
+function formatDateDDMMMYYYY(dateStr) {
+  if (!dateStr) return '';
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const [year, month, day] = dateStr.split('-');
+  return `${day}/${months[parseInt(month, 10) - 1]}/${year}`;
+}
 
-        // Get the values from the inputs
-        const Callsign = callsign.value.trim();
-        const Incident = incident.value.trim();
-        const Pilot = pilot.value.trim();
+document.getElementById('guidedFlightForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successMsg = document.getElementById('guidedFlightCopySuccess');
+  successMsg.textContent = '';
 
-        // Check if both fields are filled
-        if (Callsign && Incident && Pilot) {
-            // Create a new list item
-            const listInc1 = document.createElement("lii");
-            listInc1.textContent = `| ${Callsign} | ${Incident} | ${Pilot} |`;
-            listInc1.style.padding = "5px 0";
-            listInc1.style.borderBottom = "1px solid #ddd";
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
 
-            // Add the new list item to the list
-            IncList.appendChild(listInc1);
+  const date = formatDateDDMMMYYYY(document.getElementById('sessionDate').value);
+  const start = document.getElementById('sessionStart').value;
+  const end = document.getElementById('sessionEnd').value;
 
-            // Clear the input fields
-            callsign.value = "";
-            incident.value = "";
-            pilot.value = "";
+  // Helper for checkboxes
+  function cb(id) { return document.getElementById(id).checked ? '[x]' : '[ ]'; }
 
-            // Focus back on the first input
-            callsign.focus();
-        } else {
-            alert("Please fill in both fields before adding.");
-        }
+  // Theory Session
+  const theorySession = [
+    `${cb('altitudeKnowledge')} The instructor verifies the student's knowledge of altitude whilst operating an Aircraft. (1,500 feet city, 750 feet outside city, and 500 feet or higher above emergency aircrafts).`,
+    `${cb('zoneKnowledge')} The instructor verifies the student's knowledge of No Fly Zones and Caution Zones.`,
+    `[list]
+[*] Caution Zones are permitted to be entered, but extra caution utilizing your instruments and visuals should be taken as they're hot-spots for takeoffs and landings.
+[*] No Fly Zones are off-limit areas that should not be entered under any circumstances.
+[*] If No Fly Zones are entered without authorization (e.g. emergency landing), you must submit an incident report. 
+[/list]`
+  ].join('\n');
+
+  // Pre-Flight Check
+  const preflightCheck = `${cb('preflightCheck')} The student was able to perform a pre-flight check on the aircraft, both internally and externally.
+[list=none]GRADE: [ ${document.getElementById('gradePreflight').value} ][/list]
+[ooc][spoiler=Student's RP]
+SCREENSHOT THEIR RP AND PLACE THE IMAGES IN THE IMG TAGS. ADD OR REMOVE TAGS AS NEEDED.
+${(document.getElementById('studentPreflightImgs').value || '').split(',').map(url => url.trim() ? `[img]${url.trim()}[/img]` : '').join('\n')}
+[/spoiler][/ooc]`;
+
+  // ATC Communication
+  const atcComm = `[b]SAAA Hangar --> LSIA Helipad 1 (taxi) --> Sandy Airfield --> SAAA Paleto Helipad --> Mount Josiah Ground Landing --> LSIA Helipad 1[/b]
+[hr][/hr]
+[b]Please write down their exact phrasing of communication with ATC word for word. [ooc]Paste screenshot links of their calls into the IMG tags. Add more if needed.[/ooc] There should be a minimum of 9 calls to ATC.[/b]
+[list]
+${(document.getElementById('atcImgs').value || '').split(',').map(url => url.trim() ? `[img]${url.trim()}[/img]` : '[img][/img]').join('\n')}
+[/list]`;
+
+  // Ground Landing
+  const groundLanding = `[list=none]
+${cb('groundLanding')} The student conducted a ground landing.
+[list=none]GRADE: [ ${document.getElementById('gradeGroundLanding').value} ][/list]
+${cb('groundATC')} The student correctly communicated with ATC
+[list]
+[*] ${document.getElementById('groundATCExample').value}
+[/list]
+${cb('informedProcedures')} The student was informed about the procedures after conducting an emergency landing.
+[list]
+[*] Make every effort to get in contact with someone from SAAA. Call 911 and get assistance from local law enforcement.
+[*] Have a mechanic come for a repair.
+[*] Create an emergency/incident report.
+[/list]
+[/list]`;
+
+  // Session Notes
+  const sessionNotes = document.getElementById('sessionNotes').value;
+
+  // Overall Grade
+  const overallBehavior = document.getElementById('overallBehavior').value;
+  const overallBehaviorDetail = document.getElementById('overallBehaviorDetail').value;
+  const overallTakeoff = document.getElementById('overallTakeoff').value;
+  const overallTakeoffDetail = document.getElementById('overallTakeoffDetail').value;
+  const overallDirectional = document.getElementById('overallDirectional').value;
+  const overallDirectionalDetail = document.getElementById('overallDirectionalDetail').value;
+  const overallLanding = document.getElementById('overallLanding').value;
+  const overallLandingDetail = document.getElementById('overallLandingDetail').value;
+  const overallATC = document.getElementById('overallATC').value;
+  const overallATCDetail = document.getElementById('overallATCDetail').value;
+  const overallNextDetail = document.getElementById('overallNextDetail').value;
+
+  const bbcode = `[img]https://i.imgur.com/4IgXLd5.png[/img]
+[divbox=white]
+Date: ${date}
+Session Hours ((Please use UTC: https://time.is/UTC )): ${start} > ${end}
+[/divbox]
+
+[divbox=#091f62][b][color=white]SESSION DETAILS[/color][/b][/divbox]
+[divbox=white]
+Go through the checklist below, and mark each section with a [ x ] once completed. (YOU MUST GO THROUGH ALL OF THEM)
+
+[b]Grading System[/b]
+[size=125]■[/size] - [dropshadow=black][color=#FF0000]Below satisfactory performance.[/color][/dropshadow]
+[size=125]■■[/size] - [dropshadow=black][color=#FF8000]Needs some minor improvements.[/color][/dropshadow]
+[size=125]■■■[/size] - [dropshadow=black][color=#00FF00]Satisfactory. [/color][/dropshadow]
+[size=125]■■■■[/size] - [dropshadow=black][color=#00BF80]Outstanding, no room for improvements.[/color][/dropshadow]
+[size=125]■■■■■[/size] - [dropshadow=black][color=#008040]Extraordinary[/color][/dropshadow]
+[/divbox]
+
+[divbox=#091f62][b][color=white]Theory Session[/color][/b][/divbox]
+[divbox=white]
+${theorySession}
+[/divbox]
+
+[divbox=#091f62][b][color=white]Pre-Flight Check[/color][/b][/divbox]
+[divbox=white]
+[b]The instructor showed the student how to perform a pre-flight check during FTS-2. Now, it is their turn.[/b]
+
+${preflightCheck}
+[/divbox]
+
+[divbox=#091f62][b][color=white]ATC Communication[/color][/b][/divbox]
+[divbox=white]
+${atcComm}
+[/divbox]
+
+[divbox=#091f62][b][color=white]Ground Landing[/color][/b][/divbox]
+[divbox=white]
+${groundLanding}
+[/divbox]
+
+[divbox=#091f62][b][color=white]Session Notes[/color][/b][/divbox]
+[divbox=white]
+[b]As the flight instructor, you are required to give a detailed report in regard to the guided flight session below. Instead of grading each travel, you can grade their overall abilities combined in the final section.[/b]
+
+
+[i]${sessionNotes}[/i]
+
+[color=transparent]SPACER[/color]
+[/divbox]
+
+[divbox=#091f62][b][color=white]Overall Grade[/color][/b][/divbox]
+[divbox=white]
+[list]
+[*] The student's general behavior and attention span: [ ${overallBehavior} ]
+[list]
+[*] ${overallBehaviorDetail}
+[/list]
+[*] The student's ability to perform a take-off: [ ${overallTakeoff} ]
+[list]
+[*] ${overallTakeoffDetail}
+[/list]
+[*] The student's ability to perform directional flight [ ${overallDirectional} ]
+[list]
+[*] ${overallDirectionalDetail}
+[/list]
+[*] The student's ability to perform an approach and landing [ ${overallLanding} ]
+[list]
+[*] ${overallLandingDetail}
+[/list]
+[*] The student's ability to communicate with Air Traffic Control [ ${overallATC} ]
+[list]
+[*] ${overallATCDetail}
+[/list]
+[*] Do you think the student can proceed to the final examination?
+[list]
+[*] ${overallNextDetail}
+[/list]
+[/divbox]
+`;
+
+  const outputArea = document.getElementById('guidedFlightBBOutput');
+  outputArea.value = bbcode.trim();
+  outputArea.focus();
+  outputArea.select();
+
+  try {
+    navigator.clipboard.writeText(bbcode).then(() => {
+      successMsg.textContent = 'Copied to clipboard!';
+    }, () => {
+      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
     });
-
-    // Add an event listener for the Remove Last button
-    document.getElementById("IncRemove").addEventListener("click", function () {
-        const IncList = document.getElementById("IncList");
-
-        // Remove the last item in the list if it exists
-        if (IncList.lastChild) {
-            IncList.removeChild(IncList.lastChild);
-        } else {
-            alert("No items to remove.");
-        }
-    });
+  } catch {
+    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+  }
+});
 </script>
+
+<div id="finalFlightGen" class="container mt-3 myHideableSection" style="max-width: 950px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>Final Flight Session Generator</h4>
+    </div>
+    <div class="card-body">
+      <form id="finalFlightForm" autocomplete="off" novalidate>
+        <!-- Date & Session Hours -->
+        <div class="mb-3 row align-items-center">
+          <label for="sessionDate" class="col-sm-3 col-form-label fw-bold text-end">Date:</label>
+          <div class="col-sm-3">
+            <input type="date" id="sessionDate" class="form-control" required />
+          </div>
+          <label for="sessionStart" class="col-sm-3 col-form-label fw-bold text-end">Session Start (UTC):</label>
+          <div class="col-sm-3">
+            <input type="text" id="sessionStart" class="form-control" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="sessionEnd" class="col-sm-3 col-form-label fw-bold text-end">Session End (UTC):</label>
+          <div class="col-sm-3">
+            <input type="text" id="sessionEnd" class="form-control" required />
+          </div>
+        </div>
+
+        <!-- Pre-Flight Check -->
+        <div class="mb-3">
+          <div class="fw-bold mb-2">Pre-Flight Check</div>
+          <div>
+            <b>The instructor showed the student how to perform a pre-flight check during FTS-2. They should have been able to perform their pre-flight check during FTS-3. Do not tell them they need to do a pre-flight check, see if they will do one without saying anything.</b>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="preflightCheck" />
+            <label class="form-check-label" for="preflightCheck">
+              The student remembered performing a pre-flight check on the aircraft internally and externally.
+            </label>
+            <select class="form-select form-select-sm ms-2" id="gradePreflight">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+          </div>
+          <div class="mb-2 ms-4">
+            <label class="form-label">[ooc]Student's RP Screenshots (IMG URLs, comma-separated):</label>
+            <input type="text" class="form-control form-control-sm" id="studentPreflightImgs" placeholder="https://imgur.com/a.jpg, https://imgur.com/b.jpg" />
+          </div>
+        </div>
+
+        <!-- ATC Communication -->
+        <div class="mb-3">
+          <div class="fw-bold mb-2">ATC Communication</div>
+          <div>
+            <b>SAAA Hangar --> LSIA Helipad 1 (taxi) --> Cayo Perico Helipad --> Grapeseed Runway Helipad --> Paleto North Point Rock --> LSIA Helipad 1</b>
+          </div>
+          <hr>
+          <div>
+            <b>Please write down their exact phrasing of communication with ATC word for word. [ooc]Paste screenshot links of their calls into the IMG tags. There should be a total of 9 calls to ATC.[/b]
+          </div>
+          <div class="mb-2 ms-4">
+            <label class="form-label">ATC Call Screenshots (IMG URLs, comma-separated):</label>
+            <input type="text" class="form-control form-control-sm" id="atcImgs" placeholder="https://imgur.com/a.jpg, https://imgur.com/b.jpg" />
+          </div>
+        </div>
+
+        <!-- Session Notes -->
+        <div class="mb-3">
+          <label for="sessionNotes" class="form-label fw-bold">Session Notes:</label>
+          <textarea id="sessionNotes" class="form-control" rows="3" required></textarea>
+        </div>
+
+        <!-- Overall Grade -->
+        <div class="mb-3">
+          <div class="fw-bold mb-2">Overall Grade</div>
+          <div class="mb-2">
+            <label class="fw-bold">Ability to perform a take-off:</label>
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallTakeoff">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+            <input type="text" class="form-control form-control-sm mt-1" id="overallTakeoffDetail" placeholder="Provide details here..." />
+          </div>
+          <div class="mb-2">
+            <label class="fw-bold">Ability to perform directional flight:</label>
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallDirectional">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+            <input type="text" class="form-control form-control-sm mt-1" id="overallDirectionalDetail" placeholder="Provide details here..." />
+          </div>
+          <div class="mb-2">
+            <label class="fw-bold">Ability to perform an approach and landing:</label>
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallLanding">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+            <input type="text" class="form-control form-control-sm mt-1" id="overallLandingDetail" placeholder="Provide details here..." />
+          </div>
+          <div class="mb-2">
+            <label class="fw-bold">Ability to land at a random location (Paleto North Point Rock):</label>
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallRandomLanding">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+            <input type="text" class="form-control form-control-sm mt-1" id="overallRandomLandingDetail" placeholder="Provide details here..." />
+          </div>
+          <div class="mb-2">
+            <label class="fw-bold">Ability to taxi from place to place:</label>
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallTaxi">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+            <input type="text" class="form-control form-control-sm mt-1" id="overallTaxiDetail" placeholder="Provide details here..." />
+          </div>
+          <div class="mb-2">
+            <label class="fw-bold">Ability to communicate with Air Traffic Control:</label>
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallATC">
+              <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
+            </select>
+            <input type="text" class="form-control form-control-sm mt-1" id="overallATCDetail" placeholder="Provide details here..." />
+          </div>
+          <div class="mb-2">
+            <label class="fw-bold">Pass final flight? (MINIMUM 20 WORDS):</label>
+            <input type="text" class="form-control form-control-sm mt-1" id="overallNextDetail" placeholder="Provide details here..." />
+          </div>
+        </div>
+
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="finalFlightCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="finalFlightBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="finalFlightBBOutput" class="form-control" rows="34" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+function formatDateDDMMMYYYY(dateStr) {
+  if (!dateStr) return '';
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const [year, month, day] = dateStr.split('-');
+  return `${day}/${months[parseInt(month, 10) - 1]}/${year}`;
+}
+
+document.getElementById('finalFlightForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successMsg = document.getElementById('finalFlightCopySuccess');
+  successMsg.textContent = '';
+
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+
+  const date = formatDateDDMMMYYYY(document.getElementById('sessionDate').value);
+  const start = document.getElementById('sessionStart').value;
+  const end = document.getElementById('sessionEnd').value;
+
+  // Helper for checkboxes
+  function cb(id) { return document.getElementById(id).checked ? '[x]' : '[ ]'; }
+
+  // Pre-Flight Check
+  const preflightCheck = `${cb('preflightCheck')} The student remembered performing a pre-flight check on the aircraft internally and externally.
+[list=none]GRADE: [ ${document.getElementById('gradePreflight').value} ][/list]
+[ooc][spoiler=Student's RP]
+SCREENSHOT THEIR RP AND PLACE THE IMAGES IN THE IMG TAGS. ADD OR REMOVE TAGS AS NEEDED.
+${(document.getElementById('studentPreflightImgs').value || '').split(',').map(url => url.trim() ? `[img]${url.trim()}[/img]` : '').join('\n')}
+[/spoiler][/ooc]`;
+
+  // ATC Communication
+  const atcComm = `[b]SAAA Hangar --> LSIA Helipad 1 (taxi) --> Cayo Perico Helipad --> Grapeseed Runway Helipad --> Paleto North Point Rock --> LSIA Helipad 1[/b]
+[hr][/hr]
+[b]Please write down their exact phrasing of communication with ATC word for word. [ooc]Paste screenshot links of their calls into the IMG tags. Add more if needed.[/ooc] There should be a total of 9 calls to ATC.[/b]
+[list]
+${(document.getElementById('atcImgs').value || '').split(',').map(url => url.trim() ? `[img]${url.trim()}[/img]` : '[img][/img]').join('\n')}
+[/list]`;
+
+  // Session Notes
+  const sessionNotes = document.getElementById('sessionNotes').value;
+
+  // Overall Grade
+  const overallTakeoff = document.getElementById('overallTakeoff').value;
+  const overallTakeoffDetail = document.getElementById('overallTakeoffDetail').value;
+  const overallDirectional = document.getElementById('overallDirectional').value;
+  const overallDirectionalDetail = document.getElementById('overallDirectionalDetail').value;
+  const overallLanding = document.getElementById('overallLanding').value;
+  const overallLandingDetail = document.getElementById('overallLandingDetail').value;
+  const overallRandomLanding = document.getElementById('overallRandomLanding').value;
+  const overallRandomLandingDetail = document.getElementById('overallRandomLandingDetail').value;
+  const overallTaxi = document.getElementById('overallTaxi').value;
+  const overallTaxiDetail = document.getElementById('overallTaxiDetail').value;
+  const overallATC = document.getElementById('overallATC').value;
+  const overallATCDetail = document.getElementById('overallATCDetail').value;
+  const overallNextDetail = document.getElementById('overallNextDetail').value;
+
+  const bbcode = `[img]https://i.imgur.com/oQVSH05.png[/img]
+[divbox=white]
+Date: ${date}
+Session Hours ((Please use UTC: https://time.is/UTC )): ${start} > ${end}
+[/divbox]
+
+[divbox=#091f62][b][color=white]SESSION DETAILS[/color][/b][/divbox]
+[divbox=white]
+Go through the checklist below, and mark each section with a [ x ] once completed. (YOU MUST GO THROUGH ALL OF THEM)
+
+[b]Grading System[/b]
+[size=125]■[/size] - [dropshadow=black][color=#FF0000]Below satisfactory performance.[/color][/dropshadow]
+[size=125]■■[/size] - [dropshadow=black][color=#FF8000]Needs some minor improvements.[/color][/dropshadow]
+[size=125]■■■[/size] - [dropshadow=black][color=#00FF00]Satisfactory. [/color][/dropshadow]
+[size=125]■■■■[/size] - [dropshadow=black][color=#00BF80]Outstanding, no room for improvements.[/color][/dropshadow]
+[size=125]■■■■■[/size] - [dropshadow=black][color=#008040]Extraordinary[/color][/dropshadow]
+[/divbox]
+
+[divbox=#091f62][b][color=white]Pre-Flight Check[/color][/b][/divbox]
+[divbox=white]
+[b]The instructor showed the student how to perform a pre-flight check during FTS-2. They should have been able to perform their pre-flight check during FTS-3. Do not tell them they need to do a pre-flight check, see if they will do one without saying anything.[/b]
+
+${preflightCheck}
+[/divbox]
+
+[divbox=#091f62][b][color=white]ATC Communication[/color][/b][/divbox]
+[divbox=white]
+${atcComm}
+[/divbox]
+
+[divbox=#091f62][b][color=white]Session Notes[/color][/b][/divbox]
+[divbox=white]
+[b]As the flight instructor, you are required to give a detailed report regarding the final flight session below. Do they enter any restricted or prohibited airspaces during the flight? How often do they try to ask you questions regarding what they should be doing or if they do something correctly? If they do not seem confident in their ability to fly without supervision, they are not ready to obtain a Pilot's License. Instead of grading each travel, you can grade their overall abilities combined in the final section. [/b]
+[hr][/hr]
+
+[i]${sessionNotes}[/i]
+
+[color=transparent]SPACER[/color]
+[/divbox]
+
+[divbox=#091f62][b][color=white]Overall Grade[/color][/b][/divbox]
+[divbox=white]
+[list]
+[*] The student's ability to perform a take-off: [ ${overallTakeoff} ]
+[list]
+[*] ${overallTakeoffDetail}
+[/list]
+[*] The student's ability to perform directional flight [ ${overallDirectional} ]
+[list]
+[*] ${overallDirectionalDetail}
+[/list]
+[*] The student's ability to perform an approach and landing [ ${overallLanding} ]
+[list]
+[*] ${overallLandingDetail}
+[/list]
+[*] The student's ability to land at a random location (Paleto North Point Rock) [ ${overallRandomLanding} ]
+[list]
+[*] ${overallRandomLandingDetail}
+[/list]
+[*] The student's ability to taxi from place to place: [ ${overallTaxi} ]
+[list]
+[*] ${overallTaxiDetail}
+[/list]
+[*] The student's ability to communicate with Air Traffic Control [ ${overallATC} ]
+[list]
+[*] ${overallATCDetail}
+[/list]
+[*] Do you believe this student should pass their final flight? Do you believe they can handle themselves without supervision? [color=red]MINIMUM 20 WORDS[/color]
+[list]
+[*] ${overallNextDetail}
+[/list]
+[/divbox]
+`;
+
+  const outputArea = document.getElementById('finalFlightBBOutput');
+  outputArea.value = bbcode.trim();
+  outputArea.focus();
+  outputArea.select();
+
+  try {
+    navigator.clipboard.writeText(bbcode).then(() => {
+      successMsg.textContent = 'Copied to clipboard!';
+    }, () => {
+      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+    });
+  } catch {
+    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+  }
+});
+</script>
+
+
+<div id="medExamGen" class="container mt-3 myHideableSection" style="max-width: 700px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>Passed Medical Examination Generator</h4>
+    </div>
+    <div class="card-body">
+      <form id="medExamForm" autocomplete="off" novalidate>
+        <!-- Date -->
+        <div class="mb-3 row align-items-center">
+          <label for="medExamDate" class="col-sm-4 col-form-label fw-bold text-end">Date:</label>
+          <div class="col-sm-8">
+            <input type="date" id="medExamDate" class="form-control" required />
+          </div>
+        </div>
+        <!-- Exam Results (Spoiler) -->
+        <div class="mb-3 row align-items-center">
+          <label for="examResults" class="col-sm-4 col-form-label fw-bold text-end">Exam Results (quote):</label>
+          <div class="col-sm-8">
+            <textarea id="examResults" class="form-control" rows="5" placeholder="Paste the exam post as a quote here..." required></textarea>
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="medExamCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="medExamBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="medExamBBOutput" class="form-control" rows="14" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+function formatDateDDMMMYYYY(dateStr) {
+  if (!dateStr) return '';
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const [year, month, day] = dateStr.split('-');
+  return `${day}/${months[parseInt(month, 10) - 1]}/${year}`;
+}
+
+// Set today's date as default
+document.addEventListener('DOMContentLoaded', function() {
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, '0');
+  const dd = String(today.getDate()).padStart(2, '0');
+  document.getElementById('medExamDate').value = `${yyyy}-${mm}-${dd}`;
+});
+
+document.getElementById('medExamForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successMsg = document.getElementById('medExamCopySuccess');
+  successMsg.textContent = '';
+
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+
+  const dateRaw = document.getElementById('medExamDate').value;
+  const date = formatDateDDMMMYYYY(dateRaw);
+  const examResults = document.getElementById('examResults').value.trim();
+
+  const bbcode = `[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[divbox=white]
+[color=transparent]spacer[/color]
+[center][size=200][color=green][b]PASSED MEDICAL EXAMINATION[/b][/color][/size][/center]
+[color=transparent]spacer[/color]
+[center]
+Date: ${date}
+
+Following an exam with LSEMS, they have certified this student as found to be fit and clear of any medical issues that would impair their ability to operate an aircraft.
+
+[spoiler=Exam Results]
+${examResults}
+[/spoiler]
+[/center]
+[color=transparent]spacer[/color]
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+  const outputArea = document.getElementById('medExamBBOutput');
+  outputArea.value = bbcode.trim();
+  outputArea.focus();
+  outputArea.select();
+
+  try {
+    navigator.clipboard.writeText(bbcode).then(() => {
+      successMsg.textContent = 'Copied to clipboard!';
+    }, () => {
+      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+    });
+  } catch {
+    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+  }
+});
+</script>
+
+<div id="pilotCertGen2" class="container mt-3 myHideableSection" style="max-width: 750px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>Private Pilot License Certificate Generator</h4>
+    </div>
+    <div class="card-body">
+      <form id="pilotCertForm2" autocomplete="off" novalidate>
+        <!-- Pilot Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="txtNameP" class="col-sm-4 col-form-label fw-bold text-end">Pilot Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="txtNameP" class="form-control" required />
+          </div>
+        </div>
+        <!-- Aircraft Type -->
+        <div class="mb-3 row align-items-center">
+          <label class="col-sm-4 col-form-label fw-bold text-end">Aircraft Type:</label>
+          <div class="col-sm-8">
+            <select id="aircraftType" class="form-select" required>
+              <option value="Rotary Wing Aircraft">Rotary Wing Aircraft</option>
+              <option value="Fixed Wing Aircraft">Fixed Wing Aircraft</option>
+            </select>
+          </div>
+        </div>
+        <!-- Date -->
+        <div class="mb-3 row align-items-center">
+          <label for="certDate" class="col-sm-4 col-form-label fw-bold text-end">Date:</label>
+          <div class="col-sm-8">
+            <input type="date" id="certDate" class="form-control" required />
+          </div>
+        </div>
+        <!-- Signature Image URL -->
+        <div class="mb-3 row align-items-center">
+          <label for="signatureUrl" class="col-sm-4 col-form-label fw-bold text-end">Signature Image URL:</label>
+          <div class="col-sm-8">
+            <input type="text" id="signatureUrl" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+          </div>
+        </div>
+        <!-- Rank/Title -->
+        <div class="mb-3 row align-items-center">
+          <label for="officialRank" class="col-sm-4 col-form-label fw-bold text-end">Official Rank/Title:</label>
+          <div class="col-sm-8">
+            <input type="text" id="officialRank" class="form-control" placeholder="e.g. Chief Pilot" required />
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="pilotCert33CopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="pilotCert33BBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="pilotCert33BBOutput" class="form-control" rows="22" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+function formatDateDDMMMYYYY(dateStr) {
+  if (!dateStr) return '';
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const [year, month, day] = dateStr.split('-');
+  return `${day}/${months[parseInt(month, 10) - 1]}/${year}`;
+}
+
+// Set today's date as default
+document.addEventListener('DOMContentLoaded', function() {
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, '0');
+  const dd = String(today.getDate()).padStart(2, '0');
+  document.getElementById('certDate').value = `${yyyy}-${mm}-${dd}`;
+});
+
+document.getElementById('pilotCertForm2').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successMsg = document.getElementById('pilotCert33CopySuccess');
+  successMsg.textContent = '';
+
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+
+  const pilotName44 = document.getElementById('txtNameP').value.trim();
+  const aircraftType = document.getElementById('aircraftType').value;
+  const dateRaw = document.getElementById('certDate').value;
+  const certDate = formatDateDDMMMYYYY(dateRaw);
+  const signatureUrl = document.getElementById('signatureUrl').value.trim();
+  const officialRank = document.getElementById('officialRank').value.trim();
+
+  const bbcode10 = `[img]https://i.imgur.com/ZFpeXl3.png[/img][divbox=white]
+[img]https://i.imgur.com/3i8Bk3M.png[/img][aligntable=right,350,0,0,0,0,#FFFFFF][right][font=Arial][b]
+[size=140]San Andreas Aviation Administration[/size][/b][/font]
+[font=Times New Roman][size=150]Private Pilots License Certification[/size][/font][/right][/aligntable]
+[hr]
+[center][size=130][font=Windows Fonts][i]This is to certify that[/i][/font][/size]
+
+[font=Monotype Corsiva][size=200]${pilotName44}[/size][/font]
+
+[font=Windows Fonts][i]Has met all the requirements of the San Andreas Aviation Administration regulations and, as appropriate, aeronautical knowledge, flight proficiency, experience and flight training, and has been examined by a competent authority and has been found to be properly qualified to exercise the privileges of:[/i]
+
+[size=125][b]San Andreas Private Pilot[/b][/size]
+[size=115]${aircraftType}[/size]
+
+${certDate}[/font][/center]
+
+[hr][/hr]
+[font=Windows Fonts][i]Certificate issued and approved by[/i][/font]
+[img]${signatureUrl}[/img]
+[color=#091f62][size=100][b]${officialRank} | San Andreas Aviation Administration[/b][/size][/color]
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+  const outputArea = document.getElementById('pilotCert33BBOutput');
+  outputArea.value = bbcode10.trim();
+  outputArea.focus();
+  outputArea.select();
+
+  try {
+    navigator.clipboard.writeText(bbcode10).then(() => {
+      successMsg.textContent = 'Copied to clipboard!';
+    }, () => {
+      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+    });
+  } catch {
+    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+  }
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+ <div id="workLogGen" class="container mt-3 myHideableSection" style="max-width: 700px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>Work Log Entry Generator</h4>
+    </div>
+    <div class="card-body">
+      <form id="workLogForm" autocomplete="off" novalidate>
+        <!-- Date -->
+        <div class="mb-3 row align-items-center">
+          <label for="workLogDate" class="col-sm-4 col-form-label fw-bold text-end">Date of Work:</label>
+          <div class="col-sm-8">
+            <input type="date" id="workLogDate" class="form-control" required />
+          </div>
+        </div>
+        <!-- Work Log Entries -->
+        <fieldset class="mb-4">
+          <legend class="fw-bold">Work Logged</legend>
+          <div class="input-group mb-2">
+            <input type="text" id="workLogInput" class="form-control" placeholder="Describe work done" />
+            <button type="button" id="addWorkLogBtn" class="btn btn-primary">Add Entry</button>
+          </div>
+          <ul id="workLogList" class="list-group list-group-flush" style="max-height: 120px; overflow-y: auto;"></ul>
+          <button type="button" id="removeWorkLogBtn" class="btn btn-danger mt-2">Remove Last Entry</button>
+        </fieldset>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="workLogCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="workLogBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="workLogBBOutput" class="form-control" rows="14" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+function formatDateDDMMMYYYY(dateStr) {
+  if (!dateStr) return '';
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const [year, month, day] = dateStr.split('-');
+  return `${day}/${months[parseInt(month, 10) - 1]}/${year}`;
+}
+
+// Set today's date as default
+document.addEventListener('DOMContentLoaded', function() {
+  const today = new Date();
+  const yyyy = today.getFullYear();
+  const mm = String(today.getMonth() + 1).padStart(2, '0');
+  const dd = String(today.getDate()).padStart(2, '0');
+  document.getElementById('workLogDate').value = `${yyyy}-${mm}-${dd}`;
+});
+
+(() => {
+  // Work log dynamic list
+  const addWorkLogBtn = document.getElementById('addWorkLogBtn');
+  const removeWorkLogBtn = document.getElementById('removeWorkLogBtn');
+  const workLogInput = document.getElementById('workLogInput');
+  const workLogList = document.getElementById('workLogList');
+
+  addWorkLogBtn.addEventListener('click', () => {
+    const val = workLogInput.value.trim();
+    if (!val) {
+      alert('Please enter a work log entry.');
+      return;
+    }
+    const li = document.createElement('li');
+    li.className = 'list-group-item bg-light text-dark';
+    li.textContent = val;
+    workLogList.appendChild(li);
+    workLogInput.value = '';
+    workLogInput.focus();
+  });
+
+  removeWorkLogBtn.addEventListener('click', () => {
+    if (workLogList.lastChild) workLogList.removeChild(workLogList.lastChild);
+  });
+
+  document.getElementById('workLogForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const successMsg = document.getElementById('workLogCopySuccess');
+    successMsg.textContent = '';
+
+    if (!this.checkValidity()) {
+      this.reportValidity();
+      return;
+    }
+
+    const dateRaw = document.getElementById('workLogDate').value;
+    const date = formatDateDDMMMYYYY(dateRaw);
+
+    // Work log entries
+    let workLogs = '';
+    workLogList.querySelectorAll('li').forEach(li => {
+      workLogs += `[*] ${li.textContent}\n`;
+    });
+
+    if (!workLogs.trim()) {
+      alert('Please add at least one work log entry.');
+      return;
+    }
+
+    const bbcode = `[img]https://i.imgur.com/5FS2lIb.png[/img]
+[divbox=#091f62][b][color=white]ENTRY INFORMATION[/color][/b][/divbox]
+[divbox=white]
+[b]DATE OF WORK:[/b] ${date}
+
+[b]WORK LOGGED:[/b]
+[list]
+${workLogs}[/list]
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+    const outputArea = document.getElementById('workLogBBOutput');
+    outputArea.value = bbcode.trim();
+    outputArea.focus();
+    outputArea.select();
+
+    try {
+      navigator.clipboard.writeText(bbcode).then(() => {
+        successMsg.textContent = 'Copied to clipboard!';
+      }, () => {
+        successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+      });
+    } catch {
+      successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+    }
+  });
+})();
+</script>
+
+
+
+
+
+
 
 
 
@@ -1270,51 +3414,3 @@ function showSection(sectionId) {
 }
 </script>
 
-<script>
-    // Add an event listener for the Add button
-    document.getElementById("addButton").addEventListener("click", function () {
-        const CallInput = document.getElementById("time");
-        const ATCInput = document.getElementById("atctext");
-        const PilotInput = document.getElementById("atcpilot");
-        const itemList = document.getElementById("itemList");
-
-        // Get the values from the inputs
-        const time = CallInput.value.trim();
-        const atc = ATCInput.value.trim();
-        const pilot = PilotInput.value.trim();
-
-        // Check if both fields are filled
-        if (time && atc && pilot) {
-            // Create a new list item
-            const listItem = document.createElement("li");
-            listItem.textContent = `| ${time} | ${atc} | ${pilot} |`;
-            listItem.style.padding = "5px 0";
-            listItem.style.borderBottom = "1px solid #ddd";
-
-            // Add the new list item to the list
-            itemList.appendChild(listItem);
-
-            // Clear the input fields
-            CallInput.value = "";
-            ATCInput.value = "";
-            PilotInput.value = "";
-
-            // Focus back on the first input
-            CallInput.focus();
-        } else {
-            alert("Please fill in both fields before adding.");
-        }
-    });
-
-    // Add an event listener for the Remove Last button
-    document.getElementById("removeButton").addEventListener("click", function () {
-        const itemList = document.getElementById("itemList");
-
-        // Remove the last item in the list if it exists
-        if (itemList.lastChild) {
-            itemList.removeChild(itemList.lastChild);
-        } else {
-            alert("No items to remove.");
-        }
-    });
-</script>
