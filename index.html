@@ -80,6 +80,25 @@
         <div class="accordion-body d-flex flex-wrap gap-2">
           <button class="btn btn-secondary" onclick="showSection('workLogGen', this)">Work Log</button>
         </div>
+    <div class="card-header border-0 text-center">
+      <h3 class="mb-0">[LICENSE] Pilot License Formats</h3>
+    </div>
+        <div class="accordion-body d-flex flex-wrap gap-2">
+          <button class="btn btn-secondary" onclick="showSection('pilotAppReceivedGen', this)">[LICENSE] Recieved</button>
+          <button class="btn btn-secondary" onclick="showSection('pilotAppPendingPaymentGen', this)">[LICENSE] Pending Payment</button>
+          <button class="btn btn-secondary" onclick="showSection('pilotAppOnHoldGen', this)">[LICENSE] On Hold</button>
+          <button class="btn btn-secondary" onclick="showSection('pilotAppApprovedGen', this)">[LICENSE] Approved</button>
+          <button class="btn btn-secondary" onclick="showSection('pilotAppDeniedGen', this)">[LICENSE] Denied</button>
+        </div>
+    <div class="card-header border-0 text-center">
+      <h3 class="mb-0">[REGRISTRATION] Aircraft Formats</h3>
+    </div>
+        <div class="accordion-body d-flex flex-wrap gap-2">
+          <button class="btn btn-secondary" onclick="showSection('aircraftRegReceivedGen', this)">[REGRISTRATION] Recieved</button>
+          <button class="btn btn-secondary" onclick="showSection('aircraftRegApprovedGen', this)">[REGRISTRATION] Approved</button>
+          <button class="btn btn-secondary" onclick="showSection('aircraftRegOnHoldGen', this)">[REGRISTRATION] On Hold</button>
+          <button class="btn btn-secondary" onclick="showSection('aircraftRegDeniedGen', this)">[REGRISTRATION] Denied</button>
+        </div>
       </div>
     </div>
 
@@ -110,6 +129,9 @@
         </button>
       </h2>
       <div id="collapseFieldTraining" class="accordion-collapse collapse" aria-labelledby="headingFieldTraining" data-bs-parent="#tocAccordion">
+    <div class="card-header border-0 text-center">
+      <h3 class="mb-0">[ROTARY] Flight Training Sessions</h3>
+    </div>
         <div class="accordion-body d-flex flex-wrap gap-2">
           <button class="btn btn-secondary" onclick="showSection('aviationSessionGen', this)">[ROTARY] FTS 1</button>
           <button class="btn btn-secondary" onclick="showSection('heliSessionGen', this)">[ROTARY] FTS 2</button>
@@ -117,9 +139,22 @@
           <button class="btn btn-secondary" onclick="showSection('finalFlightGen', this)">[ROTARY] FTS 4</button>
           <button class="btn btn-secondary" onclick="showSection('medExamGen', this)">Medical Pass</button>
         </div>
+    <div class="card-header border-0 text-center">
+      <h3 class="mb-0">[FIXED] Flight Training Sessions</h3>
+    </div>
+        <div class="accordion-body d-flex flex-wrap gap-2">
+          <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[FIXED] FTS 1</button>
+          <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[FIXED] FTS 2</button>
+          <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[FIXED] FTS 3</button>
+          <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[FIXED] FTS 4</button>
+          <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">Medical Pass</button>
+        </div>
+    <div class="card-header border-0 text-center">
+      <h3 class="mb-0">[OFT] Profile Management</h3>
+    </div>
        <div class="accordion-body d-flex flex-wrap gap-2">
           <button class="btn btn-secondary" onclick="showSection('studentProfileGen', this)">Student Profile</button>
-          <button class="btn btn-secondary" onclick="showSection('pilotCertGen', this)">Pilot Profile</button>
+          <button class="btn btn-secondary" onclick="showSection('pilotCertGen', this)">Pilot Profile</button> pilotCertGen2
           <button class="btn btn-secondary" onclick="showSection('pilotCertGen2', this)">Pilot Certificate</button>
         </div>
       </div> 
@@ -189,7 +224,7 @@
 <div id="atcshift" class="container mt-3 myHideableSection" style="max-width: 700px;">
         <div class="card shadow" style="background: linear-gradient(135deg, #001f4d, #003399); color: #fff;">
     <div class="card-header border-0 text-center">
-      <h3 class="mb-0">ATC Shift Log</h3>
+      <h3 class="mb-0">[ATC] Shift Log</h3>
     </div>
     <div class="card-body">
       <!-- Name -->
@@ -442,7 +477,7 @@ ${IncListString}
 <div id="notamGen" class="container mt-3 myHideableSection" style="max-width: 700px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #001f4d, #003399); color: white;">
     <div class="card-header text-center">
-      <h4>NOTAM Generator</h4>
+      <h4>[ATC] NOTAM Logs</h4>
     </div>
     <div class="card-body">
       <form id="notamForm" autocomplete="off" novalidate>
@@ -589,7 +624,7 @@ ${notamMessage}
 <div id="groundingNotice" class="container mt-3 myHideableSection" style="max-width: 700px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #001f4d, #003399); color: white;">
     <div class="card-header text-center">
-      <h4>Aviation Grounding Notice Generator</h4>
+      <h4>[AVAP/ATC] Grounding Order</h4>
     </div>
     <div class="card-body">
       <form id="groundingForm" autocomplete="off" novalidate>
@@ -798,7 +833,7 @@ ${proof}
 <div id="incidentReport" class="container mt-3 myHideableSection" style="max-width: 800px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #001f4d, #003399); color: white;">
     <div class="card-header text-center">
-      <h4>Operator/Aircraft Incident Report Generator</h4>
+      <h4>[ATC] Civillian Aircraft Report</h4>
     </div>
     <div class="card-body">
       <form id="incidentForm" autocomplete="off" novalidate>
@@ -1033,7 +1068,7 @@ ${bodycamProof}
 <div id="atcIncidentReport" class="container mt-3 myHideableSection" style="max-width: 800px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #001f4d, #003399); color: white;">
     <div class="card-header text-center">
-      <h4>ATC Incident Report Generator</h4>
+      <h4>[ATC] Emergancy Aircraft Report</h4>
     </div>
     <div class="card-body">
       <form id="atcIncidentForm" autocomplete="off" novalidate>
@@ -1200,7 +1235,7 @@ ${bodycamProof}
 <div id="flightInfoGen" class="container mt-3 myHideableSection" style="max-width: 700px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
     <div class="card-header text-center">
-      <h4>Flight Information Report Generator</h4>
+      <h4>[ATC] Flight Log</h4>
     </div>
     <div class="card-body">
       <form id="flightInfoForm" autocomplete="off" novalidate>
@@ -1450,7 +1485,7 @@ ${emergencySection}
 <div id="pilotCertGen" class="container mt-3 myHideableSection" style="max-width: 700px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
     <div class="card-header text-center">
-      <h4>Pilot Certification Log Generator</h4>
+      <h4>[CERTIFICATE] Pilot Log</h4>
     </div>
     <div class="card-body">
       <form id="pilotCertForm" autocomplete="off" novalidate>
@@ -1715,7 +1750,7 @@ ${certs}
 <div id="studentProfileGen" class="container mt-3 myHideableSection" style="max-width: 700px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
     <div class="card-header text-center">
-      <h4>Student Flight School Profile Generator</h4>
+      <h4>[LICENSE] Profile</h4>
     </div>
     <div class="card-body">
       <form id="studentProfileForm" autocomplete="off" novalidate>
@@ -1844,6 +1879,1268 @@ Session reports for each FTS (Flight Training Session) are to be completed and a
   }
 });
 </script>
+
+<div id="pilotAppReceivedGen" class="container mt-3 myHideableSection" style="max-width: 750px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>[LICENSE] Recieved</h4>
+    </div>
+    <div class="card-body">
+      <form id="pilotAppReceivedForm" autocomplete="off" novalidate>
+        <!-- Applicant Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="applicantName" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="applicantName" class="form-control" placeholder="Fname Lname" required />
+          </div>
+        </div>
+        <!-- Signature Image URL -->
+        <div class="mb-3 row align-items-center">
+          <label for="signatureUrl" class="col-sm-4 col-form-label fw-bold text-end">Signature Image URL:</label>
+          <div class="col-sm-8">
+            <input type="text" id="signatureUrl" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+          </div>
+        </div>
+        <!-- Staff Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="staffName" class="col-sm-4 col-form-label fw-bold text-end">Staff Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="staffName" class="form-control" placeholder="Your Name" required />
+          </div>
+        </div>
+        <!-- Rank/Title -->
+        <div class="mb-3 row align-items-center">
+          <label for="staffRank" class="col-sm-4 col-form-label fw-bold text-end">Rank/Title:</label>
+          <div class="col-sm-8">
+            <input type="text" id="staffRank" class="form-control" placeholder="e.g. SAAA Staff" required />
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="pilotAppReceivedCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="pilotAppReceivedBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="pilotAppReceivedBBOutput" class="form-control" rows="20" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById('pilotAppReceivedForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successMsg = document.getElementById('pilotAppReceivedCopySuccess');
+  successMsg.textContent = '';
+
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+
+  const applicantName = document.getElementById('applicantName').value.trim();
+  const signatureUrl = document.getElementById('signatureUrl').value.trim();
+  const staffName = document.getElementById('staffName').value.trim();
+  const staffRank = document.getElementById('staffRank').value.trim();
+
+  const bbcode = `[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[divbox=white]
+[fimg=150,150]https://i.imgur.com/CySKVDZ.png[/fimg][aligntable=right,0,0,0,0,0,0][right][font=Arial][b]
+[size=140]San Andreas Aviation Administration[/size][/b]
+[size=125]Pilot Application - [color=#228B22]RECEIVED[/color][/size][/font][/right][/aligntable]
+[hr][/hr]
+[list=none]
+Mr./Ms. [mention]${applicantName}[/mention],
+
+The San Andreas Aviation Administration has received your application. A representative will review your application and perform appropriate background checks. 
+
+A representative will update the application status as soon as the initial review is completed.
+
+[/list]
+[hr][/hr][list=none]
+[img]${signatureUrl}[/img]
+[size=105]${staffName}[/size]
+[color=#091f62][size=100][b]${staffRank} | San Andreas Aviation Administration[/b][/size][/color]
+
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+  const outputArea = document.getElementById('pilotAppReceivedBBOutput');
+  outputArea.value = bbcode.trim();
+  outputArea.focus();
+  outputArea.select();
+
+  try {
+    navigator.clipboard.writeText(bbcode).then(() => {
+      successMsg.textContent = 'Copied to clipboard!';
+    }, () => {
+      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+    });
+  } catch {
+    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+  }
+});
+</script>
+
+
+<div id="pilotAppPendingPaymentGen" class="container mt-3 myHideableSection" style="max-width: 800px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>[LICENSE] Pending Payment</h4>
+    </div>
+    <div class="card-body">
+      <form id="pilotAppPendingPaymentForm" autocomplete="off" novalidate>
+        <!-- Applicant Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="applicantName" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="applicantName" class="form-control" placeholder="Fname Lname" required />
+          </div>
+        </div>
+        <!-- Fee Selection -->
+        <fieldset class="mb-3">
+          <legend class="fw-bold">Select Fees to Include</legend>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input feeCheck" id="feeGround" checked>
+            <label class="form-check-label" for="feeGround">$20,000 - Ground School</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input feeCheck" id="feeFTS2" checked>
+            <label class="form-check-label" for="feeFTS2">$20,000 - FTS-2 (incl. required flight hours)</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input feeCheck" id="feeFTS3" checked>
+            <label class="form-check-label" for="feeFTS3">$20,000 - FTS-3 (incl. required flight hours)</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input feeCheck" id="feeGroundD">
+            <label class="form-check-label" for="feeGroundD">$15,000 - Ground School</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input feeCheck" id="feeFTS2D">
+            <label class="form-check-label" for="feeFTS2D">$15,000 - FTS-2 (incl. required flight hours)</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input feeCheck" id="feeFTS3D">
+            <label class="form-check-label" for="feeFTS3D">$15,000 - FTS-2 (incl. required flight hours)</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input feeCheck" id="feeFTS4Practical" checked disabled>
+            <label class="form-check-label" for="feeFTS4Practical">$20,000 - FTS-4 Practical Evaluation (required)</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input feeCheck" id="feeFTS4Written" checked disabled>
+            <label class="form-check-label" for="feeFTS4Written">$20,000 - FTS-4 Written Evaluation (required)</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input feeCheck" id="feeARR">
+            <label class="form-check-label" for="feeARR">$10,000 - Rating Evaluation (ARR)</label>
+          </div>
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input feeCheck" id="feeAdmin" checked disabled>
+            <label class="form-check-label" for="feeAdmin">$10,000 - Administration Fees (required)</label>
+          </div>
+        </fieldset>
+        <!-- Total Cost -->
+        <div class="mb-3 row align-items-center">
+          <label class="col-sm-4 col-form-label fw-bold text-end">Total Cost:</label>
+          <div class="col-sm-8">
+            <input type="text" id="totalCost" class="form-control" readonly style="background:#e9ecef;font-weight:bold;" />
+          </div>
+        </div>
+        <!-- Signature Image URL -->
+        <div class="mb-3 row align-items-center">
+          <label for="signatureUrl" class="col-sm-4 col-form-label fw-bold text-end">Signature Image URL:</label>
+          <div class="col-sm-8">
+            <input type="text" id="signatureUrl" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+          </div>
+        </div>
+        <!-- Staff Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="staffName" class="col-sm-4 col-form-label fw-bold text-end">Staff Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="staffName" class="form-control" placeholder="Your Name" required />
+          </div>
+        </div>
+        <!-- Rank/Title -->
+        <div class="mb-3 row align-items-center">
+          <label for="staffRank" class="col-sm-4 col-form-label fw-bold text-end">Rank/Title:</label>
+          <div class="col-sm-8">
+            <input type="text" id="staffRank" class="form-control" placeholder="e.g. SAAA Staff" required />
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="pilotAppPendingPaymentCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="pilotAppPendingPaymentBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="pilotAppPendingPaymentBBOutput" class="form-control" rows="26" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+// Fee definitions
+const feeDefs = [
+  { id: 'feeGround', label: '$20,000 - Ground School', amount: 20000 },
+  { id: 'feeFTS2', label: '$20,000 - FTS-2 (incl. required flight hours)', amount: 20000 },
+  { id: 'feeFTS3', label: '$20,000 - FTS-3 (incl. required flight hours)', amount: 20000 },
+  { id: 'feeGroundD', label: '$15,000 - Ground School', amount: 15000 },
+  { id: 'feeFTS2D', label: '$15,000 - FTS-2 (incl. required flight hours)', amount: 15000 },
+  { id: 'feeFTS3D', label: '$15,000 - FTS-3 (incl. required flight hours)', amount: 15000 },
+  { id: 'feeFTS4Practical', label: '$20,000 - FTS-4 Practical Evaluation', amount: 20000 },
+  { id: 'feeFTS4Written', label: '$20,000 - FTS-4 Written Evaluation', amount: 20000 },
+  { id: 'feeARR', label: '$10,000 - Rating Evaluation (ARR)', amount: 10000 },
+  { id: 'feeAdmin', label: '$10,000 - Administration Fees', amount: 10000 }
+];
+
+function updateTotalCost() {
+  let total = 0;
+  // Always include required fees (even if disabled)
+  feeDefs.forEach(fee => {
+    const cb = document.getElementById(fee.id);
+    if ((cb && cb.checked) || cb.disabled) total += fee.amount;
+  });
+  document.getElementById('totalCost').value = '$' + total.toLocaleString();
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Set up fee checkboxes to update total
+  document.querySelectorAll('.feeCheck').forEach(cb => {
+    cb.addEventListener('change', updateTotalCost);
+  });
+  updateTotalCost();
+});
+
+document.getElementById('pilotAppPendingPaymentForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successMsg = document.getElementById('pilotAppPendingPaymentCopySuccess');
+  successMsg.textContent = '';
+
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+
+  const applicantName = document.getElementById('applicantName').value.trim();
+  const signatureUrl = document.getElementById('signatureUrl').value.trim();
+  const staffName = document.getElementById('staffName').value.trim();
+  const staffRank = document.getElementById('staffRank').value.trim();
+
+  // Build fee list and total
+  let feeList = '';
+  let total = 0;
+  feeDefs.forEach(fee => {
+    const cb = document.getElementById(fee.id);
+    if ((cb && cb.checked) || cb.disabled) {
+      feeList += `[*]${fee.label}\n`;
+      total += fee.amount;
+    }
+  });
+
+  const bbcode = `[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[divbox=white]
+[fimg=150,150]https://i.imgur.com/CySKVDZ.png[/fimg][aligntable=right,0,0,0,0,0,0][right][font=Arial][b]
+[size=140]San Andreas Aviation Administration[/size][/b]
+[size=125]Pilot Application - [color=#228B22]PENDING PAYMENT[/color][/size][/font][/right][/aligntable]
+[hr][/hr]
+[list=none]
+Mr./Ms. [mention]${applicantName}[/mention],
+
+We are glad to inform your that you have passed the initial screening process. Your next step is to pay the flight school fees before you can proceed with flight school. 
+
+Your total price breakdown is as follows:
+[list]
+${feeList}[/list]
+[b]Total Cost: $${total.toLocaleString()}[/b]
+
+These fees are to be paid at City Hall [ooc]/donategovernment[/ooc]. Respond to this topic by adding the receipt from the payment.
+
+[/list]
+[hr][/hr][list=none]
+[img]${signatureUrl}[/img]
+[size=105]${staffName}[/size]
+[color=#091f62][size=100][b]${staffRank} | San Andreas Aviation Administration[/b][/size][/color]
+
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+  const outputArea = document.getElementById('pilotAppPendingPaymentBBOutput');
+  outputArea.value = bbcode.trim();
+  outputArea.focus();
+  outputArea.select();
+
+  try {
+    navigator.clipboard.writeText(bbcode).then(() => {
+      successMsg.textContent = 'Copied to clipboard!';
+    }, () => {
+      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+    });
+  } catch {
+    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+  }
+});
+</script>
+
+<div id="pilotAppOnHoldGen" class="container mt-3 myHideableSection" style="max-width: 800px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>[LICENSE] On Hold</h4>
+    </div>
+    <div class="card-body">
+      <form id="pilotAppOnHoldForm" autocomplete="off" novalidate>
+        <!-- Applicant Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="applicantName" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="applicantName" class="form-control" placeholder="Fname Lname" required />
+          </div>
+        </div>
+        <!-- Hold Reasons -->
+        <fieldset class="mb-4">
+          <legend class="fw-bold">Hold Reasons</legend>
+          <div class="input-group mb-2">
+            <input type="text" id="holdReasonInput" class="form-control" placeholder="Reason for hold" />
+            <button type="button" id="addHoldReasonBtn" class="btn btn-primary">Add Reason</button>
+          </div>
+          <ul id="holdReasonList" class="list-group list-group-flush" style="max-height: 120px; overflow-y: auto;"></ul>
+          <button type="button" id="removeHoldReasonBtn" class="btn btn-danger mt-2">Remove Last Reason</button>
+        </fieldset>
+        <!-- Signature Image URL -->
+        <div class="mb-3 row align-items-center">
+          <label for="signatureUrl" class="col-sm-4 col-form-label fw-bold text-end">Signature Image URL:</label>
+          <div class="col-sm-8">
+            <input type="text" id="signatureUrl" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+          </div>
+        </div>
+        <!-- Staff Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="staffName" class="col-sm-4 col-form-label fw-bold text-end">Staff Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="staffName" class="form-control" placeholder="Your Name" required />
+          </div>
+        </div>
+        <!-- Rank/Title -->
+        <div class="mb-3 row align-items-center">
+          <label for="staffRank" class="col-sm-4 col-form-label fw-bold text-end">Rank/Title:</label>
+          <div class="col-sm-8">
+            <input type="text" id="staffRank" class="form-control" placeholder="e.g. SAAA Staff" required />
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="pilotAppOnHoldCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="pilotAppOnHoldBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="pilotAppOnHoldBBOutput" class="form-control" rows="24" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  // Dynamic hold reason list
+  const addHoldReasonBtn = document.getElementById('addHoldReasonBtn');
+  const removeHoldReasonBtn = document.getElementById('removeHoldReasonBtn');
+  const holdReasonInput = document.getElementById('holdReasonInput');
+  const holdReasonList = document.getElementById('holdReasonList');
+
+  addHoldReasonBtn.addEventListener('click', () => {
+    const val = holdReasonInput.value.trim();
+    if (!val) {
+      alert('Please enter a reason.');
+      return;
+    }
+    const li = document.createElement('li');
+    li.className = 'list-group-item bg-light text-dark';
+    li.textContent = val;
+    holdReasonList.appendChild(li);
+    holdReasonInput.value = '';
+    holdReasonInput.focus();
+  });
+
+  removeHoldReasonBtn.addEventListener('click', () => {
+    if (holdReasonList.lastChild) holdReasonList.removeChild(holdReasonList.lastChild);
+  });
+
+  document.getElementById('pilotAppOnHoldForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const successMsg = document.getElementById('pilotAppOnHoldCopySuccess');
+    successMsg.textContent = '';
+
+    if (!this.checkValidity()) {
+      this.reportValidity();
+      return;
+    }
+
+    const applicantName = document.getElementById('applicantName').value.trim();
+    const signatureUrl = document.getElementById('signatureUrl').value.trim();
+    const staffName = document.getElementById('staffName').value.trim();
+    const staffRank = document.getElementById('staffRank').value.trim();
+
+    // Hold reasons
+    let reasons = '';
+    holdReasonList.querySelectorAll('li').forEach(li => {
+      reasons += `[*] ${li.textContent}\n`;
+    });
+
+    if (!reasons.trim()) {
+      alert('Please add at least one reason.');
+      return;
+    }
+
+    const bbcode = `[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[divbox=white]
+[fimg=150,150]https://i.imgur.com/CySKVDZ.png[/fimg][aligntable=right,0,0,0,0,0,0][right][font=Arial][b]
+[size=140]San Andreas Aviation Administration[/size][/b]
+[size=125]Pilot Application - [color=#FF7F50]ON HOLD[/color][/size][/font][/right][/aligntable]
+[hr][/hr]
+[list=none]
+Mr./Ms. [mention]${applicantName}[/mention],
+
+A representative from the SAAA has reviewed your application and has some concerns regarding your application. Your application has been placed on hold until these issues have been resolved.
+
+[list]
+${reasons}[/list]
+
+[/list]
+[hr][/hr][list=none]
+[img]${signatureUrl}[/img]
+[size=105]${staffName}[/size]
+[color=#091f62][size=100][b]${staffRank} | San Andreas Aviation Administration[/b][/size][/color]
+
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+    const outputArea = document.getElementById('pilotAppOnHoldBBOutput');
+    outputArea.value = bbcode.trim();
+    outputArea.focus();
+    outputArea.select();
+
+    try {
+      navigator.clipboard.writeText(bbcode).then(() => {
+        successMsg.textContent = 'Copied to clipboard!';
+      }, () => {
+        successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+      });
+    } catch {
+      successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+    }
+  });
+})();
+</script>
+
+<div id="pilotAppDeniedGen" class="container mt-3 myHideableSection" style="max-width: 800px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>[LICENSE] Denied</h4>
+    </div>
+    <div class="card-body">
+      <form id="pilotAppDeniedForm" autocomplete="off" novalidate>
+        <!-- Applicant Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="applicantName" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="applicantName" class="form-control" placeholder="Fname Lname" required />
+          </div>
+        </div>
+        <!-- Denial Reasons -->
+        <fieldset class="mb-4">
+          <legend class="fw-bold">Denial Reasons</legend>
+          <div class="input-group mb-2">
+            <input type="text" id="denialReasonInput" class="form-control" placeholder="Reason for denial" />
+            <button type="button" id="addDenialReasonBtn" class="btn btn-primary">Add Reason</button>
+          </div>
+          <ul id="denialReasonList" class="list-group list-group-flush" style="max-height: 120px; overflow-y: auto;"></ul>
+          <button type="button" id="removeDenialReasonBtn" class="btn btn-danger mt-2">Remove Last Reason</button>
+        </fieldset>
+        <!-- Weeks Until Reapply -->
+        <div class="mb-3 row align-items-center">
+          <label for="weeksReapply" class="col-sm-4 col-form-label fw-bold text-end">Weeks Until Reapply:</label>
+          <div class="col-sm-8">
+            <input type="number" id="weeksReapply" class="form-control" min="1" placeholder="e.g. 2" required />
+          </div>
+        </div>
+        <!-- Signature Image URL -->
+        <div class="mb-3 row align-items-center">
+          <label for="signatureUrl" class="col-sm-4 col-form-label fw-bold text-end">Signature Image URL:</label>
+          <div class="col-sm-8">
+            <input type="text" id="signatureUrl" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+          </div>
+        </div>
+        <!-- Staff Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="staffName" class="col-sm-4 col-form-label fw-bold text-end">Staff Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="staffName" class="form-control" placeholder="Your Name" required />
+          </div>
+        </div>
+        <!-- Rank/Title -->
+        <div class="mb-3 row align-items-center">
+          <label for="staffRank" class="col-sm-4 col-form-label fw-bold text-end">Rank/Title:</label>
+          <div class="col-sm-8">
+            <input type="text" id="staffRank" class="form-control" placeholder="e.g. SAAA Staff" required />
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="pilotAppDeniedCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="pilotAppDeniedBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="pilotAppDeniedBBOutput" class="form-control" rows="26" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  // Dynamic denial reason list
+  const addDenialReasonBtn = document.getElementById('addDenialReasonBtn');
+  const removeDenialReasonBtn = document.getElementById('removeDenialReasonBtn');
+  const denialReasonInput = document.getElementById('denialReasonInput');
+  const denialReasonList = document.getElementById('denialReasonList');
+
+  addDenialReasonBtn.addEventListener('click', () => {
+    const val = denialReasonInput.value.trim();
+    if (!val) {
+      alert('Please enter a reason.');
+      return;
+    }
+    const li = document.createElement('li');
+    li.className = 'list-group-item bg-light text-dark';
+    li.textContent = val;
+    denialReasonList.appendChild(li);
+    denialReasonInput.value = '';
+    denialReasonInput.focus();
+  });
+
+  removeDenialReasonBtn.addEventListener('click', () => {
+    if (denialReasonList.lastChild) denialReasonList.removeChild(denialReasonList.lastChild);
+  });
+
+  document.getElementById('pilotAppDeniedForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const successMsg = document.getElementById('pilotAppDeniedCopySuccess');
+    successMsg.textContent = '';
+
+    if (!this.checkValidity()) {
+      this.reportValidity();
+      return;
+    }
+
+    const applicantName = document.getElementById('applicantName').value.trim();
+    const weeksReapply = document.getElementById('weeksReapply').value.trim();
+    const signatureUrl = document.getElementById('signatureUrl').value.trim();
+    const staffName = document.getElementById('staffName').value.trim();
+    const staffRank = document.getElementById('staffRank').value.trim();
+
+    // Denial reasons
+    let reasons = '';
+    denialReasonList.querySelectorAll('li').forEach(li => {
+      reasons += `[*] ${li.textContent}\n`;
+    });
+
+    if (!reasons.trim()) {
+      alert('Please add at least one reason.');
+      return;
+    }
+
+    const bbcode = `[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[divbox=white]
+[fimg=150,150]https://i.imgur.com/CySKVDZ.png[/fimg][aligntable=right,0,0,0,0,0,0][right][font=Arial][b]
+[size=140]San Andreas Aviation Administration[/size][/b]
+[size=125]Pilot Application - [color=#DC143C]DENIED[/color][/size][/font][/right][/aligntable]
+[hr][/hr]
+[list=none]
+Mr./Ms. [mention]${applicantName}[/mention],
+
+After reviewing your application, we have decided not to move forward with your application. You have been denied for the following reason(s):
+
+[list]
+${reasons}[/list]
+
+You may apply again after [b]${weeksReapply}[/b] weeks. ((This is an IC denial and you may apply on a different character.))
+
+[/list]
+[hr][/hr][list=none]
+[img]${signatureUrl}[/img]
+[size=105]${staffName}[/size]
+[color=#091f62][size=100][b]${staffRank} | San Andreas Aviation Administration[/b][/size][/color]
+
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+    const outputArea = document.getElementById('pilotAppDeniedBBOutput');
+    outputArea.value = bbcode.trim();
+    outputArea.focus();
+    outputArea.select();
+
+    try {
+      navigator.clipboard.writeText(bbcode).then(() => {
+        successMsg.textContent = 'Copied to clipboard!';
+      }, () => {
+        successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+      });
+    } catch {
+      successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+    }
+  });
+})();
+</script>
+
+
+<div id="aircraftRegReceivedGen" class="container mt-3 myHideableSection" style="max-width: 800px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>[REGRISTRATION] Recieved</h4>
+    </div>
+    <div class="card-body">
+      <form id="aircraftRegReceivedForm" autocomplete="off" novalidate>
+        <!-- Applicant Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="applicantName" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="applicantName" class="form-control" placeholder="Fname Lname" required />
+          </div>
+        </div>
+        <!-- Signature Image URL -->
+        <div class="mb-3 row align-items-center">
+          <label for="signatureUrl" class="col-sm-4 col-form-label fw-bold text-end">Signature Image URL:</label>
+          <div class="col-sm-8">
+            <input type="text" id="signatureUrl" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+          </div>
+        </div>
+        <!-- Staff Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="staffName" class="col-sm-4 col-form-label fw-bold text-end">Staff Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="staffName" class="form-control" placeholder="Your Name" required />
+          </div>
+        </div>
+        <!-- Rank/Title -->
+        <div class="mb-3 row align-items-center">
+          <label for="staffRank" class="col-sm-4 col-form-label fw-bold text-end">Rank/Title:</label>
+          <div class="col-sm-8">
+            <input type="text" id="staffRank" class="form-control" placeholder="e.g. SAAA Staff" required />
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="aircraftRegReceivedCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="aircraftRegReceivedBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="aircraftRegReceivedBBOutput" class="form-control" rows="20" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById('aircraftRegReceivedForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successMsg = document.getElementById('aircraftRegReceivedCopySuccess');
+  successMsg.textContent = '';
+
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+
+  const applicantName = document.getElementById('applicantName').value.trim();
+  const signatureUrl = document.getElementById('signatureUrl').value.trim();
+  const staffName = document.getElementById('staffName').value.trim();
+  const staffRank = document.getElementById('staffRank').value.trim();
+
+  const bbcode = `[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[divbox=white]
+[fimg=150,150]https://i.imgur.com/CySKVDZ.png[/fimg][aligntable=right,0,0,0,0,0,0][right][font=Arial][b]
+[size=140]San Andreas Aviation Administration[/size][/b]
+[size=125]Aircraft Registration - [color=#228B22]RECEIVED[/color][/size][/font][/right][/aligntable]
+[hr][/hr]
+[list=none]
+Mr./Ms. [mention]${applicantName}[/mention],
+
+The San Andreas Aviation Administration has received your registration. A representative will review your registration and perform the appropriate checks. 
+
+The registration status will be updated as soon as the initial review is completed.
+
+[/list]
+[hr][/hr][list=none]
+[img]${signatureUrl}[/img]
+[size=105]${staffName}[/size]
+[color=#091f62][size=100][b]${staffRank} | San Andreas Aviation Administration[/b][/size][/color]
+
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+  const outputArea = document.getElementById('aircraftRegReceivedBBOutput');
+  outputArea.value = bbcode.trim();
+  outputArea.focus();
+  outputArea.select();
+
+  try {
+    navigator.clipboard.writeText(bbcode).then(() => {
+      successMsg.textContent = 'Copied to clipboard!';
+    }, () => {
+      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+    });
+  } catch {
+    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+  }
+});
+</script>
+
+
+<div id="aircraftRegApprovedGen" class="container mt-3 myHideableSection" style="max-width: 900px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>[REGRISTRATION] Approved</h4>
+    </div>
+    <div class="card-body">
+      <form id="aircraftRegApprovedForm" autocomplete="off" novalidate>
+        <!-- Applicant Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="applicantName" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="applicantName" class="form-control" placeholder="Fname Lname" required />
+          </div>
+        </div>
+        <!-- Tail Number -->
+        <div class="mb-3 row align-items-center">
+          <label for="tailNumber" class="col-sm-4 col-form-label fw-bold text-end">Tail Number:</label>
+          <div class="col-sm-8">
+            <input type="text" id="tailNumber" class="form-control" placeholder="e.g. N12345" required />
+          </div>
+        </div>
+        <!-- Signature Image URL -->
+        <div class="mb-3 row align-items-center">
+          <label for="signatureUrl" class="col-sm-4 col-form-label fw-bold text-end">Signature Image URL:</label>
+          <div class="col-sm-8">
+            <input type="text" id="signatureUrl" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+          </div>
+        </div>
+        <!-- Staff Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="staffName" class="col-sm-4 col-form-label fw-bold text-end">Staff Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="staffName" class="form-control" placeholder="Your Name" required />
+          </div>
+        </div>
+        <!-- Rank/Title -->
+        <div class="mb-3 row align-items-center">
+          <label for="staffRank" class="col-sm-4 col-form-label fw-bold text-end">Rank/Title:</label>
+          <div class="col-sm-8">
+            <input type="text" id="staffRank" class="form-control" placeholder="e.g. SAAA Staff" required />
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="aircraftRegApprovedCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="aircraftRegApprovedBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="aircraftRegApprovedBBOutput" class="form-control" rows="40" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById('aircraftRegApprovedForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successMsg = document.getElementById('aircraftRegApprovedCopySuccess');
+  successMsg.textContent = '';
+
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+
+  const applicantName = document.getElementById('applicantName').value.trim();
+  const tailNumber = document.getElementById('tailNumber').value.trim();
+  const signatureUrl = document.getElementById('signatureUrl').value.trim();
+  const staffName = document.getElementById('staffName').value.trim();
+  const staffRank = document.getElementById('staffRank').value.trim();
+
+  const modForm = `[spoiler=Modification Form][img]https://i.imgur.com/merPI6u.png[/img]
+[divbox=#091f62][b][color=white]INFORMATION[/color][/b][/divbox]
+
+[divbox=white]
+[list=none]
+
+Please complete the following form to report any modifications made to your helicopter. It is [b]mandatory[/b] to provide accurate information about the modifications performed. This form must be submitted in your aircraft registration within [b]24h[/b] from the date of completion.
+
+[/list]
+[/divbox]
+
+
+[divbox=#091f62][b][color=white]MODIFICATION[/color][/b][/divbox]
+
+[divbox=white]
+[list=none]
+
+[b]Date of Modification:[/b] DD/MM/YYYY
+
+[b]Organization Responsible for the Modification: [/b] LSC/Bayview
+
+[b]Modification Type:[/b] 
+
+[b]Modification Details:[/b]
+
+[b]Images of Aircraft (for reference include ALL SIDES):[/b]
+
+[spoiler=Images]ADD IMAGES HERE[/spoiler]
+
+
+[/list]
+[/divbox]
+
+
+[divbox=#091f62][b][color=white]AGREEMENT[/color][/b][/divbox]
+
+[divbox=beige]
+[list=none]
+
+I, [b][Aircraft Owner's Name][/b], declare that the information provided above is true and accurate to the best of my knowledge. I understand that failure to report modifications may result in penalties or the suspension of my aircraft's registration.
+
+[b]Signature: [/b]Signature here.
+[b]Date:[/b] DD/MM/YYYY
+[/list]
+[/divbox]
+
+[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[/spoiler]`;
+
+  const modFormFormat = `[spoiler=Modification Form Format]
+[code][img]https://i.imgur.com/merPI6u.png[/img]
+[divbox=#091f62][b][color=white]INFORMATION[/color][/b][/divbox]
+
+[divbox=white]
+[list=none]
+
+Please complete the following form to report any modifications made to your helicopter. It is [b]mandatory[/b] to provide accurate information about the modifications performed. This form must be submitted within [b]24h[/b] from the date of completion.
+
+[/list]
+[/divbox]
+
+
+[divbox=#091f62][b][color=white]MODIFICATION[/color][/b][/divbox]
+
+[divbox=white]
+[list=none]
+
+[b]Date of Modification:[/b] DD/MM/YYYY
+
+[b]Organization Responsible for the Modification: [/b] LSC/Bayview
+
+[b]Modification Type:[/b] 
+
+[b]Modification Details:[/b]
+
+[b]Images of Aircraft (for reference include ALL SIDES):[/b]
+
+[spoiler=Images]ADD IMAGES HERE[/spoiler]
+
+
+
+[/list]
+[/divbox]
+
+
+[divbox=#091f62][b][color=white]AGREEMENT[/color][/b][/divbox]
+
+[divbox=beige]
+[list=none]
+
+I, [b][Aircraft Owner's Name][/b], declare that the information provided above is true and accurate to the best of my knowledge. I understand that failure to report modifications may result in penalties or the suspension of my aircraft's registration.
+
+[b]Signature: [/b]Signature here.
+[b]Date:[/b] DD/MM/YYYY
+[/list]
+[/divbox]
+
+[img]https://i.imgur.com/ZFpeXl3.png[/img][/code][/spoiler]`;
+
+  const bbcode = `[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[divbox=white]
+[fimg=150,150]https://i.imgur.com/CySKVDZ.png[/fimg][aligntable=right,0,0,0,0,0,0][right][font=Arial][b]
+[size=140]San Andreas Aviation Administration[/size][/b]
+[size=125]Aircraft Registration - [color=#228B22]APPROVED[/color][/size][/font][/right][/aligntable]
+[hr][/hr][list=none]
+Mr./Ms. [mention]${applicantName}[/mention],
+
+The San Andreas Aviation Administration has approved your aircraft registration form and the aircraft is now permitted for usage. 
+
+[b]Tailnumber given: [/b] ${tailNumber}
+
+Please be aware that it is mandatory to report all modifications by filling in the form below and submitted here for each modification made to the helicopter.
+
+${modForm}
+
+${modFormFormat}
+
+[/list]
+
+[hr][/hr][list=none]
+[img]${signatureUrl}[/img]
+[size=105]${staffName}[/size]
+[color=#091f62][size=100][b]${staffRank} | San Andreas Aviation Administration[/b][/size][/color]
+
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+  const outputArea = document.getElementById('aircraftRegApprovedBBOutput');
+  outputArea.value = bbcode.trim();
+  outputArea.focus();
+  outputArea.select();
+
+  try {
+    navigator.clipboard.writeText(bbcode).then(() => {
+      successMsg.textContent = 'Copied to clipboard!';
+    }, () => {
+      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+    });
+  } catch {
+    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+  }
+});
+</script>
+
+
+<div id="aircraftRegOnHoldGen" class="container mt-3 myHideableSection" style="max-width: 800px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>[REGRISTRATION] On Hold</h4>
+    </div>
+    <div class="card-body">
+      <form id="aircraftRegOnHoldForm" autocomplete="off" novalidate>
+        <!-- Applicant Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="applicantName" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="applicantName" class="form-control" placeholder="Fname Lname" required />
+          </div>
+        </div>
+        <!-- On Hold Reasons -->
+        <fieldset class="mb-4">
+          <legend class="fw-bold">On Hold Reasons</legend>
+          <div class="input-group mb-2">
+            <input type="text" id="onHoldReasonInput" class="form-control" placeholder="Reason for on hold" />
+            <button type="button" id="addOnHoldReasonBtn" class="btn btn-primary">Add Reason</button>
+          </div>
+          <ul id="onHoldReasonList" class="list-group list-group-flush" style="max-height: 120px; overflow-y: auto;"></ul>
+          <button type="button" id="removeOnHoldReasonBtn" class="btn btn-danger mt-2">Remove Last Reason</button>
+        </fieldset>
+        <!-- Signature Image URL -->
+        <div class="mb-3 row align-items-center">
+          <label for="signatureUrl" class="col-sm-4 col-form-label fw-bold text-end">Signature Image URL:</label>
+          <div class="col-sm-8">
+            <input type="text" id="signatureUrl" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+          </div>
+        </div>
+        <!-- Staff Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="staffName" class="col-sm-4 col-form-label fw-bold text-end">Staff Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="staffName" class="form-control" placeholder="Your Name" required />
+          </div>
+        </div>
+        <!-- Rank/Title -->
+        <div class="mb-3 row align-items-center">
+          <label for="staffRank" class="col-sm-4 col-form-label fw-bold text-end">Rank/Title:</label>
+          <div class="col-sm-8">
+            <input type="text" id="staffRank" class="form-control" placeholder="e.g. SAAA Staff" required />
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="aircraftRegOnHoldCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="aircraftRegOnHoldBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="aircraftRegOnHoldBBOutput" class="form-control" rows="24" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  // Dynamic on hold reason list
+  const addOnHoldReasonBtn = document.getElementById('addOnHoldReasonBtn');
+  const removeOnHoldReasonBtn = document.getElementById('removeOnHoldReasonBtn');
+  const onHoldReasonInput = document.getElementById('onHoldReasonInput');
+  const onHoldReasonList = document.getElementById('onHoldReasonList');
+
+  addOnHoldReasonBtn.addEventListener('click', () => {
+    const val = onHoldReasonInput.value.trim();
+    if (!val) {
+      alert('Please enter a reason.');
+      return;
+    }
+    const li = document.createElement('li');
+    li.className = 'list-group-item bg-light text-dark';
+    li.textContent = val;
+    onHoldReasonList.appendChild(li);
+    onHoldReasonInput.value = '';
+    onHoldReasonInput.focus();
+  });
+
+  removeOnHoldReasonBtn.addEventListener('click', () => {
+    if (onHoldReasonList.lastChild) onHoldReasonList.removeChild(onHoldReasonList.lastChild);
+  });
+
+  document.getElementById('aircraftRegOnHoldForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const successMsg = document.getElementById('aircraftRegOnHoldCopySuccess');
+    successMsg.textContent = '';
+
+    if (!this.checkValidity()) {
+      this.reportValidity();
+      return;
+    }
+
+    const applicantName = document.getElementById('applicantName').value.trim();
+    const signatureUrl = document.getElementById('signatureUrl').value.trim();
+    const staffName = document.getElementById('staffName').value.trim();
+    const staffRank = document.getElementById('staffRank').value.trim();
+
+    // On hold reasons
+    let reasons = '';
+    onHoldReasonList.querySelectorAll('li').forEach(li => {
+      reasons += `[*] ${li.textContent}\n`;
+    });
+
+    if (!reasons.trim()) {
+      alert('Please add at least one reason.');
+      return;
+    }
+
+    const bbcode = `[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[divbox=white]
+[fimg=150,150]https://i.imgur.com/CySKVDZ.png[/fimg][aligntable=right,0,0,0,0,0,0][right][font=Arial][b]
+[size=140]San Andreas Aviation Administration[/size][/b]
+[size=125]Aircraft Registration - [color=#FF7F50]ON HOLD[/color][/size][/font][/right][/aligntable]
+[hr][/hr][list=none]
+
+Mr./Ms. [mention]${applicantName}[/mention],
+
+The San Andreas Aviation Administration has placed your aircraft registration form On Hold. You may correct the reasons below before we will review your form again. 
+
+[b]Reason:[/b]
+[list]
+${reasons}[/list]
+
+[/list]
+[hr][/hr][list=none]
+[img]${signatureUrl}[/img]
+[size=105]${staffName}[/size]
+[color=#091f62][size=100][b]${staffRank} | San Andreas Aviation Administration[/b][/size][/color]
+
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+    const outputArea = document.getElementById('aircraftRegOnHoldBBOutput');
+    outputArea.value = bbcode.trim();
+    outputArea.focus();
+    outputArea.select();
+
+    try {
+      navigator.clipboard.writeText(bbcode).then(() => {
+        successMsg.textContent = 'Copied to clipboard!';
+      }, () => {
+        successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+      });
+    } catch {
+      successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+    }
+  });
+})();
+</script>
+
+
+
+<div id="aircraftRegDeniedGen" class="container mt-3 myHideableSection" style="max-width: 800px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>[REGRISTRATION] Denied</h4>
+    </div>
+    <div class="card-body">
+      <form id="aircraftRegDeniedForm" autocomplete="off" novalidate>
+        <!-- Applicant Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="applicantName" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="applicantName" class="form-control" placeholder="Fname Lname" required />
+          </div>
+        </div>
+        <!-- Denial Reasons -->
+        <fieldset class="mb-4">
+          <legend class="fw-bold">Denial Reasons</legend>
+          <div class="input-group mb-2">
+            <input type="text" id="denialReasonInput" class="form-control" placeholder="Reason for denial" />
+            <button type="button" id="addDenialReasonBtn" class="btn btn-primary">Add Reason</button>
+          </div>
+          <ul id="denialReasonList" class="list-group list-group-flush" style="max-height: 120px; overflow-y: auto;"></ul>
+          <button type="button" id="removeDenialReasonBtn" class="btn btn-danger mt-2">Remove Last Reason</button>
+        </fieldset>
+        <!-- Signature Image URL -->
+        <div class="mb-3 row align-items-center">
+          <label for="signatureUrl" class="col-sm-4 col-form-label fw-bold text-end">Signature Image URL:</label>
+          <div class="col-sm-8">
+            <input type="text" id="signatureUrl" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+          </div>
+        </div>
+        <!-- Staff Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="staffName" class="col-sm-4 col-form-label fw-bold text-end">Staff Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="staffName" class="form-control" placeholder="Your Name" required />
+          </div>
+        </div>
+        <!-- Rank/Title -->
+        <div class="mb-3 row align-items-center">
+          <label for="staffRank" class="col-sm-4 col-form-label fw-bold text-end">Rank/Title:</label>
+          <div class="col-sm-8">
+            <input type="text" id="staffRank" class="form-control" placeholder="e.g. SAAA Staff" required />
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="aircraftRegDeniedCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="aircraftRegDeniedBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="aircraftRegDeniedBBOutput" class="form-control" rows="24" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+(() => {
+  // Dynamic denial reason list
+  const addDenialReasonBtn = document.getElementById('addDenialReasonBtn');
+  const removeDenialReasonBtn = document.getElementById('removeDenialReasonBtn');
+  const denialReasonInput = document.getElementById('denialReasonInput');
+  const denialReasonList = document.getElementById('denialReasonList');
+
+  addDenialReasonBtn.addEventListener('click', () => {
+    const val = denialReasonInput.value.trim();
+    if (!val) {
+      alert('Please enter a reason.');
+      return;
+    }
+    const li = document.createElement('li');
+    li.className = 'list-group-item bg-light text-dark';
+    li.textContent = val;
+    denialReasonList.appendChild(li);
+    denialReasonInput.value = '';
+    denialReasonInput.focus();
+  });
+
+  removeDenialReasonBtn.addEventListener('click', () => {
+    if (denialReasonList.lastChild) denialReasonList.removeChild(denialReasonList.lastChild);
+  });
+
+  document.getElementById('aircraftRegDeniedForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const successMsg = document.getElementById('aircraftRegDeniedCopySuccess');
+    successMsg.textContent = '';
+
+    if (!this.checkValidity()) {
+      this.reportValidity();
+      return;
+    }
+
+    const applicantName = document.getElementById('applicantName').value.trim();
+    const signatureUrl = document.getElementById('signatureUrl').value.trim();
+    const staffName = document.getElementById('staffName').value.trim();
+    const staffRank = document.getElementById('staffRank').value.trim();
+
+    // Denial reasons
+    let reasons = '';
+    denialReasonList.querySelectorAll('li').forEach(li => {
+      reasons += `[*] ${li.textContent}\n`;
+    });
+
+    if (!reasons.trim()) {
+      alert('Please add at least one reason.');
+      return;
+    }
+
+    const bbcode = `[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[divbox=white]
+[fimg=150,150]https://i.imgur.com/CySKVDZ.png[/fimg][aligntable=right,0,0,0,0,0,0][right][font=Arial][b]
+[size=140]San Andreas Aviation Administration[/size][/b]
+[size=125]Aircraft Registration - [color=#DC143C]DENIED[/color][/size][/font][/right][/aligntable]
+[hr][/hr][list=none]
+Mr./Ms. [mention]${applicantName}[/mention],
+
+The San Andreas Aviation Administration has denied your aircraft registration form. You may reapply once the reasons below have been corrected.
+
+[b]Reason:[/b]
+[list]
+${reasons}[/list]
+
+[/list]
+[hr][/hr][list=none]
+[img]${signatureUrl}[/img]
+[size=105]${staffName}[/size]
+[color=#091f62][size=100][b]${staffRank} | San Andreas Aviation Administration[/b][/size][/color]
+
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+    const outputArea = document.getElementById('aircraftRegDeniedBBOutput');
+    outputArea.value = bbcode.trim();
+    outputArea.focus();
+    outputArea.select();
+
+    try {
+      navigator.clipboard.writeText(bbcode).then(() => {
+        successMsg.textContent = 'Copied to clipboard!';
+      }, () => {
+        successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+      });
+    } catch {
+      successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+    }
+  });
+})();
+</script>
+
 
 
 
@@ -3140,7 +4437,7 @@ ${atcComm}
 <div id="medExamGen" class="container mt-3 myHideableSection" style="max-width: 700px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
     <div class="card-header text-center">
-      <h4>Passed Medical Examination Generator</h4>
+      <h4>[OFT] Medical Examination - PASSED</h4>
     </div>
     <div class="card-body">
       <form id="medExamForm" autocomplete="off" novalidate>
@@ -3242,7 +4539,7 @@ ${examResults}
 <div id="pilotCertGen2" class="container mt-3 myHideableSection" style="max-width: 750px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
     <div class="card-header text-center">
-      <h4>Private Pilot License Certificate Generator</h4>
+      <h4>[OFT] Pilot Certificate</h4>
     </div>
     <div class="card-body">
       <form id="pilotCertForm2" autocomplete="off" novalidate>
@@ -3387,7 +4684,7 @@ ${certDate}[/font][/center]
  <div id="workLogGen" class="container mt-3 myHideableSection" style="max-width: 700px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
     <div class="card-header text-center">
-      <h4>Work Log Entry Generator</h4>
+      <h4>[SAAA] Work Log</h4>
     </div>
     <div class="card-body">
       <form id="workLogForm" autocomplete="off" novalidate>
