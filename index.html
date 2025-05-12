@@ -1995,9 +1995,9 @@ A representative will update the application status as soon as the initial revie
       <form id="pilotAppPendingPaymentForm" autocomplete="off" novalidate>
         <!-- Applicant Name -->
         <div class="mb-3 row align-items-center">
-          <label for="applicantName" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
+          <label for="AppName9" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
           <div class="col-sm-8">
-            <input type="text" id="applicantName" class="form-control" placeholder="Fname Lname" required />
+            <input type="text" id="AppName9" class="form-control" placeholder="Fname Lname" required />
           </div>
         </div>
         <!-- Fee Selection -->
@@ -2130,7 +2130,7 @@ document.getElementById('pilotAppPendingPaymentForm').addEventListener('submit',
     return;
   }
 
-  const applicantName = document.getElementById('applicantName').value.trim();
+  const applicantName = document.getElementById('AppName9').value.trim();
   const signatureUrl = document.getElementById('signatureUrl').value.trim();
   const staffName = document.getElementById('staffName').value.trim();
   const staffRank = document.getElementById('staffRank').value.trim();
@@ -2190,6 +2190,7 @@ These fees are to be paid at City Hall [ooc]/donategovernment[/ooc]. Respond to 
 });
 </script>
 
+
 <div id="pilotAppApprovedGen" class="container mt-3 myHideableSection" style="max-width: 800px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
     <div class="card-header text-center">
@@ -2199,9 +2200,9 @@ These fees are to be paid at City Hall [ooc]/donategovernment[/ooc]. Respond to 
       <form id="pilotAppApprovedForm" autocomplete="off" novalidate>
         <!-- Applicant Name -->
         <div class="mb-3 row align-items-center">
-          <label for="applicantName" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
+          <label for="AppName3" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
           <div class="col-sm-8">
-            <input type="text" id="applicantName" class="form-control" placeholder="Fname Lname" required />
+            <input type="text" id="AppName3" class="form-control" placeholder="Fname Lname" required />
           </div>
         </div>
         <!-- Signature Image URL -->
@@ -2247,7 +2248,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const successMsg = document.getElementById('pilotAppApprovedCopySuccess');
     successMsg.textContent = '';
 
-    const applicantName = document.getElementById('applicantName').value.trim();
+    const applicantName = document.getElementById('AppName3').value.trim();
     const signatureUrl = document.getElementById('signatureUrl').value.trim();
     const staffName = document.getElementById('staffName').value.trim();
     const staffRank = document.getElementById('staffRank').value.trim();
@@ -2309,9 +2310,9 @@ Good luck with your aviation journey!
       <form id="pilotAppOnHoldForm" autocomplete="off" novalidate>
         <!-- Applicant Name -->
         <div class="mb-3 row align-items-center">
-          <label for="applicantName" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
+          <label for="AppName2" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
           <div class="col-sm-8">
-            <input type="text" id="applicantName" class="form-control" placeholder="Fname Lname" required />
+            <input type="text" id="AppName2" class="form-control" placeholder="Fname Lname" required />
           </div>
         </div>
         <!-- Hold Reasons -->
@@ -2396,7 +2397,7 @@ Good luck with your aviation journey!
       return;
     }
 
-    const applicantName = document.getElementById('applicantName').value.trim();
+    const applicantName = document.getElementById('AppName2').value.trim();
     const signatureUrl = document.getElementById('signatureUrl').value.trim();
     const staffName = document.getElementById('staffName').value.trim();
     const staffRank = document.getElementById('staffRank').value.trim();
@@ -2462,9 +2463,9 @@ ${reasons}[/list]
       <form id="pilotAppDeniedForm" autocomplete="off" novalidate>
         <!-- Applicant Name -->
         <div class="mb-3 row align-items-center">
-          <label for="applicantName" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
+          <label for="AppName4" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
           <div class="col-sm-8">
-            <input type="text" id="applicantName" class="form-control" placeholder="Fname Lname" required />
+            <input type="text" id="AppName4" class="form-control" placeholder="Fname Lname" required />
           </div>
         </div>
         <!-- Denial Reasons -->
@@ -2556,7 +2557,7 @@ ${reasons}[/list]
       return;
     }
 
-    const applicantName = document.getElementById('applicantName').value.trim();
+    const applicantName = document.getElementById('AppName4').value.trim();
     const weeksReapply = document.getElementById('weeksReapply').value.trim();
     const signatureUrl = document.getElementById('signatureUrl').value.trim();
     const staffName = document.getElementById('staffName').value.trim();
@@ -2626,9 +2627,9 @@ You may apply again after [b]${weeksReapply}[/b] weeks. ((This is an IC denial a
       <form id="aircraftRegReceivedForm" autocomplete="off" novalidate>
         <!-- Applicant Name -->
         <div class="mb-3 row align-items-center">
-          <label for="applicantName" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
+          <label for="AppName5" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
           <div class="col-sm-8">
-            <input type="text" id="applicantName" class="form-control" placeholder="Fname Lname" required />
+            <input type="text" id="AppName5" class="form-control" placeholder="Fname Lname" required />
           </div>
         </div>
         <!-- Signature Image URL -->
@@ -2678,7 +2679,7 @@ document.getElementById('aircraftRegReceivedForm').addEventListener('submit', fu
     return;
   }
 
-  const applicantName = document.getElementById('applicantName').value.trim();
+  const applicantName = document.getElementById('AppName5').value.trim();
   const signatureUrl = document.getElementById('signatureUrl').value.trim();
   const staffName = document.getElementById('staffName').value.trim();
   const staffRank = document.getElementById('staffRank').value.trim();
@@ -2732,9 +2733,9 @@ The registration status will be updated as soon as the initial review is complet
       <form id="aircraftRegApprovedForm" autocomplete="off" novalidate>
         <!-- Applicant Name -->
         <div class="mb-3 row align-items-center">
-          <label for="applicantName" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
+          <label for="AppName6" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
           <div class="col-sm-8">
-            <input type="text" id="applicantName" class="form-control" placeholder="Fname Lname" required />
+            <input type="text" id="AppName6" class="form-control" placeholder="Fname Lname" required />
           </div>
         </div>
         <!-- Tail Number -->
@@ -2791,7 +2792,7 @@ document.getElementById('aircraftRegApprovedForm').addEventListener('submit', fu
     return;
   }
 
-  const applicantName = document.getElementById('applicantName').value.trim();
+  const applicantName = document.getElementById('AppName6').value.trim();
   const tailNumber = document.getElementById('tailNumber').value.trim();
   const signatureUrl = document.getElementById('signatureUrl').value.trim();
   const staffName = document.getElementById('staffName').value.trim();
@@ -2951,9 +2952,9 @@ ${modFormFormat}
       <form id="aircraftRegOnHoldForm" autocomplete="off" novalidate>
         <!-- Applicant Name -->
         <div class="mb-3 row align-items-center">
-          <label for="applicantName" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
+          <label for="AppName7" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
           <div class="col-sm-8">
-            <input type="text" id="applicantName" class="form-control" placeholder="Fname Lname" required />
+            <input type="text" id="AppName7" class="form-control" placeholder="Fname Lname" required />
           </div>
         </div>
         <!-- On Hold Reasons -->
@@ -3038,7 +3039,7 @@ ${modFormFormat}
       return;
     }
 
-    const applicantName = document.getElementById('applicantName').value.trim();
+    const applicantName = document.getElementById('AppName7').value.trim();
     const signatureUrl = document.getElementById('signatureUrl').value.trim();
     const staffName = document.getElementById('staffName').value.trim();
     const staffRank = document.getElementById('staffRank').value.trim();
@@ -3107,9 +3108,9 @@ ${reasons}[/list]
       <form id="aircraftRegDeniedForm" autocomplete="off" novalidate>
         <!-- Applicant Name -->
         <div class="mb-3 row align-items-center">
-          <label for="applicantName" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
+          <label for="AppName8" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
           <div class="col-sm-8">
-            <input type="text" id="applicantName" class="form-control" placeholder="Fname Lname" required />
+            <input type="text" id="AppName8" class="form-control" placeholder="Fname Lname" required />
           </div>
         </div>
         <!-- Denial Reasons -->
@@ -3194,7 +3195,7 @@ ${reasons}[/list]
       return;
     }
 
-    const applicantName = document.getElementById('applicantName').value.trim();
+    const applicantName = document.getElementById('AppName8').value.trim();
     const signatureUrl = document.getElementById('signatureUrl').value.trim();
     const staffName = document.getElementById('staffName').value.trim();
     const staffRank = document.getElementById('staffRank').value.trim();
