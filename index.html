@@ -2190,6 +2190,146 @@ These fees are to be paid at City Hall [ooc]/donategovernment[/ooc]. Respond to 
 });
 </script>
 
+
+    <div id="pilotAppApprovedGen" class="container mt-3 myHideableSection" style="max-width: 800px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>[LICENSE] Approved</h4>
+    </div>
+    <div class="card-body">
+      <form id="pilotAppApprovedForm" autocomplete="off" novalidate>
+        <!-- Applicant Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="applicantName" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="applicantName" class="form-control" placeholder="Fname Lname" required />
+          </div>
+        </div>
+        <!-- Signature Image URL -->
+        <div class="mb-3 row align-items-center">
+          <label for="signatureUrl" class="col-sm-4 col-form-label fw-bold text-end">Signature Image URL:</label>
+          <div class="col-sm-8">
+            <input type="text" id="signatureUrl" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+          </div>
+        </div>
+        <!-- Staff Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="staffName" class="col-sm-4 col-form-label fw-bold text-end">Staff Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="staffName" class="form-control" placeholder="Your Name" required />
+          </div>
+        </div>
+        <!-- Rank/Title -->
+        <div class="mb-3 row align-items-center">
+          <label for="staffRank" class="col-sm-4 col-form-label fw-bold text-end">Rank/Title:</label>
+          <div class="col-sm-8">
+            <input type="text" id="staffRank" class="form-control" placeholder="e.g. SAAA Staff" required />
+          </div>
+        </div>
+        <!-- Save Signature Default Checkbox -->
+        <div class="mb-3 row align-items-center">
+          <div class="col-sm-8 offset-sm-4">
+            <input type="checkbox" id="saveSignatureDefault" />
+            <label for="saveSignatureDefault">Save as my default signature</label>
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="pilotAppApprovedCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="pilotAppApprovedBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="pilotAppApprovedBBOutput" class="form-control" rows="20" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+// Universal signature storage
+const SIGNATURE_KEY = 'saaaSignature';
+
+// Load saved signature
+document.addEventListener('DOMContentLoaded', function() {
+  const sig = localStorage.getItem(SIGNATURE_KEY);
+  if (sig) {
+    try {
+      const data = JSON.parse(sig);
+      document.getElementById('signatureUrl').value = data.signatureUrl || '';
+      document.getElementById('staffName').value = data.staffName || '';
+      document.getElementById('staffRank').value = data.staffRank || '';
+    } catch {}
+  }
+});
+
+// Save signature when form submits
+document.getElementById('pilotAppApprovedForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successMsg = document.getElementById('pilotAppApprovedCopySuccess');
+  successMsg.textContent = '';
+
+  if (document.getElementById('saveSignatureDefault').checked) {
+    const signatureData = {
+      signatureUrl: document.getElementById('signatureUrl').value.trim(),
+      staffName: document.getElementById('staffName').value.trim(),
+      staffRank: document.getElementById('staffRank').value.trim()
+    };
+    localStorage.setItem(SIGNATURE_KEY, JSON.stringify(signatureData));
+  }
+
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+
+  const applicantName = document.getElementById('applicantName').value.trim();
+  const signatureUrl = document.getElementById('signatureUrl').value.trim();
+  const staffName = document.getElementById('staffName').value.trim();
+  const staffRank = document.getElementById('staffRank').value.trim();
+
+  const bbcode = `[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[divbox=white]
+[fimg=150,150]https://i.imgur.com/CySKVDZ.png[/fimg][aligntable=right,0,0,0,0,0,0][right][font=Arial][b]
+[size=140]San Andreas Aviation Administration[/size][/b]
+[size=125]Pilot Application - [color=#228B22]APPROVED[/color][/size][/font][/right][/aligntable]
+[hr][/hr]
+[list=none]
+Mr./Ms. [mention]${applicantName}[/mention],
+
+The San Andreas Aviation Administration has received your payment and your initial application process is now complete. The next stage is to enroll on our flight school. Please visit the [url=viewforum.php?f=2943]Flight School[/url] section of our website for upcoming flight classes. 
+
+Good luck with your aviation journey!
+
+[/list]
+[hr][/hr][list=none]
+[img]${signatureUrl}[/img]
+[size=105]${staffName}[/size]
+[color=#091f62][size=100][b]${staffRank} | San Andreas Aviation Administration[/b][/size][/color]
+
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+  const outputArea = document.getElementById('pilotAppApprovedBBOutput');
+  outputArea.value = bbcode.trim();
+  outputArea.focus();
+  outputArea.select();
+
+  try {
+    navigator.clipboard.writeText(bbcode).then(() => {
+      successMsg.textContent = 'Copied to clipboard!';
+    }, () => {
+      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+    });
+  } catch {
+    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+  }
+});
+</script>
+
+
 <div id="pilotAppOnHoldGen" class="container mt-3 myHideableSection" style="max-width: 800px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
     <div class="card-header text-center">
