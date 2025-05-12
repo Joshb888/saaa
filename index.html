@@ -1898,21 +1898,21 @@ Session reports for each FTS (Flight Training Session) are to be completed and a
         <div class="mb-3 row align-items-center">
           <label for="signatureUrl" class="col-sm-4 col-form-label fw-bold text-end">Signature Image URL:</label>
           <div class="col-sm-8">
-            <input type="text" id="signatureUrl" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+            <input type="text" id="signatureUrl1" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
           </div>
         </div>
         <!-- Staff Name -->
         <div class="mb-3 row align-items-center">
           <label for="staffName" class="col-sm-4 col-form-label fw-bold text-end">Staff Name:</label>
           <div class="col-sm-8">
-            <input type="text" id="staffName" class="form-control" placeholder="Your Name" required />
+            <input type="text" id="staffName1" class="form-control" placeholder="Your Name" required />
           </div>
         </div>
         <!-- Rank/Title -->
         <div class="mb-3 row align-items-center">
           <label for="staffRank" class="col-sm-4 col-form-label fw-bold text-end">Rank/Title:</label>
           <div class="col-sm-8">
-            <input type="text" id="staffRank" class="form-control" placeholder="e.g. SAAA Staff" required />
+            <input type="text" id="staffRank1" class="form-control" placeholder="e.g. SAAA Staff" required />
           </div>
         </div>
         <!-- Submit -->
@@ -1942,9 +1942,9 @@ document.getElementById('pilotAppReceivedForm').addEventListener('submit', funct
   }
 
   const applicantName = document.getElementById('applicantName').value.trim();
-  const signatureUrl = document.getElementById('signatureUrl').value.trim();
-  const staffName = document.getElementById('staffName').value.trim();
-  const staffRank = document.getElementById('staffRank').value.trim();
+  const signatureUrl = document.getElementById('signatureUrl1').value.trim();
+  const staffName = document.getElementById('staffName1').value.trim();
+  const staffRank = document.getElementById('staffRank1').value.trim();
 
   const bbcode = `[img]https://i.imgur.com/ZFpeXl3.png[/img]
 [divbox=white]
@@ -2055,21 +2055,21 @@ A representative will update the application status as soon as the initial revie
         <div class="mb-3 row align-items-center">
           <label for="signatureUrl" class="col-sm-4 col-form-label fw-bold text-end">Signature Image URL:</label>
           <div class="col-sm-8">
-            <input type="text" id="signatureUrl" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+            <input type="text" id="signatureUrl2" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
           </div>
         </div>
         <!-- Staff Name -->
         <div class="mb-3 row align-items-center">
           <label for="staffName" class="col-sm-4 col-form-label fw-bold text-end">Staff Name:</label>
           <div class="col-sm-8">
-            <input type="text" id="staffName" class="form-control" placeholder="Your Name" required />
+            <input type="text" id="staffName2" class="form-control" placeholder="Your Name" required />
           </div>
         </div>
         <!-- Rank/Title -->
         <div class="mb-3 row align-items-center">
           <label for="staffRank" class="col-sm-4 col-form-label fw-bold text-end">Rank/Title:</label>
           <div class="col-sm-8">
-            <input type="text" id="staffRank" class="form-control" placeholder="e.g. SAAA Staff" required />
+            <input type="text" id="staffRank2" class="form-control" placeholder="e.g. SAAA Staff" required />
           </div>
         </div>
         <!-- Submit -->
@@ -2112,6 +2112,8 @@ function updateTotalCost() {
   document.getElementById('totalCost').value = '$' + total.toLocaleString();
 }
 
+
+
 document.addEventListener('DOMContentLoaded', function() {
   // Set up fee checkboxes to update total
   document.querySelectorAll('.feeCheck').forEach(cb => {
@@ -2131,9 +2133,9 @@ document.getElementById('pilotAppPendingPaymentForm').addEventListener('submit',
   }
 
   const applicantName = document.getElementById('AppName9').value.trim();
-  const signatureUrl = document.getElementById('signatureUrl').value.trim();
-  const staffName = document.getElementById('staffName').value.trim();
-  const staffRank = document.getElementById('staffRank').value.trim();
+  const signatureUrl = document.getElementById('signatureUrl2').value.trim();
+  const staffName = document.getElementById('staffName2').value.trim();
+  const staffRank = document.getElementById('staffRank2').value.trim();
 
   // Build fee list and total
   let feeList = '';
@@ -2209,23 +2211,25 @@ These fees are to be paid at City Hall [ooc]/donategovernment[/ooc]. Respond to 
         <div class="mb-3 row align-items-center">
           <label for="signatureUrl" class="col-sm-4 col-form-label fw-bold text-end">Signature Image URL:</label>
           <div class="col-sm-8">
-            <input type="text" id="signatureUrl" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+            <input type="text" id="signatureUrl3" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
           </div>
         </div>
         <!-- Staff Name -->
         <div class="mb-3 row align-items-center">
           <label for="staffName" class="col-sm-4 col-form-label fw-bold text-end">Staff Name:</label>
           <div class="col-sm-8">
-            <input type="text" id="staffName" class="form-control" placeholder="Your Name" required />
+            <input type="text" id="staffName3" class="form-control" placeholder="Your Name" required />
           </div>
         </div>
         <!-- Rank/Title -->
         <div class="mb-3 row align-items-center">
           <label for="staffRank" class="col-sm-4 col-form-label fw-bold text-end">Rank/Title:</label>
           <div class="col-sm-8">
-            <input type="text" id="staffRank" class="form-control" placeholder="e.g. SAAA Staff" required />
+            <input type="text" id="staffRank3" class="form-control" placeholder="e.g. SAAA Staff" required />
           </div>
         </div>
+
+
         <!-- Submit -->
         <div class="text-center">
           <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
@@ -2242,16 +2246,20 @@ These fees are to be paid at City Hall [ooc]/donategovernment[/ooc]. Respond to 
 </div>
 
 <script>
+
+
+
 document.addEventListener('DOMContentLoaded', function() {
   document.getElementById('pilotAppApprovedForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const successMsg = document.getElementById('pilotAppApprovedCopySuccess');
     successMsg.textContent = '';
 
+
     const applicantName = document.getElementById('AppName3').value.trim();
-    const signatureUrl = document.getElementById('signatureUrl').value.trim();
-    const staffName = document.getElementById('staffName').value.trim();
-    const staffRank = document.getElementById('staffRank').value.trim();
+    const signatureUrl = document.getElementById('signatureUrl3').value.trim();
+    const staffName = document.getElementById('staffName3').value.trim();
+    const staffRank = document.getElementById('staffRank3').value.trim();
 
     const bbcode = `[img]https://i.imgur.com/ZFpeXl3.png[/img]
 [divbox=white]
@@ -2329,21 +2337,21 @@ Good luck with your aviation journey!
         <div class="mb-3 row align-items-center">
           <label for="signatureUrl" class="col-sm-4 col-form-label fw-bold text-end">Signature Image URL:</label>
           <div class="col-sm-8">
-            <input type="text" id="signatureUrl" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+            <input type="text" id="signatureUrl4" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
           </div>
         </div>
         <!-- Staff Name -->
         <div class="mb-3 row align-items-center">
           <label for="staffName" class="col-sm-4 col-form-label fw-bold text-end">Staff Name:</label>
           <div class="col-sm-8">
-            <input type="text" id="staffName" class="form-control" placeholder="Your Name" required />
+            <input type="text" id="staffName4" class="form-control" placeholder="Your Name" required />
           </div>
         </div>
         <!-- Rank/Title -->
         <div class="mb-3 row align-items-center">
           <label for="staffRank" class="col-sm-4 col-form-label fw-bold text-end">Rank/Title:</label>
           <div class="col-sm-8">
-            <input type="text" id="staffRank" class="form-control" placeholder="e.g. SAAA Staff" required />
+            <input type="text" id="staffRank4" class="form-control" placeholder="e.g. SAAA Staff" required />
           </div>
         </div>
         <!-- Submit -->
@@ -2398,9 +2406,9 @@ Good luck with your aviation journey!
     }
 
     const applicantName = document.getElementById('AppName2').value.trim();
-    const signatureUrl = document.getElementById('signatureUrl').value.trim();
-    const staffName = document.getElementById('staffName').value.trim();
-    const staffRank = document.getElementById('staffRank').value.trim();
+    const signatureUrl = document.getElementById('signatureUrl4').value.trim();
+    const staffName = document.getElementById('staffName4').value.trim();
+    const staffRank = document.getElementById('staffRank4').value.trim();
 
     // Hold reasons
     let reasons = '';
@@ -2489,21 +2497,21 @@ ${reasons}[/list]
         <div class="mb-3 row align-items-center">
           <label for="signatureUrl" class="col-sm-4 col-form-label fw-bold text-end">Signature Image URL:</label>
           <div class="col-sm-8">
-            <input type="text" id="signatureUrl" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+            <input type="text" id="signatureUrl5" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
           </div>
         </div>
         <!-- Staff Name -->
         <div class="mb-3 row align-items-center">
           <label for="staffName" class="col-sm-4 col-form-label fw-bold text-end">Staff Name:</label>
           <div class="col-sm-8">
-            <input type="text" id="staffName" class="form-control" placeholder="Your Name" required />
+            <input type="text" id="staffName5" class="form-control" placeholder="Your Name" required />
           </div>
         </div>
         <!-- Rank/Title -->
         <div class="mb-3 row align-items-center">
           <label for="staffRank" class="col-sm-4 col-form-label fw-bold text-end">Rank/Title:</label>
           <div class="col-sm-8">
-            <input type="text" id="staffRank" class="form-control" placeholder="e.g. SAAA Staff" required />
+            <input type="text" id="staffRank5" class="form-control" placeholder="e.g. SAAA Staff" required />
           </div>
         </div>
         <!-- Submit -->
@@ -2559,9 +2567,9 @@ ${reasons}[/list]
 
     const applicantName = document.getElementById('AppName4').value.trim();
     const weeksReapply = document.getElementById('weeksReapply').value.trim();
-    const signatureUrl = document.getElementById('signatureUrl').value.trim();
-    const staffName = document.getElementById('staffName').value.trim();
-    const staffRank = document.getElementById('staffRank').value.trim();
+    const signatureUrl = document.getElementById('signatureUrl5').value.trim();
+    const staffName = document.getElementById('staffName5').value.trim();
+    const staffRank = document.getElementById('staffRank5').value.trim();
 
     // Denial reasons
     let reasons = '';
@@ -2636,21 +2644,21 @@ You may apply again after [b]${weeksReapply}[/b] weeks. ((This is an IC denial a
         <div class="mb-3 row align-items-center">
           <label for="signatureUrl" class="col-sm-4 col-form-label fw-bold text-end">Signature Image URL:</label>
           <div class="col-sm-8">
-            <input type="text" id="signatureUrl" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+            <input type="text" id="signatureUrl6" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
           </div>
         </div>
         <!-- Staff Name -->
         <div class="mb-3 row align-items-center">
           <label for="staffName" class="col-sm-4 col-form-label fw-bold text-end">Staff Name:</label>
           <div class="col-sm-8">
-            <input type="text" id="staffName" class="form-control" placeholder="Your Name" required />
+            <input type="text" id="staffName6" class="form-control" placeholder="Your Name" required />
           </div>
         </div>
         <!-- Rank/Title -->
         <div class="mb-3 row align-items-center">
           <label for="staffRank" class="col-sm-4 col-form-label fw-bold text-end">Rank/Title:</label>
           <div class="col-sm-8">
-            <input type="text" id="staffRank" class="form-control" placeholder="e.g. SAAA Staff" required />
+            <input type="text" id="staffRank6" class="form-control" placeholder="e.g. SAAA Staff" required />
           </div>
         </div>
         <!-- Submit -->
@@ -2680,9 +2688,9 @@ document.getElementById('aircraftRegReceivedForm').addEventListener('submit', fu
   }
 
   const applicantName = document.getElementById('AppName5').value.trim();
-  const signatureUrl = document.getElementById('signatureUrl').value.trim();
-  const staffName = document.getElementById('staffName').value.trim();
-  const staffRank = document.getElementById('staffRank').value.trim();
+  const signatureUrl = document.getElementById('signatureUrl6').value.trim();
+  const staffName = document.getElementById('staffName6').value.trim();
+  const staffRank = document.getElementById('staffRank6').value.trim();
 
   const bbcode = `[img]https://i.imgur.com/ZFpeXl3.png[/img]
 [divbox=white]
@@ -2749,21 +2757,21 @@ The registration status will be updated as soon as the initial review is complet
         <div class="mb-3 row align-items-center">
           <label for="signatureUrl" class="col-sm-4 col-form-label fw-bold text-end">Signature Image URL:</label>
           <div class="col-sm-8">
-            <input type="text" id="signatureUrl" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+            <input type="text" id="signatureUrl7" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
           </div>
         </div>
         <!-- Staff Name -->
         <div class="mb-3 row align-items-center">
           <label for="staffName" class="col-sm-4 col-form-label fw-bold text-end">Staff Name:</label>
           <div class="col-sm-8">
-            <input type="text" id="staffName" class="form-control" placeholder="Your Name" required />
+            <input type="text" id="staffName7" class="form-control" placeholder="Your Name" required />
           </div>
         </div>
         <!-- Rank/Title -->
         <div class="mb-3 row align-items-center">
           <label for="staffRank" class="col-sm-4 col-form-label fw-bold text-end">Rank/Title:</label>
           <div class="col-sm-8">
-            <input type="text" id="staffRank" class="form-control" placeholder="e.g. SAAA Staff" required />
+            <input type="text" id="staffRank7" class="form-control" placeholder="e.g. SAAA Staff" required />
           </div>
         </div>
         <!-- Submit -->
@@ -2794,9 +2802,9 @@ document.getElementById('aircraftRegApprovedForm').addEventListener('submit', fu
 
   const applicantName = document.getElementById('AppName6').value.trim();
   const tailNumber = document.getElementById('tailNumber').value.trim();
-  const signatureUrl = document.getElementById('signatureUrl').value.trim();
-  const staffName = document.getElementById('staffName').value.trim();
-  const staffRank = document.getElementById('staffRank').value.trim();
+  const signatureUrl = document.getElementById('signatureUrl7').value.trim();
+  const staffName = document.getElementById('staffName7').value.trim();
+  const staffRank = document.getElementById('staffRank7').value.trim();
 
   const modForm = `[spoiler=Modification Form][img]https://i.imgur.com/merPI6u.png[/img]
 [divbox=#091f62][b][color=white]INFORMATION[/color][/b][/divbox]
@@ -2971,21 +2979,21 @@ ${modFormFormat}
         <div class="mb-3 row align-items-center">
           <label for="signatureUrl" class="col-sm-4 col-form-label fw-bold text-end">Signature Image URL:</label>
           <div class="col-sm-8">
-            <input type="text" id="signatureUrl" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+            <input type="text" id="signatureUrl8" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
           </div>
         </div>
         <!-- Staff Name -->
         <div class="mb-3 row align-items-center">
           <label for="staffName" class="col-sm-4 col-form-label fw-bold text-end">Staff Name:</label>
           <div class="col-sm-8">
-            <input type="text" id="staffName" class="form-control" placeholder="Your Name" required />
+            <input type="text" id="staffName8" class="form-control" placeholder="Your Name" required />
           </div>
         </div>
         <!-- Rank/Title -->
         <div class="mb-3 row align-items-center">
           <label for="staffRank" class="col-sm-4 col-form-label fw-bold text-end">Rank/Title:</label>
           <div class="col-sm-8">
-            <input type="text" id="staffRank" class="form-control" placeholder="e.g. SAAA Staff" required />
+            <input type="text" id="staffRank8" class="form-control" placeholder="e.g. SAAA Staff" required />
           </div>
         </div>
         <!-- Submit -->
@@ -3040,9 +3048,9 @@ ${modFormFormat}
     }
 
     const applicantName = document.getElementById('AppName7').value.trim();
-    const signatureUrl = document.getElementById('signatureUrl').value.trim();
-    const staffName = document.getElementById('staffName').value.trim();
-    const staffRank = document.getElementById('staffRank').value.trim();
+    const signatureUrl = document.getElementById('signatureUrl8').value.trim();
+    const staffName = document.getElementById('staffName8').value.trim();
+    const staffRank = document.getElementById('staffRank8').value.trim();
 
     // On hold reasons
     let reasons = '';
@@ -3127,21 +3135,21 @@ ${reasons}[/list]
         <div class="mb-3 row align-items-center">
           <label for="signatureUrl" class="col-sm-4 col-form-label fw-bold text-end">Signature Image URL:</label>
           <div class="col-sm-8">
-            <input type="text" id="signatureUrl" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+            <input type="text" id="signatureUrl9" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
           </div>
         </div>
         <!-- Staff Name -->
         <div class="mb-3 row align-items-center">
           <label for="staffName" class="col-sm-4 col-form-label fw-bold text-end">Staff Name:</label>
           <div class="col-sm-8">
-            <input type="text" id="staffName" class="form-control" placeholder="Your Name" required />
+            <input type="text" id="staffName9" class="form-control" placeholder="Your Name" required />
           </div>
         </div>
         <!-- Rank/Title -->
         <div class="mb-3 row align-items-center">
           <label for="staffRank" class="col-sm-4 col-form-label fw-bold text-end">Rank/Title:</label>
           <div class="col-sm-8">
-            <input type="text" id="staffRank" class="form-control" placeholder="e.g. SAAA Staff" required />
+            <input type="text" id="staffRank9" class="form-control" placeholder="e.g. SAAA Staff" required />
           </div>
         </div>
         <!-- Submit -->
@@ -3196,9 +3204,9 @@ ${reasons}[/list]
     }
 
     const applicantName = document.getElementById('AppName8').value.trim();
-    const signatureUrl = document.getElementById('signatureUrl').value.trim();
-    const staffName = document.getElementById('staffName').value.trim();
-    const staffRank = document.getElementById('staffRank').value.trim();
+    const signatureUrl = document.getElementById('signatureUrl9').value.trim();
+    const staffName = document.getElementById('staffName9').value.trim();
+    const staffRank = document.getElementById('staffRank9').value.trim();
 
     // Denial reasons
     let reasons = '';
