@@ -2190,8 +2190,7 @@ These fees are to be paid at City Hall [ooc]/donategovernment[/ooc]. Respond to 
 });
 </script>
 
-
-    <div id="pilotAppApprovedGen" class="container mt-3 myHideableSection" style="max-width: 800px;">
+<div id="pilotAppApprovedGen" class="container mt-3 myHideableSection" style="max-width: 800px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
     <div class="card-header text-center">
       <h4>[LICENSE] Approved</h4>
@@ -2226,13 +2225,6 @@ These fees are to be paid at City Hall [ooc]/donategovernment[/ooc]. Respond to 
             <input type="text" id="staffRank" class="form-control" placeholder="e.g. SAAA Staff" required />
           </div>
         </div>
-        <!-- Save Signature Default Checkbox -->
-        <div class="mb-3 row align-items-center">
-          <div class="col-sm-8 offset-sm-4">
-            <input type="checkbox" id="saveSignatureDefault" />
-            <label for="saveSignatureDefault">Save as my default signature</label>
-          </div>
-        </div>
         <!-- Submit -->
         <div class="text-center">
           <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
@@ -2249,48 +2241,18 @@ These fees are to be paid at City Hall [ooc]/donategovernment[/ooc]. Respond to 
 </div>
 
 <script>
-// Universal signature storage
-const SIGNATURE_KEY = 'saaaSignature';
-
-// Load saved signature
 document.addEventListener('DOMContentLoaded', function() {
-  const sig = localStorage.getItem(SIGNATURE_KEY);
-  if (sig) {
-    try {
-      const data = JSON.parse(sig);
-      document.getElementById('signatureUrl').value = data.signatureUrl || '';
-      document.getElementById('staffName').value = data.staffName || '';
-      document.getElementById('staffRank').value = data.staffRank || '';
-    } catch {}
-  }
-});
+  document.getElementById('pilotAppApprovedForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const successMsg = document.getElementById('pilotAppApprovedCopySuccess');
+    successMsg.textContent = '';
 
-// Save signature when form submits
-document.getElementById('pilotAppApprovedForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const successMsg = document.getElementById('pilotAppApprovedCopySuccess');
-  successMsg.textContent = '';
+    const applicantName = document.getElementById('applicantName').value.trim();
+    const signatureUrl = document.getElementById('signatureUrl').value.trim();
+    const staffName = document.getElementById('staffName').value.trim();
+    const staffRank = document.getElementById('staffRank').value.trim();
 
-  if (document.getElementById('saveSignatureDefault').checked) {
-    const signatureData = {
-      signatureUrl: document.getElementById('signatureUrl').value.trim(),
-      staffName: document.getElementById('staffName').value.trim(),
-      staffRank: document.getElementById('staffRank').value.trim()
-    };
-    localStorage.setItem(SIGNATURE_KEY, JSON.stringify(signatureData));
-  }
-
-  if (!this.checkValidity()) {
-    this.reportValidity();
-    return;
-  }
-
-  const applicantName = document.getElementById('applicantName').value.trim();
-  const signatureUrl = document.getElementById('signatureUrl').value.trim();
-  const staffName = document.getElementById('staffName').value.trim();
-  const staffRank = document.getElementById('staffRank').value.trim();
-
-  const bbcode = `[img]https://i.imgur.com/ZFpeXl3.png[/img]
+    const bbcode = `[img]https://i.imgur.com/ZFpeXl3.png[/img]
 [divbox=white]
 [fimg=150,150]https://i.imgur.com/CySKVDZ.png[/fimg][aligntable=right,0,0,0,0,0,0][right][font=Arial][b]
 [size=140]San Andreas Aviation Administration[/size][/b]
@@ -2312,20 +2274,28 @@ Good luck with your aviation journey!
 [/divbox]
 [img]https://i.imgur.com/ZFpeXl3.png[/img]`;
 
-  const outputArea = document.getElementById('pilotAppApprovedBBOutput');
-  outputArea.value = bbcode.trim();
-  outputArea.focus();
-  outputArea.select();
+    const outputArea = document.getElementById('pilotAppApprovedBBOutput');
+    outputArea.value = bbcode.trim();
+    outputArea.focus();
+    outputArea.select();
 
-  try {
-    navigator.clipboard.writeText(bbcode).then(() => {
-      successMsg.textContent = 'Copied to clipboard!';
-    }, () => {
-      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
-    });
-  } catch {
-    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
-  }
+    // Clipboard copy with fallback
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(bbcode).then(() => {
+        successMsg.textContent = 'Copied to clipboard!';
+      }).catch(() => {
+        successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+      });
+    } else {
+      // Fallback for insecure context or unsupported browsers
+      try {
+        document.execCommand('copy');
+        successMsg.textContent = 'Copied to clipboard!';
+      } catch {
+        successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+      }
+    }
+  });
 });
 </script>
 
