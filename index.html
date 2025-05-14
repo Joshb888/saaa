@@ -183,7 +183,10 @@
       </h2>
       <div id="collapseMajorCrimes" class="accordion-collapse collapse" aria-labelledby="headingMajorCrimes" data-bs-parent="#tocAccordion">
         <div class="accordion-body d-flex flex-wrap gap-2">
-          <button class="btn btn-secondary" onclick="showSection('DOSSIER', this)">Coming Soon...</button>
+          <button class="btn btn-secondary" onclick="showSection('saaaCertGen', this)">[IFC] Certificate</button>
+          <button class="btn btn-secondary" onclick="showSection('saaaApprovedGen', this)">[IFC] Approved</button>
+          <button class="btn btn-secondary" onclick="showSection('saaaOnHoldGen', this)">[IFC] On Hold</button>
+          <button class="btn btn-secondary" onclick="showSection('saaaDeniedGen', this)">[IFC] Denied</button>
         </div>
       </div>
     </div>
@@ -4935,6 +4938,523 @@ ${workLogs}[/list]
 </script>
 
 
+ <div id="saaaCertGen" class="container mt-3 myHideableSection" style="max-width: 700px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>[IFC] Certificate</h4>
+    </div>
+    <div class="card-body">
+      <form id="saaaCertForm" autocomplete="off" novalidate>
+        <!-- Recipient Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="saaaCertName" class="col-sm-4 col-form-label fw-bold text-end">Certificate Recipient Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="saaaCertName" class="form-control" placeholder="Full Name" required />
+          </div>
+        </div>
+        <!-- Aircraft -->
+        <div class="mb-3 row align-items-center">
+          <label class="col-sm-4 col-form-label fw-bold text-end">Certified Aircraft:</label>
+          <div class="col-sm-8">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="aircraftMaverick" />
+              <label class="form-check-label" for="aircraftMaverick">Maverick</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" id="aircraftBuzzard" />
+              <label class="form-check-label" for="aircraftBuzzard">Buzzard</label>
+            </div>
+          </div>
+        </div>
+        <!-- Date -->
+        <div class="mb-3 row align-items-center">
+          <label for="saaaCertDate" class="col-sm-4 col-form-label fw-bold text-end">Certification Date:</label>
+          <div class="col-sm-8">
+            <input type="text" id="saaaCertDate" class="form-control" placeholder="e.g. 13 | MAY | 2025" required />
+          </div>
+        </div>
+        <!-- Signature Image URL -->
+        <div class="mb-3 row align-items-center">
+          <label for="saaaCertSignature" class="col-sm-4 col-form-label fw-bold text-end">Signature Image URL:</label>
+          <div class="col-sm-8">
+            <input type="text" id="saaaCertSignature" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+          </div>
+        </div>
+        <!-- Staff Rank -->
+        <div class="mb-3 row align-items-center">
+          <label for="saaaCertRank" class="col-sm-4 col-form-label fw-bold text-end">Staff Rank:</label>
+          <div class="col-sm-8">
+            <input type="text" id="saaaCertRank" class="form-control" placeholder="RANK" required />
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="saaaCertCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="saaaCertBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="saaaCertBBOutput" class="form-control" rows="28" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('saaaCertForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const successMsg = document.getElementById('saaaCertCopySuccess');
+    successMsg.textContent = '';
+
+    const name = document.getElementById('saaaCertName').value.trim() || "NAME";
+    const date = document.getElementById('saaaCertDate').value.trim() || "XX | MONTH | 2024";
+    const signature = document.getElementById('saaaCertSignature').value.trim() || "SIGNATURE";
+    const rank = document.getElementById('saaaCertRank').value.trim() || "RANK";
+
+    // Aircraft checkboxes
+    const maverick = document.getElementById('aircraftMaverick').checked;
+    const buzzard = document.getElementById('aircraftBuzzard').checked;
+
+    let aircraftList = "";
+    aircraftList += `Maverick [${maverick ? "X" : " "}]`;
+    aircraftList += `
+Buzzard [${buzzard ? "X" : " "}]`;
+
+    const bbcode = `[img]https://i.imgur.com/RZaUeg7.png[/img]
+
+[divbox=white]
+[align=center]
+[fimg=120,120]https://i.imgur.com/ZkQvBwq.png[/fimg]
+[center][img]https://i.imgur.com/7x0vy1x.png[/img][/center]
+[center][size=130]THIS IS TO CERTIFY THAT[/size][/center]
+[center][size=180][b][font=Times New Roman] ${name} [/font][/b][/size][/center][ol][/ol]
+
+[center][size=100][b]WITHIN THE STATE OF SAN ANDREAS STATE GOVERNMENT[/b][/size][/center]
+[center][size=100]is authorized to operate aircraft in the State of San Andreas within the predefined regulations in the Internal Government Policy.[/size]
+
+[b]Certified Aircraft[/b]
+${aircraftList}
+[/center][ol][/ol]
+
+On ${date}
+[b]San Andreas Aviation Administration
+[center][img]https://i.imgur.com/7x0vy1x.png[/img][/center]
+[/b][/align]
+[align=left]
+[list=none]
+[img]${signature}[/img]
+[b][i]${rank}[/i]
+San Andreas Aviation Administration[/b]
+[/list]
+[/align]
+
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+    const outputArea = document.getElementById('saaaCertBBOutput');
+    outputArea.value = bbcode.trim();
+    outputArea.focus();
+    outputArea.select();
+
+    // Clipboard copy with fallback
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(bbcode).then(() => {
+        successMsg.textContent = 'Copied to clipboard!';
+      }).catch(() => {
+        successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+      });
+    } else {
+      try {
+        document.execCommand('copy');
+        successMsg.textContent = 'Copied to clipboard!';
+      } catch {
+        successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+      }
+    }
+  });
+});
+</script>
+
+
+
+
+ <div id="saaaApprovedGen" class="container mt-3 myHideableSection" style="max-width: 700px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>[IFC] Approved</h4>
+    </div>
+    <div class="card-body">
+      <form id="saaaApprovedForm" autocomplete="off" novalidate>
+        <!-- Applicant Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="saaaApprovedApplicantName" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="saaaApprovedApplicantName" class="form-control" placeholder="Fname Lname" required />
+          </div>
+        </div>
+        <!-- Signature Image URL -->
+        <div class="mb-3 row align-items-center">
+          <label for="saaaApprovedSignatureUrl" class="col-sm-4 col-form-label fw-bold text-end">Signature Image URL:</label>
+          <div class="col-sm-8">
+            <input type="text" id="saaaApprovedSignatureUrl" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+          </div>
+        </div>
+        <!-- Staff Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="saaaApprovedStaffName" class="col-sm-4 col-form-label fw-bold text-end">Staff Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="saaaApprovedStaffName" class="form-control" placeholder="NAME" required />
+          </div>
+        </div>
+        <!-- Staff Rank -->
+        <div class="mb-3 row align-items-center">
+          <label for="saaaApprovedStaffRank" class="col-sm-4 col-form-label fw-bold text-end">Staff Rank:</label>
+          <div class="col-sm-8">
+            <input type="text" id="saaaApprovedStaffRank" class="form-control" placeholder="RANK" required />
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="saaaApprovedCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="saaaApprovedBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="saaaApprovedBBOutput" class="form-control" rows="20" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('saaaApprovedForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const successMsg = document.getElementById('saaaApprovedCopySuccess');
+    successMsg.textContent = '';
+
+    const applicantName = document.getElementById('saaaApprovedApplicantName').value.trim() || "Fname Lname";
+    const signatureUrl = document.getElementById('saaaApprovedSignatureUrl').value.trim() || "SIGNATURE";
+    const staffName = document.getElementById('saaaApprovedStaffName').value.trim() || "NAME";
+    const staffRank = document.getElementById('saaaApprovedStaffRank').value.trim() || "RANK";
+
+    const bbcode = `[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[divbox=white]
+[fimg=150,150]https://i.imgur.com/CySKVDZ.png[/fimg][aligntable=right,0,0,0,0,0,0][right][font=Arial][b]
+[size=140]San Andreas Aviation Administration[/size][/b]
+[size=125]Internal Flight Application - [color=#228B22]APPROVED[/color][/size][/font][/right][/aligntable]
+[hr][/hr]
+[list=none]
+
+Mr./Ms. ${applicantName},
+
+Your application has been granted approval, allowing you to begin your training.  The next step involves arranging a flight training session with a representative from SAAA. Upon completion of your flight training, you will receive your internal flight certification, which will authorize you to perform internal flights as required by your duties.
+
+[/list]
+[hr][/hr][list=none]
+Sincerely,
+
+[img]${signatureUrl}[/img]
+[size=105]${staffName}[/size]
+[color=#091f62][size=100][b]${staffRank} | San Andreas Aviation Administration[/b][/size][/color]
+
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]
+Current date: ${new Date().toLocaleString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric', hour:'2-digit', minute:'2-digit'})}`;
+
+    const outputArea = document.getElementById('saaaApprovedBBOutput');
+    outputArea.value = bbcode.trim();
+    outputArea.focus();
+    outputArea.select();
+
+    // Clipboard copy with fallback
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(bbcode).then(() => {
+        successMsg.textContent = 'Copied to clipboard!';
+      }).catch(() => {
+        successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+      });
+    } else {
+      try {
+        document.execCommand('copy');
+        successMsg.textContent = 'Copied to clipboard!';
+      } catch {
+        successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+      }
+    }
+  });
+});
+</script>
+
+ <div id="saaaOnHoldGen" class="container mt-3 myHideableSection" style="max-width: 700px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>[IFC] On Hold</h4>
+    </div>
+    <div class="card-body">
+      <form id="saaaOnHoldForm" autocomplete="off" novalidate>
+        <!-- Applicant Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="saaaOnHoldApplicantName" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="saaaOnHoldApplicantName" class="form-control" placeholder="Fname Lname" required />
+          </div>
+        </div>
+        <!-- Reason 1 -->
+        <div class="mb-3 row align-items-center">
+          <label for="saaaOnHoldReason1" class="col-sm-4 col-form-label fw-bold text-end">Reason 1:</label>
+          <div class="col-sm-8">
+            <input type="text" id="saaaOnHoldReason1" class="form-control" placeholder="Reason" required />
+          </div>
+        </div>
+        <!-- Reason 2 -->
+        <div class="mb-3 row align-items-center">
+          <label for="saaaOnHoldReason2" class="col-sm-4 col-form-label fw-bold text-end">Reason 2:</label>
+          <div class="col-sm-8">
+            <input type="text" id="saaaOnHoldReason2" class="form-control" placeholder="Reason (optional)" />
+          </div>
+        </div>
+        <!-- Signature Image URL -->
+        <div class="mb-3 row align-items-center">
+          <label for="saaaOnHoldSignatureUrl" class="col-sm-4 col-form-label fw-bold text-end">Signature Image URL:</label>
+          <div class="col-sm-8">
+            <input type="text" id="saaaOnHoldSignatureUrl" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+          </div>
+        </div>
+        <!-- Staff Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="saaaOnHoldStaffName" class="col-sm-4 col-form-label fw-bold text-end">Staff Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="saaaOnHoldStaffName" class="form-control" placeholder="NAME" required />
+          </div>
+        </div>
+        <!-- Staff Rank -->
+        <div class="mb-3 row align-items-center">
+          <label for="saaaOnHoldStaffRank" class="col-sm-4 col-form-label fw-bold text-end">Staff Rank:</label>
+          <div class="col-sm-8">
+            <input type="text" id="saaaOnHoldStaffRank" class="form-control" placeholder="RANK" required />
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-warning px-5">Generate and Copy BBCode</button>
+          <p id="saaaOnHoldCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="saaaOnHoldBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="saaaOnHoldBBOutput" class="form-control" rows="22" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('saaaOnHoldForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const successMsg = document.getElementById('saaaOnHoldCopySuccess');
+    successMsg.textContent = '';
+
+    const applicantName = document.getElementById('saaaOnHoldApplicantName').value.trim() || "Fname Lname";
+    const reason1 = document.getElementById('saaaOnHoldReason1').value.trim() || "Reason";
+    const reason2 = document.getElementById('saaaOnHoldReason2').value.trim();
+    const signatureUrl = document.getElementById('saaaOnHoldSignatureUrl').value.trim() || "SIGNATURE";
+    const staffName = document.getElementById('saaaOnHoldStaffName').value.trim() || "NAME";
+    const staffRank = document.getElementById('saaaOnHoldStaffRank').value.trim() || "RANK";
+
+    let reasonsList = `[*] ${reason1}\n`;
+    if (reason2) reasonsList += `[*] ${reason2}\n`;
+
+    const bbcode = `[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[divbox=white]
+[fimg=150,150]https://i.imgur.com/CySKVDZ.png[/fimg][aligntable=right,0,0,0,0,0,0][right][font=Arial][b]
+[size=140]San Andreas Aviation Administration[/size][/b]
+[size=125]Internal Flight Application - [color=#FF7F50]ON HOLD[/color][/size][/font][/right][/aligntable]
+[hr][/hr]
+[list=none]
+
+Mr./Ms. ${applicantName},
+
+A representative from the SAAA has reviewed your application and has some concerns regarding your application. Your application has been placed on hold until these issues have been resolved.
+
+[list]
+${reasonsList}[/list]
+
+[/list]
+[hr][/hr][list=none]
+Sincerely,
+
+[img]${signatureUrl}[/img]
+[size=105]${staffName}[/size]
+[color=#091f62][size=100][b]${staffRank} | San Andreas Aviation Administration[/b][/size][/color]
+
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]
+Current date: ${new Date().toLocaleString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric', hour:'2-digit', minute:'2-digit'})}`;
+
+    const outputArea = document.getElementById('saaaOnHoldBBOutput');
+    outputArea.value = bbcode.trim();
+    outputArea.focus();
+    outputArea.select();
+
+    // Clipboard copy with fallback
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(bbcode).then(() => {
+        successMsg.textContent = 'Copied to clipboard!';
+      }).catch(() => {
+        successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+      });
+    } else {
+      try {
+        document.execCommand('copy');
+        successMsg.textContent = 'Copied to clipboard!';
+      } catch {
+        successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+      }
+    }
+  });
+});
+</script>
+
+
+ <div id="saaaDeniedGen" class="container mt-3 myHideableSection" style="max-width: 700px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>[IFC] Denied</h4>
+    </div>
+    <div class="card-body">
+      <form id="saaaDeniedForm" autocomplete="off" novalidate>
+        <!-- Applicant Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="saaaDeniedApplicantName" class="col-sm-4 col-form-label fw-bold text-end">Applicant Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="saaaDeniedApplicantName" class="form-control" placeholder="Fname Lname" required />
+          </div>
+        </div>
+        <!-- Reason 1 -->
+        <div class="mb-3 row align-items-center">
+          <label for="saaaDeniedReason1" class="col-sm-4 col-form-label fw-bold text-end">Reason 1:</label>
+          <div class="col-sm-8">
+            <input type="text" id="saaaDeniedReason1" class="form-control" placeholder="Reason" required />
+          </div>
+        </div>
+        <!-- Reason 2 -->
+        <div class="mb-3 row align-items-center">
+          <label for="saaaDeniedReason2" class="col-sm-4 col-form-label fw-bold text-end">Reason 2:</label>
+          <div class="col-sm-8">
+            <input type="text" id="saaaDeniedReason2" class="form-control" placeholder="Reason (optional)" />
+          </div>
+        </div>
+        <!-- Signature Image URL -->
+        <div class="mb-3 row align-items-center">
+          <label for="saaaDeniedSignatureUrl" class="col-sm-4 col-form-label fw-bold text-end">Signature Image URL:</label>
+          <div class="col-sm-8">
+            <input type="text" id="saaaDeniedSignatureUrl" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+          </div>
+        </div>
+        <!-- Staff Name -->
+        <div class="mb-3 row align-items-center">
+          <label for="saaaDeniedStaffName" class="col-sm-4 col-form-label fw-bold text-end">Staff Name:</label>
+          <div class="col-sm-8">
+            <input type="text" id="saaaDeniedStaffName" class="form-control" placeholder="NAME" required />
+          </div>
+        </div>
+        <!-- Staff Rank -->
+        <div class="mb-3 row align-items-center">
+          <label for="saaaDeniedStaffRank" class="col-sm-4 col-form-label fw-bold text-end">Staff Rank:</label>
+          <div class="col-sm-8">
+            <input type="text" id="saaaDeniedStaffRank" class="form-control" placeholder="RANK" required />
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-danger px-5">Generate and Copy BBCode</button>
+          <p id="saaaDeniedCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="saaaDeniedBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="saaaDeniedBBOutput" class="form-control" rows="22" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('saaaDeniedForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const successMsg = document.getElementById('saaaDeniedCopySuccess');
+    successMsg.textContent = '';
+
+    const applicantName = document.getElementById('saaaDeniedApplicantName').value.trim() || "Fname Lname";
+    const reason1 = document.getElementById('saaaDeniedReason1').value.trim() || "Reason";
+    const reason2 = document.getElementById('saaaDeniedReason2').value.trim();
+    const signatureUrl = document.getElementById('saaaDeniedSignatureUrl').value.trim() || "SIGNATURE";
+    const staffName = document.getElementById('saaaDeniedStaffName').value.trim() || "NAME";
+    const staffRank = document.getElementById('saaaDeniedStaffRank').value.trim() || "RANK";
+
+    let reasonsList = `[*] ${reason1}\n`;
+    if (reason2) reasonsList += `[*] ${reason2}\n`;
+
+    const bbcode = `[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[divbox=white]
+[fimg=150,150]https://i.imgur.com/CySKVDZ.png[/fimg][aligntable=right,0,0,0,0,0,0][right][font=Arial][b]
+[size=140]San Andreas Aviation Administration[/size][/b]
+[size=125]Internal Flight Application - [color=#DC143C]DENIED[/color][/size][/font][/right][/aligntable]
+[hr][/hr]
+[list=none]
+
+Mr./Ms. ${applicantName},
+
+After reviewing your application, we have decided not to move forward with your application. You have been denied for the following reason(s):
+
+[list]
+${reasonsList}[/list]
+
+[/list]
+[hr][/hr][list=none]
+Sincerely,
+
+[img]${signatureUrl}[/img]
+[size=105]${staffName}[/size]
+[color=#091f62][size=100][b]${staffRank} | San Andreas Aviation Administration[/b][/size][/color]
+
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]
+Current date: ${new Date().toLocaleString('en-US', {weekday:'long', year:'numeric', month:'long', day:'numeric', hour:'2-digit', minute:'2-digit'})}`;
+
+    const outputArea = document.getElementById('saaaDeniedBBOutput');
+    outputArea.value = bbcode.trim();
+    outputArea.focus();
+    outputArea.select();
+
+    // Clipboard copy with fallback
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(bbcode).then(() => {
+        successMsg.textContent = 'Copied to clipboard!';
+      }).catch(() => {
+        successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+      });
+    } else {
+      try {
+        document.execCommand('copy');
+        successMsg.textContent = 'Copied to clipboard!';
+      } catch {
+        successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+      }
+    }
+  });
+});
+</script>
 
 
 
