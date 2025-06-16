@@ -92,13 +92,23 @@
           <button class="btn btn-secondary" onclick="showSection('pilotAppDeniedGen', this)">[LICENSE] Denied</button>
         </div>
     <div class="card-header border-0 text-center">
-      <h3 class="mb-0">[REGRISTRATION] Aircraft Formats</h3>
+      <h3 class="mb-0">[REGISTRATION] Aircraft Formats</h3>
     </div>
         <div class="accordion-body d-flex flex-wrap gap-2">
-          <button class="btn btn-secondary" onclick="showSection('aircraftRegReceivedGen', this)">[REGRISTRATION] Recieved</button>
-          <button class="btn btn-secondary" onclick="showSection('aircraftRegApprovedGen', this)">[REGRISTRATION] Approved</button>
-          <button class="btn btn-secondary" onclick="showSection('aircraftRegOnHoldGen', this)">[REGRISTRATION] On Hold</button>
-          <button class="btn btn-secondary" onclick="showSection('aircraftRegDeniedGen', this)">[REGRISTRATION] Denied</button>
+          <button class="btn btn-secondary" onclick="showSection('aircraftRegReceivedGen', this)">[REGISTRATION] Recieved</button>
+          <button class="btn btn-secondary" onclick="showSection('aircraftRegApprovedGen', this)">[REGISTRATION] Approved</button>
+          <button class="btn btn-secondary" onclick="showSection('aircraftRegOnHoldGen', this)">[REGISTRATION] On Hold</button>
+          <button class="btn btn-secondary" onclick="showSection('aircraftRegDeniedGen', this)">[REGISTRATION] Denied</button>
+        </div>
+    <div class="card-header border-0 text-center">
+      <h3 class="mb-0">[REGISTRATION] Helipad Formats</h3>
+    </div>
+        <div class="accordion-body d-flex flex-wrap gap-2">
+          <button class="btn btn-secondary" onclick="showSection('helipadRegGen', this)">[REGISTRATION] Recieved</button>
+          <button class="btn btn-secondary" onclick="showSection('helipadApprovedGen', this)">[REGISTRATION] Approved</button>
+          <button class="btn btn-secondary" onclick="showSection('helipadPendingGen', this)">[REGISTRATION] Pending Construction</button>
+          <button class="btn btn-secondary" onclick="showSection('helipadOnHoldGen', this)">[REGISTRATION] On Hold</button>
+          <button class="btn btn-secondary" onclick="showSection('helipadDeniedGen', this)">[REGISTRATION] Denied</button>
         </div>
       </div>
     </div>
@@ -112,13 +122,21 @@
       </h2>
       <div id="collapseATC" class="accordion-collapse collapse" aria-labelledby="headingATC" data-bs-parent="#tocAccordion">
         <div class="accordion-body d-flex flex-wrap gap-2">
-          <button class="btn btn-secondary" onclick="showSection('atcshift', this)">ATC Shift Log</button>
+          <button class="btn btn-secondary" onclick="showSection('atcShiftLogGen', this)">ATC Shift Log</button>
           <button class="btn btn-secondary" onclick="showSection('notamGen', this)">NOTAM Log</button>
           <button class="btn btn-secondary" onclick="showSection('groundingNotice', this)">Grounding Log</button>
           <button class="btn btn-secondary" onclick="showSection('incidentReport', this)">Civilian Report</button>
           <button class="btn btn-secondary" onclick="showSection('atcIncidentReport', this)">Emergancy Aircraft Report</button>
           <button class="btn btn-secondary" onclick="showSection('flightInfoGen', this)">Flight Log</button>
         </div>
+ <div class="card-header border-0 text-center">
+      <h3 class="mb-0">[ATC] Command Formats</h3>
+    </div>
+        <div class="accordion-body d-flex flex-wrap gap-2">
+          <button class="btn btn-secondary" onclick="showSection('atcOperatorProfileGen', this)">[PROFILE] Creation</button>
+        </div>
+
+
       </div>
     </div>
 
@@ -532,6 +550,143 @@ ${notamMessage}
   }
 });
 </script>
+
+
+<div id="notamGen" class="container mt-3 myHideableSection" style="max-width: 900px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>NOTAM Generator</h4>
+    </div>
+    <div class="card-body">
+      <form id="notamForm" autocomplete="off" novalidate>
+        <div class="mb-3 row align-items-center">
+          <label for="notamOfficial" class="col-sm-3 col-form-label fw-bold text-end">Official:</label>
+          <div class="col-sm-9">
+            <input type="text" id="notamOfficial" class="form-control" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="notamRank" class="col-sm-3 col-form-label fw-bold text-end">Rank:</label>
+          <div class="col-sm-9">
+            <input type="text" id="notamRank" class="form-control" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="notamDate" class="col-sm-3 col-form-label fw-bold text-end">Date Posted:</label>
+          <div class="col-sm-9">
+            <input type="date" id="notamDate" class="form-control" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="notamTime" class="col-sm-3 col-form-label fw-bold text-end">Time Posted (UTC):</label>
+          <div class="col-sm-9">
+            <input type="text" id="notamTime" class="form-control" placeholder="e.g. 14:30" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="notamLength" class="col-sm-3 col-form-label fw-bold text-end">NOTAM Length:</label>
+          <div class="col-sm-9">
+            <input type="text" id="notamLength" class="form-control" placeholder="e.g. 48 hours" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="notamExpire" class="col-sm-3 col-form-label fw-bold text-end">Expire:</label>
+          <div class="col-sm-9">
+            <input type="text" id="notamExpire" class="form-control" placeholder="e.g. 18/JUN/2025 14:30 UTC" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="notamName" class="col-sm-3 col-form-label fw-bold text-end">NOTAM Name/Subject:</label>
+          <div class="col-sm-9">
+            <input type="text" id="notamName" class="form-control" required />
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="notamMessage" class="form-label fw-bold">Message:</label>
+          <textarea id="notamMessage" class="form-control" rows="4" required></textarea>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="notamCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <div class="mt-4">
+          <label for="notamBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="notamBBOutput" class="form-control" rows="30" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+function formatDateDDMMMYYYY(dateStr) {
+  if (!dateStr) return '';
+  const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+  const [year, month, day] = dateStr.split('-');
+  return `${day}/${months[parseInt(month, 10) - 1]}/${year}`;
+}
+
+document.getElementById('notamForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successMsg = document.getElementById('notamCopySuccess');
+  successMsg.textContent = '';
+
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+
+  const official = document.getElementById('notamOfficial').value.trim();
+  const rank = document.getElementById('notamRank').value.trim();
+  const datePosted = formatDateDDMMMYYYY(document.getElementById('notamDate').value);
+  const timePosted = document.getElementById('notamTime').value.trim();
+  const notamLength = document.getElementById('notamLength').value.trim();
+  const expire = document.getElementById('notamExpire').value.trim();
+  const name = document.getElementById('notamName').value.trim();
+  const message = document.getElementById('notamMessage').value.trim();
+
+  const bbcode = `[img]https://i.imgur.com/IfwfYnz.png[/img]
+[divbox=#091f62][b][color=white][center]Official[/center][/color][/b][/divbox]
+[divbox=white]
+[b]Official:[/b] ${official}
+
+[b]Rank:[/b] ${rank}
+[/divbox]
+[divbox=#091f62][b][color=white][center]Time Details[/center][/color][/b][/divbox]
+[divbox=white]
+[b]Date Posted:[/b] ${datePosted}
+[b]Time Posted:[/b] ${timePosted}
+
+[b]Notam Length:[/b] ${notamLength}
+[b]Expire:[/b] ${expire}
+[/divbox]
+[divbox=#091f62][b][color=white][center]NOTAM Details[/center][/color][/b][/divbox]
+[divbox=white]
+[b]Name:[/b] ${name}
+
+[b]Message:[/b]
+${message}
+[/divbox]
+[img]https://i.imgur.com/lfoY7mK.png[/img]`;
+
+  const outputArea = document.getElementById('notamBBOutput');
+  outputArea.value = bbcode.trim();
+  outputArea.focus();
+  outputArea.select();
+
+  try {
+    navigator.clipboard.writeText(bbcode).then(() => {
+      successMsg.textContent = 'Copied to clipboard!';
+    }, () => {
+      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+    });
+  } catch {
+    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+  }
+});
+</script>
+
+
 
 <div id="groundingNotice" class="container mt-3 myHideableSection" style="max-width: 700px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #001f4d, #003399); color: white;">
@@ -1146,6 +1301,207 @@ ${bodycamProof}
   });
 })();
 </script>
+
+
+<div id="atcOperatorProfileGen" class="container mt-3 myHideableSection" style="max-width: 900px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>ATC Operator Profile Generator</h4>
+    </div>
+    <div class="card-body">
+      <form id="atcOperatorProfileForm" autocomplete="off" novalidate>
+        <div class="mb-3 row align-items-center">
+          <label for="atcOperatorName" class="col-sm-3 col-form-label fw-bold text-end">Operator Name:</label>
+          <div class="col-sm-9">
+            <input type="text" id="atcOperatorName" class="form-control" placeholder="Operator Name" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="atcOperatorRank" class="col-sm-3 col-form-label fw-bold text-end">ATC Rank:</label>
+          <div class="col-sm-9">
+            <input type="text" id="atcOperatorRank" class="form-control" placeholder="ATC Rank" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="atcOperatorShifts" class="col-sm-3 col-form-label fw-bold text-end">Total Shifts:</label>
+          <div class="col-sm-9">
+            <input type="number" id="atcOperatorShifts" class="form-control" min="0" value="0" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="atcOperatorHours" class="col-sm-3 col-form-label fw-bold text-end">Total Hours:</label>
+          <div class="col-sm-3">
+            <input type="number" id="atcOperatorHours" class="form-control" min="0" value="0" required />
+            <small>Hours</small>
+          </div>
+          <div class="col-sm-3">
+            <input type="number" id="atcOperatorMinutes" class="form-control" min="0" max="59" value="0" required />
+            <small>Minutes</small>
+          </div>
+          <div class="col-sm-3">
+            <input type="number" id="atcOperatorSeconds" class="form-control" min="0" max="59" value="0" required />
+            <small>Seconds</small>
+          </div>
+        </div>
+        <hr>
+        <div class="mb-3">
+          <label class="form-label fw-bold">Shift Log Section (for [code] Format):</label>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="atcShiftNames" class="col-sm-3 col-form-label fw-bold text-end">Operator Name(s):</label>
+          <div class="col-sm-9">
+            <input type="text" id="atcShiftNames" class="form-control" placeholder="Operator Name(s)" />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="atcShiftDate" class="col-sm-3 col-form-label fw-bold text-end">Date:</label>
+          <div class="col-sm-9">
+            <input type="date" id="atcShiftDate" class="form-control" />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="atcShiftStart" class="col-sm-3 col-form-label fw-bold text-end">Shift Start Time (UTC):</label>
+          <div class="col-sm-9">
+            <input type="text" id="atcShiftStart" class="form-control" placeholder="XX:XX" />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="atcShiftEnd" class="col-sm-3 col-form-label fw-bold text-end">Shift End Time (UTC):</label>
+          <div class="col-sm-9">
+            <input type="text" id="atcShiftEnd" class="form-control" placeholder="XX:XX" />
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="atcShiftNotes" class="form-label fw-bold">Shift Notes (one per line):</label>
+          <textarea id="atcShiftNotes" class="form-control" rows="3" placeholder="Note 1&#10;Note 2"></textarea>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="atcShiftSignature" class="col-sm-3 col-form-label fw-bold text-end">Signature:</label>
+          <div class="col-sm-9">
+            <input type="text" id="atcShiftSignature" class="form-control" placeholder="SIGNATURE HERE" />
+          </div>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="atcOperatorProfileCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <div class="mt-4">
+          <label for="atcOperatorProfileBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="atcOperatorProfileBBOutput" class="form-control" rows="38" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+function formatDateDDMMMYYYY(dateStr) {
+  if (!dateStr) return '';
+  const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
+  const [year, month, day] = dateStr.split('-');
+  return `${day}/${months[parseInt(month, 10) - 1]}/${year}`;
+}
+
+document.getElementById('atcOperatorProfileForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successMsg = document.getElementById('atcOperatorProfileCopySuccess');
+  successMsg.textContent = '';
+
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+
+  // Profile Section
+  const operator = document.getElementById('atcOperatorName').value.trim();
+  const rank = document.getElementById('atcOperatorRank').value.trim();
+  const shifts = document.getElementById('atcOperatorShifts').value.trim().padStart(3, '0');
+  const hours = document.getElementById('atcOperatorHours').value.trim();
+  const minutes = document.getElementById('atcOperatorMinutes').value.trim();
+  const seconds = document.getElementById('atcOperatorSeconds').value.trim();
+
+  // Shift Log Section
+  const shiftNames = document.getElementById('atcShiftNames').value.trim();
+  const shiftDate = formatDateDDMMMYYYY(document.getElementById('atcShiftDate').value);
+  const shiftStart = document.getElementById('atcShiftStart').value.trim();
+  const shiftEnd = document.getElementById('atcShiftEnd').value.trim();
+  const shiftNotesRaw = document.getElementById('atcShiftNotes').value.trim();
+  const shiftSignature = document.getElementById('atcShiftSignature').value.trim();
+
+  // Format notes as [list=none] items
+  const shiftNotesList = shiftNotesRaw
+    .split('\n')
+    .filter(line => line.trim().length > 0)
+    .map(line => line.trim())
+    .join('\n');
+
+  const bbcode = `[img]https://i.imgur.com/yU7PNno.png[/img]
+[divbox=#091f62][b][color=white]Operator[/color][/b][/divbox]
+[divbox=white]
+[b]Operator:[/b] ${operator} 
+ 
+[b]ATC Rank:[/b] ${rank}
+[/divbox]
+[divbox=#091f62][b][color=white]Operator[/color][/b][/divbox]
+[divbox=white]
+[b]Total Shifts:[/b] ${shifts}
+ 
+[b]Total Hours:[/b] ${hours} hour, ${minutes} minute, and ${seconds} second
+[/divbox]
+[divbox=#091f62][b][color=white]Format[/color][/b][/divbox]
+[divbox=white]
+[code]
+[img]https://i.imgur.com/6jYBFmU.png[/img]
+[divbox=#091f62][b][color=white]SHIFT INFORMATION[/color][/b][/divbox]
+[divbox=white]
+[list=none]
+[b]Operator Name(s):[/b] ${shiftNames}
+ 
+[b]Date:[/b] ${shiftDate}
+ 
+[b]Shift Start Time:[/b] ${shiftStart} [ooc]UTC[/ooc]
+ 
+[b]Shift End Time:[/b] ${shiftEnd} [ooc]UTC[/ooc]
+[/list]
+[/divbox]
+ 
+[divbox=#091f62][b][color=white]SHIFT NOTES[/color][/b][/divbox]
+[divbox=white]
+[list=none]
+${shiftNotesList}
+[/list]
+[hr][/hr]
+[center][b]Signature:[/b] 
+ 
+${shiftSignature}
+[/center]
+[hr][/hr]
+[center][i][color=#FF0000][size=85]By submitting this form, I certify under penalty of law the above information is correct and accurate to the best of my knowledge.[/size][/color][/i][/center]
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[/code]
+[/divbox]
+[img]https://i.imgur.com/vK2y6bk.png[/img]`;
+
+  const outputArea = document.getElementById('atcOperatorProfileBBOutput');
+  outputArea.value = bbcode.trim();
+  outputArea.focus();
+  outputArea.select();
+
+  try {
+    navigator.clipboard.writeText(bbcode).then(() => {
+      successMsg.textContent = 'Copied to clipboard!';
+    }, () => {
+      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+    });
+  } catch {
+    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+  }
+});
+</script>
+
+
+
 
 <div id="flightInfoGen" class="container mt-3 myHideableSection" style="max-width: 700px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
@@ -2534,7 +2890,7 @@ You may apply again after [b]${weeksReapply}[/b] weeks. ((This is an IC denial a
 <div id="aircraftRegReceivedGen" class="container mt-3 myHideableSection" style="max-width: 800px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
     <div class="card-header text-center">
-      <h4>[REGRISTRATION] Recieved</h4>
+      <h4>[REGRISTRATION] Recieved - Aircraft</h4>
     </div>
     <div class="card-body">
       <form id="aircraftRegReceivedForm" autocomplete="off" novalidate>
@@ -2640,7 +2996,7 @@ The registration status will be updated as soon as the initial review is complet
 <div id="aircraftRegApprovedGen" class="container mt-3 myHideableSection" style="max-width: 900px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
     <div class="card-header text-center">
-      <h4>[REGRISTRATION] Approved</h4>
+      <h4>[REGRISTRATION] Approved - Aircraft</h4>
     </div>
     <div class="card-body">
       <form id="aircraftRegApprovedForm" autocomplete="off" novalidate>
@@ -2859,7 +3215,7 @@ ${modFormFormat}
 <div id="aircraftRegOnHoldGen" class="container mt-3 myHideableSection" style="max-width: 800px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
     <div class="card-header text-center">
-      <h4>[REGRISTRATION] On Hold</h4>
+      <h4>[REGRISTRATION] On Hold - Aircraft</h4>
     </div>
     <div class="card-body">
       <form id="aircraftRegOnHoldForm" autocomplete="off" novalidate>
@@ -3015,7 +3371,7 @@ ${reasons}[/list]
 <div id="aircraftRegDeniedGen" class="container mt-3 myHideableSection" style="max-width: 800px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
     <div class="card-header text-center">
-      <h4>[REGRISTRATION] Denied</h4>
+      <h4>[REGRISTRATION] Denied - Aircraft</h4>
     </div>
     <div class="card-body">
       <form id="aircraftRegDeniedForm" autocomplete="off" novalidate>
@@ -3165,6 +3521,547 @@ ${reasons}[/list]
 })();
 </script>
 
+<div id="helipadRegGen" class="container mt-3 myHideableSection" style="max-width: 900px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>[REGISTRATION] Recieved - Helipad</h4>
+    </div>
+    <div class="card-body">
+      <form id="helipadRegForm" autocomplete="off" novalidate>
+        <div class="mb-3 row align-items-center">
+          <label for="helipadRegName" class="col-sm-3 col-form-label fw-bold text-end">Applicant Name:</label>
+          <div class="col-sm-9">
+            <input type="text" id="helipadRegName" class="form-control" placeholder="Fname Lname" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="helipadRegSignature" class="col-sm-3 col-form-label fw-bold text-end">Signature Image URL:</label>
+          <div class="col-sm-9">
+            <input type="text" id="helipadRegSignature" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="helipadRegSigner" class="col-sm-3 col-form-label fw-bold text-end">Your Name:</label>
+          <div class="col-sm-9">
+            <input type="text" id="helipadRegSigner" class="form-control" placeholder="Your Name" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="helipadRegRank" class="col-sm-3 col-form-label fw-bold text-end">Your Rank/Title:</label>
+          <div class="col-sm-9">
+            <input type="text" id="helipadRegRank" class="form-control" placeholder="RANK" required />
+          </div>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="helipadRegCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <div class="mt-4">
+          <label for="helipadRegBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="helipadRegBBOutput" class="form-control" rows="20" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById('helipadRegForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successMsg = document.getElementById('helipadRegCopySuccess');
+  successMsg.textContent = '';
+
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+
+  const name = document.getElementById('helipadRegName').value.trim();
+  const signatureUrl = document.getElementById('helipadRegSignature').value.trim();
+  const signer = document.getElementById('helipadRegSigner').value.trim();
+  const rank = document.getElementById('helipadRegRank').value.trim();
+
+  const bbcode = `[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[divbox=white]
+[fimg=150,150]https://i.imgur.com/CySKVDZ.png[/fimg][aligntable=right,0,0,0,0,0,0][right][font=Arial][b]
+[size=140]San Andreas Aviation Administration[/size][/b]
+[size=125]Helipad Registration - [color=#228B22]RECEIVED[/color][/size][/font][/right][/aligntable]
+[hr][/hr]
+[list=none]
+Mr./Ms. [mention]${name}[/mention],
+
+The San Andreas Aviation Administration has received your registration. A representative will review your registration and perform the appropriate checks. 
+
+The registration status will be updated as soon as the initial review is completed.
+
+[/list]
+[hr][/hr][list=none]
+[img]${signatureUrl}[/img]
+[size=105]${signer}[/size]
+[color=#091f62][size=100][b]${rank} | San Andreas Aviation Administration[/b][/size][/color]
+
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+  const outputArea = document.getElementById('helipadRegBBOutput');
+  outputArea.value = bbcode.trim();
+  outputArea.focus();
+  outputArea.select();
+
+  try {
+    navigator.clipboard.writeText(bbcode).then(() => {
+      successMsg.textContent = 'Copied to clipboard!';
+    }, () => {
+      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+    });
+  } catch {
+    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+  }
+});
+</script>
+
+<div id="helipadPendingGen" class="container mt-3 myHideableSection" style="max-width: 900px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>[REGISTRATION] Pending Construction - Helipad</h4>
+    </div>
+    <div class="card-body">
+      <form id="helipadPendingForm" autocomplete="off" novalidate>
+        <div class="mb-3 row align-items-center">
+          <label for="helipadPendingName" class="col-sm-3 col-form-label fw-bold text-end">Applicant Name:</label>
+          <div class="col-sm-9">
+            <input type="text" id="helipadPendingName" class="form-control" placeholder="Fname Lname" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="helipadPendingSignature" class="col-sm-3 col-form-label fw-bold text-end">Signature Image URL:</label>
+          <div class="col-sm-9">
+            <input type="text" id="helipadPendingSignature" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="helipadPendingSigner" class="col-sm-3 col-form-label fw-bold text-end">Your Name:</label>
+          <div class="col-sm-9">
+            <input type="text" id="helipadPendingSigner" class="form-control" placeholder="Your Name" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="helipadPendingRank" class="col-sm-3 col-form-label fw-bold text-end">Your Rank/Title:</label>
+          <div class="col-sm-9">
+            <input type="text" id="helipadPendingRank" class="form-control" placeholder="RANK" required />
+          </div>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="helipadPendingCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <div class="mt-4">
+          <label for="helipadPendingBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="helipadPendingBBOutput" class="form-control" rows="32" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById('helipadPendingForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successMsg = document.getElementById('helipadPendingCopySuccess');
+  successMsg.textContent = '';
+
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+
+  const name = document.getElementById('helipadPendingName').value.trim();
+  const signatureUrl = document.getElementById('helipadPendingSignature').value.trim();
+  const signer = document.getElementById('helipadPendingSigner').value.trim();
+  const rank = document.getElementById('helipadPendingRank').value.trim();
+
+  const bbcode = `[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[divbox=white]
+[fimg=150,150]https://i.imgur.com/CySKVDZ.png[/fimg][aligntable=right,0,0,0,0,0,0][right][font=Arial][b]
+[size=140]San Andreas Aviation Administration[/size][/b]
+[size=120]Helipad Registration - [color=#FF8C00]PENDING CONSTRUCTION[/color][/size][/font][/right][/aligntable]
+[hr][/hr][list=none]
+Mr./Ms. [mention]${name}[/mention],
+
+The San Andreas Aviation Administration has reviewed the initial registration, location, and planning of your helipad and you are now permitted to start the construction. 
+
+Once the construction is complete, use the format below and respond to this thread with pictures of your helipad. 
+
+[spoiler=Code][code][img]https://i.imgur.com/ZFpeXl3.png[/img]
+[divbox=#091f62][b][color=white]HELIPAD REGISTRATION | BUILDING[/color][/b][/divbox]
+[divbox=white]
+[list=none]
+[b]Helipad Address:[/b] Your Answer Here 
+[/list]
+
+[list=none]
+[b]Picture of the helipad:[/b]
+When taking photos of the helipad, include two side pictures showing the area around and the different sides of the helipad, including one picture overseeing the helipad. 
+[spoiler=Pictures]
+[img][/img]
+[img][/img]
+[img][/img]
+[/spoiler]
+[/list]
+[/divbox][img]https://i.imgur.com/ZFpeXl3.png[/img][/code][/spoiler]
+
+[/list]
+[hr][/hr][list=none]
+[img]${signatureUrl}[/img]
+[size=105]${signer}[/size]
+[color=#091f62][size=100][b]${rank} | San Andreas Aviation Administration[/b][/size][/color]
+
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+  const outputArea = document.getElementById('helipadPendingBBOutput');
+  outputArea.value = bbcode.trim();
+  outputArea.focus();
+  outputArea.select();
+
+  try {
+    navigator.clipboard.writeText(bbcode).then(() => {
+      successMsg.textContent = 'Copied to clipboard!';
+    }, () => {
+      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+    });
+  } catch {
+    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+  }
+});
+</script>
+
+<div id="helipadApprovedGen" class="container mt-3 myHideableSection" style="max-width: 900px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>[REGISTRATION] Approved - Helipad</h4>
+    </div>
+    <div class="card-body">
+      <form id="helipadApprovedForm" autocomplete="off" novalidate>
+        <div class="mb-3 row align-items-center">
+          <label for="helipadApprovedName" class="col-sm-3 col-form-label fw-bold text-end">Applicant Name:</label>
+          <div class="col-sm-9">
+            <input type="text" id="helipadApprovedName" class="form-control" placeholder="Fname Lname" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="helipadApprovedSignature" class="col-sm-3 col-form-label fw-bold text-end">Signature Image URL:</label>
+          <div class="col-sm-9">
+            <input type="text" id="helipadApprovedSignature" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="helipadApprovedSigner" class="col-sm-3 col-form-label fw-bold text-end">Your Name:</label>
+          <div class="col-sm-9">
+            <input type="text" id="helipadApprovedSigner" class="form-control" placeholder="Your Name" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="helipadApprovedRank" class="col-sm-3 col-form-label fw-bold text-end">Your Rank/Title:</label>
+          <div class="col-sm-9">
+            <input type="text" id="helipadApprovedRank" class="form-control" placeholder="RANK" required />
+          </div>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="helipadApprovedCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <div class="mt-4">
+          <label for="helipadApprovedBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="helipadApprovedBBOutput" class="form-control" rows="20" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById('helipadApprovedForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successMsg = document.getElementById('helipadApprovedCopySuccess');
+  successMsg.textContent = '';
+
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+
+  const name = document.getElementById('helipadApprovedName').value.trim();
+  const signatureUrl = document.getElementById('helipadApprovedSignature').value.trim();
+  const signer = document.getElementById('helipadApprovedSigner').value.trim();
+  const rank = document.getElementById('helipadApprovedRank').value.trim();
+
+  const bbcode = `[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[divbox=white]
+[fimg=150,150]https://i.imgur.com/CySKVDZ.png[/fimg][aligntable=right,0,0,0,0,0,0][right][font=Arial][b]
+[size=140]San Andreas Aviation Administration[/size][/b]
+[size=125]Helipad Registration - [color=#228B22]APPROVED[/color][/size][/font][/right][/aligntable]
+[hr][/hr][list=none]
+Mr./Ms. [mention]${name}[/mention],
+
+The San Andreas Aviation Administration has approved your helipad registration form and the helipad is now permitted for usage. 
+
+[/list]
+[hr][/hr][list=none]
+[img]${signatureUrl}[/img]
+[size=105]${signer}[/size]
+[color=#091f62][size=100][b]${rank} | San Andreas Aviation Administration[/b][/size][/color]
+
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+  const outputArea = document.getElementById('helipadApprovedBBOutput');
+  outputArea.value = bbcode.trim();
+  outputArea.focus();
+  outputArea.select();
+
+  try {
+    navigator.clipboard.writeText(bbcode).then(() => {
+      successMsg.textContent = 'Copied to clipboard!';
+    }, () => {
+      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+    });
+  } catch {
+    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+  }
+});
+</script>
+
+<div id="helipadDeniedGen" class="container mt-3 myHideableSection" style="max-width: 900px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>[REGISTRATION] Denied - Helipad</h4>
+    </div>
+    <div class="card-body">
+      <form id="helipadDeniedForm" autocomplete="off" novalidate>
+        <div class="mb-3 row align-items-center">
+          <label for="helipadDeniedName" class="col-sm-3 col-form-label fw-bold text-end">Applicant Name:</label>
+          <div class="col-sm-9">
+            <input type="text" id="helipadDeniedName" class="form-control" placeholder="Fname Lname" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="helipadDeniedReasons" class="col-sm-3 col-form-label fw-bold text-end">Denial Reasons (one per line):</label>
+          <div class="col-sm-9">
+            <textarea id="helipadDeniedReasons" class="form-control" rows="3" placeholder="Reason 1&#10;Reason 2" required></textarea>
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="helipadDeniedSignature" class="col-sm-3 col-form-label fw-bold text-end">Signature Image URL:</label>
+          <div class="col-sm-9">
+            <input type="text" id="helipadDeniedSignature" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="helipadDeniedSigner" class="col-sm-3 col-form-label fw-bold text-end">Your Name:</label>
+          <div class="col-sm-9">
+            <input type="text" id="helipadDeniedSigner" class="form-control" placeholder="Your Name" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="helipadDeniedRank" class="col-sm-3 col-form-label fw-bold text-end">Your Rank/Title:</label>
+          <div class="col-sm-9">
+            <input type="text" id="helipadDeniedRank" class="form-control" placeholder="RANK" required />
+          </div>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-danger px-5">Generate and Copy BBCode</button>
+          <p id="helipadDeniedCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <div class="mt-4">
+          <label for="helipadDeniedBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="helipadDeniedBBOutput" class="form-control" rows="24" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById('helipadDeniedForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successMsg = document.getElementById('helipadDeniedCopySuccess');
+  successMsg.textContent = '';
+
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+
+  const name = document.getElementById('helipadDeniedName').value.trim();
+  const reasonsRaw = document.getElementById('helipadDeniedReasons').value.trim();
+  const signatureUrl = document.getElementById('helipadDeniedSignature').value.trim();
+  const signer = document.getElementById('helipadDeniedSigner').value.trim();
+  const rank = document.getElementById('helipadDeniedRank').value.trim();
+
+  // Convert each line into a [*] BBCode list item
+  const reasonsList = reasonsRaw
+    .split('\n')
+    .filter(line => line.trim().length > 0)
+    .map(line => `[*] ${line.trim()}`)
+    .join('\n');
+
+  const bbcode = `[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[divbox=white]
+[fimg=150,150]https://i.imgur.com/CySKVDZ.png[/fimg][aligntable=right,0,0,0,0,0,0][right][font=Arial][b]
+[size=140]San Andreas Aviation Administration[/size][/b]
+[size=125]Helipad Registration - [color=#DC143C]DENIED[/color][/size][/font][/right][/aligntable]
+[hr][/hr][list=none]
+Mr./Ms. [mention]${name}[/mention],
+
+The San Andreas Aviation Administration has denied your helipad registration form. You may reapply once the reasons below have been corrected.
+
+[b]Reason:[/b]
+[list]
+${reasonsList}
+[/list]
+
+[/list]
+[hr][/hr][list=none]
+[img]${signatureUrl}[/img]
+[size=105]${signer}[/size]
+[color=#091f62][size=100][b]${rank} | San Andreas Aviation Administration[/b][/size][/color]
+
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+  const outputArea = document.getElementById('helipadDeniedBBOutput');
+  outputArea.value = bbcode.trim();
+  outputArea.focus();
+  outputArea.select();
+
+  try {
+    navigator.clipboard.writeText(bbcode).then(() => {
+      successMsg.textContent = 'Copied to clipboard!';
+    }, () => {
+      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+    });
+  } catch {
+    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+  }
+});
+</script>
+
+<div id="helipadOnHoldGen" class="container mt-3 myHideableSection" style="max-width: 900px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>[REGISTRATION] On Hold - Helipad</h4>
+    </div>
+    <div class="card-body">
+      <form id="helipadOnHoldForm" autocomplete="off" novalidate>
+        <div class="mb-3 row align-items-center">
+          <label for="helipadOnHoldName" class="col-sm-3 col-form-label fw-bold text-end">Applicant Name:</label>
+          <div class="col-sm-9">
+            <input type="text" id="helipadOnHoldName" class="form-control" placeholder="Fname Lname" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="helipadOnHoldReasons" class="col-sm-3 col-form-label fw-bold text-end">Hold Reasons (one per line):</label>
+          <div class="col-sm-9">
+            <textarea id="helipadOnHoldReasons" class="form-control" rows="3" placeholder="Reason 1&#10;Reason 2" required></textarea>
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="helipadOnHoldSignature" class="col-sm-3 col-form-label fw-bold text-end">Signature Image URL:</label>
+          <div class="col-sm-9">
+            <input type="text" id="helipadOnHoldSignature" class="form-control" placeholder="https://i.imgur.com/your-signature.png" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="helipadOnHoldSigner" class="col-sm-3 col-form-label fw-bold text-end">Your Name:</label>
+          <div class="col-sm-9">
+            <input type="text" id="helipadOnHoldSigner" class="form-control" placeholder="Your Name" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="helipadOnHoldRank" class="col-sm-3 col-form-label fw-bold text-end">Your Rank/Title:</label>
+          <div class="col-sm-9">
+            <input type="text" id="helipadOnHoldRank" class="form-control" placeholder="RANK" required />
+          </div>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="btn btn-warning px-5">Generate and Copy BBCode</button>
+          <p id="helipadOnHoldCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <div class="mt-4">
+          <label for="helipadOnHoldBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="helipadOnHoldBBOutput" class="form-control" rows="24" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById('helipadOnHoldForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successMsg = document.getElementById('helipadOnHoldCopySuccess');
+  successMsg.textContent = '';
+
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+
+  const name = document.getElementById('helipadOnHoldName').value.trim();
+  const reasonsRaw = document.getElementById('helipadOnHoldReasons').value.trim();
+  const signatureUrl = document.getElementById('helipadOnHoldSignature').value.trim();
+  const signer = document.getElementById('helipadOnHoldSigner').value.trim();
+  const rank = document.getElementById('helipadOnHoldRank').value.trim();
+
+  // Convert each line into a [*] BBCode list item
+  const reasonsList = reasonsRaw
+    .split('\n')
+    .filter(line => line.trim().length > 0)
+    .map(line => `[*] ${line.trim()}`)
+    .join('\n');
+
+  const bbcode = `[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[divbox=white]
+[fimg=150,150]https://i.imgur.com/CySKVDZ.png[/fimg][aligntable=right,0,0,0,0,0,0][right][font=Arial][b]
+[size=140]San Andreas Aviation Administration[/size][/b]
+[size=125]Helipad Registration - [color=#FF7F50]ON HOLD[/color][/size][/font][/right][/aligntable]
+[hr][/hr][list=none]
+
+Mr./Ms. [mention]${name}[/mention],
+
+The San Andreas Aviation Administration has placed your helipad registration form On Hold. You may correct the reasons below before we will review your form again. 
+
+[b]Reason:[/b]
+[list]
+${reasonsList}
+[/list]
+
+[/list]
+[hr][/hr][list=none]
+[img]${signatureUrl}[/img]
+[size=105]${signer}[/size]
+[color=#091f62][size=100][b]${rank} | San Andreas Aviation Administration[/b][/size][/color]
+
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+  const outputArea = document.getElementById('helipadOnHoldBBOutput');
+  outputArea.value = bbcode.trim();
+  outputArea.focus();
+  outputArea.select();
+
+  try {
+    navigator.clipboard.writeText(bbcode).then(() => {
+      successMsg.textContent = 'Copied to clipboard!';
+    }, () => {
+      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+    });
+  } catch {
+    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+  }
+});
+</script>
 
 
 
@@ -3175,8 +4072,11 @@ ${reasons}[/list]
 
 
 
-<!-- Bootstrap 5 CSS -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+
+
+
+
 
 <div id="aviationSessionGen" class="container mt-3 myHideableSection" style="max-width: 900px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
@@ -3250,7 +4150,6 @@ ${reasons}[/list]
           <label for="sessionNotes" class="form-label fw-bold">Session Notes:</label>
           <textarea id="sessionNotes" class="form-control" rows="3" required></textarea>
         </div>
-
         <!-- Overall Grade -->
         <div class="mb-3">
           <div class="fw-bold mb-2">Overall Grade</div>
@@ -3327,7 +4226,7 @@ document.getElementById('aviationSessionForm').addEventListener('submit', functi
     `${cb('emergencyLand')} Explained EMERGENCY LANDINGS`,
     `${cb('preflight')} Explained PRE-FLIGHT INSPECTION`,
     `${cb('flightLogs')} Explained FLIGHT LOGS AND REPORTS`
-  ].map(line => `[list]${line}[/list]`).join('\n');
+  ].map(line => `[*] ${line}`).join('\n');
 
   // External Anatomy
   const extAnatomy = [
@@ -3335,7 +4234,7 @@ document.getElementById('aviationSessionForm').addEventListener('submit', functi
     `${cb('tailRotor')} Shown the location of the TAIL ROTOR and explained its use`,
     `${cb('engine')} Shown the location of the ENGINE and explained its use`,
     `${cb('landingGear')} Shown the location of the LANDING GEAR and explained its use`
-  ].map(line => `[list]${line}[/list]`).join('\n');
+  ].map(line => `[*] ${line}`).join('\n');
 
   // Internal Anatomy
   const intAnatomy = [
@@ -3343,7 +4242,7 @@ document.getElementById('aviationSessionForm').addEventListener('submit', functi
     `${cb('collective')} Explained the use of the COLLECTIVE`,
     `${cb('throttle')} Explained the use of the THROTTLE`,
     `${cb('pedals')} Explained the use of the PEDALS`
-  ].map(line => `[list]${line}[/list]`).join('\n');
+  ].map(line => `[*] ${line}`).join('\n');
 
   // Flight Instrument Panel
   const instrPanel = [
@@ -3353,7 +4252,7 @@ document.getElementById('aviationSessionForm').addEventListener('submit', functi
     `${cb('heading')} Shown and explained what the HEADING INDICATOR shows/does`,
     `${cb('verticalSpeed')} Shown and explained what the VERTICAL SPEED INDICATOR shows/does`,
     `${cb('fuelGauge')} Shown and explained what the FUEL GAUGE shows/does`
-  ].map(line => `[list]${line}[/list]`).join('\n');
+  ].map(line => `[*] ${line}`).join('\n');
 
   // Session Notes
   const sessionNotes = document.getElementById('sessionNotes').value;
@@ -3380,22 +4279,30 @@ Go through the checklist below, and mark each section with a [ x ] once complete
 
 [divbox=#091f62][b][color=white]Aviation Guidelines[/color][/b][/divbox]
 [divbox=white]
+[list]
 ${avGuidelines}
+[/list]
 [/divbox]
 
 [divbox=#091f62][b][color=white]External Anatomy[/color][/b][/divbox]
 [divbox=white]
+[list]
 ${extAnatomy}
+[/list]
 [/divbox]
 
 [divbox=#091f62][b][color=white]Internal Anatomy[/color][/b][/divbox]
 [divbox=white]
+[list]
 ${intAnatomy}
+[/list]
 [/divbox]
 
 [divbox=#091f62][b][color=white]Flight Instrument Panel[/color][/b][/divbox]
 [divbox=white]
+[list]
 ${instrPanel}
+[/list]
 [/divbox]
 
 [divbox=#091f62][b][color=white]Session Notes[/color][/b][/divbox]
@@ -3410,7 +4317,6 @@ ${instrPanel}
 [size=125]■■■[/size] - [dropshadow=black][color=#00FF00]Satisfactory. [/color][/dropshadow]
 [size=125]■■■■[/size] - [dropshadow=black][color=#00BF80]Outstanding, no room for improvements.[/color][/dropshadow]
 [size=125]■■■■■[/size] - [dropshadow=black][color=#008040]Extraordinary[/color][/dropshadow]
-
 [list]
 [*] The student's general behaviour and attention span: [ ${overallBehavior} ]
 [list]
@@ -3424,13 +4330,14 @@ ${instrPanel}
 [list]
 [*] ${overallAnswersDetail}
 [/list]
+[/list]
 [/divbox]
 `;
 
   const outputArea = document.getElementById('aviationSessionBBOutput');
   outputArea.value = bbcode.trim();
-  outputArea.focus();
-  outputArea.select();
+  // outputArea.focus();
+  // outputArea.select();
 
   try {
     navigator.clipboard.writeText(bbcode).then(() => {
@@ -3443,7 +4350,6 @@ ${instrPanel}
   }
 });
 </script>
-
 
 
 <div id="heliSessionGen" class="container mt-3 myHideableSection" style="max-width: 900px;">
@@ -3521,12 +4427,12 @@ ${instrPanel}
         <div class="mb-3">
           <div class="fw-bold mb-2">Instructor's Flight</div>
           <div class="mb-2"><i>The instructor is to pilot the Aircraft. Bring the Aircraft to LSIA Helipad 1. The flight is to start and stop at LSIA Helipad 1.</i></div>
-          <div class="form-check"><input type="checkbox" class="form-check-input" id="instHover2" /> <label class="form-check-label" for="instHover">Showed how to perform a hover above LSIA Helipad 1.</label></div>
-          <div class="form-check"><input type="checkbox" class="form-check-input" id="instShort2" /> <label class="form-check-label" for="instShort">Showed how to perform short hops with the Frogger between the LSIA Helipads.</label></div>
-          <div class="form-check"><input type="checkbox" class="form-check-input" id="instHigh2" /> <label class="form-check-label" for="instHigh">Showed how to perform high hops with the Frogger between the LSIA Helipads.</label></div>
-          <div class="form-check"><input type="checkbox" class="form-check-input" id="instLong2" /> <label class="form-check-label" for="instLong">Showed how to fly to LSIA Runway 30R and perform a long hop to LSIA Runway 30L.</label></div>
-          <div class="form-check"><input type="checkbox" class="form-check-input" id="instL2" /> <label class="form-check-label" for="instL">Showed how to perform directional flight along the LSIA Runways in the shape of an L from start to finish.</label></div>
-          <div class="form-check"><input type="checkbox" class="form-check-input" id="instFinalHover2" /> <label class="form-check-label" for="instFinalHover">Showed how to hover the Frogger above LSIA Helipad 1.</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="instHover2" /> <label class="form-check-label" for="instHover2">Showed how to perform a hover above LSIA Helipad 1.</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="instShort2" /> <label class="form-check-label" for="instShort2">Showed how to perform short hops with the Frogger between the LSIA Helipads.</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="instHigh2" /> <label class="form-check-label" for="instHigh2">Showed how to perform high hops with the Frogger between the LSIA Helipads.</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="instLong2" /> <label class="form-check-label" for="instLong2">Showed how to fly to LSIA Runway 30R and perform a long hop to LSIA Runway 30L.</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="instL2" /> <label class="form-check-label" for="instL2">Showed how to perform directional flight along the LSIA Runways in the shape of an L from start to finish.</label></div>
+          <div class="form-check"><input type="checkbox" class="form-check-input" id="instFinalHover2" /> <label class="form-check-label" for="instFinalHover2">Showed how to hover the Frogger above LSIA Helipad 1.</label></div>
         </div>
 
         <!-- Student's Flight -->
@@ -3557,12 +4463,12 @@ ${instrPanel}
           <div class="form-check">
             <input type="checkbox" class="form-check-input" id="studLong2" />
             <label class="form-check-label" for="studLong2">The student flew to LSIA Runway 30R and was able to perform a long hop to LSIA Runway 30L.</label>
-            <select class="form-select form-select-sm ms-2" id="gradeStudLong">
+            <select class="form-select form-select-sm ms-2" id="gradeStudLong2">
               <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
             </select>
           </div>
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="studL" />
+            <input type="checkbox" class="form-check-input" id="studL2" />
             <label class="form-check-label" for="studL2">The student was able to perform directional flight along the LSIA Runways in the shape of an L from start to finish.</label>
             <select class="form-select form-select-sm ms-2" id="gradeStudL2">
               <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
@@ -3616,12 +4522,12 @@ ${instrPanel}
         <!-- Submit -->
         <div class="text-center">
           <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
-          <p id="heliSessionCopySuccess" class="mt-2 text-success fw-semibold"></p>
+          <p id="heliSession4CopySuccess" class="mt-2 text-success fw-semibold"></p>
         </div>
         <!-- BBCode Output -->
         <div class="mt-4">
-          <label for="heliSessionBBOutput" class="form-label fw-bold">BBCode Output:</label>
-          <textarea id="heliSessionBBOutput" class="form-control" rows="30" readonly placeholder="BBCode will appear here"></textarea>
+          <label for="heliSession4BBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="heliSession4BBOutput" class="form-control" rows="30" readonly placeholder="BBCode will appear here"></textarea>
         </div>
       </form>
     </div>
@@ -3638,7 +4544,7 @@ function formatDateDDMMMYYYY(dateStr) {
 
 document.getElementById('heliSessionForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  const successMsg = document.getElementById('heliSessionCopySuccess');
+  const successMsg = document.getElementById('heliSession4CopySuccess');
   successMsg.textContent = '';
 
   if (!this.checkValidity()) {
@@ -3680,7 +4586,8 @@ document.getElementById('heliSessionForm').addEventListener('submit', function(e
   const gradeStudHigh2 = document.getElementById('gradeStudHigh2').value;
   const studLong2 = document.getElementById('studLong2').checked ? '[x]' : '[ ]';
   const gradeStudLong2 = document.getElementById('gradeStudLong2').value;
-  const studL2 = document.getElementById('studL2').checked ? '[x]' : '[ ]';
+  const studL2 = document.getElementById('studL2').checked ? '[x]' : '[ ]'; // FIXED
+
   const gradeStudL2 = document.getElementById('gradeStudL2').value;
 
   // Session Notes
@@ -3772,7 +4679,6 @@ ${studL2} The student was able to perform directional flight along the LSIA Runw
 
 [color=transparent]SPACER[/color]
 [/divbox]
-
 [divbox=#091f62][b][color=white]Overall Grade[/color][/b][/divbox]
 [divbox=white]
 [list]
@@ -3799,7 +4705,7 @@ ${studL2} The student was able to perform directional flight along the LSIA Runw
 [/divbox]
 `;
 
-  const outputArea = document.getElementById('heliSessionBBOutput');
+  const outputArea = document.getElementById('heliSession4BBOutput');
   outputArea.value = bbcode.trim();
   outputArea.focus();
   outputArea.select();
@@ -3826,7 +4732,7 @@ ${studL2} The student was able to perform directional flight along the LSIA Runw
       <form id="guidedFlightForm" autocomplete="off" novalidate>
         <!-- Date & Session Hours -->
         <div class="mb-3 row align-items-center">
-          <label for="sessionDate" class="col-sm-3 col-form-label fw-bold text-end">Date:</label>
+          <label for="sessionDate3" class="col-sm-3 col-form-label fw-bold text-end">Date:</label>
           <div class="col-sm-3">
             <input type="date" id="sessionDate3" class="form-control" required />
           </div>
@@ -3871,17 +4777,17 @@ ${studL2} The student was able to perform directional flight along the LSIA Runw
           <div class="fw-bold mb-2">Pre-Flight Check</div>
           <div><b>The instructor showed the student how to perform a pre-flight check during FTS-2. Now, it is their turn.</b></div>
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="preflightCheck" />
-            <label class="form-check-label" for="preflightCheck">
+            <input type="checkbox" class="form-check-input" id="preflightCheck3" />
+            <label class="form-check-label" for="preflightCheck3">
               The student was able to perform a pre-flight check on the aircraft, both internally and externally.
             </label>
-            <select class="form-select form-select-sm ms-2" id="gradePreflight">
+            <select class="form-select form-select-sm ms-2" id="gradePreflight3">
               <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
             </select>
           </div>
           <div class="mb-2 ms-4">
             <label class="form-label">[ooc]Student's RP Screenshots (IMG URLs, comma-separated):</label>
-            <input type="text" class="form-control form-control-sm" id="studentPreflightImgs" placeholder="https://imgur.com/a.jpg, https://imgur.com/b.jpg" />
+            <input type="text" class="form-control form-control-sm" id="studentPreflightImgs3" placeholder="https://imgur.com/a.jpg, https://imgur.com/b.jpg" />
           </div>
         </div>
 
@@ -3895,7 +4801,7 @@ ${studL2} The student was able to perform directional flight along the LSIA Runw
           </div>
           <div class="mb-2 ms-4">
             <label class="form-label">ATC Call Screenshots (IMG URLs, comma-separated):</label>
-            <input type="text" class="form-control form-control-sm" id="atcImgs" placeholder="https://imgur.com/a.jpg, https://imgur.com/b.jpg" />
+            <input type="text" class="form-control form-control-sm" id="atcImgs3" placeholder="https://imgur.com/a.jpg, https://imgur.com/b.jpg" />
           </div>
         </div>
 
@@ -3903,20 +4809,20 @@ ${studL2} The student was able to perform directional flight along the LSIA Runw
         <div class="mb-3">
           <div class="fw-bold mb-2">Ground Landing</div>
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="groundLanding" />
-            <label class="form-check-label" for="groundLanding">The student conducted a ground landing.</label>
-            <select class="form-select form-select-sm ms-2" id="gradeGroundLanding">
+            <input type="checkbox" class="form-check-input" id="groundLanding3" />
+            <label class="form-check-label" for="groundLanding3">The student conducted a ground landing.</label>
+            <select class="form-select form-select-sm ms-2" id="gradeGroundLanding3">
               <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
             </select>
           </div>
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="groundATC" />
-            <label class="form-check-label" for="groundATC">The student correctly communicated with ATC</label>
-            <input type="text" class="form-control form-control-sm mt-1" id="groundATCExample" placeholder="ENTER THEIR GROUND LANDING ATC CALL HERE" />
+            <input type="checkbox" class="form-check-input" id="groundATC3" />
+            <label class="form-check-label" for="groundATC3">The student correctly communicated with ATC</label>
+            <input type="text" class="form-control form-control-sm mt-1" id="groundATCExample3" placeholder="ENTER THEIR GROUND LANDING ATC CALL HERE" />
           </div>
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="informedProcedures" />
-            <label class="form-check-label" for="informedProcedures">The student was informed about the procedures after conducting an emergency landing.</label>
+            <input type="checkbox" class="form-check-input" id="informedProcedures3" />
+            <label class="form-check-label" for="informedProcedures3">The student was informed about the procedures after conducting an emergency landing.</label>
           </div>
           <div class="mb-2 ms-4">
             <small>
@@ -3929,51 +4835,50 @@ ${studL2} The student was able to perform directional flight along the LSIA Runw
 
         <!-- Session Notes -->
         <div class="mb-3">
-          <label for="sessionNotes" class="form-label fw-bold">Session Notes:</label>
-          <textarea id="sessionNotes" class="form-control" rows="3" required></textarea>
+          <label for="sessionNotes3" class="form-label fw-bold">Session Notes:</label>
+          <textarea id="sessionNotes3" class="form-control" rows="3" required></textarea>
         </div>
-
         <!-- Overall Grade -->
         <div class="mb-3">
           <div class="fw-bold mb-2">Overall Grade</div>
           <div class="mb-2">
             <label class="fw-bold">General behavior and attention span:</label>
-            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallBehavior">
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallBehavior3">
               <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
             </select>
-            <input type="text" class="form-control form-control-sm mt-1" id="overallBehaviorDetail" placeholder="Provide details here..." />
+            <input type="text" class="form-control form-control-sm mt-1" id="overallBehaviorDetail3" placeholder="Provide details here..." />
           </div>
           <div class="mb-2">
             <label class="fw-bold">Ability to perform a take-off:</label>
-            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallTakeoff">
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallTakeoff3">
               <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
             </select>
-            <input type="text" class="form-control form-control-sm mt-1" id="overallTakeoffDetail" placeholder="Provide details here..." />
+            <input type="text" class="form-control form-control-sm mt-1" id="overallTakeoffDetail3" placeholder="Provide details here..." />
           </div>
           <div class="mb-2">
             <label class="fw-bold">Ability to perform directional flight:</label>
-            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallDirectional">
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallDirectional3">
               <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
             </select>
-            <input type="text" class="form-control form-control-sm mt-1" id="overallDirectionalDetail" placeholder="Provide details here..." />
+            <input type="text" class="form-control form-control-sm mt-1" id="overallDirectionalDetail3" placeholder="Provide details here..." />
           </div>
           <div class="mb-2">
             <label class="fw-bold">Ability to perform an approach and landing:</label>
-            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallLanding">
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallLanding3">
               <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
             </select>
-            <input type="text" class="form-control form-control-sm mt-1" id="overallLandingDetail" placeholder="Provide details here..." />
+            <input type="text" class="form-control form-control-sm mt-1" id="overallLandingDetail3" placeholder="Provide details here..." />
           </div>
           <div class="mb-2">
             <label class="fw-bold">Ability to communicate with Air Traffic Control:</label>
-            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallATC">
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallATC3">
               <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
             </select>
-            <input type="text" class="form-control form-control-sm mt-1" id="overallATCDetail" placeholder="Provide details here..." />
+            <input type="text" class="form-control form-control-sm mt-1" id="overallATCDetail3" placeholder="Provide details here..." />
           </div>
           <div class="mb-2">
             <label class="fw-bold">Proceed to the final examination?</label>
-            <input type="text" class="form-control form-control-sm mt-1" id="overallNextDetail" placeholder="Provide details here..." />
+            <input type="text" class="form-control form-control-sm mt-1" id="overallNextDetail3" placeholder="Provide details here..." />
           </div>
         </div>
 
@@ -4010,17 +4915,17 @@ document.getElementById('guidedFlightForm').addEventListener('submit', function(
     return;
   }
 
-  const date = formatDateDDMMMYYYY(document.getElementById('sessionDate').value);
-  const start = document.getElementById('sessionStart').value;
-  const end = document.getElementById('sessionEnd').value;
+  const date = formatDateDDMMMYYYY(document.getElementById('sessionDate3').value);
+  const start = document.getElementById('sessionStart3').value;
+  const end = document.getElementById('sessionEnd3').value;
 
   // Helper for checkboxes
   function cb(id) { return document.getElementById(id).checked ? '[x]' : '[ ]'; }
 
   // Theory Session
   const theorySession = [
-    `${cb('altitudeKnowledge')} The instructor verifies the student's knowledge of altitude whilst operating an Aircraft. (1,500 feet city, 750 feet outside city, and 500 feet or higher above emergency aircrafts).`,
-    `${cb('zoneKnowledge')} The instructor verifies the student's knowledge of No Fly Zones and Caution Zones.`,
+    `${cb('altitudeKnowledge3')} The instructor verifies the student's knowledge of altitude whilst operating an Aircraft.`,
+    `${cb('zoneKnowledge3')} The instructor verifies the student's knowledge of No Fly Zones and Caution Zones.`,
     `[list]
 [*] Caution Zones are permitted to be entered, but extra caution utilizing your instruments and visuals should be taken as they're hot-spots for takeoffs and landings.
 [*] No Fly Zones are off-limit areas that should not be entered under any circumstances.
@@ -4029,30 +4934,34 @@ document.getElementById('guidedFlightForm').addEventListener('submit', function(
   ].join('\n');
 
   // Pre-Flight Check
-  const preflightCheck = `${cb('preflightCheck')} The student was able to perform a pre-flight check on the aircraft, both internally and externally.
-[list=none]GRADE: [ ${document.getElementById('gradePreflight').value} ][/list]
+  const preflightImgs = (document.getElementById('studentPreflightImgs3').value || '').split(',')
+    .map(url => url.trim() ? `[img]${url.trim()}[/img]` : '').join('\n');
+  const preflightCheck = `${cb('preflightCheck3')} The student was able to perform a pre-flight check on the aircraft, both internally and externally.
+[list=none]GRADE: [ ${document.getElementById('gradePreflight3').value} ][/list]
 [ooc][spoiler=Student's RP]
 SCREENSHOT THEIR RP AND PLACE THE IMAGES IN THE IMG TAGS. ADD OR REMOVE TAGS AS NEEDED.
-${(document.getElementById('studentPreflightImgs').value || '').split(',').map(url => url.trim() ? `[img]${url.trim()}[/img]` : '').join('\n')}
+${preflightImgs}
 [/spoiler][/ooc]`;
 
   // ATC Communication
+  const atcImgs = (document.getElementById('atcImgs3').value || '').split(',')
+    .map(url => url.trim() ? `[img]${url.trim()}[/img]` : '[img][/img]').join('\n');
   const atcComm = `[b]SAAA Hangar --> LSIA Helipad 1 (taxi) --> Sandy Airfield --> SAAA Paleto Helipad --> Mount Josiah Ground Landing --> LSIA Helipad 1[/b]
 [hr][/hr]
 [b]Please write down their exact phrasing of communication with ATC word for word. [ooc]Paste screenshot links of their calls into the IMG tags. Add more if needed.[/ooc] There should be a minimum of 9 calls to ATC.[/b]
 [list]
-${(document.getElementById('atcImgs').value || '').split(',').map(url => url.trim() ? `[img]${url.trim()}[/img]` : '[img][/img]').join('\n')}
+${atcImgs}
 [/list]`;
 
   // Ground Landing
   const groundLanding = `[list=none]
-${cb('groundLanding')} The student conducted a ground landing.
-[list=none]GRADE: [ ${document.getElementById('gradeGroundLanding').value} ][/list]
-${cb('groundATC')} The student correctly communicated with ATC
+${cb('groundLanding3')} The student conducted a ground landing.
+[list=none]GRADE: [ ${document.getElementById('gradeGroundLanding3').value} ][/list]
+${cb('groundATC3')} The student correctly communicated with ATC
 [list]
-[*] ${document.getElementById('groundATCExample').value}
+[*] ${document.getElementById('groundATCExample3').value}
 [/list]
-${cb('informedProcedures')} The student was informed about the procedures after conducting an emergency landing.
+${cb('informedProcedures3')} The student was informed about the procedures after conducting an emergency landing.
 [list]
 [*] Make every effort to get in contact with someone from SAAA. Call 911 and get assistance from local law enforcement.
 [*] Have a mechanic come for a repair.
@@ -4061,20 +4970,20 @@ ${cb('informedProcedures')} The student was informed about the procedures after 
 [/list]`;
 
   // Session Notes
-  const sessionNotes = document.getElementById('sessionNotes').value;
+  const sessionNotes = document.getElementById('sessionNotes3').value;
 
   // Overall Grade
-  const overallBehavior = document.getElementById('overallBehavior').value;
-  const overallBehaviorDetail = document.getElementById('overallBehaviorDetail').value;
-  const overallTakeoff = document.getElementById('overallTakeoff').value;
-  const overallTakeoffDetail = document.getElementById('overallTakeoffDetail').value;
-  const overallDirectional = document.getElementById('overallDirectional').value;
-  const overallDirectionalDetail = document.getElementById('overallDirectionalDetail').value;
-  const overallLanding = document.getElementById('overallLanding').value;
-  const overallLandingDetail = document.getElementById('overallLandingDetail').value;
-  const overallATC = document.getElementById('overallATC').value;
-  const overallATCDetail = document.getElementById('overallATCDetail').value;
-  const overallNextDetail = document.getElementById('overallNextDetail').value;
+  const overallBehavior = document.getElementById('overallBehavior3').value;
+  const overallBehaviorDetail = document.getElementById('overallBehaviorDetail3').value;
+  const overallTakeoff = document.getElementById('overallTakeoff3').value;
+  const overallTakeoffDetail = document.getElementById('overallTakeoffDetail3').value;
+  const overallDirectional = document.getElementById('overallDirectional3').value;
+  const overallDirectionalDetail = document.getElementById('overallDirectionalDetail3').value;
+  const overallLanding = document.getElementById('overallLanding3').value;
+  const overallLandingDetail = document.getElementById('overallLandingDetail3').value;
+  const overallATC = document.getElementById('overallATC3').value;
+  const overallATCDetail = document.getElementById('overallATCDetail3').value;
+  const overallNextDetail = document.getElementById('overallNextDetail3').value;
 
   const bbcode = `[img]https://i.imgur.com/4IgXLd5.png[/img]
 [divbox=white]
@@ -4182,19 +5091,19 @@ ${groundLanding}
       <form id="finalFlightForm" autocomplete="off" novalidate>
         <!-- Date & Session Hours -->
         <div class="mb-3 row align-items-center">
-          <label for="sessionDate" class="col-sm-3 col-form-label fw-bold text-end">Date:</label>
+          <label for="sessionDate4" class="col-sm-3 col-form-label fw-bold text-end">Date:</label>
           <div class="col-sm-3">
-            <input type="date" id="sessionDate" class="form-control" required />
+            <input type="date" id="sessionDate4" class="form-control" required />
           </div>
-          <label for="sessionStart" class="col-sm-3 col-form-label fw-bold text-end">Session Start (UTC):</label>
+          <label for="sessionStart4" class="col-sm-3 col-form-label fw-bold text-end">Session Start (UTC):</label>
           <div class="col-sm-3">
-            <input type="text" id="sessionStart" class="form-control" required />
+            <input type="text" id="sessionStart4" class="form-control" required />
           </div>
         </div>
         <div class="mb-3 row align-items-center">
-          <label for="sessionEnd" class="col-sm-3 col-form-label fw-bold text-end">Session End (UTC):</label>
+          <label for="sessionEnd4" class="col-sm-3 col-form-label fw-bold text-end">Session End (UTC):</label>
           <div class="col-sm-3">
-            <input type="text" id="sessionEnd" class="form-control" required />
+            <input type="text" id="sessionEnd4" class="form-control" required />
           </div>
         </div>
 
@@ -4205,17 +5114,17 @@ ${groundLanding}
             <b>The instructor showed the student how to perform a pre-flight check during FTS-2. They should have been able to perform their pre-flight check during FTS-3. Do not tell them they need to do a pre-flight check, see if they will do one without saying anything.</b>
           </div>
           <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="preflightCheck" />
-            <label class="form-check-label" for="preflightCheck">
+            <input type="checkbox" class="form-check-input" id="preflightCheck4" />
+            <label class="form-check-label" for="preflightCheck4">
               The student remembered performing a pre-flight check on the aircraft internally and externally.
             </label>
-            <select class="form-select form-select-sm ms-2" id="gradePreflight">
+            <select class="form-select form-select-sm ms-2" id="gradePreflight4">
               <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
             </select>
           </div>
           <div class="mb-2 ms-4">
             <label class="form-label">[ooc]Student's RP Screenshots (IMG URLs, comma-separated):</label>
-            <input type="text" class="form-control form-control-sm" id="studentPreflightImgs" placeholder="https://imgur.com/a.jpg, https://imgur.com/b.jpg" />
+            <input type="text" class="form-control form-control-sm" id="studentPreflightImgs4" placeholder="https://imgur.com/a.jpg, https://imgur.com/b.jpg" />
           </div>
         </div>
 
@@ -4231,14 +5140,14 @@ ${groundLanding}
           </div>
           <div class="mb-2 ms-4">
             <label class="form-label">ATC Call Screenshots (IMG URLs, comma-separated):</label>
-            <input type="text" class="form-control form-control-sm" id="atcImgs" placeholder="https://imgur.com/a.jpg, https://imgur.com/b.jpg" />
+            <input type="text" class="form-control form-control-sm" id="atcImgs4" placeholder="https://imgur.com/a.jpg, https://imgur.com/b.jpg" />
           </div>
         </div>
 
         <!-- Session Notes -->
         <div class="mb-3">
-          <label for="sessionNotes" class="form-label fw-bold">Session Notes:</label>
-          <textarea id="sessionNotes" class="form-control" rows="3" required></textarea>
+          <label for="sessionNotes4" class="form-label fw-bold">Session Notes:</label>
+          <textarea id="sessionNotes4" class="form-control" rows="3" required></textarea>
         </div>
 
         <!-- Overall Grade -->
@@ -4246,61 +5155,61 @@ ${groundLanding}
           <div class="fw-bold mb-2">Overall Grade</div>
           <div class="mb-2">
             <label class="fw-bold">Ability to perform a take-off:</label>
-            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallTakeoff">
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallTakeoff4">
               <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
             </select>
-            <input type="text" class="form-control form-control-sm mt-1" id="overallTakeoffDetail" placeholder="Provide details here..." />
+            <input type="text" class="form-control form-control-sm mt-1" id="overallTakeoffDetail4" placeholder="Provide details here..." />
           </div>
           <div class="mb-2">
             <label class="fw-bold">Ability to perform directional flight:</label>
-            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallDirectional">
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallDirectional4">
               <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
             </select>
-            <input type="text" class="form-control form-control-sm mt-1" id="overallDirectionalDetail" placeholder="Provide details here..." />
+            <input type="text" class="form-control form-control-sm mt-1" id="overallDirectionalDetail4" placeholder="Provide details here..." />
           </div>
           <div class="mb-2">
             <label class="fw-bold">Ability to perform an approach and landing:</label>
-            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallLanding">
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallLanding4">
               <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
             </select>
-            <input type="text" class="form-control form-control-sm mt-1" id="overallLandingDetail" placeholder="Provide details here..." />
+            <input type="text" class="form-control form-control-sm mt-1" id="overallLandingDetail4" placeholder="Provide details here..." />
           </div>
           <div class="mb-2">
             <label class="fw-bold">Ability to land at a random location (Paleto North Point Rock):</label>
-            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallRandomLanding">
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallRandomLanding4">
               <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
             </select>
-            <input type="text" class="form-control form-control-sm mt-1" id="overallRandomLandingDetail" placeholder="Provide details here..." />
+            <input type="text" class="form-control form-control-sm mt-1" id="overallRandomLandingDetail4" placeholder="Provide details here..." />
           </div>
           <div class="mb-2">
             <label class="fw-bold">Ability to taxi from place to place:</label>
-            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallTaxi">
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallTaxi4">
               <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
             </select>
-            <input type="text" class="form-control form-control-sm mt-1" id="overallTaxiDetail" placeholder="Provide details here..." />
+            <input type="text" class="form-control form-control-sm mt-1" id="overallTaxiDetail4" placeholder="Provide details here..." />
           </div>
           <div class="mb-2">
             <label class="fw-bold">Ability to communicate with Air Traffic Control:</label>
-            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallATC">
+            <select class="form-select form-select-sm d-inline w-auto ms-2" id="overallATC4">
               <option>■■■■■</option><option>■■■■</option><option>■■■</option><option>■■</option><option>■</option>
             </select>
-            <input type="text" class="form-control form-control-sm mt-1" id="overallATCDetail" placeholder="Provide details here..." />
+            <input type="text" class="form-control form-control-sm mt-1" id="overallATCDetail4" placeholder="Provide details here..." />
           </div>
           <div class="mb-2">
             <label class="fw-bold">Pass final flight? (MINIMUM 20 WORDS):</label>
-            <input type="text" class="form-control form-control-sm mt-1" id="overallNextDetail" placeholder="Provide details here..." />
+            <input type="text" class="form-control form-control-sm mt-1" id="overallNextDetail4" placeholder="Provide details here..." />
           </div>
         </div>
 
         <!-- Submit -->
         <div class="text-center">
           <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
-          <p id="finalFlightCopySuccess" class="mt-2 text-success fw-semibold"></p>
+          <p id="finalFlightCopySuccess4" class="mt-2 text-success fw-semibold"></p>
         </div>
         <!-- BBCode Output -->
         <div class="mt-4">
-          <label for="finalFlightBBOutput" class="form-label fw-bold">BBCode Output:</label>
-          <textarea id="finalFlightBBOutput" class="form-control" rows="34" readonly placeholder="BBCode will appear here"></textarea>
+          <label for="finalFlightBBOutput4" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="finalFlightBBOutput4" class="form-control" rows="34" readonly placeholder="BBCode will appear here"></textarea>
         </div>
       </form>
     </div>
@@ -4317,7 +5226,7 @@ function formatDateDDMMMYYYY(dateStr) {
 
 document.getElementById('finalFlightForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  const successMsg = document.getElementById('finalFlightCopySuccess');
+  const successMsg = document.getElementById('finalFlightCopySuccess4');
   successMsg.textContent = '';
 
   if (!this.checkValidity()) {
@@ -4325,19 +5234,19 @@ document.getElementById('finalFlightForm').addEventListener('submit', function(e
     return;
   }
 
-  const date = formatDateDDMMMYYYY(document.getElementById('sessionDate').value);
-  const start = document.getElementById('sessionStart').value;
-  const end = document.getElementById('sessionEnd').value;
+  const date = formatDateDDMMMYYYY(document.getElementById('sessionDate4').value);
+  const start = document.getElementById('sessionStart4').value;
+  const end = document.getElementById('sessionEnd4').value;
 
   // Helper for checkboxes
   function cb(id) { return document.getElementById(id).checked ? '[x]' : '[ ]'; }
 
   // Pre-Flight Check
-  const preflightCheck = `${cb('preflightCheck')} The student remembered performing a pre-flight check on the aircraft internally and externally.
-[list=none]GRADE: [ ${document.getElementById('gradePreflight').value} ][/list]
+  const preflightCheck = `${cb('preflightCheck4')} The student remembered performing a pre-flight check on the aircraft internally and externally.
+[list=none]GRADE: [ ${document.getElementById('gradePreflight4').value} ][/list]
 [ooc][spoiler=Student's RP]
 SCREENSHOT THEIR RP AND PLACE THE IMAGES IN THE IMG TAGS. ADD OR REMOVE TAGS AS NEEDED.
-${(document.getElementById('studentPreflightImgs').value || '').split(',').map(url => url.trim() ? `[img]${url.trim()}[/img]` : '').join('\n')}
+${(document.getElementById('studentPreflightImgs4').value || '').split(',').map(url => url.trim() ? `[img]${url.trim()}[/img]` : '').join('\n')}
 [/spoiler][/ooc]`;
 
   // ATC Communication
@@ -4345,26 +5254,26 @@ ${(document.getElementById('studentPreflightImgs').value || '').split(',').map(u
 [hr][/hr]
 [b]Please write down their exact phrasing of communication with ATC word for word. [ooc]Paste screenshot links of their calls into the IMG tags. Add more if needed.[/ooc] There should be a total of 9 calls to ATC.[/b]
 [list]
-${(document.getElementById('atcImgs').value || '').split(',').map(url => url.trim() ? `[img]${url.trim()}[/img]` : '[img][/img]').join('\n')}
+${(document.getElementById('atcImgs4').value || '').split(',').map(url => url.trim() ? `[img]${url.trim()}[/img]` : '[img][/img]').join('\n')}
 [/list]`;
 
   // Session Notes
-  const sessionNotes = document.getElementById('sessionNotes').value;
+  const sessionNotes = document.getElementById('sessionNotes4').value;
 
   // Overall Grade
-  const overallTakeoff = document.getElementById('overallTakeoff').value;
-  const overallTakeoffDetail = document.getElementById('overallTakeoffDetail').value;
-  const overallDirectional = document.getElementById('overallDirectional').value;
-  const overallDirectionalDetail = document.getElementById('overallDirectionalDetail').value;
-  const overallLanding = document.getElementById('overallLanding').value;
-  const overallLandingDetail = document.getElementById('overallLandingDetail').value;
-  const overallRandomLanding = document.getElementById('overallRandomLanding').value;
-  const overallRandomLandingDetail = document.getElementById('overallRandomLandingDetail').value;
-  const overallTaxi = document.getElementById('overallTaxi').value;
-  const overallTaxiDetail = document.getElementById('overallTaxiDetail').value;
-  const overallATC = document.getElementById('overallATC').value;
-  const overallATCDetail = document.getElementById('overallATCDetail').value;
-  const overallNextDetail = document.getElementById('overallNextDetail').value;
+  const overallTakeoff = document.getElementById('overallTakeoff4').value;
+  const overallTakeoffDetail = document.getElementById('overallTakeoffDetail4').value;
+  const overallDirectional = document.getElementById('overallDirectional4').value;
+  const overallDirectionalDetail = document.getElementById('overallDirectionalDetail4').value;
+  const overallLanding = document.getElementById('overallLanding4').value;
+  const overallLandingDetail = document.getElementById('overallLandingDetail4').value;
+  const overallRandomLanding = document.getElementById('overallRandomLanding4').value;
+  const overallRandomLandingDetail = document.getElementById('overallRandomLandingDetail4').value;
+  const overallTaxi = document.getElementById('overallTaxi4').value;
+  const overallTaxiDetail = document.getElementById('overallTaxiDetail4').value;
+  const overallATC = document.getElementById('overallATC4').value;
+  const overallATCDetail = document.getElementById('overallATCDetail4').value;
+  const overallNextDetail = document.getElementById('overallNextDetail4').value;
 
   const bbcode = `[img]https://i.imgur.com/oQVSH05.png[/img]
 [divbox=white]
@@ -4440,7 +5349,7 @@ ${atcComm}
 [/divbox]
 `;
 
-  const outputArea = document.getElementById('finalFlightBBOutput');
+  const outputArea = document.getElementById('finalFlightBBOutput4');
   outputArea.value = bbcode.trim();
   outputArea.focus();
   outputArea.select();
@@ -5485,7 +6394,7 @@ Current date: ${new Date().toLocaleString('en-US', {weekday:'long', year:'numeri
           <img src="https://imgur.com/p2ksyW2.png" alt="Mick Wegman" style="max-width:100px;max-height:50px;">
         </div>
         <div class="col-6">
-          <b>Senior Official Mick Wegman</b>
+          <b>Lead Official Mick Wegman</b>
         </div>
         <div class="col-3 text-end">
           <button class="btn btn-outline-primary btn-sm" onclick="copySig('https://imgur.com/p2ksyW2.png', this)">Copy Link</button>
@@ -5496,7 +6405,7 @@ Current date: ${new Date().toLocaleString('en-US', {weekday:'long', year:'numeri
           <!-- No image -->
         </div>
         <div class="col-6">
-          <b>Senior Official Issei Schneider</b>
+          <b>Lead Official Issei Schneider</b>
         </div>
         <div class="col-3 text-end">
           <button class="btn btn-outline-primary btn-sm" onclick="copySig('https://imgur.com/Pt27ak3', this)">Copy Link</button>
@@ -5513,14 +6422,20 @@ Current date: ${new Date().toLocaleString('en-US', {weekday:'long', year:'numeri
           <button class="btn btn-outline-primary btn-sm" onclick="copySig('https://i.imgur.com/09P7aLU.png', this)">Copy Link</button>
         </div>
       </div>
+      <div class="row align-items-center mb-3">
+        <div class="col-3 text-center">
+          <img src="https://i.imgur.com/doitoI8.png" alt="Scottie Cross" style="max-width:100px;max-height:50px;">
+        </div>
         <div class="col-6">
-          <b>Intern Bruce Tubby</b>
+          <b>Official Bruce Tubby</b>
         </div>
         <div class="col-3 text-end">
           <button class="btn btn-outline-primary btn-sm" onclick="copySig('https://i.imgur.com/6oYJNAB.png', this)">Copy Link</button>
         </div>
       </div>
-    </div>
+
+
+
   </div>
 </div>
 
