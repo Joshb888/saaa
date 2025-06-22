@@ -174,7 +174,7 @@
       <h3 class="mb-0">[OFT] Profile Management</h3>
     </div>
        <div class="accordion-body d-flex flex-wrap gap-2">
-          <button class="btn btn-secondary" onclick="showSection('studentProfileGen', this)">Student Profile</button>
+          <button class="btn btn-secondary" onclick="showSection('studentProgressGen', this)">Student Profile</button>
           <button class="btn btn-secondary" onclick="showSection('pilotCertGen', this)">Pilot Profile</button> 
           <button class="btn btn-secondary" onclick="showSection('pilotCertGen2', this)">Pilot Certificate</button>
         </div>
@@ -2018,50 +2018,58 @@ ${certs}
 </script>
 
 
-<div id="studentProfileGen" class="container mt-3 myHideableSection" style="max-width: 700px;">
+<div id="studentProgressGen" class="container mt-3 myHideableSection" style="max-width: 900px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
     <div class="card-header text-center">
-      <h4>[LICENSE] Profile</h4>
+      <h4>[OFT] Student Profile</h4>
     </div>
     <div class="card-body">
-      <form id="studentProfileForm" autocomplete="off" novalidate>
-        <!-- Student Name -->
+      <form id="studentProgressForm" autocomplete="off" novalidate>
         <div class="mb-3 row align-items-center">
-          <label for="studentName" class="col-sm-4 col-form-label fw-bold text-end">Student Name:</label>
-          <div class="col-sm-8">
-            <input type="text" id="studentName" class="form-control" required />
+          <label for="studentProgressName" class="col-sm-3 col-form-label fw-bold text-end">Student Name:</label>
+          <div class="col-sm-9">
+            <input type="text" id="studentProgressName" class="form-control" placeholder="FName LName" required />
           </div>
         </div>
-        <!-- Contact Number -->
         <div class="mb-3 row align-items-center">
-          <label for="contactNumber" class="col-sm-4 col-form-label fw-bold text-end">Contact Number:</label>
-          <div class="col-sm-8">
-            <input type="text" id="contactNumber" class="form-control" placeholder="###-####" required />
+          <label for="studentProgressContact" class="col-sm-3 col-form-label fw-bold text-end">Contact Number:</label>
+          <div class="col-sm-9">
+            <input type="text" id="studentProgressContact" class="form-control" placeholder="XXX-XXXX" required />
           </div>
         </div>
-        <!-- Enroll Date -->
         <div class="mb-3 row align-items-center">
-          <label for="enrollDate" class="col-sm-4 col-form-label fw-bold text-end">Enroll Date:</label>
-          <div class="col-sm-8">
-            <input type="date" id="enrollDate" class="form-control" required />
+          <label for="studentProgressEnrollDate" class="col-sm-3 col-form-label fw-bold text-end">Enroll Date:</label>
+          <div class="col-sm-9">
+            <input type="date" id="studentProgressEnrollDate" class="form-control" required />
           </div>
         </div>
-        <!-- Student Notes -->
         <div class="mb-3 row align-items-center">
-          <label for="studentNotes" class="col-sm-4 col-form-label fw-bold text-end">Student Notes:</label>
-          <div class="col-sm-8">
-            <textarea id="studentNotes" class="form-control" rows="4" placeholder="If there is anything that needs to be noted throughout this student's flight school progress, it can be documented here." required></textarea>
+          <label class="col-sm-3 col-form-label fw-bold text-end">Aircraft Type:</label>
+          <div class="col-sm-9">
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="studentProgressRotary" />
+              <label class="form-check-label" for="studentProgressRotary">Rotary Wing</label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="studentProgressFixed" />
+              <label class="form-check-label" for="studentProgressFixed">Fixed Wing</label>
+            </div>
           </div>
         </div>
-        <!-- Submit -->
+        <hr>
+        <div class="mb-3 row align-items-center">
+          <label for="studentProgressAppLink" class="col-sm-3 col-form-label fw-bold text-end">Application Link:</label>
+          <div class="col-sm-9">
+            <input type="text" id="studentProgressAppLink" class="form-control" placeholder="https://..." required />
+          </div>
+        </div>
         <div class="text-center">
           <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
-          <p id="studentProfileCopySuccess" class="mt-2 text-success fw-semibold"></p>
+          <p id="studentProgressCopySuccess" class="mt-2 text-success fw-semibold"></p>
         </div>
-        <!-- BBCode Output -->
         <div class="mt-4">
-          <label for="studentProfileBBOutput" class="form-label fw-bold">BBCode Output:</label>
-          <textarea id="studentProfileBBOutput" class="form-control" rows="22" readonly placeholder="BBCode will appear here"></textarea>
+          <label for="studentProgressBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="studentProgressBBOutput" class="form-control" rows="38" readonly placeholder="BBCode will appear here"></textarea>
         </div>
       </form>
     </div>
@@ -2076,18 +2084,9 @@ function formatDateDDMMMYYYY(dateStr) {
   return `${day}/${months[parseInt(month, 10) - 1]}/${year}`;
 }
 
-// Set today's date as default
-document.addEventListener('DOMContentLoaded', function() {
-  const today = new Date();
-  const yyyy = today.getFullYear();
-  const mm = String(today.getMonth() + 1).padStart(2, '0');
-  const dd = String(today.getDate()).padStart(2, '0');
-  document.getElementById('enrollDate').value = `${yyyy}-${mm}-${dd}`;
-});
-
-document.getElementById('studentProfileForm').addEventListener('submit', function(e) {
+document.getElementById('studentProgressForm').addEventListener('submit', function(e) {
   e.preventDefault();
-  const successMsg = document.getElementById('studentProfileCopySuccess');
+  const successMsg = document.getElementById('studentProgressCopySuccess');
   successMsg.textContent = '';
 
   if (!this.checkValidity()) {
@@ -2095,46 +2094,61 @@ document.getElementById('studentProfileForm').addEventListener('submit', functio
     return;
   }
 
-  const studentName = document.getElementById('studentName').value.trim();
-  const contactNumber = document.getElementById('contactNumber').value.trim();
-  const enrollDateRaw = document.getElementById('enrollDate').value;
-  const enrollDate = formatDateDDMMMYYYY(enrollDateRaw);
-  const studentNotes = document.getElementById('studentNotes').value.trim();
+  // Student Info
+  const name = document.getElementById('studentProgressName').value.trim();
+  const contact = document.getElementById('studentProgressContact').value.trim();
+  const enrollDate = formatDateDDMMMYYYY(document.getElementById('studentProgressEnrollDate').value);
+  const rotary = document.getElementById('studentProgressRotary').checked;
+  const fixed = document.getElementById('studentProgressFixed').checked;
+  const appLink = document.getElementById('studentProgressAppLink').value.trim();
 
   const bbcode = `[img]https://i.imgur.com/ShJXx5r.png[/img]
- 
 [divbox=#091f62][b][color=white]STUDENT INFORMATION[/color][/b][/divbox]
  
 [divbox=white]
-[b]Student Name:[/b] ${studentName}
-[b]Contact Number:[/b] ${contactNumber}
+[b]Student Name:[/b] ${name}
+[b]Contact Number:[/b] ${contact}
 [b]Enroll Date:[/b] ${enrollDate}
+[b]Aircraft Type: [/b]${rotary ? ' [b][highlight=yellow]Rotary Wing[/highlight][/b]' : ''}${fixed ? '/[b][highlight=yellow]Fixed Wing[/highlight][/b]' : ''}
 [/divbox]
- 
-[divbox=#091f62][b][color=white]STUDENT NOTES[/color][/b][/divbox]
-[divbox=white]
-[u]If there is anything that needs to be noted throughout this student's flight school progress, it can be documented here.[/u]
-[hr][/hr]
-[i]${studentNotes}[/i]
- 
- 
- 
-[/divbox]
- 
-[divbox=#091f62][b][color=white]FLIGHT SCHOOL SESSIONS[/color][/b][/divbox]
- 
-[divbox=white]
-Session reports for each FTS (Flight Training Session) are to be completed and attached to the student profile after each session, these can be found in the [url=https://gov.eclipse-rp.net/viewtopic.php?p=530383]Flight Instructor Handbook[/url].
- 
-[b]FTS-1[/b] - Classroom-based theory session.
-[b]FTS-2[/b] - Short theoretical session followed by an introduction to practical flight.
-[b]FTS-3[/b] - Short theoretical session followed by a practical flying session.
-[b]FTS-4[/b] - Practical Examination & Written Examination.
-[b]FPS[/b] - Flight Practice Session.
-[/divbox]
-[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
 
-  const outputArea = document.getElementById('studentProfileBBOutput');
+[divbox=#091f62][b][color=white]School Progression[/color][/b][/divbox]
+[divbox=white]
+[center][size=85][i]Mark out all classes that don't apply with strike through.
+[c]Mark each box by changing [cb] to [cbc] and cross out with [s][/s][/c]
+[/i][/size][/center][b][u] Mandatory Checks[/u][/b]
+
+[list=none]
+[cb] [b]Passed Medical Checkup[/b]
+[cb] [b]Fast Track - Full[/b]
+[cb] [b]Fast Track - Partial[/b]
+[cb] [b]Fast Track - Not Applied[/b]
+[/list]
+
+[hr][/hr]
+[b][u]Progression[/u][/b]
+[list=none]
+[cb] [b]Flight Training Session 1[/b]
+[cb] [b]Flight Training Session 2[/b]
+[cb] [b]Flight Training Session 3[/b]
+[cb] [b]Flight Training Session 4[/b]
+[cb] [b]Flight Training Session 4 - WRITTEN[/b]
+[/list]
+[hr][/hr]
+[b][u]Optional[/u][/b]
+[list=none]
+[cb] [b]Flight Practice Session (x0)[/b]
+[cb] [b]Amphibious Rotary (ARC)[/b]
+[/list]
+[/divbox]
+[divbox=#091f62][b][color=white]STUDENT Notes[/color][/b][/divbox]
+[divbox=white]
+[b]Application: [/b] [url=${appLink}]Application Link[/url]
+[b]Class Logs: [/b]
+DD/MON/202X - SHOWN/NOT SHOWN | Notes
+[/divbox]`;
+
+  const outputArea = document.getElementById('studentProgressBBOutput');
   outputArea.value = bbcode.trim();
   outputArea.focus();
   outputArea.select();
@@ -2150,6 +2164,7 @@ Session reports for each FTS (Flight Training Session) are to be completed and a
   }
 });
 </script>
+
 
 <div id="pilotAppReceivedGen" class="container mt-3 myHideableSection" style="max-width: 750px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
@@ -6431,6 +6446,13 @@ Current date: ${new Date().toLocaleString('en-US', {weekday:'long', year:'numeri
         </div>
         <div class="col-3 text-end">
           <button class="btn btn-outline-primary btn-sm" onclick="copySig('https://i.imgur.com/6oYJNAB.png', this)">Copy Link</button>
+        </div>
+      </div>
+        <div class="col-6">
+          <b>Intern Liam Loyd</b>
+        </div>
+        <div class="col-3 text-end">
+          <button class="btn btn-outline-primary btn-sm" onclick="copySig('https://i.imgur.com/taw8xaa.png', this)">Copy Link</button>
         </div>
       </div>
 
