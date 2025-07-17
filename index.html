@@ -5943,14 +5943,7 @@ function formatDateDDMMMYYYY(dateStr) {
   const [year, month, day] = dateStr.split('-');
   return `${day}/${months[parseInt(month, 10) - 1]}/${year}`;
 }
-function formatTime12h(timeStr) {
-  if (!timeStr) return '';
-  let [h, m] = timeStr.split(':');
-  h = parseInt(h, 10);
-  const ampm = h >= 12 ? 'PM' : 'AM';
-  h = h % 12 || 12;
-  return `${h.toString().padStart(2, '0')}:${m} ${ampm}`;
-}
+
 
 (() => {
   // Student dynamic list
@@ -5992,8 +5985,8 @@ function formatTime12h(timeStr) {
     const skydiveSession = document.getElementById('skydiveSession').value;
     const otherSession = document.getElementById('otherSession').value;
     const sessionDate = formatDateDDMMMYYYY(document.getElementById('sessionDate').value);
-    const sessionStart = formatTime12h(document.getElementById('sessionStart').value);
-    const sessionEnd = formatTime12h(document.getElementById('sessionEnd').value);
+    const sessionStart = document.getElementById('sessionStart').value
+    const sessionEnd = document.getElementById('sessionEnd').value
     const numStudents = document.getElementById('numStudents').value.trim();
 
     // Student names
