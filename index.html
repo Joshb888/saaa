@@ -177,6 +177,7 @@
           <button class="btn btn-secondary" onclick="showSection('studentProgressGen', this)">Student Profile</button>
           <button class="btn btn-secondary" onclick="showSection('pilotCertGen', this)">Pilot Profile</button> 
           <button class="btn btn-secondary" onclick="showSection('pilotCertGen2', this)">Pilot Certificate</button>
+          <button class="btn btn-secondary" onclick="showSection('instructorLogGen', this)">Instructor Log</button>
         </div>
       </div> 
     </div>
@@ -3026,7 +3027,7 @@ The registration status will be updated as soon as the initial review is complet
         <div class="mb-3 row align-items-center">
           <label for="tailNumber" class="col-sm-4 col-form-label fw-bold text-end">Tail Number:</label>
           <div class="col-sm-8">
-            <input type="text" id="tailNumber" class="form-control" placeholder="e.g. N12345" required />
+            <input type="text" id="tailNumber45" class="form-control" placeholder="e.g. N12345" required />
           </div>
         </div>
         <!-- Signature Image URL -->
@@ -3077,7 +3078,7 @@ document.getElementById('aircraftRegApprovedForm').addEventListener('submit', fu
   }
 
   const applicantName = document.getElementById('AppName6').value.trim();
-  const tailNumber = document.getElementById('tailNumber').value.trim();
+  const tailNumber = document.getElementById('tailNumber45').value.trim();
   const signatureUrl = document.getElementById('signatureUrl7').value.trim();
   const staffName = document.getElementById('staffName7').value.trim();
   const staffRank = document.getElementById('staffRank7').value.trim();
@@ -4082,17 +4083,6 @@ ${reasonsList}
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 <div id="aviationSessionGen" class="container mt-3 myHideableSection" style="max-width: 900px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
     <div class="card-header text-center">
@@ -4280,7 +4270,7 @@ document.getElementById('aviationSessionForm').addEventListener('submit', functi
   const overallAnswers = document.getElementById('overallAnswers').value;
   const overallAnswersDetail = document.getElementById('overallAnswersDetail').value;
 
-  const bbcode = `[img]https://i.imgur.com/uVXbAWs.png[/img]
+  const bbcode = `[img]https://i.imgur.com/cH2lZ0T.png[/img]
 
 [divbox=white]
 Date: ${date}
@@ -4619,7 +4609,7 @@ document.getElementById('heliSessionForm').addEventListener('submit', function(e
   const overallLandingDetail2 = document.getElementById('overallLandingDetail2').value;
   const overallNextDetail2 = document.getElementById('overallNextDetail2').value;
 
-  const bbcode = `[img]https://i.imgur.com/nL6pCmF.png[/img]
+  const bbcode = `[img]https://i.imgur.com/IGA5IDd.png[/img]
 [divbox=white]
 Date: ${date2}
 Session Hours ((Please use UTC: https://time.is/UTC )): ${start2} > ${end2}
@@ -5000,7 +4990,7 @@ ${cb('informedProcedures3')} The student was informed about the procedures after
   const overallATCDetail = document.getElementById('overallATCDetail3').value;
   const overallNextDetail = document.getElementById('overallNextDetail3').value;
 
-  const bbcode = `[img]https://i.imgur.com/4IgXLd5.png[/img]
+  const bbcode = `[img]https://i.imgur.com/KAaSo0F.png[/img]
 [divbox=white]
 Date: ${date}
 Session Hours ((Please use UTC: https://time.is/UTC )): ${start} > ${end}
@@ -5290,7 +5280,7 @@ ${(document.getElementById('atcImgs4').value || '').split(',').map(url => url.tr
   const overallATCDetail = document.getElementById('overallATCDetail4').value;
   const overallNextDetail = document.getElementById('overallNextDetail4').value;
 
-  const bbcode = `[img]https://i.imgur.com/oQVSH05.png[/img]
+  const bbcode = `[img]https://i.imgur.com/U2Gy3T4.png[/img]
 [divbox=white]
 Date: ${date}
 Session Hours ((Please use UTC: https://time.is/UTC )): ${start} > ${end}
@@ -5844,6 +5834,217 @@ ${workLogs}[/list]
   });
 })();
 </script>
+
+
+<div id="instructorLogGen" class="container mt-3 myHideableSection" style="max-width: 800px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>Instructor Log Generator</h4>
+    </div>
+    <div class="card-body">
+      <form id="instructorLogForm" autocomplete="off" novalidate>
+        <!-- Log Number -->
+        <div class="mb-3 row align-items-center">
+          <label for="logNumber" class="col-sm-4 col-form-label fw-bold text-end">Log Number:</label>
+          <div class="col-sm-8">
+            <input type="text" id="logNumber" class="form-control" placeholder="###" required />
+          </div>
+        </div>
+        <!-- Flight Training Session -->
+        <div class="mb-3 row align-items-center">
+          <label class="col-sm-4 col-form-label fw-bold text-end">Flight Training Session:</label>
+          <div class="col-sm-8 d-flex gap-2 flex-wrap">
+            <select id="flightSession" class="form-select" required>
+              <option value="N/A">N/A</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+            </select>
+          </div>
+        </div>
+        <!-- Skydive Training Session -->
+        <div class="mb-3 row align-items-center">
+          <label class="col-sm-4 col-form-label fw-bold text-end">Skydive Training Session:</label>
+          <div class="col-sm-8 d-flex gap-2 flex-wrap">
+            <select id="skydiveSession" class="form-select" required>
+              <option value="N/A">N/A</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+            </select>
+          </div>
+        </div>
+        <!-- Other Training Session -->
+        <div class="mb-3 row align-items-center">
+          <label class="col-sm-4 col-form-label fw-bold text-end">Other Training Session:</label>
+          <div class="col-sm-8 d-flex gap-2 flex-wrap">
+            <select id="otherSession" class="form-select" required>
+              <option value="N/A">N/A</option>
+              <option value="Mechanic Course">Mechanic Course</option>
+              <option value="Internal Flight Certification">Internal Flight Certification</option>
+              <option value="Intern Training">Intern Training</option>
+            </select>
+          </div>
+        </div>
+        <!-- Session Date -->
+        <div class="mb-3 row align-items-center">
+          <label for="sessionDate" class="col-sm-4 col-form-label fw-bold text-end">Session Date:</label>
+          <div class="col-sm-8">
+            <input type="date" id="sessionDate" class="form-control" required />
+          </div>
+        </div>
+        <!-- Session Time -->
+        <div class="mb-3 row align-items-center">
+          <label for="sessionStart" class="col-sm-4 col-form-label fw-bold text-end">Session Time (Start):</label>
+          <div class="col-sm-4">
+            <input type="text" id="sessionStart" class="form-control" required />
+          </div>
+          <label for="sessionEnd" class="col-sm-2 col-form-label fw-bold text-end">End:</label>
+          <div class="col-sm-2">
+            <input type="text" id="sessionEnd" class="form-control" required />
+          </div>
+        </div>
+        <!-- Number of Students -->
+        <div class="mb-3 row align-items-center">
+          <label for="numStudents" class="col-sm-4 col-form-label fw-bold text-end">Number of Students Attended:</label>
+          <div class="col-sm-8">
+            <input type="number" id="numStudents" class="form-control" min="1" required />
+          </div>
+        </div>
+        <!-- Student Names -->
+        <fieldset class="mb-4">
+          <legend class="fw-bold">Student Names</legend>
+          <div class="input-group mb-2">
+            <input type="text" id="studentNameInput" class="form-control" placeholder="Student Name" />
+            <button type="button" id="addStudentBtn" class="btn btn-primary">Add Student</button>
+          </div>
+          <ul id="studentList" class="list-group list-group-flush" style="max-height: 120px; overflow-y: auto;"></ul>
+          <button type="button" id="removeStudentBtn" class="btn btn-danger mt-2">Remove Last Student</button>
+        </fieldset>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="instructorLogCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="instructorLogBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="instructorLogBBOutput" class="form-control" rows="24" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+function formatDateDDMMMYYYY(dateStr) {
+  if (!dateStr) return '';
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const [year, month, day] = dateStr.split('-');
+  return `${day}/${months[parseInt(month, 10) - 1]}/${year}`;
+}
+function formatTime12h(timeStr) {
+  if (!timeStr) return '';
+  let [h, m] = timeStr.split(':');
+  h = parseInt(h, 10);
+  const ampm = h >= 12 ? 'PM' : 'AM';
+  h = h % 12 || 12;
+  return `${h.toString().padStart(2, '0')}:${m} ${ampm}`;
+}
+
+(() => {
+  // Student dynamic list
+  const addStudentBtn = document.getElementById('addStudentBtn');
+  const removeStudentBtn = document.getElementById('removeStudentBtn');
+  const studentNameInput = document.getElementById('studentNameInput');
+  const studentList = document.getElementById('studentList');
+
+  addStudentBtn.addEventListener('click', () => {
+    const val = studentNameInput.value.trim();
+    if (!val) {
+      alert('Please enter a student name.');
+      return;
+    }
+    const li = document.createElement('li');
+    li.className = 'list-group-item bg-light text-dark';
+    li.textContent = val;
+    studentList.appendChild(li);
+    studentNameInput.value = '';
+    studentNameInput.focus();
+  });
+
+  removeStudentBtn.addEventListener('click', () => {
+    if (studentList.lastChild) studentList.removeChild(studentList.lastChild);
+  });
+
+  document.getElementById('instructorLogForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const successMsg = document.getElementById('instructorLogCopySuccess');
+    successMsg.textContent = '';
+
+    if (!this.checkValidity()) {
+      this.reportValidity();
+      return;
+    }
+
+    const logNumber = document.getElementById('logNumber').value.trim();
+    const flightSession = document.getElementById('flightSession').value;
+    const skydiveSession = document.getElementById('skydiveSession').value;
+    const otherSession = document.getElementById('otherSession').value;
+    const sessionDate = formatDateDDMMMYYYY(document.getElementById('sessionDate').value);
+    const sessionStart = formatTime12h(document.getElementById('sessionStart').value);
+    const sessionEnd = formatTime12h(document.getElementById('sessionEnd').value);
+    const numStudents = document.getElementById('numStudents').value.trim();
+
+    // Student names
+    let students = '';
+    studentList.querySelectorAll('li').forEach(li => {
+      students += `[*] ${li.textContent}\n`;
+    });
+
+    if (!students.trim()) {
+      alert('Please add at least one student.');
+      return;
+    }
+
+    // Color logic
+    const colorFlight = flightSession !== "N/A" ? `[color=blue]${flightSession}[/color]` : `[color=red]N/A[/color]`;
+    const colorSkydive = skydiveSession !== "N/A" ? `[color=blue]${skydiveSession}[/color]` : `[color=red]N/A[/color]`;
+    const colorOther = otherSession !== "N/A" ? `[color=blue]${otherSession}[/color]` : `[color=red]N/A[/color]`;
+
+    const bbcode = `[divbox=#091f62][b][color=white]INSTRUCTOR LOG: ${logNumber}[/color][/b][/divbox]
+[divbox=white]
+[b]FLIGHT TRAINING SESSION ${colorFlight}[/b]
+[b]SKYDIVE TRAINING SESSION ${colorSkydive}[/b]
+[b]TRAINING SESSION ${colorOther}[/b]
+
+[b]Session Date:[/b] ${sessionDate}
+[b]Session Time:[/b] ${sessionStart} - ${sessionEnd}
+[b]Number of Students Attended:[/b] ${numStudents}
+[b]Student Names:[/b]
+[list]
+${students}[/list]
+
+[/divbox]`;
+
+    const outputArea = document.getElementById('instructorLogBBOutput');
+    outputArea.value = bbcode.trim();
+    outputArea.focus();
+    outputArea.select();
+
+    try {
+      navigator.clipboard.writeText(bbcode).then(() => {
+        successMsg.textContent = 'Copied to clipboard!';
+      }, () => {
+        successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+      });
+    } catch {
+      successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+    }
+  });
+})();
+</script>
+
 
 
  <div id="saaaCertGen" class="container mt-3 myHideableSection" style="max-width: 700px;">
@@ -6453,7 +6654,7 @@ Current date: ${new Date().toLocaleString('en-US', {weekday:'long', year:'numeri
           <!-- No image -->
         </div>
         <div class="col-6">
-          <b>Official Liam Loyd</b>
+          <b>Intern Liam Loyd</b>
         </div>
         <div class="col-3 text-end">
           <button class="btn btn-outline-primary btn-sm" onclick="copySig('https://i.imgur.com/taw8xaa.png', this)">Copy Link</button>
@@ -6464,7 +6665,7 @@ Current date: ${new Date().toLocaleString('en-US', {weekday:'long', year:'numeri
           <!-- No image -->
         </div>
         <div class="col-6">
-          <b>Official Timmothy Cross</b>
+          <b>Intern Timmothy Cross</b>
         </div>
         <div class="col-3 text-end">
           <button class="btn btn-outline-primary btn-sm" onclick="copySig('https://imgur.com/NZcI1gVm.png', this)">Copy Link</button>
