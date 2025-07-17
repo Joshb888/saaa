@@ -5890,18 +5890,18 @@ ${workLogs}[/list]
         <div class="mb-3 row align-items-center">
           <label for="sessionDate" class="col-sm-4 col-form-label fw-bold text-end">Session Date:</label>
           <div class="col-sm-8">
-            <input type="date" id="sessionDate" class="form-control" required />
+            <input type="date" id="sessionDate34" class="form-control" required />
           </div>
         </div>
         <!-- Session Time -->
         <div class="mb-3 row align-items-center">
           <label for="sessionStart" class="col-sm-4 col-form-label fw-bold text-end">Session Time (Start):</label>
           <div class="col-sm-4">
-            <input type="text" id="sessionStart" class="form-control" required />
+            <input type="text" id="sessionStart34" class="form-control" required />
           </div>
           <label for="sessionEnd" class="col-sm-2 col-form-label fw-bold text-end">End:</label>
           <div class="col-sm-2">
-            <input type="text" id="sessionEnd" class="form-control" required />
+            <input type="text" id="sessionEnd34" class="form-control" required />
           </div>
         </div>
         <!-- Number of Students -->
@@ -5983,9 +5983,9 @@ function formatDateDDMMMYYYY(dateStr) {
     const flightSession = document.getElementById('flightSession').value;
     const skydiveSession = document.getElementById('skydiveSession').value;
     const otherSession = document.getElementById('otherSession').value;
-    const sessionDate = formatDateDDMMMYYYY(document.getElementById('sessionDate').value);
-    const sessionStart = document.getElementById('sessionStart').value
-    const sessionEnd = document.getElementById('sessionEnd').value
+    const sessionDate34 = formatDateDDMMMYYYY(document.getElementById('sessionDate34').value);
+    const sessionStart34 = document.getElementById('sessionStart34').value
+    const sessionEnd34 = document.getElementById('sessionEnd34').value
     const numStudents = document.getElementById('numStudents').value.trim();
 
     // Student names
@@ -6010,8 +6010,8 @@ function formatDateDDMMMYYYY(dateStr) {
 [b]SKYDIVE TRAINING SESSION ${colorSkydive}[/b]
 [b]TRAINING SESSION ${colorOther}[/b]
 
-[b]Session Date:[/b] ${sessionDate}
-[b]Session Time:[/b] ${sessionStart} - ${sessionEnd}
+[b]Session Date:[/b] ${sessionDate34}
+[b]Session Time:[/b] ${sessionStart34} - ${sessionEnd34}
 [b]Number of Students Attended:[/b] ${numStudents}
 [b]Student Names:[/b]
 [list]
@@ -6701,4 +6701,3 @@ function showSection(sectionId) {
 
 
 </body>
-
