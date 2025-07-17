@@ -5939,11 +5939,10 @@ ${workLogs}[/list]
 <script>
 function formatDateDDMMMYYYY(dateStr) {
   if (!dateStr) return '';
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
   const [year, month, day] = dateStr.split('-');
   return `${day}/${months[parseInt(month, 10) - 1]}/${year}`;
 }
-
 
 (() => {
   // Student dynamic list
