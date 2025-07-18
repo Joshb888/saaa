@@ -1,76 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
-        integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
-        crossorigin="anonymous"></script>
-    <title>SAAA Paperwork Generator</title>
-    <img src="https://i.imgur.com/3i8Bk3M.png" alt="SAAA logo" />
-
-    <style>
-        /* Set background color for the body */
-        body {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            /* Full viewport height */
-            position: relative;
-            /* Set relative positioning to the body */
-        }
-
-
-        /* Position the image in the top right corner */
-        img {
-            position: absolute;
-            /* Absolute positioning */
-            top: 10px;
-            /* Space from the top */
-            left: 10px;
-            /* Space from the right */
-            width: 150px;
-            /* Image width */
-            height: auto;
-            /* Maintain aspect ratio */
-            z-index: 1000;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>SAAA Paperwork Generator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap 5 for responsive accordion and utility classes -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    html, body {
+      background: #090b13;
+      min-height: 100vh;
+      color: #fff;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      width: 280px;
+      background: #11152a;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.24);
+      z-index: 1060;
+      padding-top: 32px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      overflow-y: auto;
+    }
+    .sidebar img {
+      width: 180px;
+      margin-bottom: 35px;
+      border-radius: 7px;
+      border: 2px solid #182060;
+      background: #11152a;
+    }
+    .sidebar .accordion-item, .sidebar .accordion-button {
+      background: transparent;
+      color: #c9d6ff;
+    }
+    .sidebar .accordion-button:not(.collapsed) {
+      background: #182060;
+      color: #fff;
+    }
+    .sidebar .accordion-body {
+      padding: 0 8px 6px 8px;
+    }
+    .sidebar .btn {
+      background: #1d253d;
+      color: #c9d6ff;
+      margin-bottom: 5px;
+      border: none;
+      border-radius: 4px;
+      width: 100%;
+      text-align: left;
+    }
+    .sidebar .btn-success {
+      background: #2f4ded !important;
+      color: #fff !important;
+    }
+    .sidebar .btn:hover, .sidebar .btn:focus {
+      background: #2342a4;
+      color: #fff;
+    }
+    .main-content {
+      margin-left: 295px;
+      padding: 38px 25px 25px 25px;
+      background: #101116;
+      min-height: 100vh;
+    }
+    .main-content .header-title {
+      color: #c9e0ff;
+      text-shadow: 1px 1px 6px #08163a;
+      font-size: 2rem;
+      margin-bottom: 38px;
+      text-align: center;
+      letter-spacing: 0.4px;
+    }
+    .myHideableSection { display: none; }
+    .myHideableSection.active { display: block; }
+    .sidebar::-webkit-scrollbar { width: 8px; }
+    .sidebar::-webkit-scrollbar-thumb { background: #222c47; border-radius: 8px; }
+  </style>
 </head>
-</head>
-
 <body>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: 'Nunito', sans-serif;
-        }
-
-        .center-top {
-            text-align: center;
-            /* Center text horizontally */
-            margin: 0;
-            /* Remove default margins */
-            padding-top: 10px;
-            /* Optional: Add some spacing from the top */
-        }
-    </style>
-    <div class="center-top">
-        <h1>SAAA Paperwork Generator</h1>
-    </div>
-
-
-<!-- Include Bootstrap 5 CSS and JS -->
-
-<div class="container mt-3" style="max-width: 900px;">
-
-  <div class="accordion" id="tocAccordion">
-    <!-- SAAA -->
+  <!-- Sidebar with Logo and Navigation Accordion -->
+  <aside class="sidebar">
+    <img src="https://i.imgur.com/3i8Bk3M.png" alt="SAAA Logo">
+    <div class="accordion w-100" id="tocAccordion">
     <div class="accordion-item">
       <h2 class="accordion-header" id="headingDatabase">
         <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDatabase" aria-expanded="true" aria-controls="collapseDatabase">
@@ -81,9 +96,6 @@
         <div class="accordion-body d-flex flex-wrap gap-2">
           <button class="btn btn-secondary" onclick="showSection('workLogGen', this)">Work Log</button>
         </div>
-    <div class="card-header border-0 text-center">
-      <h3 class="mb-0">[LICENSE] Pilot License Formats</h3>
-    </div>
         <div class="accordion-body d-flex flex-wrap gap-2">
           <button class="btn btn-secondary" onclick="showSection('pilotAppReceivedGen', this)">[LICENSE] Recieved</button>
           <button class="btn btn-secondary" onclick="showSection('pilotAppPendingPaymentGen', this)">[LICENSE] Pending Payment</button>
@@ -91,18 +103,12 @@
           <button class="btn btn-secondary" onclick="showSection('pilotAppApprovedGen', this)">[LICENSE] Approved</button>
           <button class="btn btn-secondary" onclick="showSection('pilotAppDeniedGen', this)">[LICENSE] Denied</button>
         </div>
-    <div class="card-header border-0 text-center">
-      <h3 class="mb-0">[REGISTRATION] Aircraft Formats</h3>
-    </div>
         <div class="accordion-body d-flex flex-wrap gap-2">
           <button class="btn btn-secondary" onclick="showSection('aircraftRegReceivedGen', this)">[REGISTRATION] Recieved</button>
           <button class="btn btn-secondary" onclick="showSection('aircraftRegApprovedGen', this)">[REGISTRATION] Approved</button>
           <button class="btn btn-secondary" onclick="showSection('aircraftRegOnHoldGen', this)">[REGISTRATION] On Hold</button>
           <button class="btn btn-secondary" onclick="showSection('aircraftRegDeniedGen', this)">[REGISTRATION] Denied</button>
         </div>
-    <div class="card-header border-0 text-center">
-      <h3 class="mb-0">[REGISTRATION] Helipad Formats</h3>
-    </div>
         <div class="accordion-body d-flex flex-wrap gap-2">
           <button class="btn btn-secondary" onclick="showSection('helipadRegGen', this)">[REGISTRATION] Recieved</button>
           <button class="btn btn-secondary" onclick="showSection('helipadApprovedGen', this)">[REGISTRATION] Approved</button>
@@ -112,139 +118,90 @@
         </div>
       </div>
     </div>
-
-    <!-- Air Traffic Control -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingATC">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseATC" aria-expanded="false" aria-controls="collapseATC">
-          Air Traffic Control
-        </button>
-      </h2>
-      <div id="collapseATC" class="accordion-collapse collapse" aria-labelledby="headingATC" data-bs-parent="#tocAccordion">
-        <div class="accordion-body d-flex flex-wrap gap-2">
-          <button class="btn btn-secondary" onclick="showSection('atcShiftLogGen', this)">ATC Shift Log</button>
-          <button class="btn btn-secondary" onclick="showSection('notamGen', this)">NOTAM Log</button>
-          <button class="btn btn-secondary" onclick="showSection('groundingNotice', this)">Grounding Log</button>
-          <button class="btn btn-secondary" onclick="showSection('incidentReport', this)">Civilian Report</button>
-          <button class="btn btn-secondary" onclick="showSection('atcIncidentReport', this)">Emergancy Aircraft Report</button>
-          <button class="btn btn-secondary" onclick="showSection('flightInfoGen', this)">Flight Log</button>
+      <!-- Air Traffic Control -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingATC">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseATC" aria-expanded="false" aria-controls="collapseATC">
+            Air Traffic Control
+          </button>
+        </h2>
+        <div id="collapseATC" class="accordion-collapse collapse" aria-labelledby="headingATC" data-bs-parent="#tocAccordion">
+          <div class="accordion-body d-flex flex-wrap gap-2">
+            <button class="btn btn-secondary" onclick="showSection('atcShiftLogGen', this)">ATC Shift Log</button>
+            <button class="btn btn-secondary" onclick="showSection('notamGen', this)">NOTAM Log</button>
+            <button class="btn btn-secondary" onclick="showSection('groundingNotice', this)">Grounding Log</button>
+            <button class="btn btn-secondary" onclick="showSection('incidentReport', this)">Civilian Report</button>
+            <button class="btn btn-secondary" onclick="showSection('atcIncidentReport', this)">Emergency Aircraft Report</button>
+            <button class="btn btn-secondary" onclick="showSection('flightInfoGen', this)">Flight Log</button>
+          </div>
+          <div class="accordion-body d-flex flex-wrap gap-2">
+            <button class="btn btn-secondary" onclick="showSection('atcOperatorProfileGen', this)">[PROFILE] Creation</button>
+          </div>
         </div>
- <div class="card-header border-0 text-center">
-      <h3 class="mb-0">[ATC] Command Formats</h3>
-    </div>
-        <div class="accordion-body d-flex flex-wrap gap-2">
-          <button class="btn btn-secondary" onclick="showSection('atcOperatorProfileGen', this)">[PROFILE] Creation</button>
-        </div>
-
-
       </div>
-    </div>
 
-    <!-- Office Of Flight Training -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingFieldTraining">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFieldTraining" aria-expanded="false" aria-controls="collapseFieldTraining">
-          Office Of Flight Training
-        </button>
-      </h2>
-      <div id="collapseFieldTraining" class="accordion-collapse collapse" aria-labelledby="headingFieldTraining" data-bs-parent="#tocAccordion">
-    <div class="card-header border-0 text-center">
-      <h3 class="mb-0">[ROTARY] Flight Training Sessions</h3>
-    </div>
-        <div class="accordion-body d-flex flex-wrap gap-2">
-          <button class="btn btn-secondary" onclick="showSection('aviationSessionGen', this)">[ROTARY] FTS 1</button>
-          <button class="btn btn-secondary" onclick="showSection('heliSessionGen', this)">[ROTARY] FTS 2</button>
-          <button class="btn btn-secondary" onclick="showSection('guidedFlightGen', this)">[ROTARY] FTS 3</button>
-          <button class="btn btn-secondary" onclick="showSection('finalFlightGen', this)">[ROTARY] FTS 4</button>
-          <button class="btn btn-secondary" onclick="showSection('medExamGen', this)">Medical Pass</button>
-          <button class="btn btn-secondary" onclick="showSection('medExamGenF', this)">Medical Fail</button>
+      <!-- Office Of Flight Training -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingFieldTraining">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFieldTraining" aria-expanded="false" aria-controls="collapseFieldTraining">
+            Office Of Flight Training
+          </button>
+        </h2>
+        <div id="collapseFieldTraining" class="accordion-collapse collapse" aria-labelledby="headingFieldTraining" data-bs-parent="#tocAccordion">
+          <div class="accordion-body d-flex flex-wrap gap-2">
+            <button class="btn btn-secondary" onclick="showSection('aviationSessionGen', this)">[ROTARY] FTS 1</button>
+            <button class="btn btn-secondary" onclick="showSection('heliSessionGen', this)">[ROTARY] FTS 2</button>
+            <button class="btn btn-secondary" onclick="showSection('guidedFlightGen', this)">[ROTARY] FTS 3</button>
+            <button class="btn btn-secondary" onclick="showSection('finalFlightGen', this)">[ROTARY] FTS 4</button>
+            <button class="btn btn-secondary" onclick="showSection('medExamGen', this)">Medical Pass</button>
+            <button class="btn btn-secondary" onclick="showSection('medExamGenF', this)">Medical Fail</button>
+          </div>
+          <div class="accordion-body d-flex flex-wrap gap-2">
+            <button class="btn btn-secondary" onclick="showSection('studentProgressGen', this)">Student Profile</button>
+            <button class="btn btn-secondary" onclick="showSection('pilotCertGen', this)">Pilot Profile</button>
+            <button class="btn btn-secondary" onclick="showSection('pilotCertGen2', this)">Pilot Certificate</button>
+            <button class="btn btn-secondary" onclick="showSection('instructorLogGen', this)">Instructor Log</button>
+          </div>
+        </div>
+      </div>
 
+      <!-- AVAP -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingK9">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseK9" aria-expanded="false" aria-controls="collapseK9">
+            Aircraft Investigation & Accident Prevention (AVAP)
+          </button>
+        </h2>
+        <div id="collapseK9" class="accordion-collapse collapse" aria-labelledby="headingK9" data-bs-parent="#tocAccordion">
+          <div class="accordion-body d-flex flex-wrap gap-2">
+            <button class="btn btn-secondary" onclick="showSection('K9', this)">LEO Infraction</button>
+          </div>
         </div>
-    <div class="card-header border-0 text-center">
-      <h3 class="mb-0">[FIXED] Flight Training Sessions</h3>
-    </div>
-        <div class="accordion-body d-flex flex-wrap gap-2">
-          <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[FIXED] FTS 1</button>
-          <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[FIXED] FTS 2</button>
-          <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[FIXED] FTS 3</button>
-          <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[FIXED] FTS 4</button>
-          <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">Medical Pass</button>
-        </div>
-    <div class="card-header border-0 text-center">
-      <h3 class="mb-0">[OFT] Profile Management</h3>
-    </div>
-       <div class="accordion-body d-flex flex-wrap gap-2">
-          <button class="btn btn-secondary" onclick="showSection('studentProgressGen', this)">Student Profile</button>
-          <button class="btn btn-secondary" onclick="showSection('pilotCertGen', this)">Pilot Profile</button> 
-          <button class="btn btn-secondary" onclick="showSection('pilotCertGen2', this)">Pilot Certificate</button>
-          <button class="btn btn-secondary" onclick="showSection('instructorLogGen', this)">Instructor Log</button>
-        </div>
-      </div> 
-    </div>
+      </div>
 
-    <!-- AVAP -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingK9">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseK9" aria-expanded="false" aria-controls="collapseK9">
-          Aircraft Investigation & Accident Prevention (AVAP)
-        </button>
-      </h2>
-      <div id="collapseK9" class="accordion-collapse collapse" aria-labelledby="headingK9" data-bs-parent="#tocAccordion">
-        <div class="accordion-body d-flex flex-wrap gap-2">
-          <button class="btn btn-secondary" onclick="showSection('K9', this)">LEO Infraction</button>
+      <!-- Internal Flight Certifications (IFC) -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingIFC">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIFC" aria-expanded="false" aria-controls="collapseIFC">
+            Internal Flight Certifications (IFC)
+          </button>
+        </h2>
+        <div id="collapseIFC" class="accordion-collapse collapse" aria-labelledby="headingIFC" data-bs-parent="#tocAccordion">
+          <div class="accordion-body d-flex flex-wrap gap-2">
+            <button class="btn btn-secondary" onclick="showSection('saaaCertGen', this)">[IFC] Certificate</button>
+            <button class="btn btn-secondary" onclick="showSection('saaaApprovedGen', this)">[IFC] Approved</button>
+            <button class="btn btn-secondary" onclick="showSection('saaaOnHoldGen', this)">[IFC] On Hold</button>
+            <button class="btn btn-secondary" onclick="showSection('saaaDeniedGen', this)">[IFC] Denied</button>
+          </div>
         </div>
       </div>
     </div>
+  </aside>
 
-    <!-- Internal Flight Certifications (IFC) -->
-    <div class="accordion-item">
-      <h2 class="accordion-header" id="headingMajorCrimes">
-        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMajorCrimes" aria-expanded="false" aria-controls="collapseMajorCrimes">
-          Internal Flight Certifications (IFC)
-        </button>
-      </h2>
-      <div id="collapseMajorCrimes" class="accordion-collapse collapse" aria-labelledby="headingMajorCrimes" data-bs-parent="#tocAccordion">
-        <div class="accordion-body d-flex flex-wrap gap-2">
-          <button class="btn btn-secondary" onclick="showSection('saaaCertGen', this)">[IFC] Certificate</button>
-          <button class="btn btn-secondary" onclick="showSection('saaaApprovedGen', this)">[IFC] Approved</button>
-          <button class="btn btn-secondary" onclick="showSection('saaaOnHoldGen', this)">[IFC] On Hold</button>
-          <button class="btn btn-secondary" onclick="showSection('saaaDeniedGen', this)">[IFC] Denied</button>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<script>
-  // Example showSection function - replace with your actual implementation
-  function showSection(sectionId, button) {
-    // Remove 'btn-success' from all buttons and add 'btn-secondary'
-    document.querySelectorAll('#tocAccordion button.btn-success').forEach(btn => {
-      btn.classList.remove('btn-success');
-      btn.classList.add('btn-secondary');
-    });
-    // Set clicked button to 'btn-success'
-    button.classList.remove('btn-secondary');
-    button.classList.add('btn-success');
-
-    // Hide all sections with class 'myHideableSection'
-    document.querySelectorAll('.myHideableSection').forEach(section => {
-      section.style.display = 'none';
-    });
-
-    // Show the selected section by id
-    const section = document.getElementById(sectionId);
-    if (section) {
-      section.style.display = 'block';
-      // Scroll to top of section smoothly
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  }
-</script>
-
-
-
+  <!-- Main Content Area -->
+  <main class="main-content">
+    <div class="header-title">SAAA Paperwork Generator</div>
+ 
 
 <div id="atcShiftLogGen" class="container mt-3 myHideableSection" style="max-width: 900px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
@@ -6556,7 +6513,9 @@ Current date: ${new Date().toLocaleString('en-US', {weekday:'long', year:'numeri
   });
 });
 </script>
-
+    
+    <!-- END GENERATED FORMS AND LOGIC -->
+  </main>
 <div class="container mt-4" style="max-width: 600px;">
   <div class="card shadow">
     <div class="card-header bg-primary text-white text-center">
@@ -6566,7 +6525,6 @@ Current date: ${new Date().toLocaleString('en-US', {weekday:'long', year:'numeri
     <div class="card-body">
       <div class="row align-items-center mb-3">
         <div class="col-3 text-center">
-          <img src="https://i.imgur.com/doitoI8.png" alt="Scottie Cross" style="max-width:100px;max-height:50px;">
         </div>
         <div class="col-6">
           <b>Administrator Scottie Cross</b>
@@ -6599,7 +6557,6 @@ Current date: ${new Date().toLocaleString('en-US', {weekday:'long', year:'numeri
       </div>
       <div class="row align-items-center mb-3">
         <div class="col-3 text-center">
-          <img src="https://imgur.com/p2ksyW2.png" alt="Mick Wegman" style="max-width:100px;max-height:50px;">
         </div>
         <div class="col-6">
           <b>Lead Official Mick Wegman</b>
@@ -6632,7 +6589,6 @@ Current date: ${new Date().toLocaleString('en-US', {weekday:'long', year:'numeri
       </div>
       <div class="row align-items-center mb-3">
         <div class="col-3 text-center">
-          <img src="https://i.imgur.com/doitoI8.png" alt="Scottie Cross" style="max-width:100px;max-height:50px;">
         </div>
         <div class="col-6">
           <b>Official Bruce Tubby</b>
@@ -6682,22 +6638,31 @@ function copySig(link, btn) {
   });
 }
 </script>
-
-
-<script>
-function showSection(sectionId) {
-  // Hide all sections with the class 'myHideableSection'
-    const sections = document.querySelectorAll('.myHideableSection');
-    sections.forEach(section => {
-        section.style.display = 'none';
+  <!-- Scripts for Sidebar Accordion, Section Switching, and All Form Generators -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    function showSection(id, btn) {
+      document.querySelectorAll('.sidebar .btn').forEach(el => el.classList.remove('btn-success'));
+      if(btn) btn.classList.add('btn-success');
+      document.querySelectorAll('.main-content .myHideableSection').forEach(s => s.classList.remove('active'));
+      let match = document.getElementById(id);
+      if(match) {
+        match.classList.add('active');
+        match.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      // Show the first section if desired
+      const defaultId = document.querySelector('.myHideableSection')?.id;
+      if(defaultId) showSection(defaultId, null);
     });
+  </script>
 
-    // Show the selected section
-    document.getElementById(sectionId).style.display = 'block';
-}
-</script>
-
-
-
-
+  <!-- Paste all per-form scripts from your original file below -->
+  <!-- These scripts handle dynamic lists, BBCode generation/copy, and interactivity for each section. Keep them in exact order. -->
+  <!--
+    <script> ... (script blocks for each generator, as in your file) ... </script>
+    ...
+  -->
 </body>
+</html>
