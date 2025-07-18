@@ -75,6 +75,72 @@
       text-align: center;
       letter-spacing: 0.4px;
     }
+    .signature-box {
+  margin: 20px 16px;
+  padding: 16px;
+  background: #1a1e3a;
+  border: 1px solid #2b3c6c;
+  border-radius: 8px;
+  box-shadow: 0 0 10px #0004;
+  color: #c9d6ff;
+  font-size: 0.95rem;
+}
+
+.signature-box .signature-title {
+  font-size: 1.08rem;
+  margin-bottom: 8px;
+  color: #cfe0ff;
+  text-align: center;
+}
+
+.signature-box .signature-sub {
+  display: block;
+  text-align: center;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
+  color: #8ea4cc;
+}
+
+.signature-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.signature-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #101322;
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid #2a3860;
+}
+
+.signature-entry span {
+  flex: 1;
+  font-size: 0.9rem;
+  color: #f2f4ff;
+  padding-right: 10px;
+}
+
+.signature-entry button {
+  padding: 4px 10px;
+  background: #2e5eff;
+  border: none;
+  color: white;
+  font-size: 0.85rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.signature-entry button:hover {
+  background: #3e75ff;
+}
+.signature-entry button:active {
+  transform: scale(0.95);
+}
+
     .myHideableSection { display: none; }
     .myHideableSection.active { display: block; }
     .sidebar::-webkit-scrollbar { width: 8px; }
@@ -196,13 +262,70 @@
         </div>
       </div>
     </div>
+      <!-- Signutares -->
+<div class="signature-box">
+  <h5 class="signature-title">SAAA Official Signatures</h5>
+  <small class="signature-sub">Click a button to copy the image URL</small>
+  <div class="signature-list">
+    <div class="signature-entry">
+      <span>Administrator Scottie Cross</span>
+      <button onclick="copySig('https://i.imgur.com/doitoI8.png', this)">Copy</button>
+    </div>
+    <div class="signature-entry">
+      <span>Deputy Administrator Jeremy Williams</span>
+      <button onclick="copySig('https://i.imgur.com/JAppztd.png', this)">Copy</button>
+    </div>
+    <div class="signature-entry">
+      <span>Lead Official Marc Erricson</span>
+      <button onclick="copySig('https://i.imgur.com/Gr4Uhos.png', this)">Copy</button>
+    </div>
+    <div class="signature-entry">
+      <span>Lead Official Mick Wegman</span>
+      <button onclick="copySig('https://imgur.com/p2ksyW2.png', this)">Copy</button>
+    </div>
+    <div class="signature-entry">
+      <span>Lead Official Issei Schneider</span>
+      <button onclick="copySig('https://imgur.com/Pt27ak3', this)">Copy</button>
+    </div>
+    <div class="signature-entry">
+      <span>Senior Official Evan Valentine</span>
+      <button onclick="copySig('https://i.imgur.com/09P7aLU.png', this)">Copy</button>
+    </div>
+    <div class="signature-entry">
+      <span>Official Bruce Tubby</span>
+      <button onclick="copySig('https://i.imgur.com/6oYJNAB.png', this)">Copy</button>
+    </div>
+    <div class="signature-entry">
+      <span>Intern Liam Loyd</span>
+      <button onclick="copySig('https://i.imgur.com/taw8xaa.png', this)">Copy</button>
+    </div>
+    <div class="signature-entry">
+      <span>Intern Timmothy Cross</span>
+      <button onclick="copySig('https://imgur.com/NZcI1gVm.png', this)">Copy</button>
+    </div>
+  </div>
+</div>
+
+    
   </aside>
 
   <!-- Main Content Area -->
   <main class="main-content">
     <div class="header-title">SAAA Paperwork Generator</div>
  
-
+ <script>
+function copySig(link, btn) {
+  navigator.clipboard.writeText(link).then(() => {
+    const orig = btn.textContent;
+    btn.textContent = "Copied!";
+    btn.style.background = "#28a745";
+    setTimeout(() => {
+      btn.textContent = orig;
+      btn.style.background = "#2e5eff";
+    }, 1200);
+  });
+}
+</script>
 <div id="atcShiftLogGen" class="container mt-3 myHideableSection" style="max-width: 900px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
     <div class="card-header text-center">
