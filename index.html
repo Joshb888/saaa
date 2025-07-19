@@ -153,86 +153,6 @@
     <img src="https://i.imgur.com/3i8Bk3M.png" alt="SAAA Logo">
     <div class="accordion w-100" id="tocAccordion">
     <div class="accordion-item">
-      <h2 class="accordion-header" id="headingDatabase">
-        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDatabase" aria-expanded="true" aria-controls="collapseDatabase">
-          Database
-        </button>
-      </h2>
-      <div id="collapseDatabase" class="accordion-collapse collapse show" aria-labelledby="headingTraining" data-bs-parent="#tocAccordion">
-        <div class="accordion-body d-flex flex-wrap gap-2">
-          <button class="btn btn-secondary" onclick="showSection('workLogGen', this)">Work Log</button>
-        </div>
-        <div class="accordion-body d-flex flex-wrap gap-2">
-          <button class="btn btn-secondary" onclick="showSection('pilotAppReceivedGen', this)">[LICENSE] Recieved</button>
-          <button class="btn btn-secondary" onclick="showSection('pilotAppPendingPaymentGen', this)">[LICENSE] Pending Payment</button>
-          <button class="btn btn-secondary" onclick="showSection('pilotAppOnHoldGen', this)">[LICENSE] On Hold</button>
-          <button class="btn btn-secondary" onclick="showSection('pilotAppApprovedGen', this)">[LICENSE] Approved</button>
-          <button class="btn btn-secondary" onclick="showSection('pilotAppDeniedGen', this)">[LICENSE] Denied</button>
-        </div>
-        <div class="accordion-body d-flex flex-wrap gap-2">
-          <button class="btn btn-secondary" onclick="showSection('aircraftRegReceivedGen', this)">[REGISTRATION] Recieved</button>
-          <button class="btn btn-secondary" onclick="showSection('aircraftRegApprovedGen', this)">[REGISTRATION] Approved</button>
-          <button class="btn btn-secondary" onclick="showSection('aircraftRegOnHoldGen', this)">[REGISTRATION] On Hold</button>
-          <button class="btn btn-secondary" onclick="showSection('aircraftRegDeniedGen', this)">[REGISTRATION] Denied</button>
-        </div>
-        <div class="accordion-body d-flex flex-wrap gap-2">
-          <button class="btn btn-secondary" onclick="showSection('helipadRegGen', this)">[REGISTRATION] Recieved</button>
-          <button class="btn btn-secondary" onclick="showSection('helipadApprovedGen', this)">[REGISTRATION] Approved</button>
-          <button class="btn btn-secondary" onclick="showSection('helipadPendingGen', this)">[REGISTRATION] Pending Construction</button>
-          <button class="btn btn-secondary" onclick="showSection('helipadOnHoldGen', this)">[REGISTRATION] On Hold</button>
-          <button class="btn btn-secondary" onclick="showSection('helipadDeniedGen', this)">[REGISTRATION] Denied</button>
-        </div>
-      </div>
-    </div>
-      <!-- Air Traffic Control -->
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingATC">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseATC" aria-expanded="false" aria-controls="collapseATC">
-            Air Traffic Control
-          </button>
-        </h2>
-        <div id="collapseATC" class="accordion-collapse collapse" aria-labelledby="headingATC" data-bs-parent="#tocAccordion">
-          <div class="accordion-body d-flex flex-wrap gap-2">
-            <button class="btn btn-secondary" onclick="showSection('atcShiftLogGen', this)">ATC Shift Log</button>
-            <button class="btn btn-secondary" onclick="showSection('notamGen', this)">NOTAM Log</button>
-            <button class="btn btn-secondary" onclick="showSection('groundingNotice', this)">Grounding Log</button>
-            <button class="btn btn-secondary" onclick="showSection('incidentReport', this)">Civilian Report</button>
-            <button class="btn btn-secondary" onclick="showSection('atcIncidentReport', this)">Emergency Aircraft Report</button>
-            <button class="btn btn-secondary" onclick="showSection('flightInfoGen', this)">Flight Log</button>
-          </div>
-          <div class="accordion-body d-flex flex-wrap gap-2">
-            <button class="btn btn-secondary" onclick="showSection('atcOperatorProfileGen', this)">[PROFILE] Creation</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Office Of Flight Training -->
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingFieldTraining">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFieldTraining" aria-expanded="false" aria-controls="collapseFieldTraining">
-            Office Of Flight Training
-          </button>
-        </h2>
-        <div id="collapseFieldTraining" class="accordion-collapse collapse" aria-labelledby="headingFieldTraining" data-bs-parent="#tocAccordion">
-          <div class="accordion-body d-flex flex-wrap gap-2">
-            <button class="btn btn-secondary" onclick="showSection('aviationSessionGen', this)">[ROTARY] FTS 1</button>
-            <button class="btn btn-secondary" onclick="showSection('heliSessionGen', this)">[ROTARY] FTS 2</button>
-            <button class="btn btn-secondary" onclick="showSection('guidedFlightGen', this)">[ROTARY] FTS 3</button>
-            <button class="btn btn-secondary" onclick="showSection('finalFlightGen', this)">[ROTARY] FTS 4</button>
-            <button class="btn btn-secondary" onclick="showSection('medExamGen', this)">Medical Pass</button>
-            <button class="btn btn-secondary" onclick="showSection('medExamGenF', this)">Medical Fail</button>
-          </div>
-          <div class="accordion-body d-flex flex-wrap gap-2">
-            <button class="btn btn-secondary" onclick="showSection('studentProgressGen', this)">Student Profile</button>
-            <button class="btn btn-secondary" onclick="showSection('pilotCertGen', this)">Pilot Profile</button>
-            <button class="btn btn-secondary" onclick="showSection('pilotCertGen2', this)">Pilot Certificate</button>
-            <button class="btn btn-secondary" onclick="showSection('instructorLogGen', this)">Instructor Log</button>
-          </div>
-        </div>
-      </div>
-
-      <!-- AVAP -->
-      <div class="accordion-item">
         <h2 class="accordion-header" id="headingK9">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseK9" aria-expanded="false" aria-controls="collapseK9">
             Aircraft Investigation & Accident Prevention (AVAP)
@@ -240,12 +160,44 @@
         </h2>
         <div id="collapseK9" class="accordion-collapse collapse" aria-labelledby="headingK9" data-bs-parent="#tocAccordion">
           <div class="accordion-body d-flex flex-wrap gap-2">
-            <button class="btn btn-secondary" onclick="showSection('K9', this)">LEO Infraction</button>
-          </div>
+
+ 
+      <!-- Casefile -->
+      <div class="mb-3">
+        <h6 class="text-light text-uppercase mb-2" style="font-size: 0.9rem;">💼 Casefile Documents</h6>
+        <div class="d-flex flex-wrap gap-2">
+            <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[AVAP] Casefile</button>
+            <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[AVAP] Housing Database</button>
+            <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[AVAP] Blackbox</button>
         </div>
       </div>
 
-      <!-- Internal Flight Certifications (IFC) -->
+      <!-- Operator Logs -->
+      <div class="mb-3">
+        <h6 class="text-light text-uppercase mb-2" style="font-size: 0.9rem;">⚠️ ASD Infraction</h6>
+        <div class="d-flex flex-wrap gap-2">
+            <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[ASD] 1st Infraction</button>
+            <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[ASD] 2nd Infraction</button>
+            <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[ASD] 3rd Infraction</button>
+            <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[ASD] 4th Infraction</button>
+            <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[ASD] 5th Infraction</button>
+        </div>
+      </div>
+
+      <!-- Operator Logs -->
+      <div class="mb-3">
+        <h6 class="text-light text-uppercase mb-2" style="font-size: 0.9rem;">❗Pilot Infraction Sheets</h6>
+        <div class="d-flex flex-wrap gap-2">
+            <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[PILOT] Infraction</button>
+            <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[PILOT] Suspension</button>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingIFC">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseIFC" aria-expanded="false" aria-controls="collapseIFC">
@@ -254,14 +206,23 @@
         </h2>
         <div id="collapseIFC" class="accordion-collapse collapse" aria-labelledby="headingIFC" data-bs-parent="#tocAccordion">
           <div class="accordion-body d-flex flex-wrap gap-2">
+
+ 
+      <!-- Casefile -->
+      <div class="mb-3">
+        <h6 class="text-light text-uppercase mb-2" style="font-size: 0.9rem;">🧾IFC Application</h6>
+        <div class="d-flex flex-wrap gap-2">
             <button class="btn btn-secondary" onclick="showSection('saaaCertGen', this)">[IFC] Certificate</button>
             <button class="btn btn-secondary" onclick="showSection('saaaApprovedGen', this)">[IFC] Approved</button>
             <button class="btn btn-secondary" onclick="showSection('saaaOnHoldGen', this)">[IFC] On Hold</button>
             <button class="btn btn-secondary" onclick="showSection('saaaDeniedGen', this)">[IFC] Denied</button>
-          </div>
         </div>
       </div>
+
     </div>
+  </div>
+</div>
+
       <!-- Signutares -->
 <div class="signature-box">
   <h5 class="signature-title">SAAA Official Signatures</h5>
