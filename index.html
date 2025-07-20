@@ -307,7 +307,7 @@
       <div class="mb-3">
         <h6 class="text-light text-uppercase mb-2" style="font-size: 0.9rem;">💼 Casefile Documents</h6>
         <div class="d-flex flex-wrap gap-2">
-            <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[AVAP] Casefile</button>
+            <button class="btn btn-secondary" onclick="showSection('caseFileGen', this)">[AVAP] Casefile</button>
             <button class="btn btn-secondary" onclick="showSection('housingInvestigationGen', this)">[AVAP] Housing Database</button>
             <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[AVAP] Blackbox</button>
         </div>
@@ -1007,6 +1007,459 @@ ${reasonBB}
     successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
   }
 });
+</script>
+<div id="caseFileGen" class="container mt-3 myHideableSection" style="max-width: 950px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>Case File Generator</h4>
+    </div>
+    <div class="card-body">
+      <form id="caseFileForm" autocomplete="off" novalidate>
+        <!-- Case Number -->
+        <div class="mb-3 row align-items-center">
+          <label for="caseNumber" class="col-sm-4 col-form-label fw-bold text-end">Case Number:</label>
+          <div class="col-sm-8">
+            <input type="text" id="caseNumber" class="form-control" placeholder="#XXXX" required />
+          </div>
+        </div>
+        <!-- Lead Investigator -->
+        <div class="mb-3 row align-items-center">
+          <label for="leadInvestigator" class="col-sm-4 col-form-label fw-bold text-end">Lead Investigator:</label>
+          <div class="col-sm-8">
+            <input type="text" id="leadInvestigator" class="form-control" required />
+          </div>
+        </div>
+        <!-- Other Investigators -->
+        <div class="mb-3 row align-items-center">
+          <label for="otherInvestigators" class="col-sm-4 col-form-label fw-bold text-end">Other Investigator(s):</label>
+          <div class="col-sm-8">
+            <input type="text" id="otherInvestigators" class="form-control" placeholder="Fname Lname, N/A" required />
+          </div>
+        </div>
+        <!-- Related Links -->
+        <fieldset class="mb-4">
+          <legend class="fw-bold">Related Links</legend>
+          <div class="input-group mb-2">
+            <input type="text" id="relatedLinkText" class="form-control" placeholder="Link Title" />
+            <input type="text" id="relatedLinkUrl" class="form-control" placeholder="URL" />
+            <button type="button" id="addRelatedLinkBtn" class="btn btn-primary">Add Link</button>
+          </div>
+          <ul id="relatedLinkList" class="list-group list-group-flush" style="max-height: 90px; overflow-y: auto;"></ul>
+          <button type="button" id="removeRelatedLinkBtn" class="btn btn-danger mt-2">Remove Last Link</button>
+        </fieldset>
+        <hr>
+        <!-- Pilot Names -->
+        <div class="mb-3 row align-items-center">
+          <label for="mainPilots" class="col-sm-4 col-form-label fw-bold text-end">Pilot Name(s):</label>
+          <div class="col-sm-8">
+            <input type="text" id="mainPilots" class="form-control" placeholder="Separate with commas" required />
+          </div>
+        </div>
+        <!-- Main Pilot's Phone -->
+        <div class="mb-3 row align-items-center">
+          <label for="mainPilotPhone" class="col-sm-4 col-form-label fw-bold text-end">Main Pilot's Phone Number:</label>
+          <div class="col-sm-8">
+            <input type="text" id="mainPilotPhone" class="form-control" placeholder="#1234567" required />
+          </div>
+        </div>
+        <!-- Date and Time -->
+        <div class="mb-3 row align-items-center">
+          <label for="incidentDate" class="col-sm-4 col-form-label fw-bold text-end">Date and Time:</label>
+          <div class="col-sm-8">
+            <input type="text" id="incidentDate" class="form-control" placeholder="01/MON/202X @ 00:00 [ooc]UTC[/ooc] - Unknown" required />
+          </div>
+        </div>
+        <!-- Location -->
+        <div class="mb-3 row align-items-center">
+          <label for="location" class="col-sm-4 col-form-label fw-bold text-end">Location:</label>
+          <div class="col-sm-8">
+            <input type="text" id="location" class="form-control" placeholder="Unknown" required />
+          </div>
+        </div>
+        <!-- Others Involved -->
+        <fieldset class="mb-4">
+          <legend class="fw-bold">Other Person(s) Involved</legend>
+          <div class="input-group mb-2">
+            <input type="text" id="otherInvolvedInput" class="form-control" placeholder="Name or N/A" />
+            <button type="button" id="addOtherInvolvedBtn" class="btn btn-primary">Add Person</button>
+          </div>
+          <ul id="otherInvolvedList" class="list-group list-group-flush" style="max-height: 90px; overflow-y: auto;"></ul>
+          <button type="button" id="removeOtherInvolvedBtn" class="btn btn-danger mt-2">Remove Last Person</button>
+        </fieldset>
+        <!-- Incident Description -->
+        <div class="mb-3">
+          <label for="incidentDescription" class="form-label fw-bold">Detailed Description of Incident:</label>
+          <textarea id="incidentDescription" class="form-control" rows="3" required></textarea>
+        </div>
+        <!-- Evidence -->
+        <fieldset class="mb-4">
+          <legend class="fw-bold">Evidence (gathered throughout investigation)</legend>
+          <div class="input-group mb-2">
+            <input type="text" id="evidenceTitle" class="form-control" placeholder="Exhibit A" />
+            <input type="text" id="evidenceUrl" class="form-control" placeholder="URL (paste evidence link)" />
+            <input type="text" id="evidenceTimestamp" class="form-control" placeholder="01/MON/202X @ 00:00 [ooc]UTC[/ooc]" />
+            <button type="button" id="addEvidenceBtn" class="btn btn-primary">Add Evidence</button>
+          </div>
+          <ul id="evidenceList" class="list-group list-group-flush" style="max-height: 120px; overflow-y: auto;"></ul>
+          <button type="button" id="removeEvidenceBtn" class="btn btn-danger mt-2">Remove Last Evidence</button>
+        </fieldset>
+        <!-- Investigation Notes -->
+        <div class="mb-3">
+          <label for="investigationNotes" class="form-label fw-bold">Investigation Notes:</label>
+          <textarea id="investigationNotes" class="form-control" rows="2" placeholder="DD/MMM/YYYY Notes -Name"></textarea>
+        </div>
+        <!-- Investigation Checklist -->
+        <div class="mb-3">
+          <div class="fw-bold mb-1">Investigation Checklist</div>
+          <div class="mb-2" style="font-size: 0.97em;">
+            <b>Follow these steps throughout the investigation and mark each box with <b>[[color=#FF0000]X[/color]]</b> once you've completed that step. Mark <b>[[color=#FF0000]N/A[/color]]</b> if not applicable. All steps are mandatory unless otherwise stated.</b>
+          </div>
+          <div class="ms-3">
+            <div class="form-check"><input type="checkbox" class="form-check-input" id="step1"><label class="form-check-label" for="step1">Mark license removal request as under investigation.</label></div>
+            <div class="form-check"><input type="checkbox" class="form-check-input" id="step2"><label class="form-check-label" for="step2">Suspend pilot's license.</label></div>
+            <div class="form-check"><input type="checkbox" class="form-check-input" id="step3"><label class="form-check-label" for="step3">Gather and attach all pertinent evidence.</label></div>
+            <div class="form-check"><input type="checkbox" class="form-check-input" id="step4"><label class="form-check-label" for="step4">Request the full arrest report and attach it as pertinent evidence.</label></div>
+            <div class="form-check"><input type="checkbox" class="form-check-input" id="step5"><label class="form-check-label" for="step5">Bring in the pilot(s) for investigation <u><b>in person</b></u> and record audio; have them clearly and audibly state name, date/time, and that they're aware the conversation is being recorded.</label></div>
+            <div class="form-check"><input type="checkbox" class="form-check-input" id="step6"><label class="form-check-label" for="step6">Transcribe the recorded conversation and attach as evidence.</label></div>
+            <div class="form-check"><input type="checkbox" class="form-check-input" id="step7"><label class="form-check-label" for="step7">Reach out to all involved parties <u><b>not</b></u> the pilot(s) and attach communications as evidence.</label></div>
+            <div class="form-check"><input type="checkbox" class="form-check-input" id="step8"><label class="form-check-label" for="step8">Finalize all notes/documentation relevant to the case.</label></div>
+            <div class="form-check"><input type="checkbox" class="form-check-input" id="step9"><label class="form-check-label" for="step9">Submit the case file for final review by a supervisor.</label></div>
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="caseFileCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode -->
+        <div class="mt-4">
+          <label for="caseFileBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="caseFileBBOutput" class="form-control" rows="38" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<script>
+function formatDateDDMMMYYYY(dateStr) {
+  if (!dateStr) return '';
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const [y, m, d] = dateStr.split('-');
+  return `${d}/${months[parseInt(m,10)-1]}/${y}`;
+}
+
+(() => {
+  // Related Links dynamic list
+  const addRelatedLinkBtn = document.getElementById('addRelatedLinkBtn');
+  const removeRelatedLinkBtn = document.getElementById('removeRelatedLinkBtn');
+  const relatedLinkText = document.getElementById('relatedLinkText');
+  const relatedLinkUrl = document.getElementById('relatedLinkUrl');
+  const relatedLinkList = document.getElementById('relatedLinkList');
+
+  addRelatedLinkBtn.addEventListener('click', () => {
+    const text = relatedLinkText.value.trim();
+    const url = relatedLinkUrl.value.trim();
+    if (!text || !url) {
+      alert('Please enter link title and URL.');
+      return;
+    }
+    const li = document.createElement('li');
+    li.className = 'list-group-item bg-light text-dark';
+    li.innerHTML = `${text} | ${url}`;
+    relatedLinkList.appendChild(li);
+    relatedLinkText.value = '';
+    relatedLinkUrl.value = '';
+    relatedLinkText.focus();
+  });
+  removeRelatedLinkBtn.addEventListener('click', () => {
+    if (relatedLinkList.lastChild) relatedLinkList.removeChild(relatedLinkList.lastChild);
+  });
+
+  // Others Involved dynamic list
+  const addOtherInvolvedBtn = document.getElementById('addOtherInvolvedBtn');
+  const removeOtherInvolvedBtn = document.getElementById('removeOtherInvolvedBtn');
+  const otherInvolvedInput = document.getElementById('otherInvolvedInput');
+  const otherInvolvedList = document.getElementById('otherInvolvedList');
+
+  addOtherInvolvedBtn.addEventListener('click', () => {
+    const val = otherInvolvedInput.value.trim();
+    if (!val) {
+      alert('Please enter a name or N/A.');
+      return;
+    }
+    const li = document.createElement('li');
+    li.className = 'list-group-item bg-light text-dark';
+    li.textContent = val;
+    otherInvolvedList.appendChild(li);
+    otherInvolvedInput.value = '';
+    otherInvolvedInput.focus();
+  });
+  removeOtherInvolvedBtn.addEventListener('click', () => {
+    if (otherInvolvedList.lastChild) otherInvolvedList.removeChild(otherInvolvedList.lastChild);
+  });
+
+  // Evidence dynamic list
+  const addEvidenceBtn = document.getElementById('addEvidenceBtn');
+  const removeEvidenceBtn = document.getElementById('removeEvidenceBtn');
+  const evidenceTitle = document.getElementById('evidenceTitle');
+  const evidenceUrl = document.getElementById('evidenceUrl');
+  const evidenceTimestamp = document.getElementById('evidenceTimestamp');
+  const evidenceList = document.getElementById('evidenceList');
+
+  addEvidenceBtn.addEventListener('click', () => {
+    const title = evidenceTitle.value.trim();
+    const url = evidenceUrl.value.trim();
+    const ts = evidenceTimestamp.value.trim();
+    if (!title || !url || !ts) {
+      alert('Please fill in all evidence fields.');
+      return;
+    }
+    const li = document.createElement('li');
+    li.className = 'list-group-item bg-light text-dark';
+    li.innerHTML = `${title} | ${url} | ${ts}`;
+    evidenceList.appendChild(li);
+    evidenceTitle.value = '';
+    evidenceUrl.value = '';
+    evidenceTimestamp.value = '';
+    evidenceTitle.focus();
+  });
+  removeEvidenceBtn.addEventListener('click', () => {
+    if (evidenceList.lastChild) evidenceList.removeChild(evidenceList.lastChild);
+  });
+
+  // Form submit
+  document.getElementById('caseFileForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const successMsg = document.getElementById('caseFileCopySuccess');
+    successMsg.textContent = '';
+
+    if (!this.checkValidity()) {
+      this.reportValidity();
+      return;
+    }
+
+    // Gather fields
+    const caseNumber = document.getElementById('caseNumber').value.trim();
+    const leadInvestigator = document.getElementById('leadInvestigator').value.trim();
+    const otherInvestigators = document.getElementById('otherInvestigators').value.trim();
+
+    let relatedLinks = '';
+    relatedLinkList.querySelectorAll('li').forEach(li => {
+      // Split on | for label/url; fallback to text for legacy reasons
+      const parts = li.textContent.split('|');
+      if (parts.length === 2) {
+        relatedLinks += `[*][url=${parts[1].trim()}]${parts[0].trim()}[/url]\n`;
+      } else {
+        relatedLinks += `[*]${li.textContent}\n`;
+      }
+    });
+    if (!relatedLinks) {
+      // Default to example
+      relatedLinks = "[*][url=LINK]Flight Log and Incident Report[/url]\n[*][url=LINK]License Removal Request[/url]\n";
+    }
+
+    const mainPilots = document.getElementById('mainPilots').value.trim();
+    const pilotsArr = mainPilots.split(',').map(s => s.trim()).filter(Boolean);
+    const pilotList = pilotsArr.length
+      ? pilotsArr.map(p => `[*]${p}`).join('\n')
+      : "[*]Fname Lname\n[*]Fname Lname";
+
+    const mainPilotPhone = document.getElementById('mainPilotPhone').value.trim() || "#1234567";
+    const incidentDate = document.getElementById('incidentDate').value.trim() || "01/MON/202X @ 00:00 [ooc]UTC[/ooc] - Unknown";
+    const location = document.getElementById('location').value.trim() || "Unknown";
+
+    // Others Involved
+    let otherList = '';
+    otherInvolvedList.querySelectorAll('li').forEach(li => {
+      otherList += `[*]${li.textContent}\n`;
+    });
+    if (!otherList.trim()) {
+      otherList = "[*]N/A\n";
+    }
+
+    const incidentDescription = document.getElementById('incidentDescription').value.trim();
+
+    // Evidence
+    let evidenceBB = '';
+    evidenceList.querySelectorAll('li').forEach(li => {
+      // Expect title | url | ts
+      const parts = li.textContent.split('|');
+      if (parts.length === 3) {
+        evidenceBB += `[*][url=${parts[1].trim()}]${parts[0].trim()}[/url] - ${parts[2].trim()}\n`;
+      } else {
+        evidenceBB += `[*]${li.textContent}\n`;
+      }
+    });
+    if (!evidenceBB) {
+      // Default to example
+      evidenceBB = "[*][url=LINK]Exhibit A[/url] - 01/MON/202X @ 00:00 [ooc]UTC[/ooc]\n[*][url=LINK]Exhibit B[/url] - 01/MON/202X @ 00:00 [ooc]UTC[/ooc]\n[*][url=LINK]Exhibit C[/url] - 01/MON/202X @ 00:00 [ooc]UTC[/ooc]\n";
+    }
+
+    // Notes
+    const investigationNotes = document.getElementById('investigationNotes').value.trim() || "[i]Add investigations here in the format: DD/MMM/YYYY Notes -Name[/i]";
+
+    // Checklist
+    function checklistVal(id) {
+      return document.getElementById(id).checked
+        ? "[[color=#FF0000]X[/color]]"
+        : "[[color=#FF0000] [/color]]";
+    }
+    const checklistArray = [
+      `${checklistVal('step1')} Mark license removal request as under investigation.`,
+      `${checklistVal('step2')} Suspend pilot's license.`,
+      `${checklistVal('step3')} Gather and attach all pertinent evidence.`,
+      `${checklistVal('step4')} Request the full arrest report and attach it as pertinent evidence.`,
+      `${checklistVal('step5')} Bring in the pilot(s) for investigation [u][b]in person[/b][/u] and record audio...`,
+      `${checklistVal('step6')} Transcribe the recorded conversation and attach as evidence.`,
+      `${checklistVal('step7')} Reach out to all involved parties [u][b]not[/b][/u] the pilot(s) and attach communications as evidence.`,
+      `${checklistVal('step8')} Finalize all notes/documentation relevant to the case.`,
+      `${checklistVal('step9')} Submit the case file for final review by a supervisor.`
+    ];
+    const checklistBB = checklistArray.map(step => `[b]${step}[/b]`).join('\n');
+
+    const bbcode = `[img]https://i.imgur.com/iav2fMg.png[/img]
+[divbox=#091f62][b][color=white]CASE FILE INFORMATION[/color][/b][/divbox]
+[divbox=white]
+[list=none]
+
+[b]Case Number:[/b] ${caseNumber}
+
+[b]Lead Investigator:[/b] ${leadInvestigator}
+
+[b]Other Investigator(s):[/b] ${otherInvestigators}
+
+[list]
+${relatedLinks}[/list]
+[/list]
+[/divbox]
+
+[divbox=#091f62][b][color=white]INCIDENT INFORMATION[/color][/b][/divbox]
+[divbox=white]
+[list=none]
+
+[b]Pilot Name(s):[/b]
+[list]
+${pilotList}
+[/list]
+
+[b]Main Pilot's Phone Number:[/b] ${mainPilotPhone}
+
+[b]Date and Time:[/b] ${incidentDate}
+
+[b]Location:[/b] ${location}
+
+[b]Other Person(s) Involved:[/b]
+[list]
+${otherList}[/list]
+
+[b]Detailed Description of Incident:[/b]
+${incidentDescription}
+
+[b]Evidence:[/b] (UPDATE HERE AS MORE IS GATHERED THROUGHOUT INVESTIGATION)
+[list]
+${evidenceBB}[/list]
+[/list]
+[/divbox]
+
+[divbox=#091f62][b][color=white]INVESTIGATION NOTES[/color][/b][/divbox]
+[divbox=white]
+[list=none]
+${investigationNotes}
+[/list]
+[/divbox]
+
+[divbox=#091f62][b][color=white]INVESTIGATION CHECKLIST[/color][/b][/divbox]
+[divbox=white]
+[list=none]
+
+[b]Follow these steps throughout the investigation and mark each box with [b][[color=#FF0000]X[/color]][/b] once you've completed that step. Mark [b][[color=#FF0000]N/A[/color]][/b] if it is not applicable to this case. All steps are mandatory unless stated otherwise.[/b]
+
+[list=none]
+${checklistBB}
+[/list]
+[/list]
+[/divbox]
+
+[divbox=#091f62][b][color=white]RESPONSE FORMATS[/color][/b][/divbox]
+[divbox=white]
+[list=none]
+
+[b]Submit for Review[/b]
+[spoiler=Code][code]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[divbox=white]
+[img]https://i.imgur.com/3i8Bk3M.png[/img][aligntable=right,350,0,0,0,0,#FFFFFF][right][font=Arial][b]
+[size=140]San Andreas Aviation Administration[/size][/b]
+[size=80]2 New Empire Way, Los Santos International Airport, Los Santos.[/size][/font][/right][/aligntable]
+[hr]
+[list=none]
+
+[b][mention][/mention][/b]
+
+I've documented everything to the best of my ability and believe that it is now ready for review by a member of the supervisory staff. Following this documentation and investigation, I believe the proper course of action to take against [Mr./Ms. Pilot] is to [suspend/revoke their pilot's license. | leave their license intact.]
+
+[/list]
+[hr][/hr]
+[divbox=white]
+[color=#FF0000]By signing this document, I solemnly swear that all information documented and submitted has been confirmed to be true to the best of my ability. I understand that all of the information within this case file is fully confidential and may not be shown outside of this case file. Additionally, I understand that if I falsify, modify, or otherwise obstruct evidence in this investigation, I am liable to prosecution by the San Andreas Aviation Administration in a court of law.[/color]
+[/divbox]
+[list=none]
+[b]Signature:[/b]
+
+[fimg=137,44]https://i.imgur.com/9gXEM4H.png[/fimg]
+[i][size=105]Gordon Graves[/size][/i]
+
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[/code][/spoiler]
+
+[spoiler=Live Example]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[divbox=white]
+[img]https://i.imgur.com/3i8Bk3M.png[/img][aligntable=right,350,0,0,0,0,#FFFFFF][right][font=Arial][b]
+[size=140]San Andreas Aviation Administration[/size][/b]
+[size=80]2 New Empire Way, Los Santos International Airport, Los Santos.[/size][/font][/right][/aligntable]
+[hr]
+[list=none]
+
+[b][mention][/mention][/b]
+
+I've documented everything to the best of my ability and believe that it is now ready for review by a member of the supervisory staff. Following this documentation and investigation, I believe the proper course of action to take against [Mr./Ms. Pilot] is to [suspend/revoke their pilot's license. | leave their license intact.]
+
+[/list]
+[hr][/hr]
+[divbox=white]
+[color=#FF0000]By signing this document, I solemnly swear that all information documented and submitted has been confirmed to be true to the best of my ability. I understand that all of the information within this case file is fully confidential and may not be shown outside of this case file. Additionally, I understand that if I falsify, modify, or otherwise obstruct evidence in this investigation, I am liable to prosecution by the San Andreas Aviation Administration in a court of law.[/color]
+[/divbox]
+[list=none]
+[b]Signature:[/b]
+
+[fimg=137,44]https://i.imgur.com/9gXEM4H.png[/fimg]
+[i][size=105]Gordon Graves[/size][/i]
+
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]
+[/spoiler]
+[/list]
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
+
+    const outputArea = document.getElementById('caseFileBBOutput');
+    outputArea.value = bbcode.trim();
+    outputArea.focus();
+    outputArea.select();
+
+    try {
+      navigator.clipboard.writeText(bbcode).then(() => {
+        successMsg.textContent = 'Copied to clipboard!';
+      }, () => {
+        successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+      });
+    } catch {
+      successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+    }
+  });
+})();
 </script>
 
 <div id="pilotSuspensionGen" class="container mt-3 myHideableSection" style="max-width: 800px;">
