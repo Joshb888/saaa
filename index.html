@@ -330,7 +330,7 @@
         <h6 class="text-light text-uppercase mb-2" style="font-size: 0.9rem;">❗Pilot Infraction Sheets</h6>
         <div class="d-flex flex-wrap gap-2">
             <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[PILOT] Infraction</button>
-            <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[PILOT] Suspension</button>
+            <button class="btn btn-secondary" onclick="showSection('pilotSuspensionGen', this)">[PILOT] Suspension</button>
 
         </div>
       </div>
@@ -870,6 +870,216 @@ ${message}
 });
 </script>
 
+<div id="pilotSuspensionGen" class="container mt-3 myHideableSection" style="max-width: 800px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>Pilot Suspension Generator</h4>
+    </div>
+    <div class="card-body">
+      <form id="pilotSuspensionForm" autocomplete="off" novalidate>
+        <!-- Suspending Official(s) -->
+        <div class="mb-3 row align-items-center">
+          <label for="suspOfficial" class="col-sm-3 col-form-label fw-bold text-end">Official(s):</label>
+          <div class="col-sm-9">
+            <input type="text" id="suspOfficial" class="form-control" required />
+          </div>
+        </div>
+        <!-- Pilot(s) -->
+        <div class="mb-3 row align-items-center">
+          <label for="pilotNames" class="col-sm-3 col-form-label fw-bold text-end">Pilot(s):</label>
+          <div class="col-sm-9">
+            <input type="text" id="pilotNames" class="form-control" required />
+          </div>
+        </div>
+        <!-- Registered Aircraft(s) -->
+        <fieldset class="mb-4">
+          <legend class="fw-bold">Registered Aircraft(s)</legend>
+          <div class="input-group mb-2">
+            <input type="text" id="aircraftInput" class="form-control" placeholder="Model - Tail Number" />
+            <button type="button" id="addAircraftBtn" class="btn btn-primary">Add Aircraft</button>
+          </div>
+          <ul id="aircraftList" class="list-group list-group-flush" style="max-height: 120px; overflow-y: auto;"></ul>
+          <button type="button" id="removeAircraftBtn" class="btn btn-danger mt-2">Remove Last Aircraft</button>
+        </fieldset>
+        <!-- Proof of Contact -->
+        <div class="mb-3 row align-items-center">
+          <label for="proofEmail" class="col-sm-3 col-form-label fw-bold text-end">Proof of Contact (Email):</label>
+          <div class="col-sm-9">
+            <textarea id="proofEmail" class="form-control" rows="2" required></textarea>
+          </div>
+        </div>
+        <!-- Pilot Log -->
+        <div class="mb-3 row align-items-center">
+          <label for="pilotLog" class="col-sm-3 col-form-label fw-bold text-end">Pilot Log Message:</label>
+          <div class="col-sm-9">
+            <textarea id="pilotLog" class="form-control" rows="2" required></textarea>
+          </div>
+        </div>
+        <!-- Grounding Log -->
+        <div class="mb-3 row align-items-center">
+          <label for="groundingLog" class="col-sm-3 col-form-label fw-bold text-end">Grounding Log (If Applicable):</label>
+          <div class="col-sm-9">
+            <input type="text" id="groundingLog" class="form-control" placeholder="Paste log or leave blank" />
+          </div>
+        </div>
+        <!-- Start Date & Time -->
+        <div class="mb-3 row align-items-center">
+          <label for="startDate" class="col-sm-3 col-form-label fw-bold text-end">Start Date & Time:</label>
+          <div class="col-sm-5">
+            <input type="date" id="startDate" class="form-control" required />
+          </div>
+          <div class="col-sm-4">
+            <input type="time" id="startTime" class="form-control" required />
+          </div>
+        </div>
+        <!-- End Date & Time -->
+        <div class="mb-3 row align-items-center">
+          <label for="endDate" class="col-sm-3 col-form-label fw-bold text-end">End Date & Time:</label>
+          <div class="col-sm-5">
+            <input type="date" id="endDate" class="form-control" required />
+          </div>
+          <div class="col-sm-4">
+            <input type="time" id="endTime" class="form-control" required />
+          </div>
+        </div>
+        <!-- Reason -->
+        <div class="mb-4 row align-items-center">
+          <label for="reason" class="col-sm-3 col-form-label fw-bold text-end">Reason:</label>
+          <div class="col-sm-9">
+            <textarea id="reason" class="form-control" rows="3" required></textarea>
+          </div>
+        </div>
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="suspCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="suspBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="suspBBOutput" class="form-control" rows="26" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+function formatDateDDMMMYYYY(dateStr) {
+  if (!dateStr) return '';
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const [year, month, day] = dateStr.split('-');
+  return `${day}/${months[parseInt(month, 10) - 1]}/${year}`;
+}
+
+(() => {
+  const addAircraftBtn = document.getElementById('addAircraftBtn');
+  const removeAircraftBtn = document.getElementById('removeAircraftBtn');
+  const aircraftInput = document.getElementById('aircraftInput');
+  const aircraftList = document.getElementById('aircraftList');
+
+  addAircraftBtn.addEventListener('click', () => {
+    const val = aircraftInput.value.trim();
+    if (!val) {
+      alert('Please enter Model - Tail Number.');
+      return;
+    }
+    const li = document.createElement('li');
+    li.className = 'list-group-item bg-light text-dark';
+    li.textContent = val;
+    aircraftList.appendChild(li);
+    aircraftInput.value = '';
+    aircraftInput.focus();
+  });
+
+  removeAircraftBtn.addEventListener('click', () => {
+    if (aircraftList.lastChild) aircraftList.removeChild(aircraftList.lastChild);
+  });
+
+  document.getElementById('pilotSuspensionForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const successMsg = document.getElementById('suspCopySuccess');
+    successMsg.textContent = '';
+
+    if (!this.checkValidity()) {
+      this.reportValidity();
+      return;
+    }
+
+    const suspOfficial = document.getElementById('suspOfficial').value.trim();
+    const pilotNames = document.getElementById('pilotNames').value.trim();
+    const proofEmail = document.getElementById('proofEmail').value.trim();
+    const pilotLog = document.getElementById('pilotLog').value.trim();
+    const groundingLog = document.getElementById('groundingLog').value.trim();
+    const startDate = formatDateDDMMMYYYY(document.getElementById('startDate').value);
+    const startTime = document.getElementById('startTime').value.trim();
+    const endDate = formatDateDDMMMYYYY(document.getElementById('endDate').value);
+    const endTime = document.getElementById('endTime').value.trim();
+    const reason = document.getElementById('reason').value.trim();
+    let aircrafts = '';
+    aircraftList.querySelectorAll('li').forEach(li => {
+      aircrafts += `[*] ${li.textContent}\n`;
+    });
+    if (!aircrafts) {
+      alert('Please add at least one registered aircraft.');
+      return;
+    }
+
+    const bbcode = `[img]https://i.imgur.com/xrSYFSx.png[/img]
+[divbox=#091f62][b][color=white]Suspending Official(s)[/color][/b][/divbox]
+[divbox=white]
+[b]Official(s):[/b] ${suspOfficial}
+
+[b]Department:[/b] [color=#0040FF]AVAP[/color]/[color=#004080]ATC Command[/color]
+[/divbox]
+[divbox=#091f62][b][color=white]Pilot[/color][/b][/divbox]
+[divbox=white]
+[b]Pilot(s):[/b] ${pilotNames}
+
+[b]Registered Aircraft(s):[/b]
+[list]
+${aircrafts}[/list]
+
+[b]Proof of Contact:[/b]
+[spoiler=Email]
+${proofEmail}
+[/spoiler]
+[spoiler=Pilot Log]
+${pilotLog}
+[/spoiler]
+[/divbox]
+[divbox=#091f62][b][color=white]Suspension Details[/color][/b][/divbox]
+[divbox=white]
+[b]Grounding Log: (If Applicable)[/b] ${groundingLog}
+
+[b]Start Date & Time:[/b] ${startDate} ${startTime}
+
+[b]End Date & Time:[/b] ${endDate} ${endTime}
+
+[/divbox]
+[divbox=#091f62][b][color=white]Reason[/color][/b][/divbox]
+[divbox=white]
+[center][i]${reason}[/i][/center]
+[/divbox]
+[img]https://i.imgur.com/B0V3f7B.png[/img]`;
+
+    const outputArea = document.getElementById('suspBBOutput');
+    outputArea.value = bbcode.trim();
+    outputArea.focus();
+    outputArea.select();
+
+    try {
+      navigator.clipboard.writeText(bbcode).then(() => {
+        successMsg.textContent = 'Copied to clipboard!';
+      }, () => {
+        successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+      });
+    } catch {
+      successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+    }
+  });
+})();
+</script>
 
 
 <div id="groundingNotice" class="container mt-3 myHideableSection" style="max-width: 700px;">
