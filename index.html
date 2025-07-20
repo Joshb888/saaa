@@ -308,7 +308,7 @@
         <h6 class="text-light text-uppercase mb-2" style="font-size: 0.9rem;">💼 Casefile Documents</h6>
         <div class="d-flex flex-wrap gap-2">
             <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[AVAP] Casefile</button>
-            <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[AVAP] Housing Database</button>
+            <button class="btn btn-secondary" onclick="showSection('housingInvestigationGen', this)">[AVAP] Housing Database</button>
             <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[AVAP] Blackbox</button>
         </div>
       </div>
@@ -854,6 +854,145 @@ ${message}
 [img]https://i.imgur.com/lfoY7mK.png[/img]`;
 
   const outputArea = document.getElementById('notamBBOutput');
+  outputArea.value = bbcode.trim();
+  outputArea.focus();
+  outputArea.select();
+
+  try {
+    navigator.clipboard.writeText(bbcode).then(() => {
+      successMsg.textContent = 'Copied to clipboard!';
+    }, () => {
+      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
+    });
+  } catch {
+    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
+  }
+});
+</script>
+<div id="housingInvestigationGen" class="container mt-3 myHideableSection" style="max-width: 700px;">
+  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
+    <div class="card-header text-center">
+      <h4>Housing Investigation Request Generator</h4>
+    </div>
+    <div class="card-body">
+      <form id="housingInvestigationForm" autocomplete="off" novalidate>
+        <!-- Investigator Details -->
+        <div class="mb-3 row align-items-center">
+          <label for="investigators" class="col-sm-4 col-form-label fw-bold text-end">Investigator(s):</label>
+          <div class="col-sm-8">
+            <input type="text" id="investigators" class="form-control" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="investigatorRank" class="col-sm-4 col-form-label fw-bold text-end">Rank:</label>
+          <div class="col-sm-8">
+            <input type="text" id="investigatorRank" class="form-control" required />
+          </div>
+        </div>
+        <!-- Housing Details -->
+        <div class="mb-3 row align-items-center">
+          <label for="addresses" class="col-sm-4 col-form-label fw-bold text-end">Address(s):</label>
+          <div class="col-sm-8">
+            <input type="text" id="addresses" class="form-control" required />
+          </div>
+        </div>
+        <div class="mb-3 row align-items-center">
+          <label for="invDate" class="col-sm-4 col-form-label fw-bold text-end">Date:</label>
+          <div class="col-sm-8">
+            <input type="date" id="invDate" class="form-control" required />
+          </div>
+        </div>
+        <!-- Request Details -->
+        <div class="mb-3 row align-items-center">
+          <label for="casefile" class="col-sm-4 col-form-label fw-bold text-end">Casefile:</label>
+          <div class="col-sm-8">
+            <input type="text" id="casefile" class="form-control" placeholder="If Applicable" />
+          </div>
+        </div>
+        <div class="mb-3 fw-bold">Reason:<span class="fw-normal ms-2">(Mark the correct box)</span></div>
+        <div class="ms-4 mb-3">
+          <div class="form-check"><input class="form-check-input" type="checkbox" id="reasonCasefile"><label class="form-check-label" for="reasonCasefile">Address listed under an active Casefile</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" id="reasonHelipad"><label class="form-check-label" for="reasonHelipad">Unregistered Helipad</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" id="reasonHeliStorage"><label class="form-check-label" for="reasonHeliStorage">Possible storage of a helicopter without active helipad</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" id="reasonIncident"><label class="form-check-label" for="reasonIncident">Address is listed on an Incident Report.</label></div>
+          <div class="form-check"><input class="form-check-input" type="checkbox" id="reasonDeviation"><label class="form-check-label" for="reasonDeviation">Deviation Approved by AVAP Command</label></div>
+        </div>
+        <!-- Generate -->
+        <div class="text-center">
+          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
+          <p id="housingInvestigationCopySuccess" class="mt-2 text-success fw-semibold"></p>
+        </div>
+        <!-- BBCode Output -->
+        <div class="mt-4">
+          <label for="housingInvestigationBBOutput" class="form-label fw-bold">BBCode Output:</label>
+          <textarea id="housingInvestigationBBOutput" class="form-control" rows="18" readonly placeholder="BBCode will appear here"></textarea>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script>
+function formatDateDDMMMYYYY(dateStr) {
+  if (!dateStr) return '';
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const [y, m, d] = dateStr.split('-');
+  return `${d}/${months[parseInt(m,10)-1]}/${y}`;
+}
+
+document.getElementById('housingInvestigationForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const successMsg = document.getElementById('housingInvestigationCopySuccess');
+  successMsg.textContent = '';
+
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
+  }
+
+  const investigators = document.getElementById('investigators').value.trim();
+  const investigatorRank = document.getElementById('investigatorRank').value.trim();
+  const addresses = document.getElementById('addresses').value.trim();
+  const rawDate = document.getElementById('invDate').value;
+  const date = formatDateDDMMMYYYY(rawDate);
+  const casefile = document.getElementById('casefile').value.trim();
+
+  const reasons = [
+    { chk:'reasonCasefile', text:'Address listed under an active Casefile' },
+    { chk:'reasonHelipad', text:'Unregistered Helipad' },
+    { chk:'reasonHeliStorage', text:'Possible storage of a helicopter without active helipad' },
+    { chk:'reasonIncident', text:'Address is listed on an Incident Report.' },
+    { chk:'reasonDeviation', text:'Deviation Approved by AVAP Command' }
+  ];
+
+  let reasonBB = '';
+  reasons.forEach(r => {
+    reasonBB += `[cb${document.getElementById(r.chk).checked ? 'x' : ''}] ${r.text}\n`;
+  });
+
+  const bbcode = `[img]https://i.imgur.com/0sYXAmj.png[/img]
+[divbox=#091f62][b][color=white]Investigator Details[/color][/b][/divbox]
+[divbox=white]
+[b]Investigator(s):[/b] ${investigators}
+
+[b]Rank:[/b] ${investigatorRank}
+[/divbox]
+[divbox=#091f62][b][color=white]Housing Details[/color][/b][/divbox]
+[divbox=white]
+[b]Address(s):[/b] ${addresses}
+
+[b]Date:[/b] ${date}
+[/divbox]
+[divbox=#091f62][b][color=white]Request[/color][/b][/divbox]
+[divbox=white]
+[b]Casefile:[/b] ${casefile || '[i]If Applicable[/i]'}
+
+[b]Reason:[/b] [i]Mark the correct box[/i]
+${reasonBB}
+[/divbox]
+[img]https://i.imgur.com/3DUWGY1.png[/img]`;
+
+  const outputArea = document.getElementById('housingInvestigationBBOutput');
   outputArea.value = bbcode.trim();
   outputArea.focus();
   outputArea.select();
