@@ -75,7 +75,225 @@
       text-align: center;
       letter-spacing: 0.4px;
     }
-    .signature-box {
+.sheet-viewer-block {
+  margin: 30px auto;
+
+  max-width: 900px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #181c25;
+  box-shadow: 0 4px 24px #0005;
+  border: 1.5px solid #3046a4;
+}
+.search-sheet-box {
+  background: #1a1e2b;
+  border: 2px solid #3050a0;
+  padding: 24px;
+  margin: 40px auto;
+  max-width: 900px;
+  border-radius: 10px;
+  box-shadow: 0 6px 26px #000a;
+  color: #e0ecff;
+}
+.search-sheet-box2 {
+  background: #1a1e2b;
+  border: 2px solid #3050a0;
+  padding: 24px;
+  margin: 40px auto;
+  max-width: 3300px;
+  border-radius: 10px;
+  box-shadow: 0 6px 26px #000a;
+  color: #e0ecff;
+}
+
+.search-sheet-box2 h3 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #cde2ff;
+}
+.search-sheet-box h3 {
+  text-align: center;
+  margin-bottom: 16px;
+  color: #cde2ff;
+}
+
+.search-sheet-box input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #444e80;
+  background: #0f131e;
+  color: #fff;
+  font-size: 1.06rem;
+  margin-bottom: 12px;
+}
+
+.search-sheet-box2 input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid #444e80;
+  background: #0f131e;
+  color: #fff;
+  font-size: 1.06rem;
+  margin-bottom: 12px;
+}
+.search-sheet-box button {
+  display: inline-block;
+  padding: 10px 18px;
+  font-size: 1rem;
+  background: #2f53dc;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.search-sheet-box2 button {
+  display: inline-block;
+  padding: 10px 18px;
+  font-size: 1rem;
+  background: #2f53dc;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.results-box {
+  margin-top: 24px;
+  background: #101420;
+  border: 1px solid #2f3c60;
+  padding: 14px;
+  border-radius: 7px;
+  overflow-x: auto;
+}
+
+.results-box table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.results-box th, .results-box td {
+  padding: 10px;
+  border: 1px solid #263556;
+  text-align: left;
+  color: #dde8ff;
+}
+
+.results-box th {
+  background: #253155;
+  font-weight: 700;
+}
+
+.info-dashboard {
+  background: #091f62;
+  max-width: 500px;
+  margin: 30px auto;
+  padding: 30px 0;
+  border: 2px solid #222;
+  font-family: Arial, Helvetica, sans-serif;
+  border-radius: 4px;
+}
+.info-dashboard h1 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 2rem;
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+.section {
+  margin: 20px 0 0 0;
+  padding-bottom: 4px;
+}
+.section-header {
+  background: #111;
+  color: #fff;
+  padding: 6px 10px;
+  font-size: 1.05rem;
+  font-weight: bold;
+  margin-bottom: 3px;
+  border-radius: 2px;
+  letter-spacing: 1px;
+}
+.info-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 15px;
+  font-size: 1rem;
+  border-bottom: 1px solid #091f62;
+  background: #091f62;
+}
+.info-row.bold {
+  font-weight: bold;
+  background: #091f62;
+}
+.info-row .number {
+  font-weight: bold;
+  margin-left: 4px;
+}
+.dashboard-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.desk-links-panel {
+  background: #101420;
+  border: 1.5px solid #2d426f;
+  box-shadow: 0 4px 24px #0005;
+  border-radius: 8px;
+  max-width: 500px;
+  width: 100%;
+  padding: 24px;
+  color: #cde0ff;
+}
+
+.desk-links-panel h2 {
+  font-size: 1.4rem;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #cbe3ff;
+  text-shadow: 0 0 5px #3050a0;
+}
+
+.desk-section {
+  margin-bottom: 26px;
+}
+
+.desk-title {
+  background: #182040;
+  color: #fff;
+  font-weight: bold;
+  padding: 7px 12px;
+  font-size: 1.02rem;
+  margin-bottom: 6px;
+  border-radius: 4px;
+  letter-spacing: 0.6px;
+  text-shadow: 0 0 6px #0009;
+}
+
+.desk-section a {
+  display: block;
+  padding: 8px 12px;
+  background: #0f131d;
+  color: #8cbfff;
+  text-decoration: none;
+  margin-bottom: 4px;
+  border-left: 3px solid #3050a0;
+  border-radius: 4px;
+  transition: background 0.2s, color 0.2s;
+}
+
+.desk-section a:hover {
+  background: #1c2947;
+  color: #fff;
+  border-left-color: #4983ff;
+}
+.signature-box {
   margin: 20px 16px;
   padding: 16px;
   background: #1a1e3a;
@@ -124,6 +342,130 @@
   padding-right: 10px;
 }
 
+.divbox {
+  background: #21252b;
+  border: 2px solid #484e5b;
+  border-radius: 9px;
+  box-shadow: 0 2px 9px #0003;
+  padding: 2em 2.5em 1.5em;
+  margin: 20px auto;
+  max-width: 3300px;
+  color: #e1e1e6;
+  font-family: 'Segoe UI', Arial, sans-serif;
+}
+.pilot-search-title {
+  font-size: 1.5em;
+  font-weight: 600;
+  margin-bottom: 1em;
+  color: #dcdcdc;
+}
+#pilotLookupForm {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 1.2em;
+}
+#pilotNameDropdown {
+  flex: 1;
+  padding: 10px 8px;
+  border: 1.5px solid #3d4250;
+  border-radius: 6px;
+  background: #191c22;
+  color: #f7f7fb;
+  font-size: 1em;
+}
+#pilotSearchButton {
+  background: linear-gradient(90deg, #4983ea 0, #2a4970 100%);
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 1px 3px #1a1a2a22;
+  transition: filter 0.18s;
+}
+#pilotSearchButton:hover {
+  filter: brightness(1.09) contrast(1.08);
+}
+#results {
+  font-size: 1.07em;
+  background: #1a1b20;
+  border-radius: 7px;
+  padding: 1em 1.3em;
+  min-height: 80px;
+  box-shadow: 0 0 0.4em #00000033;
+  color: #dde5f3;
+  overflow-x: auto;
+}
+#results ul {
+  margin: .25em 0 .6em 0;
+  padding-left: 1.1em;
+  text-align: left;
+}
+#results li {
+  margin-bottom: 2px;
+}
+#results b {
+  color: #7eacfc;
+}
+#results i {
+  color: #ffd183c2;
+}
+
+
+
+.pilot-lookup-results-header {
+  display: flex;
+  gap: 2.5em;
+  margin-bottom: 2em;
+  flex-wrap: wrap;
+}
+.pilot-lookup-results-header > div {
+  flex: 1;
+  min-width: 210px;
+  background: #232534;
+  border-radius: 7px;
+  padding: 1.0em 1.3em;
+  box-shadow: 0 1px 4px #0001;
+}
+.pilot-lookup-results-cols {
+  display: flex;
+  gap: 2.5em;
+  margin-top: 0.7em;
+  flex-wrap: wrap;
+}
+.pilot-lookup-results-col {
+  flex: 1;
+  min-width: 190px;
+  background: #1b1e28;
+  border-radius: 7px;
+  padding: 0.8em 1.1em;
+  box-shadow: 0 1px 3px #0002;
+}
+.pilot-lookup-results-col b {
+  color: #7eacfc;
+  font-size: 1.06em;
+}
+.pilot-lookup-results-col ul {
+  margin: .3em 0 .6em 0; 
+  padding-left: 1.1em;
+}
+.pilot-lookup-results-col i {
+  color: #ffd183c2;
+}
+
+#pilotNameInput {
+  flex: 1;
+  padding: 10px 8px;
+  border: 1.5px solid #3d4250;
+  border-radius: 6px;
+  background: #191c22;
+  color: #f7f7fb;
+  font-size: 1em;
+}
+
+
 .signature-entry button {
   padding: 4px 10px;
   background: #2e5eff;
@@ -141,11 +483,14 @@
   transform: scale(0.95);
 }
 
+
     .myHideableSection { display: none; }
     .myHideableSection.active { display: block; }
     .sidebar::-webkit-scrollbar { width: 8px; }
     .sidebar::-webkit-scrollbar-thumb { background: #222c47; border-radius: 8px; }
   </style>
+
+
 </head>
 <body>
   <!-- Sidebar with Logo and Navigation Accordion -->
@@ -269,7 +614,7 @@
       <div class="mb-3">
         <h6 class="text-light text-uppercase mb-2" style="font-size: 0.9rem;">✈️ Fixed Wing</h6>
         <div class="d-flex flex-wrap gap-2">
-            <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[FIXED] FTS 1</button>
+            <button class="btn btn-secondary" onclick="showSection('COMINGSOON1', this)">[FIXED] FTS 1</button>
             <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[FIXED] FTS 2</button>
             <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[FIXED] FTS 3</button>
             <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[FIXED] FTS 4</button>
@@ -307,8 +652,8 @@
       <div class="mb-3">
         <h6 class="text-light text-uppercase mb-2" style="font-size: 0.9rem;">💼 Casefile Documents</h6>
         <div class="d-flex flex-wrap gap-2">
-            <button class="btn btn-secondary" onclick="showSection('caseFileGen', this)">[AVAP] Casefile</button>
-            <button class="btn btn-secondary" onclick="showSection('housingInvestigationGen', this)">[AVAP] Housing Database</button>
+            <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[AVAP] Casefile</button>
+            <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[AVAP] Housing Database</button>
             <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[AVAP] Blackbox</button>
         </div>
       </div>
@@ -330,7 +675,7 @@
         <h6 class="text-light text-uppercase mb-2" style="font-size: 0.9rem;">❗Pilot Infraction Sheets</h6>
         <div class="d-flex flex-wrap gap-2">
             <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[PILOT] Infraction</button>
-            <button class="btn btn-secondary" onclick="showSection('pilotSuspensionGen', this)">[PILOT] Suspension</button>
+            <button class="btn btn-secondary" onclick="showSection('COMINGSOON', this)">[PILOT] Suspension</button>
 
         </div>
       </div>
@@ -363,6 +708,40 @@
     </div>
   </div>
 </div>
+      <!-- SAAA Database -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingD">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseD" aria-expanded="false" aria-controls="collapseD">
+            SAAA Database
+          </button>
+        </h2>
+        <div id="collapseD" class="accordion-collapse collapse" aria-labelledby="headingD" data-bs-parent="#tocAccordion">
+          <div class="accordion-body d-flex flex-wrap gap-2">
+            <button class="btn btn-secondary" onclick="showSection('Static-dash', this)">[DATABASE] Static's</button>
+            <button class="btn btn-secondary" onclick="showSection('Roster', this)">[DATABASE] Roster's</button>
+            <button class="btn btn-secondary" onclick="showSection('OFT', this)">[DATABASE] OFT Student Status</button>
+            <button class="btn btn-secondary" onclick="showSection('OAS', this)">[DATABASE] Student Status</button>
+            <button class="btn btn-secondary" onclick="showSection('ATC', this)">[DATABASE] Air Traffic Control</button>
+            <button class="btn btn-secondary" onclick="showSection('AVAP', this)">[DATABASE] AVAP</button>
+          </div>
+        </div>
+      </div>
+      <!-- SAAA Search -->
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingS">
+          <button class="accordion-button collapseS" type="button" data-bs-toggle="collapse" data-bs-target="#collapseS" aria-expanded="false" aria-controls="collapseS">
+            SAAA Database Search
+          </button>
+        </h2>
+        <div id="collapseS" class="accordion-collapse collapse" aria-labelledby="headingS" data-bs-parent="#tocAccordion">
+          <div class="accordion-body d-flex flex-wrap gap-2">
+            <button class="btn btn-secondary" onclick="showSection('ATCSearch', this)">[DATABASE] ATC Search</button>
+            <button class="btn btn-secondary" onclick="showSection('OFTSearch', this)">[DATABASE] OFT Search</button>
+            <button class="btn btn-secondary" onclick="showSection('OASSearch', this)">[DATABASE] Student Status</button>
+            <button class="btn btn-secondary" onclick="showSection('AVAPSearch', this)">[DATABASE] AVAP Search</button>
+          </div>
+        </div>
+      </div>
 
     </div>
 <div class="signature-box">
@@ -410,12 +789,9 @@
 
   </aside>
 
-
-
   <!-- Main Content Area -->
   <main class="main-content">
     <div class="header-title">SAAA Paperwork Generator</div>
- 
  <script>
 function copySig(link, btn) {
   navigator.clipboard.writeText(link).then(() => {
@@ -429,6 +805,8 @@ function copySig(link, btn) {
   });
 }
 </script>
+
+
 <div id="atcShiftLogGen" class="container mt-3 myHideableSection" style="max-width: 900px;">
   <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
     <div class="card-header text-center">
@@ -461,13 +839,13 @@ function copySig(link, btn) {
         <div class="mb-3 row align-items-center">
           <label for="txtatcstart" class="col-sm-4 col-form-label fw-bold text-end">Shift Start Time (UTC):</label>
           <div class="col-sm-8">
-            <input type="text" id="txtatcstart" class="form-control" required />
+            <input type="time" id="txtatcstart" class="form-control" required />
           </div>
         </div>
         <div class="mb-3 row align-items-center">
           <label for="txtatcend" class="col-sm-4 col-form-label fw-bold text-end">Shift End Time (UTC):</label>
           <div class="col-sm-8">
-            <input type="text" id="txtatcend" class="form-control" required />
+            <input type="time" id="txtatcend" class="form-control" required />
           </div>
         </div>
         <!-- ATC Entries -->
@@ -868,809 +1246,6 @@ ${message}
     successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
   }
 });
-</script>
-<div id="housingInvestigationGen" class="container mt-3 myHideableSection" style="max-width: 700px;">
-  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
-    <div class="card-header text-center">
-      <h4>Housing Investigation Request Generator</h4>
-    </div>
-    <div class="card-body">
-      <form id="housingInvestigationForm" autocomplete="off" novalidate>
-        <!-- Investigator Details -->
-        <div class="mb-3 row align-items-center">
-          <label for="investigators" class="col-sm-4 col-form-label fw-bold text-end">Investigator(s):</label>
-          <div class="col-sm-8">
-            <input type="text" id="investigators" class="form-control" required />
-          </div>
-        </div>
-        <div class="mb-3 row align-items-center">
-          <label for="investigatorRank" class="col-sm-4 col-form-label fw-bold text-end">Rank:</label>
-          <div class="col-sm-8">
-            <input type="text" id="investigatorRank" class="form-control" required />
-          </div>
-        </div>
-        <!-- Housing Details -->
-        <div class="mb-3 row align-items-center">
-          <label for="addresses" class="col-sm-4 col-form-label fw-bold text-end">Address(s):</label>
-          <div class="col-sm-8">
-            <input type="text" id="addresses" class="form-control" required />
-          </div>
-        </div>
-        <div class="mb-3 row align-items-center">
-          <label for="invDate" class="col-sm-4 col-form-label fw-bold text-end">Date:</label>
-          <div class="col-sm-8">
-            <input type="date" id="invDate" class="form-control" required />
-          </div>
-        </div>
-        <!-- Request Details -->
-        <div class="mb-3 row align-items-center">
-          <label for="casefile" class="col-sm-4 col-form-label fw-bold text-end">Casefile:</label>
-          <div class="col-sm-8">
-            <input type="text" id="casefile" class="form-control" placeholder="If Applicable" />
-          </div>
-        </div>
-        <div class="mb-3 fw-bold">Reason:<span class="fw-normal ms-2">(Mark the correct box)</span></div>
-        <div class="ms-4 mb-3">
-          <div class="form-check"><input class="form-check-input" type="checkbox" id="reasonCasefile"><label class="form-check-label" for="reasonCasefile">Address listed under an active Casefile</label></div>
-          <div class="form-check"><input class="form-check-input" type="checkbox" id="reasonHelipad"><label class="form-check-label" for="reasonHelipad">Unregistered Helipad</label></div>
-          <div class="form-check"><input class="form-check-input" type="checkbox" id="reasonHeliStorage"><label class="form-check-label" for="reasonHeliStorage">Possible storage of a helicopter without active helipad</label></div>
-          <div class="form-check"><input class="form-check-input" type="checkbox" id="reasonIncident"><label class="form-check-label" for="reasonIncident">Address is listed on an Incident Report.</label></div>
-          <div class="form-check"><input class="form-check-input" type="checkbox" id="reasonDeviation"><label class="form-check-label" for="reasonDeviation">Deviation Approved by AVAP Command</label></div>
-        </div>
-        <!-- Generate -->
-        <div class="text-center">
-          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
-          <p id="housingInvestigationCopySuccess" class="mt-2 text-success fw-semibold"></p>
-        </div>
-        <!-- BBCode Output -->
-        <div class="mt-4">
-          <label for="housingInvestigationBBOutput" class="form-label fw-bold">BBCode Output:</label>
-          <textarea id="housingInvestigationBBOutput" class="form-control" rows="18" readonly placeholder="BBCode will appear here"></textarea>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-<script>
-function formatDateDDMMMYYYY(dateStr) {
-  if (!dateStr) return '';
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  const [y, m, d] = dateStr.split('-');
-  return `${d}/${months[parseInt(m,10)-1]}/${y}`;
-}
-
-document.getElementById('housingInvestigationForm').addEventListener('submit', function(e) {
-  e.preventDefault();
-  const successMsg = document.getElementById('housingInvestigationCopySuccess');
-  successMsg.textContent = '';
-
-  if (!this.checkValidity()) {
-    this.reportValidity();
-    return;
-  }
-
-  const investigators = document.getElementById('investigators').value.trim();
-  const investigatorRank = document.getElementById('investigatorRank').value.trim();
-  const addresses = document.getElementById('addresses').value.trim();
-  const rawDate = document.getElementById('invDate').value;
-  const date = formatDateDDMMMYYYY(rawDate);
-  const casefile = document.getElementById('casefile').value.trim();
-
-  const reasons = [
-    { chk:'reasonCasefile', text:'Address listed under an active Casefile' },
-    { chk:'reasonHelipad', text:'Unregistered Helipad' },
-    { chk:'reasonHeliStorage', text:'Possible storage of a helicopter without active helipad' },
-    { chk:'reasonIncident', text:'Address is listed on an Incident Report.' },
-    { chk:'reasonDeviation', text:'Deviation Approved by AVAP Command' }
-  ];
-
-  let reasonBB = '';
-  reasons.forEach(r => {
-    reasonBB += `[cb${document.getElementById(r.chk).checked ? 'x' : ''}] ${r.text}\n`;
-  });
-
-  const bbcode = `[img]https://i.imgur.com/0sYXAmj.png[/img]
-[divbox=#091f62][b][color=white]Investigator Details[/color][/b][/divbox]
-[divbox=white]
-[b]Investigator(s):[/b] ${investigators}
-
-[b]Rank:[/b] ${investigatorRank}
-[/divbox]
-[divbox=#091f62][b][color=white]Housing Details[/color][/b][/divbox]
-[divbox=white]
-[b]Address(s):[/b] ${addresses}
-
-[b]Date:[/b] ${date}
-[/divbox]
-[divbox=#091f62][b][color=white]Request[/color][/b][/divbox]
-[divbox=white]
-[b]Casefile:[/b] ${casefile || '[i]If Applicable[/i]'}
-
-[b]Reason:[/b] [i]Mark the correct box[/i]
-${reasonBB}
-[/divbox]
-[img]https://i.imgur.com/3DUWGY1.png[/img]`;
-
-  const outputArea = document.getElementById('housingInvestigationBBOutput');
-  outputArea.value = bbcode.trim();
-  outputArea.focus();
-  outputArea.select();
-
-  try {
-    navigator.clipboard.writeText(bbcode).then(() => {
-      successMsg.textContent = 'Copied to clipboard!';
-    }, () => {
-      successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
-    });
-  } catch {
-    successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
-  }
-});
-</script>
-<div id="caseFileGen" class="container mt-3 myHideableSection" style="max-width: 950px;">
-  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
-    <div class="card-header text-center">
-      <h4>Case File Generator</h4>
-    </div>
-    <div class="card-body">
-      <form id="caseFileForm" autocomplete="off" novalidate>
-        <!-- Case Number -->
-        <div class="mb-3 row align-items-center">
-          <label for="caseNumber" class="col-sm-4 col-form-label fw-bold text-end">Case Number:</label>
-          <div class="col-sm-8">
-            <input type="text" id="caseNumber" class="form-control" placeholder="#XXXX" required />
-          </div>
-        </div>
-        <!-- Lead Investigator -->
-        <div class="mb-3 row align-items-center">
-          <label for="leadInvestigator" class="col-sm-4 col-form-label fw-bold text-end">Lead Investigator:</label>
-          <div class="col-sm-8">
-            <input type="text" id="leadInvestigator" class="form-control" required />
-          </div>
-        </div>
-        <!-- Other Investigators -->
-        <div class="mb-3 row align-items-center">
-          <label for="otherInvestigators" class="col-sm-4 col-form-label fw-bold text-end">Other Investigator(s):</label>
-          <div class="col-sm-8">
-            <input type="text" id="otherInvestigators" class="form-control" placeholder="Fname Lname, N/A" required />
-          </div>
-        </div>
-        <!-- Related Links -->
-        <fieldset class="mb-4">
-          <legend class="fw-bold">Related Links</legend>
-          <div class="input-group mb-2">
-            <input type="text" id="relatedLinkText" class="form-control" placeholder="Link Title" />
-            <input type="text" id="relatedLinkUrl" class="form-control" placeholder="URL" />
-            <button type="button" id="addRelatedLinkBtn" class="btn btn-primary">Add Link</button>
-          </div>
-          <ul id="relatedLinkList" class="list-group list-group-flush" style="max-height: 90px; overflow-y: auto;"></ul>
-          <button type="button" id="removeRelatedLinkBtn" class="btn btn-danger mt-2">Remove Last Link</button>
-        </fieldset>
-        <hr>
-        <!-- Pilot Names -->
-        <div class="mb-3 row align-items-center">
-          <label for="mainPilots" class="col-sm-4 col-form-label fw-bold text-end">Pilot Name(s):</label>
-          <div class="col-sm-8">
-            <input type="text" id="mainPilots" class="form-control" placeholder="Separate with commas" required />
-          </div>
-        </div>
-        <!-- Main Pilot's Phone -->
-        <div class="mb-3 row align-items-center">
-          <label for="mainPilotPhone" class="col-sm-4 col-form-label fw-bold text-end">Main Pilot's Phone Number:</label>
-          <div class="col-sm-8">
-            <input type="text" id="mainPilotPhone" class="form-control" placeholder="#1234567" required />
-          </div>
-        </div>
-        <!-- Date and Time -->
-        <div class="mb-3 row align-items-center">
-          <label for="incidentDate" class="col-sm-4 col-form-label fw-bold text-end">Date and Time:</label>
-          <div class="col-sm-8">
-            <input type="text" id="incidentDate" class="form-control" placeholder="01/MON/202X @ 00:00 [ooc]UTC[/ooc] - Unknown" required />
-          </div>
-        </div>
-        <!-- Location -->
-        <div class="mb-3 row align-items-center">
-          <label for="location" class="col-sm-4 col-form-label fw-bold text-end">Location:</label>
-          <div class="col-sm-8">
-            <input type="text" id="location" class="form-control" placeholder="Unknown" required />
-          </div>
-        </div>
-        <!-- Others Involved -->
-        <fieldset class="mb-4">
-          <legend class="fw-bold">Other Person(s) Involved</legend>
-          <div class="input-group mb-2">
-            <input type="text" id="otherInvolvedInput" class="form-control" placeholder="Name or N/A" />
-            <button type="button" id="addOtherInvolvedBtn" class="btn btn-primary">Add Person</button>
-          </div>
-          <ul id="otherInvolvedList" class="list-group list-group-flush" style="max-height: 90px; overflow-y: auto;"></ul>
-          <button type="button" id="removeOtherInvolvedBtn" class="btn btn-danger mt-2">Remove Last Person</button>
-        </fieldset>
-        <!-- Incident Description -->
-        <div class="mb-3">
-          <label for="incidentDescription" class="form-label fw-bold">Detailed Description of Incident:</label>
-          <textarea id="incidentDescription" class="form-control" rows="3" required></textarea>
-        </div>
-        <!-- Evidence -->
-        <fieldset class="mb-4">
-          <legend class="fw-bold">Evidence (gathered throughout investigation)</legend>
-          <div class="input-group mb-2">
-            <input type="text" id="evidenceTitle" class="form-control" placeholder="Exhibit A" />
-            <input type="text" id="evidenceUrl" class="form-control" placeholder="URL (paste evidence link)" />
-            <input type="text" id="evidenceTimestamp" class="form-control" placeholder="01/MON/202X @ 00:00 [ooc]UTC[/ooc]" />
-            <button type="button" id="addEvidenceBtn" class="btn btn-primary">Add Evidence</button>
-          </div>
-          <ul id="evidenceList" class="list-group list-group-flush" style="max-height: 120px; overflow-y: auto;"></ul>
-          <button type="button" id="removeEvidenceBtn" class="btn btn-danger mt-2">Remove Last Evidence</button>
-        </fieldset>
-        <!-- Investigation Notes -->
-        <div class="mb-3">
-          <label for="investigationNotes" class="form-label fw-bold">Investigation Notes:</label>
-          <textarea id="investigationNotes" class="form-control" rows="2" placeholder="DD/MMM/YYYY Notes -Name"></textarea>
-        </div>
-        <!-- Investigation Checklist -->
-        <div class="mb-3">
-          <div class="fw-bold mb-1">Investigation Checklist</div>
-          <div class="mb-2" style="font-size: 0.97em;">
-            <b>Follow these steps throughout the investigation and mark each box with <b>[[color=#FF0000]X[/color]]</b> once you've completed that step. Mark <b>[[color=#FF0000]N/A[/color]]</b> if not applicable. All steps are mandatory unless otherwise stated.</b>
-          </div>
-          <div class="ms-3">
-            <div class="form-check"><input type="checkbox" class="form-check-input" id="step1"><label class="form-check-label" for="step1">Mark license removal request as under investigation.</label></div>
-            <div class="form-check"><input type="checkbox" class="form-check-input" id="step2"><label class="form-check-label" for="step2">Suspend pilot's license.</label></div>
-            <div class="form-check"><input type="checkbox" class="form-check-input" id="step3"><label class="form-check-label" for="step3">Gather and attach all pertinent evidence.</label></div>
-            <div class="form-check"><input type="checkbox" class="form-check-input" id="step4"><label class="form-check-label" for="step4">Request the full arrest report and attach it as pertinent evidence.</label></div>
-            <div class="form-check"><input type="checkbox" class="form-check-input" id="step5"><label class="form-check-label" for="step5">Bring in the pilot(s) for investigation <u><b>in person</b></u> and record audio; have them clearly and audibly state name, date/time, and that they're aware the conversation is being recorded.</label></div>
-            <div class="form-check"><input type="checkbox" class="form-check-input" id="step6"><label class="form-check-label" for="step6">Transcribe the recorded conversation and attach as evidence.</label></div>
-            <div class="form-check"><input type="checkbox" class="form-check-input" id="step7"><label class="form-check-label" for="step7">Reach out to all involved parties <u><b>not</b></u> the pilot(s) and attach communications as evidence.</label></div>
-            <div class="form-check"><input type="checkbox" class="form-check-input" id="step8"><label class="form-check-label" for="step8">Finalize all notes/documentation relevant to the case.</label></div>
-            <div class="form-check"><input type="checkbox" class="form-check-input" id="step9"><label class="form-check-label" for="step9">Submit the case file for final review by a supervisor.</label></div>
-          </div>
-        </div>
-        <!-- Submit -->
-        <div class="text-center">
-          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
-          <p id="caseFileCopySuccess" class="mt-2 text-success fw-semibold"></p>
-        </div>
-        <!-- BBCode -->
-        <div class="mt-4">
-          <label for="caseFileBBOutput" class="form-label fw-bold">BBCode Output:</label>
-          <textarea id="caseFileBBOutput" class="form-control" rows="38" readonly placeholder="BBCode will appear here"></textarea>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-<script>
-function formatDateDDMMMYYYY(dateStr) {
-  if (!dateStr) return '';
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  const [y, m, d] = dateStr.split('-');
-  return `${d}/${months[parseInt(m,10)-1]}/${y}`;
-}
-
-(() => {
-  // Related Links dynamic list
-  const addRelatedLinkBtn = document.getElementById('addRelatedLinkBtn');
-  const removeRelatedLinkBtn = document.getElementById('removeRelatedLinkBtn');
-  const relatedLinkText = document.getElementById('relatedLinkText');
-  const relatedLinkUrl = document.getElementById('relatedLinkUrl');
-  const relatedLinkList = document.getElementById('relatedLinkList');
-
-  addRelatedLinkBtn.addEventListener('click', () => {
-    const text = relatedLinkText.value.trim();
-    const url = relatedLinkUrl.value.trim();
-    if (!text || !url) {
-      alert('Please enter link title and URL.');
-      return;
-    }
-    const li = document.createElement('li');
-    li.className = 'list-group-item bg-light text-dark';
-    li.innerHTML = `${text} | ${url}`;
-    relatedLinkList.appendChild(li);
-    relatedLinkText.value = '';
-    relatedLinkUrl.value = '';
-    relatedLinkText.focus();
-  });
-  removeRelatedLinkBtn.addEventListener('click', () => {
-    if (relatedLinkList.lastChild) relatedLinkList.removeChild(relatedLinkList.lastChild);
-  });
-
-  // Others Involved dynamic list
-  const addOtherInvolvedBtn = document.getElementById('addOtherInvolvedBtn');
-  const removeOtherInvolvedBtn = document.getElementById('removeOtherInvolvedBtn');
-  const otherInvolvedInput = document.getElementById('otherInvolvedInput');
-  const otherInvolvedList = document.getElementById('otherInvolvedList');
-
-  addOtherInvolvedBtn.addEventListener('click', () => {
-    const val = otherInvolvedInput.value.trim();
-    if (!val) {
-      alert('Please enter a name or N/A.');
-      return;
-    }
-    const li = document.createElement('li');
-    li.className = 'list-group-item bg-light text-dark';
-    li.textContent = val;
-    otherInvolvedList.appendChild(li);
-    otherInvolvedInput.value = '';
-    otherInvolvedInput.focus();
-  });
-  removeOtherInvolvedBtn.addEventListener('click', () => {
-    if (otherInvolvedList.lastChild) otherInvolvedList.removeChild(otherInvolvedList.lastChild);
-  });
-
-  // Evidence dynamic list
-  const addEvidenceBtn = document.getElementById('addEvidenceBtn');
-  const removeEvidenceBtn = document.getElementById('removeEvidenceBtn');
-  const evidenceTitle = document.getElementById('evidenceTitle');
-  const evidenceUrl = document.getElementById('evidenceUrl');
-  const evidenceTimestamp = document.getElementById('evidenceTimestamp');
-  const evidenceList = document.getElementById('evidenceList');
-
-  addEvidenceBtn.addEventListener('click', () => {
-    const title = evidenceTitle.value.trim();
-    const url = evidenceUrl.value.trim();
-    const ts = evidenceTimestamp.value.trim();
-    if (!title || !url || !ts) {
-      alert('Please fill in all evidence fields.');
-      return;
-    }
-    const li = document.createElement('li');
-    li.className = 'list-group-item bg-light text-dark';
-    li.innerHTML = `${title} | ${url} | ${ts}`;
-    evidenceList.appendChild(li);
-    evidenceTitle.value = '';
-    evidenceUrl.value = '';
-    evidenceTimestamp.value = '';
-    evidenceTitle.focus();
-  });
-  removeEvidenceBtn.addEventListener('click', () => {
-    if (evidenceList.lastChild) evidenceList.removeChild(evidenceList.lastChild);
-  });
-
-  // Form submit
-  document.getElementById('caseFileForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const successMsg = document.getElementById('caseFileCopySuccess');
-    successMsg.textContent = '';
-
-    if (!this.checkValidity()) {
-      this.reportValidity();
-      return;
-    }
-
-    // Gather fields
-    const caseNumber = document.getElementById('caseNumber').value.trim();
-    const leadInvestigator = document.getElementById('leadInvestigator').value.trim();
-    const otherInvestigators = document.getElementById('otherInvestigators').value.trim();
-
-    let relatedLinks = '';
-    relatedLinkList.querySelectorAll('li').forEach(li => {
-      // Split on | for label/url; fallback to text for legacy reasons
-      const parts = li.textContent.split('|');
-      if (parts.length === 2) {
-        relatedLinks += `[*][url=${parts[1].trim()}]${parts[0].trim()}[/url]\n`;
-      } else {
-        relatedLinks += `[*]${li.textContent}\n`;
-      }
-    });
-    if (!relatedLinks) {
-      // Default to example
-      relatedLinks = "[*][url=LINK]Flight Log and Incident Report[/url]\n[*][url=LINK]License Removal Request[/url]\n";
-    }
-
-    const mainPilots = document.getElementById('mainPilots').value.trim();
-    const pilotsArr = mainPilots.split(',').map(s => s.trim()).filter(Boolean);
-    const pilotList = pilotsArr.length
-      ? pilotsArr.map(p => `[*]${p}`).join('\n')
-      : "[*]Fname Lname\n[*]Fname Lname";
-
-    const mainPilotPhone = document.getElementById('mainPilotPhone').value.trim() || "#1234567";
-    const incidentDate = document.getElementById('incidentDate').value.trim() || "01/MON/202X @ 00:00 [ooc]UTC[/ooc] - Unknown";
-    const location = document.getElementById('location').value.trim() || "Unknown";
-
-    // Others Involved
-    let otherList = '';
-    otherInvolvedList.querySelectorAll('li').forEach(li => {
-      otherList += `[*]${li.textContent}\n`;
-    });
-    if (!otherList.trim()) {
-      otherList = "[*]N/A\n";
-    }
-
-    const incidentDescription = document.getElementById('incidentDescription').value.trim();
-
-    // Evidence
-    let evidenceBB = '';
-    evidenceList.querySelectorAll('li').forEach(li => {
-      // Expect title | url | ts
-      const parts = li.textContent.split('|');
-      if (parts.length === 3) {
-        evidenceBB += `[*][url=${parts[1].trim()}]${parts[0].trim()}[/url] - ${parts[2].trim()}\n`;
-      } else {
-        evidenceBB += `[*]${li.textContent}\n`;
-      }
-    });
-    if (!evidenceBB) {
-      // Default to example
-      evidenceBB = "[*][url=LINK]Exhibit A[/url] - 01/MON/202X @ 00:00 [ooc]UTC[/ooc]\n[*][url=LINK]Exhibit B[/url] - 01/MON/202X @ 00:00 [ooc]UTC[/ooc]\n[*][url=LINK]Exhibit C[/url] - 01/MON/202X @ 00:00 [ooc]UTC[/ooc]\n";
-    }
-
-    // Notes
-    const investigationNotes = document.getElementById('investigationNotes').value.trim() || "[i]Add investigations here in the format: DD/MMM/YYYY Notes -Name[/i]";
-
-    // Checklist
-    function checklistVal(id) {
-      return document.getElementById(id).checked
-        ? "[[color=#FF0000]X[/color]]"
-        : "[[color=#FF0000] [/color]]";
-    }
-    const checklistArray = [
-      `${checklistVal('step1')} Mark license removal request as under investigation.`,
-      `${checklistVal('step2')} Suspend pilot's license.`,
-      `${checklistVal('step3')} Gather and attach all pertinent evidence.`,
-      `${checklistVal('step4')} Request the full arrest report and attach it as pertinent evidence.`,
-      `${checklistVal('step5')} Bring in the pilot(s) for investigation [u][b]in person[/b][/u] and record audio...`,
-      `${checklistVal('step6')} Transcribe the recorded conversation and attach as evidence.`,
-      `${checklistVal('step7')} Reach out to all involved parties [u][b]not[/b][/u] the pilot(s) and attach communications as evidence.`,
-      `${checklistVal('step8')} Finalize all notes/documentation relevant to the case.`,
-      `${checklistVal('step9')} Submit the case file for final review by a supervisor.`
-    ];
-    const checklistBB = checklistArray.map(step => `[b]${step}[/b]`).join('\n');
-
-    const bbcode = `[img]https://i.imgur.com/iav2fMg.png[/img]
-[divbox=#091f62][b][color=white]CASE FILE INFORMATION[/color][/b][/divbox]
-[divbox=white]
-[list=none]
-
-[b]Case Number:[/b] ${caseNumber}
-
-[b]Lead Investigator:[/b] ${leadInvestigator}
-
-[b]Other Investigator(s):[/b] ${otherInvestigators}
-
-[list]
-${relatedLinks}[/list]
-[/list]
-[/divbox]
-
-[divbox=#091f62][b][color=white]INCIDENT INFORMATION[/color][/b][/divbox]
-[divbox=white]
-[list=none]
-
-[b]Pilot Name(s):[/b]
-[list]
-${pilotList}
-[/list]
-
-[b]Main Pilot's Phone Number:[/b] ${mainPilotPhone}
-
-[b]Date and Time:[/b] ${incidentDate}
-
-[b]Location:[/b] ${location}
-
-[b]Other Person(s) Involved:[/b]
-[list]
-${otherList}[/list]
-
-[b]Detailed Description of Incident:[/b]
-${incidentDescription}
-
-[b]Evidence:[/b] (UPDATE HERE AS MORE IS GATHERED THROUGHOUT INVESTIGATION)
-[list]
-${evidenceBB}[/list]
-[/list]
-[/divbox]
-
-[divbox=#091f62][b][color=white]INVESTIGATION NOTES[/color][/b][/divbox]
-[divbox=white]
-[list=none]
-${investigationNotes}
-[/list]
-[/divbox]
-
-[divbox=#091f62][b][color=white]INVESTIGATION CHECKLIST[/color][/b][/divbox]
-[divbox=white]
-[list=none]
-
-[b]Follow these steps throughout the investigation and mark each box with [b][[color=#FF0000]X[/color]][/b] once you've completed that step. Mark [b][[color=#FF0000]N/A[/color]][/b] if it is not applicable to this case. All steps are mandatory unless stated otherwise.[/b]
-
-[list=none]
-${checklistBB}
-[/list]
-[/list]
-[/divbox]
-
-[divbox=#091f62][b][color=white]RESPONSE FORMATS[/color][/b][/divbox]
-[divbox=white]
-[list=none]
-
-[b]Submit for Review[/b]
-[spoiler=Code][code]
-[img]https://i.imgur.com/ZFpeXl3.png[/img]
-[divbox=white]
-[img]https://i.imgur.com/3i8Bk3M.png[/img][aligntable=right,350,0,0,0,0,#FFFFFF][right][font=Arial][b]
-[size=140]San Andreas Aviation Administration[/size][/b]
-[size=80]2 New Empire Way, Los Santos International Airport, Los Santos.[/size][/font][/right][/aligntable]
-[hr]
-[list=none]
-
-[b][mention][/mention][/b]
-
-I've documented everything to the best of my ability and believe that it is now ready for review by a member of the supervisory staff. Following this documentation and investigation, I believe the proper course of action to take against [Mr./Ms. Pilot] is to [suspend/revoke their pilot's license. | leave their license intact.]
-
-[/list]
-[hr][/hr]
-[divbox=white]
-[color=#FF0000]By signing this document, I solemnly swear that all information documented and submitted has been confirmed to be true to the best of my ability. I understand that all of the information within this case file is fully confidential and may not be shown outside of this case file. Additionally, I understand that if I falsify, modify, or otherwise obstruct evidence in this investigation, I am liable to prosecution by the San Andreas Aviation Administration in a court of law.[/color]
-[/divbox]
-[list=none]
-[b]Signature:[/b]
-
-[fimg=137,44]https://i.imgur.com/9gXEM4H.png[/fimg]
-[i][size=105]Gordon Graves[/size][/i]
-
-[/divbox]
-[img]https://i.imgur.com/ZFpeXl3.png[/img]
-[/code][/spoiler]
-
-[spoiler=Live Example]
-[img]https://i.imgur.com/ZFpeXl3.png[/img]
-[divbox=white]
-[img]https://i.imgur.com/3i8Bk3M.png[/img][aligntable=right,350,0,0,0,0,#FFFFFF][right][font=Arial][b]
-[size=140]San Andreas Aviation Administration[/size][/b]
-[size=80]2 New Empire Way, Los Santos International Airport, Los Santos.[/size][/font][/right][/aligntable]
-[hr]
-[list=none]
-
-[b][mention][/mention][/b]
-
-I've documented everything to the best of my ability and believe that it is now ready for review by a member of the supervisory staff. Following this documentation and investigation, I believe the proper course of action to take against [Mr./Ms. Pilot] is to [suspend/revoke their pilot's license. | leave their license intact.]
-
-[/list]
-[hr][/hr]
-[divbox=white]
-[color=#FF0000]By signing this document, I solemnly swear that all information documented and submitted has been confirmed to be true to the best of my ability. I understand that all of the information within this case file is fully confidential and may not be shown outside of this case file. Additionally, I understand that if I falsify, modify, or otherwise obstruct evidence in this investigation, I am liable to prosecution by the San Andreas Aviation Administration in a court of law.[/color]
-[/divbox]
-[list=none]
-[b]Signature:[/b]
-
-[fimg=137,44]https://i.imgur.com/9gXEM4H.png[/fimg]
-[i][size=105]Gordon Graves[/size][/i]
-
-[/divbox]
-[img]https://i.imgur.com/ZFpeXl3.png[/img]
-[/spoiler]
-[/list]
-[/divbox]
-[img]https://i.imgur.com/ZFpeXl3.png[/img]`;
-
-    const outputArea = document.getElementById('caseFileBBOutput');
-    outputArea.value = bbcode.trim();
-    outputArea.focus();
-    outputArea.select();
-
-    try {
-      navigator.clipboard.writeText(bbcode).then(() => {
-        successMsg.textContent = 'Copied to clipboard!';
-      }, () => {
-        successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
-      });
-    } catch {
-      successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
-    }
-  });
-})();
-</script>
-
-<div id="pilotSuspensionGen" class="container mt-3 myHideableSection" style="max-width: 800px;">
-  <div class="card shadow" style="background: linear-gradient(135deg, #091f62, #003399); color: white;">
-    <div class="card-header text-center">
-      <h4>Pilot Suspension Generator</h4>
-    </div>
-    <div class="card-body">
-      <form id="pilotSuspensionForm" autocomplete="off" novalidate>
-        <!-- Suspending Official(s) -->
-        <div class="mb-3 row align-items-center">
-          <label for="suspOfficial" class="col-sm-3 col-form-label fw-bold text-end">Official(s):</label>
-          <div class="col-sm-9">
-            <input type="text" id="suspOfficial" class="form-control" required />
-          </div>
-        </div>
-        <!-- Pilot(s) -->
-        <div class="mb-3 row align-items-center">
-          <label for="pilotNames" class="col-sm-3 col-form-label fw-bold text-end">Pilot(s):</label>
-          <div class="col-sm-9">
-            <input type="text" id="pilotNames" class="form-control" required />
-          </div>
-        </div>
-        <!-- Registered Aircraft(s) -->
-        <fieldset class="mb-4">
-          <legend class="fw-bold">Registered Aircraft(s)</legend>
-          <div class="input-group mb-2">
-            <input type="text" id="aircraftInput" class="form-control" placeholder="Model - Tail Number" />
-            <button type="button" id="addAircraftBtn" class="btn btn-primary">Add Aircraft</button>
-          </div>
-          <ul id="aircraftList" class="list-group list-group-flush" style="max-height: 120px; overflow-y: auto;"></ul>
-          <button type="button" id="removeAircraftBtn" class="btn btn-danger mt-2">Remove Last Aircraft</button>
-        </fieldset>
-        <!-- Proof of Contact -->
-        <div class="mb-3 row align-items-center">
-          <label for="proofEmail" class="col-sm-3 col-form-label fw-bold text-end">Proof of Contact (Email):</label>
-          <div class="col-sm-9">
-            <textarea id="proofEmail" class="form-control" rows="2" required></textarea>
-          </div>
-        </div>
-        <!-- Pilot Log -->
-        <div class="mb-3 row align-items-center">
-          <label for="pilotLog" class="col-sm-3 col-form-label fw-bold text-end">Pilot Log Message:</label>
-          <div class="col-sm-9">
-            <textarea id="pilotLog" class="form-control" rows="2" required></textarea>
-          </div>
-        </div>
-        <!-- Grounding Log -->
-        <div class="mb-3 row align-items-center">
-          <label for="groundingLog" class="col-sm-3 col-form-label fw-bold text-end">Grounding Log (If Applicable):</label>
-          <div class="col-sm-9">
-            <input type="text" id="groundingLog" class="form-control" placeholder="Paste log or leave blank" />
-          </div>
-        </div>
-        <!-- Start Date & Time -->
-        <div class="mb-3 row align-items-center">
-          <label for="startDate" class="col-sm-3 col-form-label fw-bold text-end">Start Date & Time:</label>
-          <div class="col-sm-5">
-            <input type="date" id="startDate" class="form-control" required />
-          </div>
-          <div class="col-sm-4">
-            <input type="text" id="startTime" class="form-control" required />
-          </div>
-        </div>
-        <!-- End Date & Time -->
-        <div class="mb-3 row align-items-center">
-          <label for="endDate" class="col-sm-3 col-form-label fw-bold text-end">End Date & Time:</label>
-          <div class="col-sm-5">
-            <input type="date" id="endDate" class="form-control" required />
-          </div>
-          <div class="col-sm-4">
-            <input type="text" id="endTime" class="form-control" required />
-          </div>
-        </div>
-        <!-- Reason -->
-        <div class="mb-4 row align-items-center">
-          <label for="reason" class="col-sm-3 col-form-label fw-bold text-end">Reason:</label>
-          <div class="col-sm-9">
-            <textarea id="reason" class="form-control" rows="3" required></textarea>
-          </div>
-        </div>
-        <!-- Submit -->
-        <div class="text-center">
-          <button type="submit" class="btn btn-success px-5">Generate and Copy BBCode</button>
-          <p id="suspCopySuccess" class="mt-2 text-success fw-semibold"></p>
-        </div>
-        <!-- BBCode Output -->
-        <div class="mt-4">
-          <label for="suspBBOutput" class="form-label fw-bold">BBCode Output:</label>
-          <textarea id="suspBBOutput" class="form-control" rows="26" readonly placeholder="BBCode will appear here"></textarea>
-        </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-<script>
-function formatDateDDMMMYYYY(dateStr) {
-  if (!dateStr) return '';
-  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-  const [year, month, day] = dateStr.split('-');
-  return `${day}/${months[parseInt(month, 10) - 1]}/${year}`;
-}
-
-(() => {
-  const addAircraftBtn = document.getElementById('addAircraftBtn');
-  const removeAircraftBtn = document.getElementById('removeAircraftBtn');
-  const aircraftInput = document.getElementById('aircraftInput');
-  const aircraftList = document.getElementById('aircraftList');
-
-  addAircraftBtn.addEventListener('click', () => {
-    const val = aircraftInput.value.trim();
-    if (!val) {
-      alert('Please enter Model - Tail Number.');
-      return;
-    }
-    const li = document.createElement('li');
-    li.className = 'list-group-item bg-light text-dark';
-    li.textContent = val;
-    aircraftList.appendChild(li);
-    aircraftInput.value = '';
-    aircraftInput.focus();
-  });
-
-  removeAircraftBtn.addEventListener('click', () => {
-    if (aircraftList.lastChild) aircraftList.removeChild(aircraftList.lastChild);
-  });
-
-  document.getElementById('pilotSuspensionForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const successMsg = document.getElementById('suspCopySuccess');
-    successMsg.textContent = '';
-
-    if (!this.checkValidity()) {
-      this.reportValidity();
-      return;
-    }
-
-    const suspOfficial = document.getElementById('suspOfficial').value.trim();
-    const pilotNames = document.getElementById('pilotNames').value.trim();
-    const proofEmail = document.getElementById('proofEmail').value.trim();
-    const pilotLog = document.getElementById('pilotLog').value.trim();
-    const groundingLog = document.getElementById('groundingLog').value.trim();
-    const startDate = formatDateDDMMMYYYY(document.getElementById('startDate').value);
-    const startTime = document.getElementById('startTime').value.trim();
-    const endDate = formatDateDDMMMYYYY(document.getElementById('endDate').value);
-    const endTime = document.getElementById('endTime').value.trim();
-    const reason = document.getElementById('reason').value.trim();
-    let aircrafts = '';
-    aircraftList.querySelectorAll('li').forEach(li => {
-      aircrafts += `[*] ${li.textContent}\n`;
-    });
-    if (!aircrafts) {
-      alert('Please add at least one registered aircraft.');
-      return;
-    }
-
-    const bbcode = `[img]https://i.imgur.com/xrSYFSx.png[/img]
-[divbox=#091f62][b][color=white]Suspending Official(s)[/color][/b][/divbox]
-[divbox=white]
-[b]Official(s):[/b] ${suspOfficial}
-
-[b]Department:[/b] [color=#0040FF]AVAP[/color]/[color=#004080]ATC Command[/color]
-[/divbox]
-[divbox=#091f62][b][color=white]Pilot[/color][/b][/divbox]
-[divbox=white]
-[b]Pilot(s):[/b] ${pilotNames}
-
-[b]Registered Aircraft(s):[/b]
-[list]
-${aircrafts}[/list]
-
-[b]Proof of Contact:[/b]
-[spoiler=Email]
-${proofEmail}
-[/spoiler]
-[spoiler=Pilot Log]
-${pilotLog}
-[/spoiler]
-[/divbox]
-[divbox=#091f62][b][color=white]Suspension Details[/color][/b][/divbox]
-[divbox=white]
-[b]Grounding Log: (If Applicable)[/b] ${groundingLog}
-
-[b]Start Date & Time:[/b] ${startDate} ${startTime}
-
-[b]End Date & Time:[/b] ${endDate} ${endTime}
-
-[/divbox]
-[divbox=#091f62][b][color=white]Reason[/color][/b][/divbox]
-[divbox=white]
-[center][i]${reason}[/i][/center]
-[/divbox]
-[img]https://i.imgur.com/B0V3f7B.png[/img]`;
-
-    const outputArea = document.getElementById('suspBBOutput');
-    outputArea.value = bbcode.trim();
-    outputArea.focus();
-    outputArea.select();
-
-    try {
-      navigator.clipboard.writeText(bbcode).then(() => {
-        successMsg.textContent = 'Copied to clipboard!';
-      }, () => {
-        successMsg.textContent = 'Failed to copy automatically. Please copy manually.';
-      });
-    } catch {
-      successMsg.textContent = 'Clipboard API not supported. Please copy manually.';
-    }
-  });
-})();
 </script>
 
 
@@ -7542,27 +7117,893 @@ Current date: ${new Date().toLocaleString('en-US', {weekday:'long', year:'numeri
 });
 </script>
     
+<div id="Statics" class="container mt-3 myHideableSection" style="max-width: 2000px;">
+<div class="sheet-viewer-block">
+<iframe 
+  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQEoqQm8Zi2j7-giOm6cBBcf4BHEtGprdE5HJBknR2Rh5UgSrjf7lx-8l0-3H41vZ0V0f5SCi79KaGL/pubhtml?gid=586566396&amp;single=true&amp;widget=true&amp;headers=false" 
+  width="900" height="880" frameborder="0">
+</iframe>
+</div>
+</div>
+<div id="Roster" class="container mt-3 myHideableSection" style="max-width: 2000px;">
+<div class="sheet-viewer-block">
+<iframe 
+  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQEoqQm8Zi2j7-giOm6cBBcf4BHEtGprdE5HJBknR2Rh5UgSrjf7lx-8l0-3H41vZ0V0f5SCi79KaGL/pubhtml?gid=1312052722&amp;single=true&amp;widget=true&amp;headers=false" 
+  width="900" height="500" frameborder="0">
+</iframe>
+<iframe 
+  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQEoqQm8Zi2j7-giOm6cBBcf4BHEtGprdE5HJBknR2Rh5UgSrjf7lx-8l0-3H41vZ0V0f5SCi79KaGL/pubhtml?gid=407478428&amp;single=true&amp;widget=true&amp;headers=false" 
+  width="900" height="700" frameborder="0">
+</iframe>
+</div>
+</div>
+<div id="OFT" class="container mt-3 myHideableSection" style="max-width: 2000px;">
+<div class="sheet-viewer-block">
+<iframe 
+  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQEoqQm8Zi2j7-giOm6cBBcf4BHEtGprdE5HJBknR2Rh5UgSrjf7lx-8l0-3H41vZ0V0f5SCi79KaGL/pubhtml?gid=827711612&amp;single=true&amp;widget=true&amp;headers=false" 
+  width="900" height="1000" frameborder="0">
+</iframe>
+</div>
+</div>
+<div id="OAS" class="container mt-3 myHideableSection" style="max-width: 2000px;">
+<div class="sheet-viewer-block">
+<iframe 
+  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQEoqQm8Zi2j7-giOm6cBBcf4BHEtGprdE5HJBknR2Rh5UgSrjf7lx-8l0-3H41vZ0V0f5SCi79KaGL/pubhtml?gid=352964057&amp;single=true&amp;widget=true&amp;headers=false" 
+  width="900" height="500" frameborder="0">
+</iframe>
+</div>
+</div>
+<div id="ATC" class="container mt-3 myHideableSection" style="max-width: 2000px;">
+<div class="sheet-viewer-block">
+<iframe 
+  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQEoqQm8Zi2j7-giOm6cBBcf4BHEtGprdE5HJBknR2Rh5UgSrjf7lx-8l0-3H41vZ0V0f5SCi79KaGL/pubhtml?gid=2022608499&amp;single=true&amp;widget=true&amp;headers=false" 
+  width="900" height="1000" frameborder="0">
+</iframe>
+</div>
+</div>
+<div id="AVAP" class="container mt-3 myHideableSection" style="max-width: 2000px;">
+<div class="sheet-viewer-block">
+<iframe 
+  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQEoqQm8Zi2j7-giOm6cBBcf4BHEtGprdE5HJBknR2Rh5UgSrjf7lx-8l0-3H41vZ0V0f5SCi79KaGL/pubhtml?gid=179952315&amp;single=true&amp;widget=true&amp;headers=false" 
+  width="900" height="700" frameborder="0">
+</iframe>
+</div>
+</div>
+
+
+<div id="ATCSearch" class="container mt-3 myHideableSection" style="max-width: 3000px;">
+<div class="search-sheet-box">
+  <h3>🔍 Search the Helipad Database.</h3>
+  <input type="text" id="sheetSearchInput" placeholder="Enter a Address">
+  <button onclick="runSheetSearch()">Search</button>
+  <div id="sheetSearchResults" class="results-box">Results will appear here.</div>
+</div>
+  <div class="search-sheet-box">
+    <h3>🔍 Search the Aircraft Database.</h3>
+    <input type="text" id="sheetSearchInput2" placeholder="Enter a Name or Callsign">
+    <button onclick="runSheetSearch2()">Search</button>
+    <div id="sheetSearchResults2" class="results-box">Results will appear here.</div>
+  </div>
+<div class="divbox">
+  <div class="pilot-search-title">Pilot Lookup</div>
+  <form id="pilotLookupForm" onsubmit="event.preventDefault(); lookupPilot();">
+    <input 
+      id="pilotNameInput" 
+      list="pilotNameDatalist" 
+      placeholder="Type or select a pilot name..." 
+      autocomplete="off"
+      style="flex:1"/>
+    <datalist id="pilotNameDatalist"></datalist>
+    <button type="submit" id="pilotSearchButton">Search</button>
+  </form>
+  <div id="results"></div>
+</div>
+
+</div>
+
+
+
+</div>
+
+
+<script>
+const SHEET_ID2020 = "1tvBwOzrrljerW-lp1Suv9uPCutAuax67q3Ed-GWalnY";
+const API_KEY2020 = "AIzaSyCTscbYmfCZ_KINIp_Z6QmHQ7J3SUQOGhk";
+const sheetsInfo = {
+  aircraft:  { range: 'Aircraft Roster!A:D', ownerCol: 3, tailCol: 0 },
+  helipad:   { range: 'Helipad Roster!A:B',  ownerCol: 1, addrCol: 0 },
+  studentFS: { range: 'OFT - Student Roster!A:C', nameCol: 0, statusCol: 2 },
+  license:   { range: 'OFT - Pilots!A:C',    nameCol: 0, statusCol: 2 }
+};
+
+
+// Populate the datalist with all pilot names on page load
+window.addEventListener('DOMContentLoaded', async () => {
+  const datalist = document.getElementById('pilotNameDatalist');
+  datalist.innerHTML = '';
+  try {
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/OFT%20-%20Pilots!A2:A?key=${API_KEY}`;
+    const res = await fetch(url);
+    const { values } = await res.json();
+    if (values && values.length) {
+      datalist.innerHTML = values.map(row =>
+        `<option value="${row[0]}"></option>`
+      ).join('');
+    }
+  } catch (e) {
+    // You can handle error in loading names if you wish
+  }
+});
+
+// Helper to fetch and filter rows
+async function gfetch(sheet, info, filterFn) {
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${encodeURIComponent(info.range)}?key=${API_KEY}`;
+  const res = await fetch(url);
+  if (!res.ok) throw new Error('Could not load ' + sheet);
+  const { values } = await res.json();
+  if (!values) return [];
+  return values.slice(1).filter(filterFn);
+}
+
+async function lookupPilot() {
+  const input = document.getElementById('pilotNameInput');
+  const resultsDiv = document.getElementById('results');
+  const name = input.value.trim();
+  if (!name) {
+    resultsDiv.textContent = 'Please enter or select a name!';
+    input.focus();
+    return;
+  }
+  resultsDiv.innerHTML = `<em>Searching for <b>${name}</b>...</em>`;
+
+  try {
+    // Fetch all categories with case-insensitive exact match
+    const [
+      aircrafts, helipads, fsStatusRows, licenseRows
+    ] = await Promise.all([
+      gfetch('aircraft', sheetsInfo.aircraft, row =>
+        (row[sheetsInfo.aircraft.ownerCol] || '').trim().toLowerCase() === name.toLowerCase()
+      ),
+      gfetch('helipad', sheetsInfo.helipad, row =>
+        (row[sheetsInfo.helipad.ownerCol] || '').trim().toLowerCase() === name.toLowerCase()
+      ),
+      gfetch('studentFS', sheetsInfo.studentFS, row =>
+        (row[sheetsInfo.studentFS.nameCol] || '').trim().toLowerCase() === name.toLowerCase()
+      ),
+      gfetch('license', sheetsInfo.license, row =>
+        (row[sheetsInfo.license.nameCol] || '').trim().toLowerCase() === name.toLowerCase()
+      )
+    ]);
+
+    resultsDiv.innerHTML = `
+      <div class="pilot-lookup-results-header">
+        <div>
+          <b>Pilot Status:</b><br>
+          ${licenseRows.length
+            ? licenseRows.map(l => `${l[sheetsInfo.license.statusCol]}`).join('<br>')
+            : '<i>None found.</i>'}
+        </div>
+        <div>
+          <b>Flight School Status:</b><br>
+          ${fsStatusRows.length
+            ? fsStatusRows.map(r => `${r[sheetsInfo.studentFS.statusCol]}`).join('<br>')
+            : '<i>None found.</i>'}
+        </div>
+      </div>
+      <div style="border-top:1px solid #394060; margin:1.0em 0 1.2em 0; opacity:.85"></div>
+      <div class="pilot-lookup-results-cols">
+        <div class="pilot-lookup-results-col">
+          <b>Helipads</b><br>
+          ${helipads.length
+            ? '<ul>' + helipads.map(h => `<li>${h[sheetsInfo.helipad.addrCol]}</li>`).join('') + '</ul>'
+            : '<i>None found.</i>'}
+        </div>
+        <div class="pilot-lookup-results-col">
+          <b>Aircrafts</b><br>
+          ${aircrafts.length
+            ? '<ul>' + aircrafts.map(a => `<li>${a[sheetsInfo.aircraft.tailCol]}</li>`).join('') + '</ul>'
+            : '<i>None found.</i>'}
+        </div>
+      </div>
+    `;
+  } catch (e) {
+    resultsDiv.innerHTML = `<b>Error</b>: ${e.message}`;
+  }
+}
+
+</script>
+
+<script>
+const SHEET_ID77 = "1tvBwOzrrljerW-lp1Suv9uPCutAuax67q3Ed-GWalnY";
+const SHEET_NAME77 = "Mechanic - Checkup"; // Change if your tab name is different
+const API_KEY77 = "AIzaSyCTscbYmfCZ_KINIp_Z6QmHQ7J3SUQOGhk"; // <-- Replace with your real API key
+const COLUMN_RANGE77 = "B2:K"; // Will fetch entire B-K rows including column F for search
+
+async function runSheetSearch77() {
+  const query = document.getElementById("sheetSearchInput77").value.trim().toLowerCase();
+  const resultBox = document.getElementById("searchResults77");
+  resultBox.innerHTML = "<em>Searching...</em>";
+
+  try {
+    const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID77}/values/${SHEET_NAME77}!B2:K?key=${API_KEY77}`;
+    const data = await fetch(url).then(res => res.json());
+
+    const rows = data.values;
+    if (!rows || rows.length === 0) {
+      resultBox.innerHTML = "<strong>No results found.</strong>";
+      return;
+    }
+
+    // Column F is the 6th column from A (index 4 in B→K range)
+    const matches = rows.filter(row =>
+      (row[4] || "").toLowerCase().includes(query)
+    );
+
+    if (matches.length === 0) {
+      resultBox.innerHTML = "<strong>No matches found for that tail number.</strong>";
+      return;
+    }
+
+    // Define column labels for B–K
+    const headers = [
+      "Your Name",
+      "Your Rank",
+      "Date",
+      "Company",
+      "Tail Number",
+      "Pilot",
+      "Type of Aircraft",
+      "Checkup Result",
+      "If Failed, Provide Details",
+      "Signature"
+    ];
+
+    let html = "<table><thead><tr>";
+    headers.forEach(head => {
+      html += `<th>${head}</th>`;
+    });
+    html += "</tr></thead><tbody>";
+
+    matches.forEach(row => {
+      html += "<tr>";
+      for (let i = 0; i < 10; i++) {
+        html += `<td>${row[i] || ""}</td>`;
+      }
+      html += "</tr>";
+    });
+
+    html += "</tbody></table>";
+    resultBox.innerHTML = html;
+
+  } catch (err) {
+    console.error(err);
+    resultBox.innerHTML = "<strong>⚠️ Error retrieving data from Google Sheets.</strong>";
+  }
+}
+</script>
+
+<script>
+const SHEET_ID = "1tvBwOzrrljerW-lp1Suv9uPCutAuax67q3Ed-GWalnY";
+const SHEET_NAME = "Helipad Roster"; // Change if your tab name is different
+const API_KEY = "AIzaSyCTscbYmfCZ_KINIp_Z6QmHQ7J3SUQOGhk"; // <-- Replace with your real API key
+const endpoint = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}?key=${API_KEY}`;
+
+async function runSheetSearch() {
+  const query = document.getElementById("sheetSearchInput").value.trim().toLowerCase();
+  const resultBox = document.getElementById("sheetSearchResults");
+  resultBox.innerHTML = "<em>Searching...</em>";
+
+  try {
+    const response = await fetch(endpoint);
+    const data = await response.json();
+
+    if (!data.values || data.values.length === 0) {
+      resultBox.innerHTML = "<em>No data found.</em>";
+      return;
+    }
+
+    const [headers, ...rows] = data.values;
+
+    // Only keep first 4 columns (A–D headers)
+    const displayHeaders = headers.slice(0, 4);
+    
+    // Only include rows where Column A includes the query
+    const matches = rows.filter(row =>
+      row[0] && row[0].toLowerCase().includes(query)
+    );
+
+    if (matches.length === 0) {
+      resultBox.innerHTML = "<strong>No matches found in Column A.</strong>";
+      return;
+    }
+
+    let html = "<table><thead><tr>";
+
+    displayHeaders.forEach(head => html += `<th>${head}</th>`);
+    html += "</tr></thead><tbody>";
+
+    matches.forEach(row => {
+      html += "<tr>";
+      for (let i = 0; i < 4; i++) {
+        html += `<td>${row[i] || ""}</td>`;
+      }
+      html += "</tr>";
+    });
+
+    html += "</tbody></table>";
+    resultBox.innerHTML = html;
+
+  } catch (err) {
+    console.error(err);
+    resultBox.innerHTML = "<strong>⚠️ Error retrieving data from Google Sheets.</strong>";
+  }
+}
+</script>
+<script>
+const SHEET_ID2 = "1tvBwOzrrljerW-lp1Suv9uPCutAuax67q3Ed-GWalnY";
+const SHEET_NAME2 = "Aircraft Roster"; // Change if your tab name is different
+const API_KEY2 = "AIzaSyCTscbYmfCZ_KINIp_Z6QmHQ7J3SUQOGhk"; // <-- Replace with your real API key
+const endpoint2 = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID2}/values/${SHEET_NAME2}?key=${API_KEY2}`;
+
+async function runSheetSearch2() {
+  const query = document.getElementById("sheetSearchInput2").value.trim().toLowerCase();
+  const resultBox = document.getElementById("sheetSearchResults2");
+  resultBox.innerHTML = "<em>Searching...</em>";
+
+  try {
+    const response = await fetch(endpoint2); // make sure "endpoint2" is defined elsewhere
+    const data = await response.json();
+
+    if (!data.values || data.values.length === 0) {
+      resultBox.innerHTML = "<em>No data found.</em>";
+      return;
+    }
+
+    const [headers, ...rows] = data.values;
+
+    // Show columns A–E (0 to 4)
+    const displayHeaders = headers.slice(0, 5);
+
+    // ✅ Include rows where column A (index 0) OR column C (index 2) includes the query
+    const matches = rows.filter(row => {
+      const colA = row[0]?.toLowerCase() || "";
+      const colC = row[2]?.toLowerCase() || "";
+      return colA.includes(query) || colC.includes(query);
+    });
+
+    if (matches.length === 0) {
+      resultBox.innerHTML = "<strong>No matches found in Column A or C.</strong>";
+      return;
+    }
+
+    let html = "<table><thead><tr>";
+    displayHeaders.forEach(head => html += `<th>${head}</th>`);
+    html += "</tr></thead><tbody>";
+
+    matches.forEach(row => {
+      html += "<tr>";
+      for (let i = 0; i < 5; i++) {
+        html += `<td>${row[i] || ""}</td>`;
+      }
+      html += "</tr>";
+    });
+
+    html += "</tbody></table>";
+    resultBox.innerHTML = html;
+
+  } catch (err) {
+    console.error(err);
+    resultBox.innerHTML = "<strong>⚠️ Error retrieving data from Google Sheets.</strong>";
+  }
+}
+</script>
+
+<div id="OFTSearch" class="container mt-3 myHideableSection" style="max-width: 2000px;">
+<div class="search-sheet-box">
+  <h3>🔍 Search the OFT Database.</h3>
+  <input type="text" id="sheetSearchInput34" placeholder="Enter a Name">
+  <button onclick="runSheetSearch34()">Search</button>
+  <div id="sheetSearchResults34" class="results-box">Results will appear here.</div>
+</div>
+<div class="search-sheet-box">
+  <h3>🔍 Search the OFT Pilot Database.</h3>
+  <input type="text" id="sheetSearchInput4" placeholder="Enter a Name">
+  <button onclick="runSheetSearch4()">Search</button>
+  <div id="sheetSearchResults4" class="results-box">Results will appear here.</div>
+</div>
+</div>
+
+<script>
+const SHEET_ID34 = "1tvBwOzrrljerW-lp1Suv9uPCutAuax67q3Ed-GWalnY";
+const SHEET_NAME34 = "OFT - Student Roster"; // Change if your tab name is different
+const API_KEY34 = "AIzaSyCTscbYmfCZ_KINIp_Z6QmHQ7J3SUQOGhk"; // <-- Replace with your real API key
+const endpoint34 = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID34}/values/${SHEET_NAME34}?key=${API_KEY34}`;
+
+async function runSheetSearch34() {
+  const query = document.getElementById("sheetSearchInput34").value.trim().toLowerCase();
+  const resultBox = document.getElementById("sheetSearchResults34");
+  resultBox.innerHTML = "<em>Searching...</em>";
+
+  try {
+    const response = await fetch(endpoint34);
+    const data = await response.json();
+
+    if (!data.values || data.values.length === 0) {
+      resultBox.innerHTML = "<em>No data found.</em>";
+      return;
+    }
+
+    const [headers, ...rows] = data.values;
+
+    // Only keep first 4 columns (A–D headers)
+    const displayHeaders = headers.slice(0, 4);
+    
+    // Only include rows where Column A includes the query
+    const matches = rows.filter(row =>
+      row[0] && row[0].toLowerCase().includes(query)
+    );
+
+    if (matches.length === 0) {
+      resultBox.innerHTML = "<strong>No matches found in Column A.</strong>";
+      return;
+    }
+
+    let html = "<table><thead><tr>";
+
+    displayHeaders.forEach(head => html += `<th>${head}</th>`);
+    html += "</tr></thead><tbody>";
+
+    matches.forEach(row => {
+      html += "<tr>";
+      for (let i = 0; i < 4; i++) {
+        html += `<td>${row[i] || ""}</td>`;
+      }
+      html += "</tr>";
+    });
+
+    html += "</tbody></table>";
+    resultBox.innerHTML = html;
+
+  } catch (err) {
+    console.error(err);
+    resultBox.innerHTML = "<strong>⚠️ Error retrieving data from Google Sheets.</strong>";
+  }
+}
+</script>
+
+<script>
+const SHEET_ID4 = "1tvBwOzrrljerW-lp1Suv9uPCutAuax67q3Ed-GWalnY";
+const SHEET_NAME4 = "OFT - Pilots"; // Change if your tab name is different
+const API_KEY4 = "AIzaSyCTscbYmfCZ_KINIp_Z6QmHQ7J3SUQOGhk"; // <-- Replace with your real API key
+const endpoint4 = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID4}/values/${SHEET_NAME4}?key=${API_KEY4}`;
+
+async function runSheetSearch4() {
+  const query = document.getElementById("sheetSearchInput4").value.trim().toLowerCase();
+  const resultBox = document.getElementById("sheetSearchResults4");
+  resultBox.innerHTML = "<em>Searching...</em>";
+
+  try {
+    const response = await fetch(endpoint4);
+    const data = await response.json();
+
+    if (!data.values || data.values.length === 0) {
+      resultBox.innerHTML = "<em>No data found.</em>";
+      return;
+    }
+
+    const [headers, ...rows] = data.values;
+
+    // Only keep first 4 columns (A–D headers)
+    const displayHeaders = headers.slice(0, 4);
+    
+    // Only include rows where Column A includes the query
+    const matches = rows.filter(row =>
+      row[0] && row[0].toLowerCase().includes(query)
+    );
+
+    if (matches.length === 0) {
+      resultBox.innerHTML = "<strong>No matches found in Column A.</strong>";
+      return;
+    }
+
+    let html = "<table><thead><tr>";
+
+    displayHeaders.forEach(head => html += `<th>${head}</th>`);
+    html += "</tr></thead><tbody>";
+
+    matches.forEach(row => {
+      html += "<tr>";
+      for (let i = 0; i < 4; i++) {
+        html += `<td>${row[i] || ""}</td>`;
+      }
+      html += "</tr>";
+    });
+
+    html += "</tbody></table>";
+    resultBox.innerHTML = html;
+
+  } catch (err) {
+    console.error(err);
+    resultBox.innerHTML = "<strong>⚠️ Error retrieving data from Google Sheets.</strong>";
+  }
+}
+</script>
+
+<div id="Static-dash" class="container mt-3 myHideableSection" style="max-width: 2000px;">
+<div class="dashboard-wrap">
+<div id="stats-dashboard" class="info-dashboard">
+  <h1>📋 SAAA Dashboard</h1>
+
+  <div class="section">
+    <div class="section-header">San Andreas Aviation Administration</div>
+    <div class="info-row bold">Total Staff Members <span class="number" id="staff-count">(0)</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">Office of Flight Training</div>
+    <div class="info-row bold">Total Students <span class="number" id="student-count">(0)</span></div>
+    <div class="info-row">Pending FTS 1 <span class="number" id="fts-1">(0)</span></div>
+    <div class="info-row">Pending MEDICAL <span class="number" id="med-ft">(0)</span></div>
+    <div class="info-row">Pending FTS 2 <span class="number" id="fts-2">(0)</span></div>
+    <div class="info-row">Pending FTS 3 <span class="number" id="fts-3">(0)</span></div>
+    <div class="info-row">Pending FTS 4 <span class="number" id="fts-4">(0)</span></div>
+    <div class="info-row">Pending WRITTEN <span class="number" id="written">(0)</span></div>
+    <div class="info-row">Pending ARR <span class="number" id="arr">(0)</span></div>
+    <div class="info-row">Passed <span class="number" id="passed-oft">(0)</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">Office of Aviation Sports</div>
+    <div class="info-row">Pending STS 1 <span class="number" id="sts-1">(0)</span></div>
+    <div class="info-row">Pending MEDICAL <span class="number" id="med-oas">(0)</span></div>
+    <div class="info-row">Pending STS 2 <span class="number" id="sts-2">(0)</span></div>
+    <div class="info-row">Passed <span class="number" id="passed-oas">(0)</span></div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">Air Traffic Control</div>
+    <div class="info-row bold">Total Shifts <span class="number" id="total-shifts">(0)</span></div>
+  </div>
+</div>
+  <div class="desk-links-panel">
+    <h2>📁 Quick Desk Navigation</h2>
+
+    <div class="desk-section">
+      <div class="desk-title">🛂 Registration Desk</div>
+      <a href="https://gov.eclipse-rp.net/viewforum.php?f=2955" target="_blank">Aircraft Registration</a>
+      <a href="https://gov.eclipse-rp.net/viewforum.php?f=2956" target="_blank">Helipad Registration</a>
+      <a href="https://gov.eclipse-rp.net/viewforum.php?f=2969" target="_blank">Airspace Authorization</a>
+      <a href="https://gov.eclipse-rp.net/viewforum.php?f=3306" target="_blank">Aircraft Sale & Transfer</a>
+      <a href="https://gov.eclipse-rp.net/viewforum.php?f=3517" target="_blank">Commercial Pilot License</a>
+      <a href="https://gov.eclipse-rp.net/viewforum.php?f=3735" target="_blank">Private Flight School License</a>
+    </div>
+
+    <div class="desk-section">
+      <div class="desk-title">🛩️ Flight Desk</div>
+      <a href="https://gov.eclipse-rp.net/viewforum.php?f=3735" target="_blank">Registered Aircraft</a>
+      <a href="https://gov.eclipse-rp.net/viewforum.php?f=2742" target="_blank">Pilot Flight Logs</a>
+      <a href="https://gov.eclipse-rp.net/viewforum.php?f=3520" target="_blank">Commercial Flight Logs</a>
+      <a href="https://gov.eclipse-rp.net/viewforum.php?f=3467" target="_blank">Demo Flight Requests</a>
+      <a href="https://gov.eclipse-rp.net/viewforum.php?f=2584" target="_blank">Incident Reports & Complaints</a>
+    </div>
+
+    <div class="desk-section">
+      <div class="desk-title">🎖️ Aviation Sports Desk</div>
+      <a href="https://gov.eclipse-rp.net/viewforum.php?f=3776" target="_blank">Jumpmaster Certificate Applications</a>
+      <a href="https://gov.eclipse-rp.net/viewforum.php?f=3780" target="_blank">Skydive Training Sessions</a>
+      <a href="https://gov.eclipse-rp.net/viewforum.php?f=3932" target="_blank">Skydiving Resources</a>
+      <a href="https://gov.eclipse-rp.net/viewforum.php?f=3933" target="_blank">Skydive Logs</a>
+    </div>
+
+    <div class="desk-section">
+      <div class="desk-title">📓 Training Desk</div>
+      <a href="https://gov.eclipse-rp.net/viewforum.php?f=2952" target="_blank">Pilot License Applications</a>
+      <a href="https://gov.eclipse-rp.net/viewforum.php?f=3422" target="_blank">Flight School Sessions</a>
+      <a href="https://gov.eclipse-rp.net/viewforum.php?f=3423" target="_blank">Flight School Resources</a>
+      <a href="https://gov.eclipse-rp.net/viewforum.php?f=3538" target="_blank">Mechanic Course Signups</a>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+const SHEET_ID9 = "1tvBwOzrrljerW-lp1Suv9uPCutAuax67q3Ed-GWalnY";
+const API_KEY9 = "AIzaSyCTscbYmfCZ_KINIp_Z6QmHQ7J3SUQOGhk";
+
+// Mapping: key → Sheet tab & range
+const ranges = {
+  "student-count": ["OFT - Student Roster", "C3:C"],
+  "fts-1": ["OFT - Student Roster", "C3:C", "PENDING FTS 1"],
+  "med-ft": ["OFT - Student Roster", "C3:C", "PENDING MEDICAL"],
+  "fts-2": ["OFT - Student Roster", "C3:C", "PENDING FTS 2"],
+  "fts-3": ["OFT - Student Roster", "C3:C", "PENDING FTS 3"],
+  "fts-4": ["OFT - Student Roster", "C3:C", "PENDING FTS 4"],
+  "written": ["OFT - Student Roster", "C3:C", "PENDING WRITTEN"],
+  "arr": ["OFT - Student Roster", "C3:C", "PENDING ARR"],
+  "passed-oft": ["OFT - Student Roster", "C3:C", "PASSED"],
+  "staff-count": ["SAAA Roster", "A3:A"],
+  "sts-1": ["OAS - Student Roster", "C3:C", "PENDING STS 1"],
+  "med-oas": ["OAS - Student Roster", "C3:C", "PENDING MEDICAL"],
+  "sts-2": ["OAS - Student Roster", "C3:C", "PENDING STS 2"],
+  "passed-oas": ["OAS - Student Roster", "C3:C", "PASSED"],
+  "total-shifts": ["SAAA Roster", "H4:H", "SUM"]
+};
+
+async function fetchStat(sheetName, range, condition) {
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID9}/values/${encodeURIComponent(sheetName + "!" + range)}?key=${API_KEY9}`;
+  try {
+    const res = await fetch(url);
+    const data = await res.json();
+    const values = (data.values || []).flat();
+
+    if (condition === "SUM") {
+      const sum = values.reduce((acc, val) => acc + (parseFloat(val) || 0), 0);
+      return sum;
+    }
+
+    if (condition) {
+      return values.filter(v => v.trim().toUpperCase() === condition.toUpperCase()).length;
+    }
+
+    return values.length;
+  } catch (err) {
+    console.error(`Error fetching ${range} from ${sheetName}: `, err);
+    return 0;
+  }
+}
+
+async function loadDashboardStats() {
+  for (const [elementId, args] of Object.entries(ranges)) {
+    const count = await fetchStat(...args);
+    document.getElementById(elementId).textContent = `(${count})`;
+  }
+}
+
+document.addEventListener("DOMContentLoaded", loadDashboardStats);
+</script>
+
+
+<div id="OASSearch" class="container mt-3 myHideableSection" style="max-width: 2000px;">
+<div class="search-sheet-box">
+  <h3>🔍 Search the OAS Database.</h3>
+  <input type="text" id="sheetSearchInput5" placeholder="Enter a Name">
+  <button onclick="runSheetSearch5()">Search</button>
+  <div id="sheetSearchResults5" class="results-box">Results will appear here.</div>
+</div>
+</div>
+
+<script>
+const SHEET_ID5 = "1tvBwOzrrljerW-lp1Suv9uPCutAuax67q3Ed-GWalnY";
+const SHEET_NAME5 = "OAS - Student Roster"; // Change if your tab name is different
+const API_KEY5 = "AIzaSyCTscbYmfCZ_KINIp_Z6QmHQ7J3SUQOGhk"; // <-- Replace with your real API key
+const endpoint5 = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID5}/values/${SHEET_NAME5}?key=${API_KEY5}`;
+
+async function runSheetSearch5() {
+  const query = document.getElementById("sheetSearchInput5").value.trim().toLowerCase();
+  const resultBox = document.getElementById("sheetSearchResults5");
+  resultBox.innerHTML = "<em>Searching...</em>";
+
+  try {
+    const response = await fetch(endpoint5);
+    const data = await response.json();
+
+    if (!data.values || data.values.length === 0) {
+      resultBox.innerHTML = "<em>No data found.</em>";
+      return;
+    }
+
+    const [headers, ...rows] = data.values;
+
+    // Only keep first 4 columns (A–D headers)
+    const displayHeaders = headers.slice(0, 4);
+    
+    // Only include rows where Column A includes the query
+    const matches = rows.filter(row =>
+      row[0] && row[0].toLowerCase().includes(query)
+    );
+
+    if (matches.length === 0) {
+      resultBox.innerHTML = "<strong>No matches found in Column A.</strong>";
+      return;
+    }
+
+    let html = "<table><thead><tr>";
+
+    displayHeaders.forEach(head => html += `<th>${head}</th>`);
+    html += "</tr></thead><tbody>";
+
+    matches.forEach(row => {
+      html += "<tr>";
+      for (let i = 0; i < 4; i++) {
+        html += `<td>${row[i] || ""}</td>`;
+      }
+      html += "</tr>";
+    });
+
+    html += "</tbody></table>";
+    resultBox.innerHTML = html;
+
+  } catch (err) {
+    console.error(err);
+    resultBox.innerHTML = "<strong>⚠️ Error retrieving data from Google Sheets.</strong>";
+  }
+}
+</script>
+<div id="COMINGSOON1" class="container mt-3 myHideableSection" style="max-width: 2000px;">
+<div class="google-form-container">
+  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdi2VdzZGLAPG6qPaS3hvc6mCTZEwS0loHDIGAqdVVqjifQ-Q/viewform"
+          width="640"
+          height="700"
+          frameborder="0"
+          marginheight="0"
+          marginwidth="0">
+    Loading…
+  </iframe>
+</div>
+
+</div>
+
+<div id="AVAPSearch" class="container mt-3 myHideableSection" style="max-width: 2000px;">
+<div class="search-sheet-box">
+  <h3>🔍 Search the Pilot Infraction Database.</h3>
+  <input type="text" id="sheetSearchInput6" placeholder="Enter a Name">
+  <button onclick="runSheetSearch6()">Search</button>
+  <div id="sheetSearchResults6" class="results-box">Results will appear here.</div>
+</div>
+<div class="search-sheet-box">
+  <h3>🔍 Search the LEO Infraction Database.</h3>
+  <input type="text" id="sheetSearchInput68" placeholder="Enter a Name">
+  <button onclick="runSheetSearch68()">Search</button>
+  <div id="sheetSearchResults68" class="results-box">Results will appear here.</div>
+</div>
+</div>
+
+<script>
+const SHEET_ID6 = "1tvBwOzrrljerW-lp1Suv9uPCutAuax67q3Ed-GWalnY";
+const SHEET_NAME6 = "AVAP - Pilot Infractions"; // Change if your tab name is different
+const API_KEY6 = "AIzaSyCTscbYmfCZ_KINIp_Z6QmHQ7J3SUQOGhk"; // <-- Replace with your real API key
+const endpoint6 = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID6}/values/${SHEET_NAME6}?key=${API_KEY6}`;
+
+async function runSheetSearch6() {
+  const query = document.getElementById("sheetSearchInput6").value.trim().toLowerCase();
+  const resultBox = document.getElementById("sheetSearchResults6");
+  resultBox.innerHTML = "<em>Searching...</em>";
+
+  try {
+    const response = await fetch(endpoint6);
+    const data = await response.json();
+
+    if (!data.values || data.values.length === 0) {
+      resultBox.innerHTML = "<em>No data found.</em>";
+      return;
+    }
+
+    const [headers, ...rows] = data.values;
+
+    // Only keep first 4 columns (A–D headers)
+    const displayHeaders = headers.slice(0, 4);
+    
+    // Only include rows where Column A includes the query
+    const matches = rows.filter(row =>
+      row[0] && row[0].toLowerCase().includes(query)
+    );
+
+    if (matches.length === 0) {
+      resultBox.innerHTML = "<strong>No matches found in Column A.</strong>";
+      return;
+    }
+
+    let html = "<table><thead><tr>";
+
+    displayHeaders.forEach(head => html += `<th>${head}</th>`);
+    html += "</tr></thead><tbody>";
+
+    matches.forEach(row => {
+      html += "<tr>";
+      for (let i = 0; i < 4; i++) {
+        html += `<td>${row[i] || ""}</td>`;
+      }
+      html += "</tr>";
+    });
+
+    html += "</tbody></table>";
+    resultBox.innerHTML = html;
+
+  } catch (err) {
+    console.error(err);
+    resultBox.innerHTML = "<strong>⚠️ Error retrieving data from Google Sheets.</strong>";
+  }
+}
+</script>
+
+<script>
+const SHEET_ID68 = "1tvBwOzrrljerW-lp1Suv9uPCutAuax67q3Ed-GWalnY";
+const SHEET_NAME68 = "AVAP - ASD Infractions"; // Tab name
+const API_KEY68 = "AIzaSyCTscbYmfCZ_KINIp_Z6QmHQ7J3SUQOGhk";
+const endpoint68 = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID68}/values/${encodeURIComponent(SHEET_NAME68)}?key=${API_KEY68}`;
+
+async function runSheetSearch68() {
+  const query = document.getElementById("sheetSearchInput68").value.trim().toLowerCase();
+  const resultBox = document.getElementById("sheetSearchResults68");
+  resultBox.innerHTML = "<em>Searching...</em>";
+
+  try {
+    const response = await fetch(endpoint68);
+    const data = await response.json();
+
+    if (!data.values || data.values.length === 0) {
+      resultBox.innerHTML = "<em>No data found.</em>";
+      return;
+    }
+
+    const [headers, ...rows] = data.values;
+    const displayHeaders = headers.slice(0, 4); // Columns A–D
+
+    const matches = rows.filter(row =>
+      row[0] && row[0].toLowerCase().includes(query)
+    );
+
+    if (matches.length === 0) {
+      resultBox.innerHTML = "<strong>No matches found in Column A.</strong>";
+      return;
+    }
+
+    let html = "<table><thead><tr>";
+    displayHeaders.forEach(head => html += `<th>${head}</th>`);
+    html += "</tr></thead><tbody>";
+
+    matches.forEach(row => {
+      html += "<tr>";
+      for (let i = 0; i < 4; i++) {
+        html += `<td>${row[i] || ""}</td>`;
+      }
+      html += "</tr>";
+    });
+
+    html += "</tbody></table>";
+    resultBox.innerHTML = html;
+  } catch (err) {
+    console.error(err);
+    resultBox.innerHTML = "<strong>⚠️ Error retrieving data from Google Sheets.</strong>";
+  }
+}
+</script>
+
     <!-- END GENERATED FORMS AND LOGIC -->
   </main>
+
+
   <!-- Scripts for Sidebar Accordion, Section Switching, and All Form Generators -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    function showSection(id, btn) {
-      document.querySelectorAll('.sidebar .btn').forEach(el => el.classList.remove('btn-success'));
-      if(btn) btn.classList.add('btn-success');
-      document.querySelectorAll('.main-content .myHideableSection').forEach(s => s.classList.remove('active'));
-      let match = document.getElementById(id);
-      if(match) {
-        match.classList.add('active');
-        match.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
+<script>
+  // Show and remember the active section
+  function showSection(id, btn) {
+    // Remove highlight from all sidebar buttons
+    document.querySelectorAll('.sidebar .btn').forEach(el => el.classList.remove('btn-success'));
+    if (btn) btn.classList.add('btn-success');
+    // Hide all content sections
+    document.querySelectorAll('.main-content .myHideableSection').forEach(s => s.classList.remove('active'));
+    // Show the selected section
+    let match = document.getElementById(id);
+    if (match) {
+      match.classList.add('active');
+      match.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Persist last opened section ID
+      localStorage.setItem('lastSection', id);
     }
-    document.addEventListener('DOMContentLoaded', function() {
-      // Show the first section if desired
-      const defaultId = document.querySelector('.myHideableSection')?.id;
-      if(defaultId) showSection(defaultId, null);
-    });
-  </script>
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Try to load the last opened section from localStorage
+    const lastSectionId = localStorage.getItem('lastSection');
+    // Verify the ID is still in the DOM
+    let targetId = lastSectionId;
+    if (!targetId || !document.getElementById(targetId)) {
+      targetId = document.querySelector('.myHideableSection')?.id;
+    }
+    if (targetId) showSection(targetId, null);
+  });
+</script>
 
   <!-- Paste all per-form scripts from your original file below -->
   <!-- These scripts handle dynamic lists, BBCode generation/copy, and interactivity for each section. Keep them in exact order. -->
