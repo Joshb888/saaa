@@ -2,112 +2,207 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Helipad Application Form</title>
+  <title>Helipad BBCode Generator</title>
   <style>
-    body {
-      background: #f4f6fa;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 20px;
-    }
-    .header-img {
-      max-width: 100%;
-      border-radius: 12px;
-    }
-    .section-title {
-      background: #091f62;
-      color: white;
-      font-weight: bold;
-      font-size: 1.18em;
-      letter-spacing: 0.5px;
-      padding: 10px 14px;
-      border-radius: 8px 8px 0 0;
-      margin-top: 32px;
-      margin-bottom: 0;
-    }
-    .section-box {
-      background: white;
-      padding: 18px 22px 14px 22px;
-      border-radius: 0 0 8px 8px;
-      box-shadow: 0 2px 6px #0001;
-      margin-bottom: 16px;
-    }
-    .release-section {
-      background: #ffffde;
-      border-radius: 8px;
-      margin-bottom: 18px;
-      padding: 18px;
-      font-size: 1em;
-    }
-    .info-list {
-      list-style: none;
-      padding-left: 0;
-      margin-bottom: 10px;
-    }
-    .info-list li {
-      margin-bottom: 8px;
-    }
-    .label {
-      font-weight: bold;
-    }
-    .usage-checkboxes label {
-      display: block;
-      margin-left: 16px;
-    }
-    .footer-img {
-      max-width: 100%;
-      border-radius: 12px;
-      margin-top: 24px;
-    }
+    body { font-family: Arial, sans-serif; background: #f6f8fa; padding: 28px; }
+    .container { max-width: 900px; margin: auto; border-radius: 10px; background: #fff; padding: 24px; box-shadow: 0 2px 10px #0001; }
+    h1 { color: #091f62; margin-bottom: 20px; }
+    select, input, textarea, button { font-size: 1em; margin: 8px 0 16px 0; }
+    .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 42px; }
+    .split { background: #f4f6fa; border-radius: 8px; padding: 18px; }
+    label { font-weight: bold; }
+    .output-section { margin-top: 40px; border-top: 1px solid #eee; padding-top: 32px; }
+    .bbcode-box { background: #f8fafc; border-radius: 8px; padding: 16px; overflow-x: auto; margin-bottom: 16px; font-family: "Consolas", monospace; font-size: 1em; }
+    .preview-box { background: #fff; border: 2px solid #091f62; padding: 18px; border-radius: 10px; }
+    .btn { border: none; background: #091f62; color: #fff; padding: 10px 25px; border-radius: 7px; cursor: pointer; margin: 0 10px 10px 0; }
+    .btn:active { background: #123b91; }
+    .forum-btn { background: #e2c300; color: #091f62;}
+    .footer { text-align:center; font-size:0.9em; color:#888; margin-top:32px;}
   </style>
 </head>
 <body>
-  <img src="https://i.imgur.com/Osm8rhu.png" alt="Header" class="header-img">
+  <div class="container">
+    <h1>Helipad Application BBCode Generator</h1>
 
-  <div class="section-title">PERSONAL INFORMATION</div>
-  <div class="section-box">
-    <ul class="info-list">
-      <li><span class="label">First and Lastname:</span> Fname Lname</li>
-      <li><span class="label">Phone Number:</span> XXX-XXXX</li>
-      <li><span class="label">Email:</span> Your Answer Here</li>
-      <li><span class="label">Helipad Address:</span> Your Answer Here</li>
-    </ul>
-  </div>
-
-  <div class="section-title">HELIPAD INFORMATION</div>
-  <div class="section-box">
-    <ul class="info-list">
-      <li>
-        <span class="label">Proposed Location:</span><br>
-        Your Answer Here
-      </li>
-      <li>
-        <span class="label">Purpose of the helipad:</span><br>
-        Your Answer Here
-      </li>
-      <li>
-        <span class="label">Type of usage:</span>
-        <div class="usage-checkboxes">
-          <label><input type="checkbox"> Private Use</label>
-          <label><input type="checkbox"> Public Use</label>
-          <label><input type="checkbox"> Commercial Use</label>
-          <label><input type="checkbox"> Government Use</label>
-        </div>
-      </li>
-    </ul>
-  </div>
-
-  <div class="section-title">RELEASE AND WAIVER</div>
-  <div class="section-box">
-    <div class="release-section">
-      I, the undersigned, hereby certify that this document and the answers contained within this document are true and complete to the best of my knowledge. By agreeing below I hereby authorize the San Andreas Aviation Administration to obtain any information pertaining to my current and past residence(s), further personal information, and any other information that may be relevant to the helipad request. I also authorize the San Andreas Aviation Administration to tour the areas of the property relevant to the request and any areas required to access the proposed helipad area.
+    <div>
+      <label for="formSelect">Select Form Template:</label>
+      <select id="formSelect">
+        <option value="helipad">Helipad Application</option>
+        <!-- Add more templates/options here -->
+      </select>
     </div>
-    <ul class="info-list">
-      <li><span class="label">Signature:</span> Fname Lname</li>
-      <li><span class="label">Date Signed:</span> DD/MON/YYYY</li>
-    </ul>
+
+    <form id="mainForm">
+      <div class="grid split">
+        <div>
+          <label>First and Lastname:</label><br>
+          <input type="text" id="name" placeholder="Your Name"><br>
+          <label>Phone Number:</label><br>
+          <input type="text" id="phone" placeholder="XXX-XXXX"><br>
+          <label>Email:</label><br>
+          <input type="email" id="email" placeholder="Your Email"><br>
+          <label>Helipad Address:</label><br>
+          <input type="text" id="address" placeholder="Helipad Address"><br>
+          <label>Proposed Location:</label><br>
+          <textarea id="location" rows="2" placeholder="Proposed Location"></textarea><br>
+          <label>Purpose of the Helipad:</label><br>
+          <textarea id="purpose" rows="2"></textarea><br>
+          <label>Type of Usage:</label><br>
+          <label><input type="checkbox" id="private"> Private Use</label>
+          <label><input type="checkbox" id="public"> Public Use</label>
+          <label><input type="checkbox" id="commercial"> Commercial Use</label>
+          <label><input type="checkbox" id="government"> Government Use</label>
+        </div>
+        <div>
+          <label>Signature:</label><br>
+          <input type="text" id="signature" placeholder="Your Name"><br>
+          <label>Date Signed:</label><br>
+          <input type="text" id="date" placeholder="DD/MON/YYYY"><br>
+        </div>
+      </div>
+    </form>
+    
+    <div class="output-section">
+      <button class="btn" onclick="copyBBCode()">Copy BBCode</button>
+      <button class="btn forum-btn" onclick="pasteToForum()">Paste to Eclipse-RP Forum</button>
+      <br>
+      <label for="bbcodeOutput">BBCode Generator Output:</label>
+      <div id="bbcodeOutput" class="bbcode-box"></div>
+      <label for="htmlPreview">Live Preview:</label>
+      <div id="htmlPreview" class="preview-box"></div>
+    </div>
+    <div class="footer">This tool helps you generate BBCode with live preview for Eclipse-RP forum submissions.</div>
   </div>
 
-  <img src="https://i.imgur.com/ZFpeXl3.png" alt="Footer" class="footer-img">
+  <script>
+    // Helper to escape HTML
+    function escapeHtml(text) {
+      var map = {
+        '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#039;'
+      };
+      return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+    }
+
+    function buildBBCode() {
+      // Collect form inputs
+      let name = document.getElementById('name').value || '';
+      let phone = document.getElementById('phone').value || '';
+      let email = document.getElementById('email').value || '';
+      let address = document.getElementById('address').value || '';
+      let location = document.getElementById('location').value || '';
+      let purpose = document.getElementById('purpose').value || '';
+      let usage = [];
+      if (document.getElementById('private').checked) usage.push('Private Use');
+      if (document.getElementById('public').checked) usage.push('Public Use');
+      if (document.getElementById('commercial').checked) usage.push('Commercial Use');
+      if (document.getElementById('government').checked) usage.push('Government Use');
+      let signature = document.getElementById('signature').value || '';
+      let date = document.getElementById('date').value || '';
+
+      // BBCode template
+      return `[img]https://i.imgur.com/Osm8rhu.png[/img]
+[divbox=#091f62][b][color=white]PERSONAL INFORMATION[/color][/b][/divbox]
+[divbox=white]
+[list=none]
+[b]First and Lastname:[/b] ${name}
+[b]Phone Number:[/b] ${phone}
+[b]Email:[/b] ${email}
+[b]Helipad Address:[/b] ${address}
+[/list]
+[/divbox]
+
+[divbox=#091f62][b][color=white]HELIPAD INFORMATION[/color][/b][/divbox]
+[divbox=white]
+[list=none]
+[b]Proposed Location:[/b]
+[list=none]
+${location}
+[/list]
+[/list]
+
+[list=none]
+[b]Purpose of the helipad:[/b]
+[list=none]
+${purpose}
+[/list]
+[/list]
+
+[list=none]
+[b]Type of usage:[/b]
+[list=none]
+${usage.map(u=>`[] ${u}`).join('\\n')}
+[/list]
+[/list]
+[/divbox]
+
+[divbox=#091f62][b][color=white]RELEASE AND WAIVER[/color][/b][/divbox]
+[divbox=white]
+[divbox=#ffffde] I, the undersigned, hereby certify that this document and the answers contained within this document are true and complete to the best of my knowledge. By agreeing below I hereby authorize the San Andreas Aviation Administration to obtain any information pertaining to my current and past residence(s), further personal information, and any other information that may be relevant to the helipad request. I also authorize the San Andreas Aviation Administration to tour the areas of the property relevant to the request and any areas required to access the proposed helipad area.
+[/divbox]
+[list=none]
+[b]Signature:[/b] ${signature}
+[b]Date Signed:[/b] ${date}
+[/list]
+[/divbox]
+[img]https://i.imgur.com/ZFpeXl3.png[/img]
+`;
+    }
+
+    function updateOutputs() {
+      // BBCode output
+      const bbcode = buildBBCode();
+      document.getElementById('bbcodeOutput').textContent = bbcode;
+
+      // Live preview (rudimentary, for key info)
+      let previewHtml = `
+        <img src="https://i.imgur.com/Osm8rhu.png" alt="Header" style="max-width:220px;border-radius:8px;"><br><br>
+        <div style="background:#091f62;color:white;font-weight:bold;padding:9px 18px;border-radius:8px 8px 0 0;">PERSONAL INFORMATION</div>
+        <div style="background:white;padding:16px 18px 10px;border-radius:0 0 8px 8px;">
+          <b>First and Lastname:</b> ${escapeHtml(document.getElementById('name').value)}
+          <br><b>Phone Number:</b> ${escapeHtml(document.getElementById('phone').value)}
+          <br><b>Email:</b> ${escapeHtml(document.getElementById('email').value)}
+          <br><b>Helipad Address:</b> ${escapeHtml(document.getElementById('address').value)}
+        </div>
+        <div style="background:#091f62;color:white;font-weight:bold;padding:9px 18px;border-radius:8px 8px 0 0;margin-top:19px;">HELIPAD INFORMATION</div>
+        <div style="background:white;padding:16px 18px 10px;border-radius:0 0 8px 8px;">
+          <b>Proposed Location:</b> ${escapeHtml(document.getElementById('location').value)}
+          <br><b>Purpose of the helipad:</b> ${escapeHtml(document.getElementById('purpose').value)}
+          <br><b>Type of usage:</b> ${['private','public','commercial','government'].filter(
+            id => document.getElementById(id).checked).map(
+            id => ' ' + document.querySelector('label[for="'+id+'"]').textContent || '').join(' ') }
+        </div>
+        <div style="background:#091f62;color:white;font-weight:bold;padding:9px 18px;border-radius:8px 8px 0 0;margin-top:19px;">RELEASE AND WAIVER</div>
+        <div style="background:white;padding:16px 18px 10px;border-radius:0 0 8px 8px;">
+          <div style="background:#ffffde;padding:14px;border-radius:8px;margin-bottom:12px;font-size:1em;">
+            I, the undersigned, hereby certify that this document and the answers contained within this document are true and complete to the best of my knowledge. By agreeing below I hereby authorize the San Andreas Aviation Administration to obtain any information pertaining to my current and past residence(s), further personal information, and any other information that may be relevant to the helipad request. I also authorize the San Andreas Aviation Administration to tour the areas of the property relevant to the request and any areas required to access the proposed helipad area.
+          </div>
+          <b>Signature:</b> ${escapeHtml(document.getElementById('signature').value)}<br>
+          <b>Date Signed:</b> ${escapeHtml(document.getElementById('date').value)}
+        </div>
+        <img src="https://i.imgur.com/ZFpeXl3.png" alt="Footer" style="max-width:220px;border-radius:8px;margin-top:18px;">
+      `;
+      document.getElementById('htmlPreview').innerHTML = previewHtml;
+    }
+
+    document.querySelectorAll('input, textarea, select').forEach(el => {
+      el.addEventListener('input', updateOutputs);
+      el.addEventListener('change', updateOutputs);
+    });
+    window.onload = updateOutputs;
+
+    function copyBBCode() {
+      const bbcode = document.getElementById('bbcodeOutput').textContent;
+      navigator.clipboard.writeText(bbcode).then(
+        () => alert("BBCode copied to clipboard!"),
+        () => alert("Failed to copy. Try manually.")
+      );
+    }
+
+    function pasteToForum() {
+      const url = "https://gov.eclipse-rp.net/posting.php?mode=post&f=2956";
+      window.open(url, '_blank');
+      alert('Forum post editor opened in a new tab.\nPaste your BBCode into the post box there.');
+    }
+  </script>
 </body>
 </html>
