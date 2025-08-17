@@ -1,1 +1,113 @@
-.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Helipad Application Form</title>
+  <style>
+    body {
+      background: #f4f6fa;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    .header-img {
+      max-width: 100%;
+      border-radius: 12px;
+    }
+    .section-title {
+      background: #091f62;
+      color: white;
+      font-weight: bold;
+      font-size: 1.18em;
+      letter-spacing: 0.5px;
+      padding: 10px 14px;
+      border-radius: 8px 8px 0 0;
+      margin-top: 32px;
+      margin-bottom: 0;
+    }
+    .section-box {
+      background: white;
+      padding: 18px 22px 14px 22px;
+      border-radius: 0 0 8px 8px;
+      box-shadow: 0 2px 6px #0001;
+      margin-bottom: 16px;
+    }
+    .release-section {
+      background: #ffffde;
+      border-radius: 8px;
+      margin-bottom: 18px;
+      padding: 18px;
+      font-size: 1em;
+    }
+    .info-list {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 10px;
+    }
+    .info-list li {
+      margin-bottom: 8px;
+    }
+    .label {
+      font-weight: bold;
+    }
+    .usage-checkboxes label {
+      display: block;
+      margin-left: 16px;
+    }
+    .footer-img {
+      max-width: 100%;
+      border-radius: 12px;
+      margin-top: 24px;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://i.imgur.com/Osm8rhu.png" alt="Header" class="header-img">
+
+  <div class="section-title">PERSONAL INFORMATION</div>
+  <div class="section-box">
+    <ul class="info-list">
+      <li><span class="label">First and Lastname:</span> Fname Lname</li>
+      <li><span class="label">Phone Number:</span> XXX-XXXX</li>
+      <li><span class="label">Email:</span> Your Answer Here</li>
+      <li><span class="label">Helipad Address:</span> Your Answer Here</li>
+    </ul>
+  </div>
+
+  <div class="section-title">HELIPAD INFORMATION</div>
+  <div class="section-box">
+    <ul class="info-list">
+      <li>
+        <span class="label">Proposed Location:</span><br>
+        Your Answer Here
+      </li>
+      <li>
+        <span class="label">Purpose of the helipad:</span><br>
+        Your Answer Here
+      </li>
+      <li>
+        <span class="label">Type of usage:</span>
+        <div class="usage-checkboxes">
+          <label><input type="checkbox"> Private Use</label>
+          <label><input type="checkbox"> Public Use</label>
+          <label><input type="checkbox"> Commercial Use</label>
+          <label><input type="checkbox"> Government Use</label>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="section-title">RELEASE AND WAIVER</div>
+  <div class="section-box">
+    <div class="release-section">
+      I, the undersigned, hereby certify that this document and the answers contained within this document are true and complete to the best of my knowledge. By agreeing below I hereby authorize the San Andreas Aviation Administration to obtain any information pertaining to my current and past residence(s), further personal information, and any other information that may be relevant to the helipad request. I also authorize the San Andreas Aviation Administration to tour the areas of the property relevant to the request and any areas required to access the proposed helipad area.
+    </div>
+    <ul class="info-list">
+      <li><span class="label">Signature:</span> Fname Lname</li>
+      <li><span class="label">Date Signed:</span> DD/MON/YYYY</li>
+    </ul>
+  </div>
+
+  <img src="https://i.imgur.com/ZFpeXl3.png" alt="Footer" class="footer-img">
+</body>
+</html>
